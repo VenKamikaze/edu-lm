@@ -47,17 +47,18 @@ Last updated: 2026-09-29. Read with `docs/PLAN.md` (the design) to resume.
 - After each answer: a brief "Correct!" / "Not quite" (plus "Try again" when AnswerAttempts > 1). Full answers only in the failure review.
 - Screenshots: the user installs `xdotool`; a script drives the real UI in `--test-mode`.
 
-## Phase 4 (Arch integration): IN PROGRESS on `phase4-wip`
+## Phase 4 (Arch integration): BUILT, squash-merged into `main`; awaiting the user's real-PC test
 
-- Brief and claims live in the session scratchpad only; the WIP commit `6c1393d` holds the implementer's work (PKGBUILD in `packaging/arch/`, Arch PAM copies, comments-only `edu-lm.conf`, sysusers groups, pam_access example, `edu-lm-check`, EduCheckTest + drift test, `docs/INSTALL-ARCH.md`, `docs/PHASE4-TEST.md`). 19/19 ctest per the implementer.
-- State: Opus review running. Then: fixes, orchestrator verification, squash-merge into `main`, then the user runs `docs/PHASE4-TEST.md` on the Arch PCs.
-- User decisions (2026-09-29): source reaches the Arch PC by rsync of the whole repo; one PC runs LightDM, the other has sddm + plasma-login-manager; pam_access ships as an opt-in example; the package creates groups, ships `edu-lm-check`, and defaults the theme to edu (`/usr/lib/sddm/sddm.conf.d/edu-lm.conf`).
-- Finding: upstream develop no longer installs PAM services, so the package ships Arch's sddm 0.21.0-7 PAM files verbatim.
+- It covers: `packaging/arch/PKGBUILD` (mirrors Arch's sddm 0.21.0-7, Qt6 only; builds from the rsync'd checkout, no network), `packaging/arch/pam/` (upstream develop no longer installs PAM services, so these are Arch's files verbatim), comments-only `/etc/edu-lm/edu-lm.conf` (+ `conf.d/`, `questions.d/` 0700), `/usr/lib/sddm/sddm.conf.d/edu-lm.conf` (`Current=edu`), sysusers groups (`edu-students`, `edu-year3..5`), the opt-in pam_access example (`-:(edu-students):tty1 … tty12`), the `edu-lm-check` diagnostics tool (EduCheckTest, 35 cases), a drift test for the comments-only config, `docs/INSTALL-ARCH.md` and `docs/PHASE4-TEST.md`.
+- One Opus review (1 major: the rollback used `pacman -Rns`, which fails with sddm-kcm installed; 8 minor; 6 nits); all fixed. Orchestrator verified 19/19 ctest in Debug and Release, a mutation check, and edu-lm-check against the reviewer's fixtures.
+- Research (from source and Arch package files): pam_access sees origin `sddm` at SDDM's account stage (PAM_TTY is set only at openSession; the helper's stdin is a pipe), so a ttyN rule can't block SDDM; kscreenlocker never runs the account stage. plasma-login-manager does not conflict with sddm; only one unit can own `display-manager.service`. sddm-kcm hard-depends on `sddm` (satisfied by `provides`).
+- User decisions (2026-09-29): source goes to the Arch PC by rsync of the whole repo; one PC runs LightDM, the other has sddm + plasma-login-manager; pam_access ships opt-in; the package creates groups, ships `edu-lm-check`, and defaults the theme to edu.
+- **Phase 4 is done when:** the user runs `docs/PHASE4-TEST.md` on an Arch PC and confirms a real login round-trip. Still never run for real: everything listed under phases 2 and 3, plus the package install itself (only simulated on the Pi).
 
 ## Next phases (see PLAN §11)
 
 3. Done. Greeter `QuizClient` (sends `QuizHello` only when the theme opts in; test-mode mock) + kid-friendly edu theme. Check with `tools/dev/greeter-shot.sh`.
-4. **NEXT UP.** Arch PKGBUILD, a real end-to-end login test on the user's Arch/KDE PC (the first real run of AuthVerifier/PAM), a `nullok` check, a pam_access snippet, and shipping `edu-lm.conf` as comments only (drop-ins are overridden by the main file).
+4. **Built; waiting on the user's real-PC test** (`docs/PHASE4-TEST.md`). Arch PKGBUILD, a real end-to-end login test on the user's Arch/KDE PC (the first real run of AuthVerifier/PAM), a `nullok` check, a pam_access snippet, and shipping `edu-lm.conf` as comments only (drop-ins are overridden by the main file).
 5. The `tools/qgen` Claude question-generation pipeline (Sonnet 5.5 + Batches + a blind verification pass).
 
 ## Environment notes (Raspberry Pi, Debian 13, headless, no sudo for Claude)
