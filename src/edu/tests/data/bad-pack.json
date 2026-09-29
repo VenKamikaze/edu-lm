@@ -1,0 +1,8 @@
+{
+  "schema": 1,
+  "pack": "bad",
+  "subject": "maths",
+  "questions": [
+    { "id": "bad-1", "years": [3], "type": "multiple_choice", "prompt": "Pick one", "choices": ["a", "b"], "answer": 5 }
+  ]
+}

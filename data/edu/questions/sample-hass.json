@@ -1,0 +1,108 @@
+{
+  "schema": 1,
+  "pack": "sample-hass",
+  "subject": "hass",
+  "questions": [
+    {
+      "id": "sm-h-001",
+      "years": [
+        3
+      ],
+      "type": "multiple_choice",
+      "prompt": "What is the capital city of Australia?",
+      "choices": [
+        "Sydney",
+        "Melbourne",
+        "Canberra",
+        "Perth"
+      ],
+      "answer": 2
+    },
+    {
+      "id": "sm-h-002",
+      "years": [
+        3
+      ],
+      "type": "multiple_choice",
+      "prompt": "Which ocean is on the west coast of Australia?",
+      "choices": [
+        "Indian Ocean",
+        "Pacific Ocean",
+        "Atlantic Ocean",
+        "Arctic Ocean"
+      ],
+      "answer": 0
+    },
+    {
+      "id": "sm-h-003",
+      "years": [
+        3,
+        4,
+        5
+      ],
+      "type": "true_false",
+      "prompt": "Australia is both a country and a continent.",
+      "answer": true
+    },
+    {
+      "id": "sm-h-004",
+      "years": [
+        4
+      ],
+      "type": "multiple_choice",
+      "prompt": "Which state or territory is the largest in Australia by area?",
+      "choices": [
+        "Queensland",
+        "Western Australia",
+        "New South Wales",
+        "Northern Territory"
+      ],
+      "answer": 1
+    },
+    {
+      "id": "sm-h-005",
+      "years": [
+        4
+      ],
+      "type": "multiple_choice",
+      "prompt": "Uluru is in which state or territory?",
+      "choices": [
+        "Northern Territory",
+        "Queensland",
+        "South Australia",
+        "Western Australia"
+      ],
+      "answer": 0
+    },
+    {
+      "id": "sm-h-006",
+      "years": [
+        5
+      ],
+      "type": "multiple_choice",
+      "prompt": "In which year did the First Fleet arrive in Australia?",
+      "choices": [
+        "1770",
+        "1788",
+        "1801",
+        "1851"
+      ],
+      "answer": 1
+    },
+    {
+      "id": "sm-h-007",
+      "years": [
+        5
+      ],
+      "type": "multiple_choice",
+      "prompt": "Which of these is the longest river system in Australia?",
+      "choices": [
+        "Murray–Darling",
+        "Yarra",
+        "Swan",
+        "Derwent"
+      ],
+      "answer": 0
+    }
+  ]
+}

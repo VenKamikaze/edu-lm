@@ -1,0 +1,248 @@
+{
+  "schema": 1,
+  "pack": "sample-maths",
+  "subject": "maths",
+  "questions": [
+    {
+      "id": "sm-m-001",
+      "years": [
+        4
+      ],
+      "type": "multiple_choice",
+      "prompt": "What is 6 × 7?",
+      "choices": [
+        "36",
+        "42",
+        "48",
+        "49"
+      ],
+      "answer": 1,
+      "explanation": "6 × 7 = 42."
+    },
+    {
+      "id": "sm-m-002",
+      "years": [
+        3
+      ],
+      "type": "multiple_choice",
+      "prompt": "Which number is 1000 more than 4527?",
+      "choices": [
+        "4627",
+        "5527",
+        "14 527",
+        "4537"
+      ],
+      "answer": 1,
+      "explanation": "Adding 1000 changes the thousands digit: 4 becomes 5."
+    },
+    {
+      "id": "sm-m-003",
+      "years": [
+        3,
+        4
+      ],
+      "type": "multiple_choice",
+      "prompt": "What is the value of the 3 in 6350?",
+      "choices": [
+        "3",
+        "30",
+        "300",
+        "3000"
+      ],
+      "answer": 2,
+      "explanation": "The 3 is in the hundreds place, so its value is 300."
+    },
+    {
+      "id": "sm-m-004",
+      "years": [
+        3,
+        4
+      ],
+      "type": "numeric",
+      "prompt": "How many sides does a hexagon have?",
+      "answer": 6
+    },
+    {
+      "id": "sm-m-005",
+      "years": [
+        4
+      ],
+      "type": "multiple_choice",
+      "prompt": "A rectangle is 8 cm long and 5 cm wide. What is its perimeter?",
+      "choices": [
+        "13 cm",
+        "26 cm",
+        "40 cm",
+        "30 cm"
+      ],
+      "answer": 1,
+      "explanation": "Perimeter = 8 + 5 + 8 + 5 = 26 cm."
+    },
+    {
+      "id": "sm-m-006",
+      "years": [
+        4
+      ],
+      "type": "multiple_choice",
+      "prompt": "Which fraction is equal to one half?",
+      "choices": [
+        "2/6",
+        "3/6",
+        "1/4",
+        "2/3"
+      ],
+      "answer": 1,
+      "explanation": "3/6 simplifies to 1/2."
+    },
+    {
+      "id": "sm-m-007",
+      "years": [
+        4,
+        5
+      ],
+      "type": "true_false",
+      "prompt": "0.5 is the same as one half.",
+      "answer": true
+    },
+    {
+      "id": "sm-m-008",
+      "years": [
+        5
+      ],
+      "type": "multiple_choice",
+      "prompt": "What is 3/4 of 20?",
+      "choices": [
+        "5",
+        "12",
+        "15",
+        "16"
+      ],
+      "answer": 2,
+      "explanation": "20 ÷ 4 = 5, and 5 × 3 = 15."
+    },
+    {
+      "id": "sm-m-009",
+      "years": [
+        5
+      ],
+      "type": "multiple_choice",
+      "prompt": "Which of these is a factor of 24?",
+      "choices": [
+        "5",
+        "7",
+        "8",
+        "9"
+      ],
+      "answer": 2,
+      "explanation": "24 ÷ 8 = 3 with nothing left over, so 8 is a factor of 24."
+    },
+    {
+      "id": "sm-m-gen-add",
+      "years": [
+        3
+      ],
+      "type": "generator",
+      "generator": "add",
+      "params": {
+        "a": [
+          10,
+          99
+        ],
+        "b": [
+          10,
+          99
+        ]
+      }
+    },
+    {
+      "id": "sm-m-gen-sub",
+      "years": [
+        3,
+        4
+      ],
+      "type": "generator",
+      "generator": "subtract",
+      "params": {
+        "a": [
+          20,
+          200
+        ],
+        "b": [
+          10,
+          99
+        ]
+      }
+    },
+    {
+      "id": "sm-m-gen-mul3",
+      "years": [
+        3
+      ],
+      "type": "generator",
+      "generator": "multiply",
+      "params": {
+        "a": [
+          2,
+          5
+        ],
+        "b": [
+          2,
+          10
+        ]
+      }
+    },
+    {
+      "id": "sm-m-gen-mul",
+      "years": [
+        4,
+        5
+      ],
+      "type": "generator",
+      "generator": "multiply",
+      "params": {
+        "a": [
+          2,
+          10
+        ],
+        "b": [
+          2,
+          10
+        ]
+      }
+    },
+    {
+      "id": "sm-m-gen-div",
+      "years": [
+        4,
+        5
+      ],
+      "type": "generator",
+      "generator": "divide",
+      "params": {
+        "quotient": [
+          2,
+          12
+        ],
+        "divisor": [
+          2,
+          9
+        ]
+      }
+    },
+    {
+      "id": "sm-m-gen-pv",
+      "years": [
+        4,
+        5
+      ],
+      "type": "generator",
+      "generator": "place_value",
+      "params": {
+        "digits": [
+          4,
+          5
+        ]
+      }
+    }
+  ]
+}

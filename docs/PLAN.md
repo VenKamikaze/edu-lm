@@ -57,7 +57,7 @@ Key design choices:
 | `EduMessages` | `src/edu/EduMessages.h` | both | Quiz message IDs, numbered from `0x45440000` ("ED") so they can't collide with upstream enums |
 | `QuizClient` | `src/edu/greeter/QuizClient.{h,cpp}` | greeter | QML object `eduQuiz` on a second socket connection. In `--test-mode` it runs a local `QuizSession` over a sample bank so the theme can be built without a daemon |
 | Edu theme | `data/themes/edu/` | greeter | Child-friendly login screen, based on the Breeze look so it fits KDE, plus a reusable `EduQuiz.qml` component |
-| `edu-lm-validate` | `tools/validate/` | admin CLI | Checks question packs against the schema |
+| `edu-lm-validate` | `src/edu/tools/` | admin CLI | Checks question packs against the schema |
 | Question generator | `tools/qgen/` (Python) | dev machine | Offline Claude pipeline that drafts packs (§8) |
 
 ### 3.2 Upstream hooks (the full list of changes to SDDM files)
@@ -215,7 +215,7 @@ The maths balance is about 50% generators. Estimated cost: a few dollars at most
 
 - The repo is a real **git fork**: `upstream` = `sddm/sddm` (default branch `develop`), and our work lives on `main`. An `origin` remote for the public edu-lm repo gets added at publish time. Merge upstream commits or tags into `main` rather than rebasing.
 - Done in phase 0: the exploration clone was unshallowed and became the repo root, and this plan moved to `docs/PLAN.md`.
-- New code only in `src/edu/`, `data/themes/edu/`, `tools/`, `packaging/`, with `// EDU-LM:` hook markers.
+- New code only in `src/edu/` (core lib, config, tools, tests), `data/edu/` (sample question packs), `data/themes/edu/`, `tools/` (dev scripts), `packaging/`, with `EDU-LM:` hook markers.
 - **Brand only:** binaries, `sddm.conf`, the PAM service and the `sddm` user stay unchanged. The Arch package `edu-lm` has `provides=(sddm) conflicts=(sddm)`.
 - Build with `-DBUILD_WITH_QT6=ON`, matching Arch and Plasma 6.
 
@@ -240,7 +240,7 @@ The maths balance is about 50% generators. Estimated cost: a few dollars at most
 | **1. Core logic** | `edu-core`: `QuestionBank` (JSON + generators), `QuizSession` (N/K/R, swaps, cooldown, review), `EduConfig`, sample packs | Small QtTest suite on the quiz rules passes |
 | **2. Daemon gate** | `EduMessages`, `QuizGate` (intercept, verify-only auth, replay, cooldown per user), SocketServer/Display hooks | Quiz user is blocked with the stock theme; non-quiz users unaffected |
 | **3. Greeter + theme** | `QuizClient` (with test-mode mock), Edu theme with password-optional login, quiz, swap button, review and countdown screens | Full flow works in greeter `--test-mode` (screenshots from the Pi) |
-| **4. Arch integration** | PKGBUILD, default config, `nullok` check, pam_access snippet for text consoles, install docs | You confirm a real login round-trip on an Arch/KDE PC |
+| **4. Arch integration** | PKGBUILD, default config, `nullok` check, pam_access snippet for text consoles, install docs. Ship `/etc/edu-lm/edu-lm.conf` as comments only: SDDM's ConfigReader reads `.conf.d` first and the main file last, so any key set in the main file overrides drop-ins | You confirm a real login round-trip on an Arch/KDE PC |
 | **5. Content** | `tools/qgen` pipeline, first reviewed bank (~300–500 items) | Bank passes validation and your review |
 | **6. Publish** | README, screenshots, licence notes (GPL-2.0-or-later for code; a licence for question packs, e.g. CC BY-SA), public repo | — |
 | **Later** | Results log for parents, per-child year override, images, quiz on screen unlock, pack sync, other DMs | — |

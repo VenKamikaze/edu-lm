@@ -1,0 +1,126 @@
+{
+  "schema": 1,
+  "pack": "sample-science",
+  "subject": "science",
+  "questions": [
+    {
+      "id": "sm-s-001",
+      "years": [
+        3
+      ],
+      "type": "multiple_choice",
+      "prompt": "Which of these is a source of light?",
+      "choices": [
+        "The Moon",
+        "A mirror",
+        "The Sun",
+        "A window"
+      ],
+      "answer": 2,
+      "explanation": "The Sun makes its own light. The Moon and a mirror only reflect it."
+    },
+    {
+      "id": "sm-s-002",
+      "years": [
+        3
+      ],
+      "type": "multiple_choice",
+      "prompt": "What do plants need to make their own food?",
+      "choices": [
+        "Sunlight, water and carbon dioxide",
+        "Soil only",
+        "Darkness and sand",
+        "Milk and sugar"
+      ],
+      "answer": 0
+    },
+    {
+      "id": "sm-s-003",
+      "years": [
+        3,
+        4
+      ],
+      "type": "multiple_choice",
+      "prompt": "Which of these materials is a good conductor of electricity?",
+      "choices": [
+        "Rubber",
+        "Copper",
+        "Wood",
+        "Plastic"
+      ],
+      "answer": 1
+    },
+    {
+      "id": "sm-s-004",
+      "years": [
+        4
+      ],
+      "type": "multiple_choice",
+      "prompt": "Which of these animals is a mammal?",
+      "choices": [
+        "Frog",
+        "Shark",
+        "Kangaroo",
+        "Crocodile"
+      ],
+      "answer": 2,
+      "explanation": "Mammals feed their young milk. Kangaroos are marsupial mammals."
+    },
+    {
+      "id": "sm-s-005",
+      "years": [
+        4
+      ],
+      "type": "multiple_choice",
+      "prompt": "What state of matter is water vapour?",
+      "choices": [
+        "Solid",
+        "Liquid",
+        "Gas",
+        "Powder"
+      ],
+      "answer": 2
+    },
+    {
+      "id": "sm-s-006",
+      "years": [
+        4,
+        5
+      ],
+      "type": "multiple_choice",
+      "prompt": "Which force pulls objects towards the Earth?",
+      "choices": [
+        "Gravity",
+        "Friction",
+        "Magnetism",
+        "Buoyancy"
+      ],
+      "answer": 0
+    },
+    {
+      "id": "sm-s-007",
+      "years": [
+        5
+      ],
+      "type": "multiple_choice",
+      "prompt": "Which planet is closest to the Sun?",
+      "choices": [
+        "Venus",
+        "Earth",
+        "Mercury",
+        "Mars"
+      ],
+      "answer": 2
+    },
+    {
+      "id": "sm-s-008",
+      "years": [
+        5
+      ],
+      "type": "true_false",
+      "prompt": "Sound can travel through empty space (a vacuum).",
+      "answer": false,
+      "explanation": "Sound needs particles to travel through, so it cannot travel through a vacuum."
+    }
+  ]
+}

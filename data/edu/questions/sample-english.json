@@ -1,0 +1,136 @@
+{
+  "schema": 1,
+  "pack": "sample-english",
+  "subject": "english",
+  "questions": [
+    {
+      "id": "sm-e-001",
+      "years": [
+        3
+      ],
+      "type": "multiple_choice",
+      "prompt": "Which word is a noun?",
+      "choices": [
+        "quickly",
+        "table",
+        "went",
+        "happy"
+      ],
+      "answer": 1
+    },
+    {
+      "id": "sm-e-002",
+      "years": [
+        3
+      ],
+      "type": "multiple_choice",
+      "prompt": "Which word is spelt correctly?",
+      "choices": [
+        "becuase",
+        "because",
+        "becase",
+        "becuse"
+      ],
+      "answer": 1
+    },
+    {
+      "id": "sm-e-003",
+      "years": [
+        3,
+        4
+      ],
+      "type": "multiple_choice",
+      "prompt": "Which is the correct Australian spelling?",
+      "choices": [
+        "color",
+        "colour",
+        "colur",
+        "collor"
+      ],
+      "answer": 1
+    },
+    {
+      "id": "sm-e-004",
+      "years": [
+        4
+      ],
+      "type": "multiple_choice",
+      "prompt": "Which word means almost the same as 'big'?",
+      "choices": [
+        "tiny",
+        "large",
+        "cold",
+        "slow"
+      ],
+      "answer": 1
+    },
+    {
+      "id": "sm-e-005",
+      "years": [
+        4
+      ],
+      "type": "multiple_choice",
+      "prompt": "Which sentence uses capital letters correctly?",
+      "choices": [
+        "We visited sydney last summer.",
+        "We visited Sydney last summer.",
+        "we visited Sydney last summer.",
+        "We Visited Sydney last summer."
+      ],
+      "answer": 1,
+      "explanation": "Names of places start with a capital letter, and so does the first word of a sentence."
+    },
+    {
+      "id": "sm-e-006",
+      "years": [
+        4
+      ],
+      "type": "short_text",
+      "prompt": "Fill in the missing word: The opposite of 'up' is ___.",
+      "accept": [
+        "down"
+      ]
+    },
+    {
+      "id": "sm-e-007",
+      "years": [
+        5
+      ],
+      "type": "multiple_choice",
+      "prompt": "What is the past tense of 'swim'?",
+      "choices": [
+        "swimmed",
+        "swam",
+        "swum",
+        "swimming"
+      ],
+      "answer": 1
+    },
+    {
+      "id": "sm-e-008",
+      "years": [
+        5
+      ],
+      "type": "multiple_choice",
+      "prompt": "Which word is the opposite of 'ancient'?",
+      "choices": [
+        "old",
+        "modern",
+        "huge",
+        "early"
+      ],
+      "answer": 1
+    },
+    {
+      "id": "sm-e-009",
+      "years": [
+        3,
+        4,
+        5
+      ],
+      "type": "true_false",
+      "prompt": "A sentence can end with a full stop, a question mark or an exclamation mark.",
+      "answer": true
+    }
+  ]
+}
