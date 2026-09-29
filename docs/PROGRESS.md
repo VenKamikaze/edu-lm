@@ -47,6 +47,13 @@ Last updated: 2026-09-29. Read with `docs/PLAN.md` (the design) to resume.
 - After each answer: a brief "Correct!" / "Not quite" (plus "Try again" when AnswerAttempts > 1). Full answers only in the failure review.
 - Screenshots: the user installs `xdotool`; a script drives the real UI in `--test-mode`.
 
+## Phase 4 (Arch integration): IN PROGRESS on `phase4-wip`
+
+- Brief and claims live in the session scratchpad only; the WIP commit `6c1393d` holds the implementer's work (PKGBUILD in `packaging/arch/`, Arch PAM copies, comments-only `edu-lm.conf`, sysusers groups, pam_access example, `edu-lm-check`, EduCheckTest + drift test, `docs/INSTALL-ARCH.md`, `docs/PHASE4-TEST.md`). 19/19 ctest per the implementer.
+- State: Opus review running. Then: fixes, orchestrator verification, squash-merge into `main`, then the user runs `docs/PHASE4-TEST.md` on the Arch PCs.
+- User decisions (2026-09-29): source reaches the Arch PC by rsync of the whole repo; one PC runs LightDM, the other has sddm + plasma-login-manager; pam_access ships as an opt-in example; the package creates groups, ships `edu-lm-check`, and defaults the theme to edu (`/usr/lib/sddm/sddm.conf.d/edu-lm.conf`).
+- Finding: upstream develop no longer installs PAM services, so the package ships Arch's sddm 0.21.0-7 PAM files verbatim.
+
 ## Next phases (see PLAN §11)
 
 3. Done. Greeter `QuizClient` (sends `QuizHello` only when the theme opts in; test-mode mock) + kid-friendly edu theme. Check with `tools/dev/greeter-shot.sh`.

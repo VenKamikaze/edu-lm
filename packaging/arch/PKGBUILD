@@ -1,0 +1,89 @@
+# Edu-LM: SDDM with a quiz gate for children. Builds the checkout this file lives in
+# (packaging/arch/ inside the repo); nothing is downloaded.
+#
+# Modelled on Arch's sddm 0.21.0-7 PKGBUILD:
+# https://gitlab.archlinux.org/archlinux/packaging/packages/sddm/-/blob/main/PKGBUILD
+
+pkgname=edu-lm
+# Base is SDDM 0.21.0; pkgver() replaces this from git when the checkout has .git
+pkgver=0.21.0.edu
+pkgrel=1
+pkgdesc='SDDM display manager with a quiz gate for children (Edu-LM)'
+arch=(x86_64 aarch64)
+license=(GPL-2.0-or-later)
+depends=(bash
+         glibc
+         libgcc
+         libstdc++
+         libxau
+         libxcb
+         pam
+         qt6-base
+         qt6-declarative
+         systemd-libs
+         ttf-font
+         xorg-server
+         xorg-xauth)
+makedepends=(extra-cmake-modules
+             python-docutils
+             qt6-tools)
+backup=('etc/edu-lm/edu-lm.conf'
+        'usr/share/sddm/scripts/Xsetup'
+        'usr/share/sddm/scripts/Xstop'
+        'etc/pam.d/sddm'
+        'etc/pam.d/sddm-autologin'
+        'etc/pam.d/sddm-greeter')
+# Brand only: binaries, sddm.conf, the PAM service and the sddm user keep their names.
+# The provided version is the SDDM release this tree is based on.
+provides=(display-manager 'sddm=0.21.0')
+conflicts=(sddm)
+
+# The repo root. Never touches its build*/ directories.
+_repo() {
+  (cd "${startdir:-$PWD}/../.." && pwd -P)
+}
+
+pkgver() {
+  local repo desc
+  repo=$(_repo)
+  if [[ -e $repo/.git ]] && command -v git >/dev/null &&
+     desc=$(git -c safe.directory="$repo" -C "$repo" describe --long --tags 2>/dev/null); then
+    # v0.21.0-60-gda0b64d -> 0.21.0.r60.gda0b64d
+    sed -E 's/^v//; s/-([0-9]+)-g/.r\1.g/; s/-/./g' <<<"$desc"
+  else
+    echo "$pkgver"
+  fi
+}
+
+build() {
+  # Arch's flags, without the Qt 5 greeter: the edu theme and greeter glue are Qt 6 only
+  cmake -B build -S "$(_repo)" \
+        -DCMAKE_INSTALL_PREFIX=/usr \
+        -DCMAKE_INSTALL_LIBEXECDIR=/usr/lib/sddm \
+        -DBUILD_WITH_QT6=ON \
+        -DDBUS_CONFIG_DIR=/usr/share/dbus-1/system.d \
+        -DDBUS_CONFIG_FILENAME=sddm_org.freedesktop.DisplayManager.conf \
+        -DBUILD_MAN_PAGES=ON \
+        -DUID_MAX=60513
+  cmake --build build
+}
+
+check() {
+  ctest --test-dir build --output-on-failure
+}
+
+package() {
+  DESTDIR="$pkgdir" cmake --install build
+
+  # Upstream develop no longer installs PAM services, so they come from here. Copies of what
+  # Arch's sddm 0.21.0-7 ships in /etc/pam.d.
+  install -Dm644 -t "$pkgdir"/etc/pam.d \
+    "$(_repo)"/packaging/arch/pam/{sddm,sddm-autologin,sddm-greeter}
+
+  install -d "$pkgdir"/usr/lib/sddm/sddm.conf.d
+  "$pkgdir"/usr/bin/sddm --example-config > "$pkgdir"/usr/lib/sddm/sddm.conf.d/default.conf
+# Don't set PATH in sddm.conf
+  sed -r 's|DefaultPath=.*|DefaultPath=/usr/local/sbin:/usr/local/bin:/usr/bin|g' -i "$pkgdir"/usr/lib/sddm/sddm.conf.d/default.conf
+# Unset InputMethod https://github.com/sddm/sddm/issues/952
+  sed -e "/^InputMethod/s/qtvirtualkeyboard//" -i "$pkgdir"/usr/lib/sddm/sddm.conf.d/default.conf
+}

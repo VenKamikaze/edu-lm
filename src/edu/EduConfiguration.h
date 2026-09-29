@@ -9,9 +9,10 @@
 
 namespace EduLM {
 
-    // Points EduConfig at another file (no drop-in directory) for later instances; the
-    // daemon never calls this. An empty path restores the installed locations.
-    void setConfigFileOverride(const QString &path);
+    // Points EduConfig at another file for later instances; the daemon never calls this.
+    // Without a dropInDir there is no drop-in directory. An empty path restores the
+    // installed locations.
+    void setConfigFileOverride(const QString &path, const QString &dropInDir = QString());
     QString configFilePath();
     QString configDirPath();
 

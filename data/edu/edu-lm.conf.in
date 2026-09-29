@@ -1,0 +1,50 @@
+# Edu-LM main configuration file. Everything here is a comment, on purpose.
+#
+# Do not uncomment anything in this file. Put your settings in a drop-in file
+# instead, for example /etc/edu-lm/edu-lm.conf.d/10-site.conf. The drop-in
+# directory is read first and this file is read last, so a key set here would
+# silently override every drop-in. Later drop-ins (by file name) win over
+# earlier ones.
+#
+# Lines that start with "#" followed directly by a key are the compiled-in
+# defaults, copied into a drop-in when you want to change them. Every other
+# comment line starts with "# ". A test keeps this list in step with the code.
+#
+# Lists are comma-separated. Check the result with: edu-lm-check
+
+[Quiz]
+# Turn the quiz gate on or off for everybody.
+#Enabled=true
+# Users in any of these groups get the quiz.
+#Groups=edu-students
+# Extra users who get the quiz, whatever their groups.
+#Users=
+# Users who never get the quiz (parents, admin). Wins over Groups and Users.
+#ExemptUsers=
+# true: quiz users log in with their password first, then take the quiz.
+# false: quiz users have no password (see docs/INSTALL-ARCH.md, nullok).
+#StudentPasswords=true
+# Questions asked per attempt (N).
+#QuestionCount=5
+# Correct answers needed to pass (K, at most N).
+#RequiredCorrect=4
+# Question swaps shared by the whole attempt.
+#MaxSwaps=3
+# After a failed attempt, show the missed questions with the correct answers.
+#ShowCorrectAnswers=true
+# Seconds a user must wait after a failed attempt.
+#FailCooldownSeconds=60
+# End the attempt early: no, pass (once K are correct), fail (once K is out of reach) or both.
+#EndEarly=no
+# Tries per question before it counts as wrong.
+#AnswerAttempts=1
+
+[Content]
+# Directories of question packs (JSON). Keep them readable by root only.
+#QuestionDirs=@EDU_QUESTIONS_DIR@,@EDU_EXTRA_QUESTIONS_DIR@
+# Subjects to ask about.
+#Subjects=maths,science,hass,english
+# group:year pairs. A user gets the questions of every year group they are in.
+#YearGroups=edu-year3:3,edu-year4:4,edu-year5:5
+# Year level for quiz users who are in no year group.
+#DefaultYear=4

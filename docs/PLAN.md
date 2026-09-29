@@ -257,7 +257,7 @@ The maths balance is about 50% generators. Estimated cost: a few dollars at most
 
 - **Text consoles** (Ctrl+Alt+F3): deny the quiz group on consoles with `pam_access`. A snippet ships with the packaging.
 - **Screen unlock** on KDE goes through kscreenlocker, not SDDM, so unlocking doesn't trigger a quiz. For v1, the lock-screen/idle-logout policy is documented instead; "quiz on unlock" is on the later list.
-- **Plasma's System Settings → Login Screen (SDDM)** can switch the theme. Quiz users are then refused with an explanation rather than let through, which is safe but confusing, so it's documented. The edu theme is set in `/etc/sddm.conf.d/edu-lm.conf`.
+- **Plasma's System Settings → Login Screen (SDDM)** can switch the theme. Quiz users are then refused with an explanation rather than let through, which is safe but confusing, so it's documented. The edu theme is set in `/usr/lib/sddm/sddm.conf.d/edu-lm.conf`, which sorts after Arch's `default.conf` in the same directory. `/etc/sddm.conf.d/*` (Plasma's `kde_settings.conf`) and `/etc/sddm.conf` still override it; `edu-lm-check` names the file that does.
 - **Autologin** is refused for quiz users.
 - SSH, recovery mode and GRUB are outside our scope and covered by normal hardening.
 

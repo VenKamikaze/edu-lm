@@ -9,9 +9,16 @@ static QString &fileOverride()
     return path;
 }
 
-void setConfigFileOverride(const QString &path)
+static QString &dirOverride()
+{
+    static QString path;
+    return path;
+}
+
+void setConfigFileOverride(const QString &path, const QString &dropInDir)
 {
     fileOverride() = path;
+    dirOverride() = path.isEmpty() ? QString() : dropInDir;
 }
 
 QString configFilePath()
@@ -21,7 +28,7 @@ QString configFilePath()
 
 QString configDirPath()
 {
-    return fileOverride().isEmpty() ? QStringLiteral(EDU_CONFIG_DIR) : QString();
+    return fileOverride().isEmpty() ? QStringLiteral(EDU_CONFIG_DIR) : dirOverride();
 }
 
 QuizRules quizRules(const EduConfig &config)

@@ -65,3 +65,10 @@ add_test(NAME EduValidateRejectsBad COMMAND edu-lm-validate "${EDU_TEST_DATA_DIR
 add_test(NAME EduValidateMissingPath COMMAND edu-lm-validate /nonexistent)
 set_tests_properties(EduValidateMissingPath PROPERTIES WILL_FAIL TRUE)
 set_tests_properties(EduValidateRejectsBad PROPERTIES WILL_FAIL TRUE)
+
+# edu-lm-check: logic against fixture trees, and the comments-only config against EduConfig
+edu_add_test(EduCheckTest)
+target_link_libraries(EduCheckTest PRIVATE edu-check)
+edu_add_test(EduConfDriftTest)
+target_link_libraries(EduConfDriftTest PRIVATE edu-check)
+target_compile_definitions(EduConfDriftTest PRIVATE EDU_GENERATED_CONF="${EDU_BINARY_DIR}/edu-lm.conf")
