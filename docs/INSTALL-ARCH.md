@@ -22,10 +22,10 @@ For other distros see [the generic section](#other-distros-plain-cmake-install) 
 
 ## 1. Copy the source and build
 
-On the Pi (the trailing slash matters; `build*/` are aarch64 build trees and must not travel):
+On the Arch PC, pull from the Pi (replace `pi` with its host name; the trailing slash matters; `build*/` are aarch64 build trees and must not travel):
 
 ```sh
-rsync -a --exclude 'build*/' ~/projects/git/edu-lm/ arch-pc:edu-lm/
+rsync -a --exclude 'build*/' pi:projects/git/edu-lm/ ~/edu-lm/
 ```
 
 On the Arch PC (never as root; `makepkg` asks for sudo itself):
