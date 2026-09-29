@@ -92,7 +92,15 @@ QuizSession::AnswerResult QuizSession::answer(const QString &questionId, const Q
 
 void QuizSession::finishIfDone()
 {
-    if (m_index >= m_slots.size())
+    const int remaining = m_slots.size() - m_index;
+    const bool endOnPass = m_rules.endEarly == EndEarly::Pass || m_rules.endEarly == EndEarly::Both;
+    const bool endOnFail = m_rules.endEarly == EndEarly::Fail || m_rules.endEarly == EndEarly::Both;
+
+    if (endOnPass && m_correct >= m_rules.requiredCorrect)
+        m_state = State::Passed;
+    else if (endOnFail && m_correct + remaining < m_rules.requiredCorrect)
+        m_state = State::Failed;
+    else if (remaining == 0)
         m_state = m_correct >= m_rules.requiredCorrect ? State::Passed : State::Failed;
 }
 
@@ -121,7 +129,8 @@ QList<ReviewItem> QuizSession::review() const
         return items;
 
     for (const Slot &slot : m_slots) {
-        if (slot.correct)
+        // unreached questions (after an early fail) are not shown
+        if (slot.correct || slot.attempts == 0)
             continue;
         items.append({slot.question.prompt, slot.question.choices, displayAnswer(slot.question, slot.lastAnswer),
                       correctAnswerText(slot.question), slot.question.explanation});

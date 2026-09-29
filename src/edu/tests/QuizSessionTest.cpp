@@ -30,6 +30,13 @@ private slots:
     void actionsAfterEnd();
     void reviewContents();
     void reviewHiddenWhenPassedOrDisabled();
+    void endEarlyNoChangesNothing();
+    void endEarlyPass();
+    void endEarlyFail();
+    void endEarlyBoth();
+    void endEarlyFailReview();
+    void endEarlyWaitsForQuestionToFinish();
+    void endEarlyParseAndValidate();
 };
 
 // Choice 0 is always the right answer.
@@ -62,6 +69,13 @@ static QuizRules rules(int n, int k, int swaps = 0, int attempts = 1, bool show 
     r.maxSwaps = swaps;
     r.answerAttempts = attempts;
     r.showCorrectAnswers = show;
+    return r;
+}
+
+static QuizRules earlyRules(EndEarly mode, int n = 5, int k = 4, int attempts = 1)
+{
+    QuizRules r = rules(n, k, 0, attempts);
+    r.endEarly = mode;
     return r;
 }
 
@@ -395,6 +409,152 @@ void QuizSessionTest::reviewHiddenWhenPassedOrDisabled()
     QuizSession running(rules(3, 3), pool(10), rng);
     respond(running, false);
     QVERIFY(running.review().isEmpty());
+}
+
+void QuizSessionTest::endEarlyNoChangesNothing()
+{
+    QRandomGenerator rng(1);
+    QuizSession s(earlyRules(EndEarly::No), pool(10), rng);
+    play(s, 4, 4);
+    QCOMPARE(s.state(), State::InProgress);
+    QuizSession f(earlyRules(EndEarly::No), pool(10), rng);
+    play(f, 2, 0);
+    QCOMPARE(f.state(), State::InProgress);
+}
+
+void QuizSessionTest::endEarlyPass()
+{
+    QRandomGenerator rng(1);
+    QuizSession s(earlyRules(EndEarly::Pass), pool(10), rng);
+    play(s, 3, 3);
+    QCOMPARE(s.state(), State::InProgress);
+    respond(s, true);
+    QCOMPARE(s.state(), State::Passed);
+    QCOMPARE(s.correctCount(), 4);
+    QVERIFY(!s.current());
+    QCOMPARE(s.answer("x", "0").refusal, Refusal::NotInProgress);
+
+    // misses along the way do not stop it, and passing is still possible on the last question
+    QuizSession late(earlyRules(EndEarly::Pass), pool(10), rng);
+    respond(late, false);
+    play(late, 3, 3);
+    QCOMPARE(late.state(), State::InProgress);
+    respond(late, true);
+    QCOMPARE(late.state(), State::Passed);
+
+    // pass mode does not fail early
+    QuizSession f(earlyRules(EndEarly::Pass), pool(10), rng);
+    play(f, 2, 0);
+    QCOMPARE(f.state(), State::InProgress);
+}
+
+void QuizSessionTest::endEarlyFail()
+{
+    QRandomGenerator rng(1);
+    // N=5, K=4: one miss leaves a pass possible, the second does not
+    QuizSession s(earlyRules(EndEarly::Fail), pool(10), rng);
+    respond(s, false);
+    QCOMPARE(s.state(), State::InProgress);
+    respond(s, false);
+    QCOMPARE(s.state(), State::Failed);
+    QCOMPARE(s.currentIndex(), 2);
+    QVERIFY(!s.current());
+
+    // fail mode does not pass early
+    QuizSession p(earlyRules(EndEarly::Fail), pool(10), rng);
+    play(p, 4, 4);
+    QCOMPARE(p.state(), State::InProgress);
+    respond(p, true);
+    QCOMPARE(p.state(), State::Passed);
+
+    // K == N: the first miss is already fatal
+    QuizSession all(earlyRules(EndEarly::Fail, 3, 3), pool(10), rng);
+    respond(all, false);
+    QCOMPARE(all.state(), State::Failed);
+}
+
+void QuizSessionTest::endEarlyBoth()
+{
+    QRandomGenerator rng(1);
+    QuizSession p(earlyRules(EndEarly::Both), pool(10), rng);
+    play(p, 4, 4);
+    QCOMPARE(p.state(), State::Passed);
+
+    QuizSession f(earlyRules(EndEarly::Both), pool(10), rng);
+    play(f, 2, 0);
+    QCOMPARE(f.state(), State::Failed);
+
+    // one miss then correct answers: neither rule fires until the pass at 4 correct
+    QuizSession m(earlyRules(EndEarly::Both), pool(10), rng);
+    respond(m, false);
+    play(m, 3, 3);
+    QCOMPARE(m.state(), State::InProgress);
+    respond(m, true);
+    QCOMPARE(m.state(), State::Passed);
+}
+
+void QuizSessionTest::endEarlyFailReview()
+{
+    QRandomGenerator rng(1);
+    QuizSession s(earlyRules(EndEarly::Fail), pool(10), rng);
+    const QString first = s.current()->id;
+    respond(s, true);
+    const QString second = s.current()->id;
+    respond(s, false);
+    const QString third = s.current()->id;
+    respond(s, false);
+    QCOMPARE(s.state(), State::Failed);
+
+    // only the two misses actually asked; the unreached questions are not listed
+    const QList<ReviewItem> review = s.review();
+    QCOMPARE(review.size(), 2);
+    QCOMPARE(review[0].prompt, "Prompt " + second);
+    QCOMPARE(review[1].prompt, "Prompt " + third);
+    QVERIFY(review[0].prompt != "Prompt " + first);
+}
+
+void QuizSessionTest::endEarlyWaitsForQuestionToFinish()
+{
+    QRandomGenerator rng(1);
+    // N=3, K=3, 3 tries each: the first wrong try makes a pass impossible only once the question is lost
+    QuizSession f(earlyRules(EndEarly::Fail, 3, 3, 3), pool(10), rng);
+    QVERIFY(!respond(f, false).questionFinished);
+    QVERIFY(!respond(f, false).questionFinished);
+    QCOMPARE(f.state(), State::InProgress);
+    QVERIFY(respond(f, false).questionFinished);
+    QCOMPARE(f.state(), State::Failed);
+
+    // a correct last try rescues the question, so nothing ends
+    QuizSession r(earlyRules(EndEarly::Fail, 3, 3, 3), pool(10), rng);
+    respond(r, false);
+    respond(r, false);
+    respond(r, true);
+    QCOMPARE(r.state(), State::InProgress);
+    QCOMPARE(r.currentIndex(), 1);
+
+    // early pass fires on the finishing correct answer, not before
+    QuizSession p(earlyRules(EndEarly::Pass, 3, 1, 2), pool(10), rng);
+    respond(p, false);
+    QCOMPARE(p.state(), State::InProgress);
+    respond(p, true);
+    QCOMPARE(p.state(), State::Passed);
+}
+
+void QuizSessionTest::endEarlyParseAndValidate()
+{
+    QCOMPARE(parseEndEarly("no"), EndEarly::No);
+    QCOMPARE(parseEndEarly(" Pass "), EndEarly::Pass);
+    QCOMPARE(parseEndEarly("FAIL"), EndEarly::Fail);
+    QCOMPARE(parseEndEarly("both"), EndEarly::Both);
+    QCOMPARE(parseEndEarly(""), EndEarly::Invalid);
+    QCOMPARE(parseEndEarly("yes"), EndEarly::Invalid);
+
+    QuizRules bad = rules(5, 4);
+    bad.endEarly = EndEarly::Invalid;
+    QVERIFY(bad.validate().join(' ').contains("EndEarly"));
+    QRandomGenerator rng(1);
+    QuizSession s(bad, pool(10), rng);
+    QCOMPARE(s.state(), State::Invalid);
 }
 
 QTEST_APPLESS_MAIN(QuizSessionTest)

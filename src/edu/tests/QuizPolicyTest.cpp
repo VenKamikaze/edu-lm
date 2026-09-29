@@ -16,8 +16,8 @@ private slots:
     void explicitUser();
     void exemptOverrides();
     void disabled();
-    void yearMapping();
-    void yearFirstMatchWins();
+    void singleYear();
+    void yearsAreUnion();
     void defaultYear();
     void badYearGroups();
     void currentUserGroups();
@@ -67,27 +67,36 @@ void QuizPolicyTest::disabled()
     QVERIFY(!decideQuiz("alice", {"edu-students"}, c).quizRequired);
 }
 
-void QuizPolicyTest::yearMapping()
+void QuizPolicyTest::singleYear()
 {
-    QCOMPARE(decideQuiz("a", {"edu-students", "edu-year3"}, config()).yearLevel, 3);
-    QCOMPARE(decideQuiz("a", {"edu-students", "edu-year5"}, config()).yearLevel, 5);
+    QCOMPARE(decideQuiz("a", {"edu-students", "edu-year3"}, config()).years, (QList<int>{3}));
+    QCOMPARE(decideQuiz("a", {"edu-students", "edu-year5"}, config()).years, (QList<int>{5}));
 }
 
-void QuizPolicyTest::yearFirstMatchWins()
+void QuizPolicyTest::yearsAreUnion()
 {
-    // config order decides, not the order of the user's groups
-    QCOMPARE(decideQuiz("a", {"edu-year5", "edu-year3"}, config()).yearLevel, 3);
+    QCOMPARE(decideQuiz("a", {"edu-year4", "edu-year5"}, config()).years, (QList<int>{4, 5}));
+    QCOMPARE(decideQuiz("a", {"edu-year3", "edu-year4", "edu-year5"}, config()).years, (QList<int>{3, 4, 5}));
+
+    // group order, in the config or in the user's list, does not matter
+    QCOMPARE(decideQuiz("a", {"edu-year5", "edu-year3"}, config()).years, (QList<int>{3, 5}));
     auto c = config();
     c.yearGroups = {"edu-year5:5", "edu-year3:3"};
-    QCOMPARE(decideQuiz("a", {"edu-year3", "edu-year5"}, c).yearLevel, 5);
+    QCOMPARE(decideQuiz("a", {"edu-year3", "edu-year5"}, c).years, (QList<int>{3, 5}));
+
+    // two groups mapping to the same year give it once
+    c.yearGroups = {"a:4", "b:4", "c:5"};
+    QCOMPARE(decideQuiz("x", {"a", "b", "c"}, c).years, (QList<int>{4, 5}));
 }
 
 void QuizPolicyTest::defaultYear()
 {
-    QCOMPARE(decideQuiz("a", {"edu-students"}, config()).yearLevel, 4);
+    QCOMPARE(decideQuiz("a", {"edu-students"}, config()).years, (QList<int>{4}));
     auto c = config();
     c.defaultYear = 5;
-    QCOMPARE(decideQuiz("a", {"edu-students"}, c).yearLevel, 5);
+    QCOMPARE(decideQuiz("a", {"edu-students"}, c).years, (QList<int>{5}));
+    // the default applies only when nothing matches
+    QCOMPARE(decideQuiz("a", {"edu-year3"}, c).years, (QList<int>{3}));
 }
 
 void QuizPolicyTest::badYearGroups()

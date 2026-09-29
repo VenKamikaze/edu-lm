@@ -100,15 +100,16 @@ MaxSwaps=3                  # R  shared pool of single-question swaps per attemp
 ShowCorrectAnswers=true     # on failure, show missed questions with answers
 FailCooldownSeconds=60      # forced wait after a failed attempt
 AnswerAttempts=1            # tries per question before it counts as wrong
+EndEarly=no                 # no | pass (stop once K correct) | fail (stop once K is unreachable) | both
 
 [Content]
 QuestionDirs=/usr/share/edu-lm/questions,/etc/edu-lm/questions.d
 Subjects=maths,science,hass,english
-YearGroups=edu-year3:3,edu-year4:4,edu-year5:5   # first match wins
+YearGroups=edu-year3:3,edu-year4:4,edu-year5:5   # union of every group the user is in
 DefaultYear=4
 ```
 
-The cooldown is enforced by the daemon and tracked per user, so restarting the greeter or picking another user and coming back doesn't reset it. Admin setup is `usermod -aG edu-students,edu-year3 alice`.
+The cooldown is enforced by the daemon and tracked per user, so restarting the greeter or picking another user and coming back doesn't reset it. Admin setup is `usermod -aG edu-students,edu-year3 alice`. A child working above their year joins two year groups (e.g. `edu-year4,edu-year5`) and gets questions from both.
 
 ---
 

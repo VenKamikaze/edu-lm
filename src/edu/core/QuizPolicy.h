@@ -12,13 +12,13 @@ struct QuizPolicyConfig {
     QStringList groups;
     QStringList users;
     QStringList exemptUsers;
-    QStringList yearGroups; // "group:year" entries in config order
+    QStringList yearGroups; // "group:year" entries
     int defaultYear = 4;
 };
 
 struct QuizDecision {
     bool quizRequired = false;
-    int yearLevel = 0;
+    QList<int> years; // sorted, unique
 };
 
 // Splits "group:year" entries; malformed ones are dropped and described in *errors.

@@ -3,6 +3,20 @@
 
 namespace EduLM {
 
+EndEarly parseEndEarly(const QString &text)
+{
+    const QString s = text.trimmed().toLower();
+    if (s == QLatin1String("no"))
+        return EndEarly::No;
+    if (s == QLatin1String("pass"))
+        return EndEarly::Pass;
+    if (s == QLatin1String("fail"))
+        return EndEarly::Fail;
+    if (s == QLatin1String("both"))
+        return EndEarly::Both;
+    return EndEarly::Invalid;
+}
+
 QStringList QuizRules::validate() const
 {
     QStringList problems;
@@ -16,6 +30,8 @@ QStringList QuizRules::validate() const
         problems << QStringLiteral("MaxSwaps must not be negative");
     if (answerAttempts < 1)
         problems << QStringLiteral("AnswerAttempts must be at least 1");
+    if (endEarly == EndEarly::Invalid)
+        problems << QStringLiteral("EndEarly must be one of no, pass, fail, both");
     return problems;
 }
 

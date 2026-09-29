@@ -11,6 +11,7 @@ QuizRules quizRules(const EduConfig &config)
     rules.maxSwaps = config.Quiz.MaxSwaps.get();
     rules.answerAttempts = config.Quiz.AnswerAttempts.get();
     rules.showCorrectAnswers = config.Quiz.ShowCorrectAnswers.get();
+    rules.endEarly = parseEndEarly(config.Quiz.EndEarly.get());
     return rules;
 }
 

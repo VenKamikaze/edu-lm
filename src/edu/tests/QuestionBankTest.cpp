@@ -275,18 +275,24 @@ void QuestionBankTest::filterAndCounts()
     QuestionBank bank;
     bank.load({m_dir.path()});
 
-    const auto ids = [&](int year, const QStringList &subjects) {
+    const auto ids = [&](const QList<int> &years, const QStringList &subjects) {
         QStringList out;
-        for (const Question &q : bank.filter(year, subjects))
+        for (const Question &q : bank.filter(years, subjects))
             out << q.id;
         return out;
     };
-    QCOMPARE(ids(3, {"maths"}), (QStringList{"m3", "m34"}));
-    QCOMPARE(ids(3, {"maths", "science"}), (QStringList{"m3", "m34", "s3"}));
-    QCOMPARE(ids(4, {"maths", "science", "hass"}), (QStringList{"m34", "h4"}));
-    QCOMPARE(ids(5, {"maths"}), QStringList());
-    QCOMPARE(ids(3, {}), QStringList());
-    QCOMPARE(ids(3, {" Maths "}), (QStringList{"m3", "m34"}));
+    QCOMPARE(ids({3}, {"maths"}), (QStringList{"m3", "m34"}));
+    QCOMPARE(ids({3}, {"maths", "science"}), (QStringList{"m3", "m34", "s3"}));
+    QCOMPARE(ids({4}, {"maths", "science", "hass"}), (QStringList{"m34", "h4"}));
+    QCOMPARE(ids({5}, {"maths"}), QStringList());
+    QCOMPARE(ids({3}, QStringList()), QStringList());
+    QCOMPARE(ids({3}, {" Maths "}), (QStringList{"m3", "m34"}));
+
+    // several years: any overlap qualifies, and no question is listed twice
+    QCOMPARE(ids({3, 4}, {"maths"}), (QStringList{"m3", "m34"}));
+    QCOMPARE(ids({4, 5}, {"maths"}), (QStringList{"m34"}));
+    QCOMPARE(ids({4, 5}, {"maths", "hass"}), (QStringList{"m34", "h4"}));
+    QCOMPARE(ids(QList<int>(), {"maths"}), QStringList());
 
     const auto counts = bank.counts();
     QCOMPARE(counts["maths"][3], 2);

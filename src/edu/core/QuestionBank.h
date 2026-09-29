@@ -27,7 +27,8 @@ public:
     const QList<LoadIssue> &errors() const { return m_errors; }
     const QList<LoadIssue> &warnings() const { return m_warnings; }
 
-    QList<Question> filter(int year, const QStringList &subjects) const;
+    // A question qualifies if any of its years is in `years`.
+    QList<Question> filter(const QList<int> &years, const QStringList &subjects) const;
 
     // subject -> year -> number of questions
     QMap<QString, QMap<int, int>> counts() const;

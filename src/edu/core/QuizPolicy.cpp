@@ -6,7 +6,10 @@
 #include <unistd.h>
 
 #include <QByteArray>
+#include <QSet>
 #include <QVector>
+
+#include <algorithm>
 
 namespace EduLM {
 
@@ -31,14 +34,17 @@ QList<QPair<QString, int>> parseYearGroups(const QStringList &entries, QStringLi
 QuizDecision decideQuiz(const QString &user, const QStringList &userGroups, const QuizPolicyConfig &config)
 {
     QuizDecision decision;
-    decision.yearLevel = config.defaultYear;
 
+    // union of every matching year group
+    QSet<int> years;
     for (const auto &yearGroup : parseYearGroups(config.yearGroups)) {
-        if (userGroups.contains(yearGroup.first)) {
-            decision.yearLevel = yearGroup.second;
-            break;
-        }
+        if (userGroups.contains(yearGroup.first))
+            years.insert(yearGroup.second);
     }
+    if (years.isEmpty())
+        years.insert(config.defaultYear);
+    decision.years = QList<int>(years.begin(), years.end());
+    std::sort(decision.years.begin(), decision.years.end());
 
     if (!config.enabled || config.exemptUsers.contains(user))
         return decision;

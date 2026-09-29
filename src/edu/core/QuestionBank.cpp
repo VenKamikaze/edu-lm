@@ -9,6 +9,7 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <algorithm>
 #include <cmath>
 
 namespace EduLM {
@@ -263,7 +264,7 @@ void QuestionBank::loadFile(const QString &file)
     }
 }
 
-QList<Question> QuestionBank::filter(int year, const QStringList &subjects) const
+QList<Question> QuestionBank::filter(const QList<int> &years, const QStringList &subjects) const
 {
     QStringList wanted;
     for (const QString &s : subjects)
@@ -271,7 +272,9 @@ QList<Question> QuestionBank::filter(int year, const QStringList &subjects) cons
 
     QList<Question> result;
     for (const Question &q : m_questions) {
-        if (q.years.contains(year) && wanted.contains(q.subject))
+        const bool yearMatches = std::any_of(q.years.begin(), q.years.end(),
+                                             [&](int y) { return years.contains(y); });
+        if (yearMatches && wanted.contains(q.subject))
             result.append(q);
     }
     return result;

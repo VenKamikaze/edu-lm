@@ -15,6 +15,7 @@ private slots:
     void parsesFile();
     void dropInOverridesFile();
     void convertsToRulesAndPolicy();
+    void badEndEarlyIsAProblem();
 
 private:
     static QString confFile() { return QStringLiteral(EDU_CONFIG_FILE); }
@@ -50,6 +51,7 @@ MaxSwaps=2
 ShowCorrectAnswers=false
 FailCooldownSeconds=120
 AnswerAttempts=2
+EndEarly= Both
 
 [Content]
 QuestionDirs=/srv/packs,/srv/more
@@ -77,6 +79,8 @@ void EduConfigTest::defaults()
     QCOMPARE(c.Content.QuestionDirs.get().size(), 2);
     QVERIFY(c.Content.QuestionDirs.get()[0].endsWith("edu-lm/questions"));
     QVERIFY(c.Quiz.QuestionCount.isDefault());
+    QCOMPARE(c.Quiz.EndEarly.get(), QString("no"));
+    QCOMPARE(quizRules(c).endEarly, EndEarly::No);
     QVERIFY(quizRules(c).validate().isEmpty());
 }
 
@@ -121,13 +125,24 @@ void EduConfigTest::convertsToRulesAndPolicy()
     QCOMPARE(rules.maxSwaps, 2);
     QCOMPARE(rules.answerAttempts, 2);
     QVERIFY(!rules.showCorrectAnswers);
+    QCOMPARE(rules.endEarly, EndEarly::Both);
+    QVERIFY(rules.validate().isEmpty());
 
     const QuizPolicyConfig policy = quizPolicyConfig(c);
     QVERIFY(decideQuiz("alice", {"kids"}, policy).quizRequired);
     QVERIFY(decideQuiz("bob", {"bob"}, policy).quizRequired);
     QVERIFY(!decideQuiz("dad", {"kids"}, policy).quizRequired);
-    QCOMPARE(decideQuiz("alice", {"kids", "y3", "y5"}, policy).yearLevel, 5);
-    QCOMPARE(decideQuiz("alice", {"kids"}, policy).yearLevel, 3);
+    QCOMPARE(decideQuiz("alice", {"kids", "y3", "y5"}, policy).years, (QList<int>{3, 5}));
+    QCOMPARE(decideQuiz("alice", {"kids"}, policy).years, (QList<int>{3}));
+}
+
+void EduConfigTest::badEndEarlyIsAProblem()
+{
+    writeFile(confFile(), "[Quiz]\nEndEarly=sometimes\n");
+    EduConfig c;
+    const QuizRules rules = quizRules(c);
+    QCOMPARE(rules.endEarly, EduLM::EndEarly::Invalid);
+    QVERIFY(rules.validate().join(' ').contains("EndEarly"));
 }
 
 QTEST_APPLESS_MAIN(EduConfigTest)
