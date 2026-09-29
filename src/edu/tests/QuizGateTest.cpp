@@ -1029,7 +1029,9 @@ void QuizGateTest::noAnswerKeyOnTheWire()
     // a passed quiz carries no key and no review at all
     m_clockMs += 61000;
     events.clear();
-    const Msgs pass = startQuiz() + runToEnd(true);
+    // two statements: the operands of + are unsequenced, and GCC may run runToEnd first
+    Msgs pass = startQuiz();
+    pass += runToEnd(true);
     QVERIFY(last(pass, EduDaemonMessage::QuizResult).result.review.isEmpty());
     for (const Msg &m : pass)
         QVERIFY(!m.raw.contains(utf16(explanationSecret)));
