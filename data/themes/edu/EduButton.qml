@@ -16,8 +16,9 @@ Button {
     font.pixelSize: Math.round(pixelSize * u * EduStyle.fontScale)
     font.bold: true
 
-    Keys.onReturnPressed: clicked()
-    Keys.onEnterPressed: clicked()
+    // a held key must not press again and again
+    Keys.onReturnPressed: (event) => { if (!event.isAutoRepeat) clicked(); event.accepted = true }
+    Keys.onEnterPressed: (event) => { if (!event.isAutoRepeat) clicked(); event.accepted = true }
 
     contentItem: Text {
         text: control.text

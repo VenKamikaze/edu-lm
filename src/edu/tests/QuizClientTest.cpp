@@ -99,6 +99,20 @@ QuizQuestionMsg question(const QString &qid, int index, int swaps = 2, int attem
     return q;
 }
 
+QuizFeedbackMsg feedback(const QString &qid, bool correct, int attemptsLeft, bool finished,
+                         const QString &answer = QString(), const QString &explanation = QString())
+{
+    QuizFeedbackMsg f;
+    f.id = qid;
+    f.correct = correct;
+    f.attemptsLeft = attemptsLeft;
+    f.questionFinished = finished;
+    f.revealed = !answer.isEmpty();
+    f.correctAnswer = answer;
+    f.explanation = explanation;
+    return f;
+}
+
 QuizResultMsg failedResult()
 {
     QuizResultMsg r;
@@ -185,6 +199,9 @@ private slots:
     void readyBetweenLoginAndLoginFailed();
     void cancelCheckingAbandonsAndIgnoresLateVerdicts();
     void quizDownInfoIsCalm();
+    void revealedFeedbackWaitsForNext();
+    void revealedLastQuestionThenResult();
+    void plainFeedbackDoesNotWait();
 
 private:
     void connectAndLogin(bool quizUser = true);
@@ -307,8 +324,7 @@ void QuizClientTest::fullPass()
         QCOMPARE(daemon->got.last().text, QStringLiteral("q%1").arg(i));
         QCOMPARE(daemon->got.last().answer, QString::number(i));
 
-        QuizFeedbackMsg fb{QStringLiteral("q%1").arg(i), true, 0, true};
-        daemon->send(EduDaemonMessage::QuizFeedback, fb);
+        daemon->send(EduDaemonMessage::QuizFeedback, feedback(QStringLiteral("q%1").arg(i), true, 0, true));
         // the next question or the result comes right behind the feedback, and waits for it
         if (i < 2)
             daemon->send(EduDaemonMessage::QuizQuestion, question(QStringLiteral("q%1").arg(i + 1), i + 1));
@@ -339,7 +355,7 @@ void QuizClientTest::tryAgainFeedback()
     waitState(QuizClient::Question);
     client->answer(QStringLiteral("1"));
     QTRY_COMPARE(daemon->count(EduGreeterMessage::QuizAnswer), 1);
-    daemon->send(EduDaemonMessage::QuizFeedback, QuizFeedbackMsg{QStringLiteral("q0"), false, 1, false});
+    daemon->send(EduDaemonMessage::QuizFeedback, feedback("q0", false, 1, false));
     waitState(QuizClient::Feedback);
     QVERIFY(!client->feedbackCorrect());
     QVERIFY(!client->feedbackFinished());
@@ -349,6 +365,73 @@ void QuizClientTest::tryAgainFeedback()
     QVERIFY(!client->waiting());
     client->answer(QStringLiteral("2")); // and answering works again
     QTRY_COMPARE(daemon->count(EduGreeterMessage::QuizAnswer), 2);
+}
+
+void QuizClientTest::revealedFeedbackWaitsForNext()
+{
+    // long enough that a feedback timer started on the reveal would still hold the question below
+    client->setFeedbackMs(5000);
+    reachQuestion();
+    client->answer(QStringLiteral("0"));
+    QTRY_COMPARE(daemon->count(EduGreeterMessage::QuizAnswer), 1);
+    daemon->send(EduDaemonMessage::QuizFeedback, feedback("q0", false, 0, true, "the answer", "because"));
+    waitState(QuizClient::Feedback);
+    QCOMPARE(client->feedbackAnswer(), QStringLiteral("the answer"));
+    QCOMPARE(client->feedbackExplanation(), QStringLiteral("because"));
+    QVERIFY(client->feedbackNeedsNext());
+
+    QTest::qWait(700);
+    QCOMPARE(client->state(), QuizClient::Feedback);
+    QCOMPARE(daemon->count(EduGreeterMessage::QuizNext), 0);
+
+    client->next();
+    client->next(); // a second press sends nothing
+    QTRY_COMPARE(daemon->count(EduGreeterMessage::QuizNext), 1);
+    QTest::qWait(50);
+    QCOMPARE(daemon->count(EduGreeterMessage::QuizNext), 1);
+    QVERIFY(!client->feedbackNeedsNext());
+    QCOMPARE(client->state(), QuizClient::Feedback); // until the daemon answers
+
+    daemon->send(EduDaemonMessage::QuizQuestion, question(QStringLiteral("q1"), 1));
+    QTRY_COMPARE_WITH_TIMEOUT(client->state(), QuizClient::Question, 1000);
+    QCOMPARE(client->questionId(), QStringLiteral("q1"));
+    client->next(); // not in Feedback: nothing goes out
+    QTest::qWait(50);
+    QCOMPARE(daemon->count(EduGreeterMessage::QuizNext), 1);
+}
+
+void QuizClientTest::revealedLastQuestionThenResult()
+{
+    client->setFeedbackMs(5000); // the reply after Next must not wait for the feedback timer
+    reachQuestion();
+    client->answer(QStringLiteral("0"));
+    QTRY_COMPARE(daemon->count(EduGreeterMessage::QuizAnswer), 1);
+    daemon->send(EduDaemonMessage::QuizFeedback, feedback("q0", false, 0, true, "the answer"));
+    waitState(QuizClient::Feedback);
+    QVERIFY(client->feedbackExplanation().isEmpty());
+    client->next();
+    QTRY_COMPARE(daemon->count(EduGreeterMessage::QuizNext), 1);
+    daemon->send(EduDaemonMessage::QuizResult, passedResult());
+    QTRY_COMPARE_WITH_TIMEOUT(client->state(), QuizClient::Result, 1000);
+    QVERIFY(client->resultPassed());
+}
+
+void QuizClientTest::plainFeedbackDoesNotWait()
+{
+    reachQuestion();
+    client->answer(QStringLiteral("0"));
+    QTRY_COMPARE(daemon->count(EduGreeterMessage::QuizAnswer), 1);
+    daemon->send(EduDaemonMessage::QuizFeedback, feedback("q0", false, 0, true));
+    daemon->send(EduDaemonMessage::QuizResult, failedResult());
+    waitState(QuizClient::Feedback);
+    QVERIFY(!client->feedbackNeedsNext());
+    QVERIFY(client->feedbackAnswer().isEmpty());
+    client->next(); // nothing to continue: no message
+    // the result is held for the feedback time, then shown without any Next
+    QTest::qWait(50);
+    QCOMPARE(client->state(), QuizClient::Feedback);
+    waitState(QuizClient::Result);
+    QCOMPARE(daemon->count(EduGreeterMessage::QuizNext), 0);
 }
 
 void QuizClientTest::failedQuiz_data()
@@ -369,7 +452,7 @@ void QuizClientTest::failedQuiz()
 
     if (order == 0)
         client->onLoginFailed();
-    daemon->send(EduDaemonMessage::QuizFeedback, QuizFeedbackMsg{QStringLiteral("q0"), false, 0, true});
+    daemon->send(EduDaemonMessage::QuizFeedback, feedback("q0", false, 0, true));
     if (order == 1)
         QTest::qWait(30); // feedback read first, then LoginFailed, then the result
     if (order == 1)
@@ -649,7 +732,7 @@ void QuizClientTest::passedButSessionFails()
     reachQuestion();
     client->answer(QStringLiteral("0"));
     QTRY_COMPARE(daemon->count(EduGreeterMessage::QuizAnswer), 1);
-    daemon->send(EduDaemonMessage::QuizFeedback, QuizFeedbackMsg{QStringLiteral("q0"), true, 0, true});
+    daemon->send(EduDaemonMessage::QuizFeedback, feedback("q0", true, 0, true));
     daemon->send(EduDaemonMessage::QuizResult, passedResult());
     if (loginFailedFirst) {
         client->onLoginFailed();
@@ -669,7 +752,7 @@ void QuizClientTest::messageSplitAcrossWrites()
     QTRY_COMPARE(daemon->count(EduGreeterMessage::QuizAnswer), 1);
 
     // feedback + a big result (it has a review list), cut in the middle of the result
-    QByteArray bytes = encodeMessage(EduDaemonMessage::QuizFeedback, QuizFeedbackMsg{QStringLiteral("q0"), false, 0, true});
+    QByteArray bytes = encodeMessage(EduDaemonMessage::QuizFeedback, feedback("q0", false, 0, true));
     const qsizetype feedbackSize = bytes.size();
     bytes += encodeMessage(EduDaemonMessage::QuizResult, failedResult());
     QVERIFY(bytes.size() > feedbackSize + 400);
@@ -708,7 +791,7 @@ void QuizClientTest::abandonAfterAnswerQueriesStatus()
     reachQuestion();
     client->answer(QStringLiteral("0"));
     QTRY_COMPARE(daemon->count(EduGreeterMessage::QuizAnswer), 1);
-    daemon->send(EduDaemonMessage::QuizFeedback, QuizFeedbackMsg{QStringLiteral("q0"), true, 0, true});
+    daemon->send(EduDaemonMessage::QuizFeedback, feedback("q0", true, 0, true));
     daemon->send(EduDaemonMessage::QuizQuestion, question(QStringLiteral("q1"), 1));
     waitState(QuizClient::Question);
 
@@ -778,7 +861,7 @@ void QuizClientTest::staleInputIgnored()
     QCOMPARE(daemon->count(EduGreeterMessage::QuizSwap), 0);
 
     // in Feedback too
-    daemon->send(EduDaemonMessage::QuizFeedback, QuizFeedbackMsg{QStringLiteral("q0"), true, 0, true});
+    daemon->send(EduDaemonMessage::QuizFeedback, feedback("q0", true, 0, true));
     daemon->send(EduDaemonMessage::QuizQuestion, question(QStringLiteral("q1"), 1));
     waitState(QuizClient::Feedback);
     client->answer(QStringLiteral("2"));
@@ -913,6 +996,10 @@ void QuizClientTest::mockFail()
         c.answer(QStringLiteral("not an answer"));
         QTRY_COMPARE_WITH_TIMEOUT(c.state(), QuizClient::Feedback, 2000);
         QVERIFY(!c.feedbackCorrect());
+        // the mock shows answers, so each miss waits for Next
+        QVERIFY(c.feedbackNeedsNext());
+        QVERIFY(!c.feedbackAnswer().isEmpty());
+        c.next();
     }
     QTRY_COMPARE_WITH_TIMEOUT(c.state(), QuizClient::Result, 2000);
     QVERIFY(!c.resultPassed());

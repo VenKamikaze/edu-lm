@@ -51,6 +51,12 @@ class QuizClient : public QObject
 
     Q_PROPERTY(bool feedbackCorrect READ feedbackCorrect NOTIFY feedbackChanged)
     Q_PROPERTY(bool feedbackFinished READ feedbackFinished NOTIFY feedbackChanged)
+    // A finished wrong question with answers shown: the answer and explanation (empty otherwise).
+    Q_PROPERTY(bool feedbackRevealed READ feedbackRevealed NOTIFY feedbackChanged)
+    Q_PROPERTY(QString feedbackAnswer READ feedbackAnswer NOTIFY feedbackChanged)
+    Q_PROPERTY(QString feedbackExplanation READ feedbackExplanation NOTIFY feedbackChanged)
+    // In the Feedback state: it stays up until next(); false again once next() has been sent
+    Q_PROPERTY(bool feedbackNeedsNext READ feedbackNeedsNext NOTIFY feedbackChanged)
 
     Q_PROPERTY(bool resultPassed READ resultPassed NOTIFY resultChanged)
     Q_PROPERTY(int resultCorrect READ resultCorrect NOTIFY resultChanged)
@@ -113,6 +119,10 @@ public:
 
     bool feedbackCorrect() const { return m_feedback.correct; }
     bool feedbackFinished() const { return m_feedback.questionFinished; }
+    bool feedbackRevealed() const { return m_feedback.revealed; }
+    QString feedbackAnswer() const { return m_feedback.correctAnswer; }
+    QString feedbackExplanation() const { return m_feedback.explanation; }
+    bool feedbackNeedsNext() const { return m_feedback.revealed && !m_nextSent; }
 
     bool resultPassed() const { return m_result.passed; }
     int resultCorrect() const { return m_result.correct; }
@@ -139,6 +149,8 @@ public slots:
     void login(const QString &user, const QString &password, int sessionIndex);
     void answer(const QString &text);
     void swap();
+    // Continues after a revealing feedback: the daemon sends the next question or the result.
+    void next();
     void abandon();
     // Gives up waiting for a login result: a way out if the daemon never answers
     void cancelChecking();
@@ -240,6 +252,7 @@ private:
     QuizQuestionMsg m_question;
     QString m_swapRefusedReason;
     QuizFeedbackMsg m_feedback;
+    bool m_nextSent = false; // QuizNext is out for the current revealing feedback
     QuizResultMsg m_result;
 
     // Shown when the Feedback screen is done, if they arrived while it was up.

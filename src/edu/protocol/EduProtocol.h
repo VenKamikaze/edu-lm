@@ -12,7 +12,7 @@
 
 namespace EduLM {
 
-// Greeter -> daemon payloads (QuizHello and QuizAbandon carry none).
+// Greeter -> daemon payloads (QuizHello, QuizAbandon and QuizNext carry none).
 struct QuizQueryMsg {
     QString user;
 };
@@ -59,6 +59,11 @@ struct QuizFeedbackMsg {
     bool correct = false;
     qint32 attemptsLeft = 0;
     bool questionFinished = false;
+    // Set only for a finished wrong question with correct answers shown; the daemon then
+    // waits for QuizNext before sending anything else.
+    bool revealed = false;
+    QString correctAnswer;
+    QString explanation;
 };
 
 struct QuizSwapRefusedMsg {

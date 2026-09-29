@@ -44,12 +44,12 @@ QDataStream &operator>>(QDataStream &s, QuizQuestionMsg &m)
 
 QDataStream &operator<<(QDataStream &s, const QuizFeedbackMsg &m)
 {
-    return s << m.id << m.correct << m.attemptsLeft << m.questionFinished;
+    return s << m.id << m.correct << m.attemptsLeft << m.questionFinished << m.revealed << m.correctAnswer << m.explanation;
 }
 
 QDataStream &operator>>(QDataStream &s, QuizFeedbackMsg &m)
 {
-    return s >> m.id >> m.correct >> m.attemptsLeft >> m.questionFinished;
+    return s >> m.id >> m.correct >> m.attemptsLeft >> m.questionFinished >> m.revealed >> m.correctAnswer >> m.explanation;
 }
 
 QDataStream &operator<<(QDataStream &s, const QuizSwapRefusedMsg &m) { return s << m.reason; }

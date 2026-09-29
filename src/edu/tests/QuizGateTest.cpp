@@ -105,6 +105,17 @@ private slots:
     void reservedUserRefusal();
     void abandonDuringVerification();
     void helloFromAnotherConnectionEndsQuiz();
+    void revealOnlyWhenFinishedAndWrong();
+    void revealTextIsFormattedLikeReview();
+    void revealHoldsQuizUntilNext();
+    void lastQuestionWrongButPassed();
+    void lastQuestionWrongAndFailed();
+    void strayNextIgnored();
+    void answerAndSwapWhileWaitingIgnored();
+    void waitingDoesNotOutliveTheQuiz();
+    void secondFailureStartsItsOwnCooldown();
+    void leaveWhileWaiting_data();
+    void leaveWhileWaiting();
 
 private:
     // one client/server socket pair over a real local socket
@@ -126,8 +137,10 @@ private:
     Msgs answerCurrent(bool right);
     Msgs runToEnd(bool right);
     Msgs swap(const QString &questionId);
+    Msgs next();
     static Msg last(const Msgs &msgs, EduDaemonMessage message);
     QString currentId() const { return m_current.id; }
+    void reachWaiting(const QString &scenario);
     QString label(QLocalSocket *socket) const { return m_labels.value(socket, "?"); }
 
     QLocalServer m_server;
@@ -383,6 +396,9 @@ Msgs QuizGateTest::runToEnd(bool right)
     Msgs all;
     for (int i = 0; i < 50; ++i) {
         all += answerCurrent(right);
+        // a revealing feedback holds the quiz until the child presses Next
+        if (all.last().id == id(EduDaemonMessage::QuizFeedback) && all.last().feedback.revealed)
+            all += next();
         for (const Msg &m : all) {
             if (m.id == id(EduDaemonMessage::QuizResult))
                 return all;
@@ -395,6 +411,12 @@ Msgs QuizGateTest::runToEnd(bool right)
 Msgs QuizGateTest::swap(const QString &questionId)
 {
     sendRaw(quiz, encodeMessage(EduGreeterMessage::QuizSwap, QuizSwapMsg{questionId}));
+    return drain(quiz);
+}
+
+Msgs QuizGateTest::next()
+{
+    sendRaw(quiz, encodeMessage(EduGreeterMessage::QuizNext));
     return drain(quiz);
 }
 
@@ -957,8 +979,10 @@ void QuizGateTest::endEarly()
     m_clockMs += 1000;
     startQuiz();
     msgs.clear();
-    for (int i = 0; i < 3; ++i)
+    for (int i = 0; i < 3; ++i) {
         msgs += answerCurrent(false);
+        msgs += next(); // each miss reveals the answer and waits
+    }
     result = last(msgs, EduDaemonMessage::QuizResult);
     QVERIFY(!result.result.passed);
     QCOMPARE(result.result.asked, 3);
@@ -1001,30 +1025,60 @@ void QuizGateTest::noAnswerKeyOnTheWire()
     Msgs all = startQuiz();
     all += answer(m_current.id, wrongAnswer); // wrong with a retry left
     all += swap(m_current.id);                // refused: already attempted
-    all += answerCurrent(false);
+    all += answerCurrent(false);              // finished and wrong: this one reveals
+    all += next();
     all += runToEnd(false);
 
+    // QDataStream writes strings as big-endian UTF-16
     auto utf16 = [](const QString &s) {
-        return QByteArray(reinterpret_cast<const char *>(s.utf16()), s.size() * 2);
+        QByteArray bytes;
+        for (const QChar c : s) {
+            bytes.append(char(c.unicode() >> 8));
+            bytes.append(char(c.unicode() & 0xFF));
+        }
+        return bytes;
+    };
+    const QString groupedKey = QStringLiteral("1\u00A0234\u00A0567");
+    auto hasKey = [&](const Msg &m) {
+        // the reveal and the review group thousands with no-break spaces
+        return m.raw.contains(utf16(numericKey)) || m.raw.contains(utf16(groupedKey));
     };
 
+    // the key may only appear in a revealing feedback (and the failure review below)
     int checked = 0;
+    int revealing = 0;
     for (const Msg &m : all) {
         if (m.id != id(EduDaemonMessage::QuizQuestion) && m.id != id(EduDaemonMessage::QuizFeedback))
             continue;
         ++checked;
-        QVERIFY(!m.raw.contains(utf16(explanationSecret)));
-        QVERIFY(!m.raw.contains(utf16(numericKey)));
-        QVERIFY(!m.raw.contains(numericKey.toUtf8()));
+        const bool reveals = m.id == id(EduDaemonMessage::QuizFeedback) && m.feedback.revealed;
+        revealing += reveals;
+        QCOMPARE(m.raw.contains(utf16(explanationSecret)), reveals);
+        QCOMPARE(hasKey(m), reveals);
         if (m.id == id(EduDaemonMessage::QuizQuestion))
             QVERIFY(m.question.choices.isEmpty());
     }
     QVERIFY(checked >= 6);
+    QCOMPARE(revealing, 3); // one per question, each finished and wrong
 
     // the failed result does carry the key, in the review only
     const Msg result = last(all, EduDaemonMessage::QuizResult);
     QVERIFY(!result.result.passed);
     QCOMPARE(QString(result.result.review.first().correctAnswer).remove(QChar(0xA0)), numericKey); // formatted with no-break spaces
+
+    // with the answers hidden nothing at all carries the key
+    m_clockMs += 61000;
+    events.clear();
+    cfg.rules.showCorrectAnswers = false;
+    // two statements: the operands of + are unsequenced, and GCC may run runToEnd first
+    Msgs hidden = startQuiz();
+    hidden += runToEnd(false);
+    QVERIFY(last(hidden, EduDaemonMessage::QuizResult).result.review.isEmpty());
+    for (const Msg &m : hidden) {
+        QVERIFY(!m.raw.contains(utf16(explanationSecret)));
+        QVERIFY(!hasKey(m));
+    }
+    cfg.rules.showCorrectAnswers = true;
 
     // a passed quiz carries no key and no review at all
     m_clockMs += 61000;
@@ -1141,6 +1195,298 @@ void QuizGateTest::helloFromAnotherConnectionEndsQuiz()
     // the running quiz had an answer: counted as failed
     QCOMPARE(events, QStringList{"fail@login"});
     QCOMPARE(m_cooldown->secondsLeft("alice"), 60);
+}
+
+void QuizGateTest::revealOnlyWhenFinishedAndWrong()
+{
+    cfg.rules.answerAttempts = 2;
+    startQuiz();
+
+    // wrong with a try left: no reveal, no wait
+    const Msgs retry = answer(m_current.id, wrongAnswer);
+    QCOMPARE(ids(retry), QList<quint32>{id(EduDaemonMessage::QuizFeedback)});
+    QVERIFY(!retry[0].feedback.revealed);
+    QVERIFY(retry[0].feedback.correctAnswer.isEmpty());
+    QVERIFY(retry[0].feedback.explanation.isEmpty());
+
+    // the second miss finishes the question and reveals
+    const QString first = m_current.id;
+    const Msgs finished = answer(first, wrongAnswer);
+    QCOMPARE(ids(finished), QList<quint32>{id(EduDaemonMessage::QuizFeedback)});
+    QVERIFY(finished[0].feedback.questionFinished);
+    QVERIFY(finished[0].feedback.revealed);
+    QCOMPARE(finished[0].feedback.correctAnswer, "right " + first);
+    QCOMPARE(finished[0].feedback.explanation, explanationSecret);
+
+    // finished and right (on the second try): no reveal, and the next question follows at once
+    QCOMPARE(ids(next()), QList<quint32>{id(EduDaemonMessage::QuizQuestion)});
+    QVERIFY(!answer(m_current.id, wrongAnswer)[0].feedback.revealed);
+    const Msgs right = answerCurrent(true);
+    QCOMPARE(ids(right), (QList<quint32>{id(EduDaemonMessage::QuizFeedback), id(EduDaemonMessage::QuizQuestion)}));
+    QVERIFY(right[0].feedback.correct);
+    QVERIFY(right[0].feedback.questionFinished);
+    QVERIFY(!right[0].feedback.revealed);
+    QVERIFY(right[0].feedback.correctAnswer.isEmpty());
+    QVERIFY(right[0].feedback.explanation.isEmpty());
+
+    // answers hidden: a finished wrong question reveals nothing and does not wait
+    m_clockMs += 61000;
+    cfg.rules.showCorrectAnswers = false;
+    cfg.rules.answerAttempts = 1;
+    startQuiz();
+    const Msgs hidden = answerCurrent(false);
+    QCOMPARE(ids(hidden), (QList<quint32>{id(EduDaemonMessage::QuizFeedback), id(EduDaemonMessage::QuizQuestion)}));
+    QVERIFY(hidden[0].feedback.questionFinished);
+    QVERIFY(!hidden[0].feedback.revealed);
+    QVERIFY(hidden[0].feedback.correctAnswer.isEmpty());
+    QVERIFY(hidden[0].feedback.explanation.isEmpty());
+}
+
+void QuizGateTest::revealTextIsFormattedLikeReview()
+{
+    cfg.subjects = {"num"};
+    startQuiz();
+    QList<QuizFeedbackMsg> feedback;
+    Msgs all;
+    for (int i = 0; i < 3; ++i) {
+        const Msgs step = answerCurrent(false);
+        feedback << last(step, EduDaemonMessage::QuizFeedback).feedback;
+        all += next();
+    }
+    const QList<QuizReviewItem> review = last(all, EduDaemonMessage::QuizResult).result.review;
+    QCOMPARE(review.size(), 3);
+    for (int i = 0; i < 3; ++i) {
+        QCOMPARE(feedback[i].correctAnswer, review[i].correctAnswer);
+        QCOMPARE(feedback[i].explanation, review[i].explanation);
+    }
+    QCOMPARE(QString(feedback[0].correctAnswer).remove(QChar(0xA0)), numericKey);
+    QVERIFY(feedback[0].correctAnswer != numericKey); // grouped with no-break spaces
+}
+
+void QuizGateTest::revealHoldsQuizUntilNext()
+{
+    startQuiz();
+    const QString first = m_current.id;
+    const Msgs fb = answerCurrent(false);
+    QCOMPARE(ids(fb), QList<quint32>{id(EduDaemonMessage::QuizFeedback)}); // no next question yet
+    QVERIFY(fb[0].feedback.revealed);
+    QTest::qWait(50);
+    QVERIFY(drain(quiz).isEmpty());
+    QVERIFY(events.isEmpty());
+
+    const Msgs after = next();
+    QCOMPARE(ids(after), QList<quint32>{id(EduDaemonMessage::QuizQuestion)});
+    QVERIFY(after[0].question.id != first);
+    QCOMPARE(after[0].question.index, 1);
+}
+
+void QuizGateTest::lastQuestionWrongButPassed()
+{
+    startQuiz();
+    answerCurrent(true);
+    answerCurrent(true);
+    const Msgs fb = answerCurrent(false); // 2 of 3, the pass mark
+    QCOMPARE(ids(fb), QList<quint32>{id(EduDaemonMessage::QuizFeedback)});
+    QVERIFY(fb[0].feedback.revealed);
+    QVERIFY(fb[0].feedback.correctAnswer.startsWith("right "));
+
+    // no result, and the session does not start while the child reads
+    QTest::qWait(50);
+    QVERIFY(drain(quiz).isEmpty());
+    QVERIFY(events.isEmpty());
+    QCOMPARE(m_verifier.calls.size(), 1);
+
+    const Msgs after = next();
+    QCOMPARE(ids(after), QList<quint32>{id(EduDaemonMessage::QuizResult)});
+    QVERIFY(after[0].result.passed);
+    QCOMPARE(after[0].result.correct, 2);
+    QCOMPARE(events, QStringList{"proceed@login:alice:pw:plasma"});
+    QCOMPARE(m_cooldown->secondsLeft("alice"), 0);
+}
+
+void QuizGateTest::lastQuestionWrongAndFailed()
+{
+    startQuiz();
+    answerCurrent(false);
+    next();
+    answerCurrent(true);
+    const Msgs fb = answerCurrent(false); // 1 of 3
+    QVERIFY(fb.last().feedback.revealed);
+    QVERIFY(events.isEmpty()); // the login is not failed until Next...
+    QCOMPARE(m_cooldown->secondsLeft("alice"), 60); // ...but the cooldown has started
+
+    m_clockMs += 10000;
+    const Msgs after = next();
+    QCOMPARE(ids(after), QList<quint32>{id(EduDaemonMessage::QuizResult)});
+    QVERIFY(!after[0].result.passed);
+    QCOMPARE(after[0].result.review.size(), 2);
+    QCOMPARE(after[0].result.cooldownSeconds, 50); // the deadline did not move at Next
+    QCOMPARE(events, QStringList{"fail@login"});
+    QCOMPARE(m_cooldown->secondsLeft("alice"), 50);
+}
+
+void QuizGateTest::strayNextIgnored()
+{
+    // no quiz running
+    hello();
+    QVERIFY(next().isEmpty());
+
+    QVERIFY(login("alice"));
+    m_verifier.finish(true);
+    drain(quiz);
+    const QString cur = m_current.id;
+
+    // running, but not waiting
+    QVERIFY(next().isEmpty());
+    QCOMPARE(m_current.id, cur);
+
+    // waiting, but Next comes from another connection
+    answerCurrent(false);
+    sendRaw(loginPair, encodeMessage(EduGreeterMessage::QuizNext));
+    QTest::qWait(30);
+    QVERIFY(drain(quiz).isEmpty());
+    QCOMPARE(ids(next()), QList<quint32>{id(EduDaemonMessage::QuizQuestion)}); // still waiting for the real one
+
+    // a second Next for the same reveal is stray too
+    QVERIFY(next().isEmpty());
+    QVERIFY(events.isEmpty());
+}
+
+void QuizGateTest::answerAndSwapWhileWaitingIgnored()
+{
+    // waiting with the quiz already passed: nothing may advance it or start the login
+    startQuiz();
+    answerCurrent(true);
+    answerCurrent(true);
+    const QString last3 = m_current.id;
+    QVERIFY(answerCurrent(false)[0].feedback.revealed);
+
+    // the gate's own guard, not just the session's stale-id refusal, must be what ignores them
+    QTest::ignoreMessage(QtWarningMsg, "Edu-LM: ignoring QuizAnswer while waiting for QuizNext");
+    QVERIFY(answer(last3, m_key.value(last3)).isEmpty());
+    QTest::ignoreMessage(QtWarningMsg, "Edu-LM: ignoring QuizSwap while waiting for QuizNext");
+    QVERIFY(swap(last3).isEmpty());
+    QVERIFY(events.isEmpty());
+    QCOMPARE(m_verifier.calls.size(), 1);
+    QCOMPARE(ids(next()), QList<quint32>{id(EduDaemonMessage::QuizResult)});
+    QCOMPARE(events, QStringList{"proceed@login:alice:pw:plasma"});
+
+    // waiting in the middle of the quiz: the next question must not be answerable or swappable
+    m_clockMs += 61000;
+    events.clear();
+    startQuiz();
+    const QString firstId = m_current.id;
+    QVERIFY(answerCurrent(false)[0].feedback.revealed);
+    QTest::ignoreMessage(QtWarningMsg, "Edu-LM: ignoring QuizAnswer while waiting for QuizNext");
+    QVERIFY(answer(firstId, m_key.value(firstId)).isEmpty());
+    QTest::ignoreMessage(QtWarningMsg, "Edu-LM: ignoring QuizSwap while waiting for QuizNext");
+    QVERIFY(swap(firstId).isEmpty());
+    const Msgs after = next();
+    QCOMPARE(ids(after), QList<quint32>{id(EduDaemonMessage::QuizQuestion)});
+    QCOMPARE(after[0].question.index, 1); // the ignored messages moved nothing
+    QCOMPARE(after[0].question.swapsLeft, 2);
+}
+
+// A quiz that ended while waiting must not leave the next one waiting.
+void QuizGateTest::waitingDoesNotOutliveTheQuiz()
+{
+    for (const QString scenario : {"progress", "failed", "passed"}) {
+        m_clockMs += 61000;
+        events.clear();
+        cfg.rules.requiredCorrect = 2; // reachWaiting changes them for "failed"
+        cfg.rules.endEarly = EndEarly::No;
+        reachWaiting(scenario);
+        sendRaw(quiz, encodeMessage(EduGreeterMessage::QuizAbandon));
+        m_clockMs += 61000;
+        Msgs fresh = startQuiz();
+        QVERIFY(!fresh.isEmpty());
+        QCOMPARE(ids(answerCurrent(true)).first(), id(EduDaemonMessage::QuizFeedback));
+        sendRaw(quiz, encodeMessage(EduGreeterMessage::QuizAbandon));
+    }
+}
+
+void QuizGateTest::secondFailureStartsItsOwnCooldown()
+{
+    startQuiz();
+    runToEnd(false);
+    QCOMPARE(m_cooldown->secondsLeft("alice"), 60);
+    m_clockMs += 61000;
+    Msgs again = startQuiz();
+    QVERIFY(!again.isEmpty());
+    runToEnd(false);
+    QCOMPARE(m_cooldown->secondsLeft("alice"), 60);
+}
+
+// Gets the quiz to a revealing feedback whose outcome is `scenario`.
+void QuizGateTest::reachWaiting(const QString &scenario)
+{
+    if (scenario == "failed") {
+        cfg.rules.requiredCorrect = 3;
+        cfg.rules.endEarly = EndEarly::Fail;
+        startQuiz();
+        QVERIFY(answerCurrent(false)[0].feedback.revealed);
+    } else if (scenario == "passed") {
+        startQuiz();
+        answerCurrent(true);
+        answerCurrent(true);
+        QVERIFY(answerCurrent(false)[0].feedback.revealed);
+    } else {
+        startQuiz();
+        QVERIFY(answerCurrent(false)[0].feedback.revealed);
+    }
+}
+
+void QuizGateTest::leaveWhileWaiting_data()
+{
+    QTest::addColumn<QString>("scenario");
+    QTest::addColumn<QString>("how");
+    QTest::addColumn<int>("cooldown");
+    QTest::addColumn<QStringList>("expectedEvents");
+
+    const QStringList fail{"fail@login"};
+    for (const QString how : {"abandon", "quiz socket drop", "login socket drop"}) {
+        // a dropped login socket has nobody to tell, so no LoginFailed
+        const QStringList failEvents = how == "login socket drop" ? QStringList() : fail;
+        // the clock runs 10 s while waiting: a failure already recorded keeps its deadline
+        QTest::newRow(qPrintable("failed / " + how)) << "failed" << how << 50 << failEvents;
+        QTest::newRow(qPrintable("passed / " + how)) << "passed" << how << 0 << QStringList();
+        QTest::newRow(qPrintable("in progress / " + how)) << "progress" << how << 60 << failEvents;
+    }
+}
+
+void QuizGateTest::leaveWhileWaiting()
+{
+    QFETCH(QString, scenario);
+    QFETCH(QString, how);
+    QFETCH(int, cooldown);
+    QFETCH(QStringList, expectedEvents);
+
+    reachWaiting(scenario);
+    QVERIFY(events.isEmpty());
+    m_clockMs += 10000;
+
+    if (how == "abandon") {
+        sendRaw(quiz, encodeMessage(EduGreeterMessage::QuizAbandon));
+    } else if (how == "quiz socket drop") {
+        quiz.client->disconnectFromServer();
+        QTRY_VERIFY(quiz.server->state() != QLocalSocket::ConnectedState);
+    } else {
+        loginPair.client->disconnectFromServer();
+        QTRY_VERIFY(loginPair.server->state() != QLocalSocket::ConnectedState);
+    }
+    QTest::qWait(30);
+
+    QCOMPARE(events, expectedEvents); // above all: never a proceed
+    QCOMPARE(m_cooldown->secondsLeft("alice"), cooldown);
+    QCOMPARE(m_verifier.calls.size(), 1);
+    if (how == "abandon") {
+        QVERIFY(drain(quiz).isEmpty()); // no result for a quiz that was left
+        // the pending login is gone: a new one is verified rather than refused as busy
+        if (cooldown == 0) {
+            QVERIFY(login("alice", "again"));
+            QCOMPARE(m_verifier.calls.size(), 2);
+        }
+    }
 }
 
 QTEST_MAIN(QuizGateTest)

@@ -78,9 +78,12 @@ private:
     void onAnswer(QLocalSocket *socket, const QuizAnswerMsg &msg);
     void onSwap(QLocalSocket *socket, const QuizSwapMsg &msg);
     void onAbandon(QLocalSocket *socket);
+    void onNext(QLocalSocket *socket);
 
     void sendQuestion();
+    void advance();
     void finishPassed();
+    void recordFailure();
     void finishFailed(bool sendResult);
     void abandon();
     void discard();
@@ -104,6 +107,8 @@ private:
     bool m_verifying = false;
     std::unique_ptr<QuizSession> m_quiz;
     int m_answerAttempts = 0;
+    bool m_failureRecorded = false; // the running quiz has already started its cooldown
+    bool m_waitingNext = false; // a revealing feedback is out; nothing more until QuizNext
     int m_cooldownSeconds = 0; // from the config the running quiz started with
 };
 

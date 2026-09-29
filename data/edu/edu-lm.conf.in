@@ -30,7 +30,7 @@
 #RequiredCorrect=4
 # Question swaps shared by the whole attempt.
 #MaxSwaps=3
-# After a failed attempt, show the missed questions with the correct answers.
+# Show the right answer after a missed question, and the missed questions after a failed attempt.
 #ShowCorrectAnswers=true
 # Seconds a user must wait after a failed attempt.
 #FailCooldownSeconds=60

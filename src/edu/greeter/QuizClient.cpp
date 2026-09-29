@@ -242,12 +242,15 @@ void QuizClient::handle(const Incoming &msg)
         if (m_state != Question)
             break;
         m_feedback = msg.feedback;
+        m_nextSent = false;
         m_question.attemptsLeft = msg.feedback.attemptsLeft;
         setInFlight(false);
         emit feedbackChanged();
         emit questionChanged();
         setState(Feedback);
-        m_feedbackTimer.start();
+        // a revealing feedback waits for next() instead
+        if (!m_feedback.revealed)
+            m_feedbackTimer.start();
         break;
 
     case EduDaemonMessage::QuizSwapRefused:
@@ -496,6 +499,15 @@ void QuizClient::swap()
     m_swapRefusedReason.clear();
     emit questionChanged();
     send(encodeMessage(EduGreeterMessage::QuizSwap, QuizSwapMsg{m_question.id}));
+}
+
+void QuizClient::next()
+{
+    if (m_state != Feedback || !feedbackNeedsNext())
+        return;
+    m_nextSent = true;
+    emit feedbackChanged();
+    send(encodeMessage(EduGreeterMessage::QuizNext));
 }
 
 // The daemon counts leaving after an answer as a failure but sends no result for it, so ask

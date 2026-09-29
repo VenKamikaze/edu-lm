@@ -7,7 +7,7 @@ Remaining open items are in §13.
 
 ## 1. Summary
 
-Edu-LM is SDDM plus a **quiz gate**. Users in a configured group must log in (with or without a password, set globally), then answer N questions with at least K correct. They can swap individual questions for new ones, drawing on a shared pool of R swaps. After a failed attempt they see the correct answers and wait out a cooldown before trying again. Everyone else logs in normally.
+Edu-LM is SDDM plus a **quiz gate**. Users in a configured group must log in (with or without a password, set globally), then answer N questions with at least K correct. They can swap individual questions for new ones, drawing on a shared pool of R swaps. After a missed question they see the right answer on the spot, and after a failed attempt the missed questions with answers, then wait out a cooldown before trying again. Everyone else logs in normally.
 
 **Target:** Arch Linux + KDE Plasma (Qt6 SDDM), a few family PCs. It should also work on any distro that ships SDDM (§10).
 **Scope:** functional first, with light but useful tests on the gate logic. The code will be published later as a public GPL-2.0-or-later fork, which follows from the SDDM licence.
@@ -76,15 +76,17 @@ The password-first flow lives almost entirely inside `QuizGate`, which has its o
 
 ### 3.3 Quiz protocol (second socket connection)
 
-Greeter → daemon: `QuizHello`, `QuizQuery(user)`, `QuizAnswer(questionId, answer)`, `QuizSwap(questionId)`, `QuizAbandon`
+Greeter → daemon: `QuizHello`, `QuizQuery(user)`, `QuizAnswer(questionId, answer)`, `QuizSwap(questionId)`, `QuizAbandon`, `QuizNext`
 
-Daemon → greeter: `QuizReady` (reply to `QuizHello`), `QuizStatus(user, required, studentPasswords, cooldownSecs, questionCount, requiredCorrect)`, `QuizLoginRefused(reason)` (`wrong-password`, `busy` or `refused` for the reserved `sddm` user), `QuizStarted(user, n, k, maxSwaps)`, `QuizQuestion(id, index, count, prompt, type, choices[], swapsLeft, attemptsLeft)`, `QuizFeedback(id, correct, attemptsLeft, finished)`, `QuizSwapRefused(reason)`, `QuizResult(passed, correct, required, asked, review[], cooldownSecs)`, `QuizCooldown(secs)`, `QuizError(message)`
+Daemon → greeter: `QuizReady` (reply to `QuizHello`), `QuizStatus(user, required, studentPasswords, cooldownSecs, questionCount, requiredCorrect)`, `QuizLoginRefused(reason)` (`wrong-password`, `busy` or `refused` for the reserved `sddm` user), `QuizStarted(user, n, k, maxSwaps)`, `QuizQuestion(id, index, count, prompt, type, choices[], swapsLeft, attemptsLeft)`, `QuizFeedback(id, correct, attemptsLeft, finished, revealed, correctAnswer, explanation)`, `QuizSwapRefused(reason)`, `QuizResult(passed, correct, required, asked, review[], cooldownSecs)`, `QuizCooldown(secs)`, `QuizError(message)`
 
 Message IDs start at `0x45440000`. `QuizHello` marks a connection as quiz-capable; the greeter sends it only when the theme opts in, so a stock theme still fails closed. The daemon answers it with `QuizReady`.
 
 The login result (`LoginFailed`) travels on the other socket and can be read before or after the quiz messages, so the daemon writes a **verdict** on the quiz socket, before any `LoginFailed`, for every login the gate sees: `QuizStatus(required=false)` for a user with no quiz, `QuizLoginRefused` for a wrong password or a busy gate, `QuizCooldown`, `QuizError` for a broken configuration, or `QuizStarted`. The greeter reads a `LoginFailed` only in the light of that verdict, with no timers. Logins with no possible verdict are those from a greeter with no ready quiz connection (refused by design: fail closed) and the few upstream paths that send no `LoginFailed` at all; for those the theme offers a "Go back" escape from its Checking screen after ten seconds, and `QuizAbandon` discards any login the gate still holds.
 
 `review[]` is sent only after a failed attempt. It lists each missed question with the correct answer and an optional explanation. Answer keys are never sent before an answer is given.
+
+**Reveal on the spot.** When a question is finished and wrong (attempts used up) and `ShowCorrectAnswers=true`, its `QuizFeedback` has `revealed=true` and carries the correct answer (formatted as in the review) and the explanation. No other feedback carries them: not a correct answer, not a "try again", and not with `ShowCorrectAnswers=false`. After a revealing feedback the daemon sends nothing more (no next question, no `QuizResult`, no login) until the greeter sends `QuizNext`; this holds for the last question too, so a pass does not start the session while the child is reading. `QuizNext` when not waiting or from another connection is ignored, as are answers and swaps while waiting. If the greeter leaves while the daemon waits, an already Failed quiz counts as a failure (cooldown), an already Passed one is dropped (no login, no cooldown), and one still in progress follows the usual rule (answered at least once: failure).
 
 ---
 
@@ -101,7 +103,7 @@ StudentPasswords=true       # false = quiz users log in with no password (§5.2)
 QuestionCount=5             # N
 RequiredCorrect=4           # K  (K <= N, checked at startup)
 MaxSwaps=3                  # R  shared pool of single-question swaps per attempt
-ShowCorrectAnswers=true     # on failure, show missed questions with answers
+ShowCorrectAnswers=true     # show the right answer after a missed question, and the review on failure
 FailCooldownSeconds=60      # forced wait after a failed attempt
 AnswerAttempts=1            # tries per question before it counts as wrong
 EndEarly=no                 # no | pass (stop once K correct) | fail (stop once K is unreachable) | both
@@ -133,7 +135,8 @@ Theme                 GreeterProxy / QuizClient        QuizGate (daemon)        
  │ ◄── LoginFailed (wrong password: same as stock SDDM) ◄┤ fail
  │ ◄── eduQuiz.quizRequired ◄── QuizRequired ◄─────────┤ ok → new QuizSession
  │ answer / swap ──────────► QuizAnswer / QuizSwap ───► score, swapsLeft--
- │ ◄── QuizQuestion / QuizFeedback ◄──────────────────┤
+ │ ◄── QuizQuestion / QuizFeedback ◄──────────────────┤ wrong + finished: feedback carries the
+ │ QuizNext (after "Not quite" + answer) ────────────►│ answer; the daemon waits for QuizNext
  │                                                    passed → replay stashed login → startAuth()
  │ ◄── LoginSucceeded ◄───────────────────────────────────────────────────────── (normal path)
  │                                                    failed → QuizResult(review[]) + cooldown +

@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: GPL-2.0-or-later
 #include "QuizGate.h"
 
+#include "core/Answer.h"
 #include "core/QuestionBank.h"
 
 #include <QDataStream>
@@ -293,6 +294,9 @@ bool QuizGate::handleMessage(QLocalSocket *socket, quint32 message, QDataStream 
     case EduGreeterMessage::QuizAbandon:
         onAbandon(socket);
         return true;
+    case EduGreeterMessage::QuizNext:
+        onNext(socket);
+        return true;
     default:
         return false;
     }
@@ -334,7 +338,14 @@ void QuizGate::onAnswer(QLocalSocket *socket, const QuizAnswerMsg &msg)
 {
     if (!fromQuizSocket(socket, "QuizAnswer"))
         return;
+    if (m_waitingNext) {
+        qWarning() << "Edu-LM: ignoring QuizAnswer while waiting for QuizNext";
+        return;
+    }
 
+    // The session moves on once a question is finished, so take what a reveal needs first.
+    const Question *asked = m_quiz->current();
+    const Question question = asked ? *asked : Question();
     const QuizSession::AnswerResult result = m_quiz->answer(msg.questionId, msg.answer);
     if (!result.accepted()) {
         qWarning() << "Edu-LM: ignoring QuizAnswer for stale question" << msg.questionId;
@@ -342,9 +353,32 @@ void QuizGate::onAnswer(QLocalSocket *socket, const QuizAnswerMsg &msg)
     }
     ++m_answerAttempts;
 
-    sendTo(m_quizSocket, EduDaemonMessage::QuizFeedback,
-           QuizFeedbackMsg{msg.questionId, result.correct, result.attemptsLeft, result.questionFinished});
+    QuizFeedbackMsg feedback;
+    feedback.id = msg.questionId;
+    feedback.correct = result.correct;
+    feedback.attemptsLeft = result.attemptsLeft;
+    feedback.questionFinished = result.questionFinished;
+    if (result.questionFinished && !result.correct && m_quiz->rules().showCorrectAnswers) {
+        feedback.revealed = true;
+        feedback.correctAnswer = correctAnswerText(question);
+        feedback.explanation = question.explanation;
+    }
+    sendTo(m_quizSocket, EduDaemonMessage::QuizFeedback, feedback);
 
+    if (feedback.revealed) {
+        m_waitingNext = true;
+        // the outcome is known: the cooldown starts now, not when the child presses Next
+        if (m_quiz->state() == QuizSession::State::Failed)
+            recordFailure();
+        return;
+    }
+    if (result.questionFinished)
+        advance();
+}
+
+// What follows a finished answer: the result, or the next question.
+void QuizGate::advance()
+{
     switch (m_quiz->state()) {
     case QuizSession::State::Passed:
         finishPassed();
@@ -353,15 +387,30 @@ void QuizGate::onAnswer(QLocalSocket *socket, const QuizAnswerMsg &msg)
         finishFailed(true);
         break;
     default:
-        if (result.questionFinished)
-            sendQuestion();
+        sendQuestion();
     }
+}
+
+void QuizGate::onNext(QLocalSocket *socket)
+{
+    if (!fromQuizSocket(socket, "QuizNext"))
+        return;
+    if (!m_waitingNext) {
+        qWarning() << "Edu-LM: ignoring QuizNext - not waiting for it";
+        return;
+    }
+    m_waitingNext = false;
+    advance();
 }
 
 void QuizGate::onSwap(QLocalSocket *socket, const QuizSwapMsg &msg)
 {
     if (!fromQuizSocket(socket, "QuizSwap"))
         return;
+    if (m_waitingNext) {
+        qWarning() << "Edu-LM: ignoring QuizSwap while waiting for QuizNext";
+        return;
+    }
 
     const QuizSession::SwapResult result = m_quiz->swap(msg.questionId);
     if (result.accepted()) {
@@ -406,11 +455,20 @@ void QuizGate::finishPassed()
     login.wipe();
 }
 
+// Once per quiz: a second call must not move the deadline.
+void QuizGate::recordFailure()
+{
+    if (m_failureRecorded)
+        return;
+    m_failureRecorded = true;
+    m_cooldown.recordFailure(m_pending.user, m_cooldownSeconds);
+}
+
 void QuizGate::finishFailed(bool sendResult)
 {
     const QString user = m_pending.user;
     qInfo() << "Edu-LM: quiz failed by" << user << "with" << m_quiz->correctCount() << "correct";
-    m_cooldown.recordFailure(user, m_cooldownSeconds);
+    recordFailure();
 
     if (sendResult) {
         QuizResultMsg result;
@@ -430,8 +488,15 @@ void QuizGate::finishFailed(bool sendResult)
 }
 
 // Answering counts as an attempt: leaving afterwards must not dodge the cooldown.
+// While waiting for QuizNext the outcome is already known: Passed is dropped, and a Failed quiz
+// has been answered, so it counts as a failure.
 void QuizGate::abandon()
 {
+    if (m_quiz && m_quiz->state() == QuizSession::State::Passed) {
+        qInfo() << "Edu-LM: quiz passed by" << m_pending.user << "but left before continuing, login dropped";
+        discard();
+        return;
+    }
     if (m_quiz && m_answerAttempts > 0) {
         qInfo() << "Edu-LM: quiz abandoned by" << m_pending.user << "after answering, counted as failed";
         finishFailed(false);
@@ -444,6 +509,8 @@ void QuizGate::discard()
 {
     m_quiz.reset();
     m_answerAttempts = 0;
+    m_waitingNext = false;
+    m_failureRecorded = false;
     m_hasPending = false;
     m_pending.wipe();
 }

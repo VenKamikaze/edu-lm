@@ -39,6 +39,7 @@ makepkg -si
 - `.git` is used, if present, only to make the version (`0.21.0.r<commits>.g<hash>`). `makepkg` rewrites the `pkgver=` line in `PKGBUILD` when it does that.
 - pacman asks to remove `sddm` (the conflict). Say yes. If you had edited `/etc/pam.d/sddm` (or the other two PAM files), pacman may keep your copy as a `.pacsave` or `.pacnew`; compare them with ours.
 - Packages that depend on `sddm` (`sddm-kcm` does) are satisfied by the `sddm=0.21.0` provides.
+- **Reboot (or `sudo systemctl restart sddm` from a text console) after installing or upgrading edu-lm.** pacman does not restart the running daemon, and an old daemon with the new greeter (or the reverse) leaves the quiz stuck.
 
 ## 2. Switch the display manager
 
@@ -158,4 +159,4 @@ sudo cmake --install build
 - Config, the theme drop-in, the sysusers file (when systemd is found) and the example install by themselves, at `<sysconfdir>/edu-lm`, `<prefix>/lib/sddm/sddm.conf.d/edu-lm.conf` and `<prefix>/share/edu-lm/examples`. `<sysconfdir>` is `/etc` with prefix `/usr`, but `/usr/local/etc` with prefix `/usr/local` (add `-DCMAKE_INSTALL_SYSCONFDIR=/etc` to force `/etc`). The paths come from `EDU_CONFIG_FILE`, `EDU_CONFIG_DIR`, `EDU_QUESTIONS_DIR` and `EDU_EXTRA_QUESTIONS_DIR` (cmake cache variables) and are absolute.
 - Upstream SDDM no longer installs PAM services. Copy your distro's `sddm`, `sddm-autologin` and `sddm-greeter` (for Arch, `packaging/arch/pam/`) to `/etc/pam.d/`. For `StudentPasswords=false` the `sddm` auth chain needs `nullok` on `pam_unix`; `edu-lm-check` tells you whether it is there.
 - Create the groups if no sysusers support: `groupadd edu-students; groupadd edu-year3; …`.
-- Then enable `sddm.service` as in section 2.
+- Then enable `sddm.service` as in section 2. After any upgrade, reboot or `sudo systemctl restart sddm` from a text console.

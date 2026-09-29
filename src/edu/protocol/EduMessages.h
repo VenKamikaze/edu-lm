@@ -12,6 +12,7 @@ enum class EduGreeterMessage : quint32 {
     QuizAnswer,
     QuizSwap,
     QuizAbandon,
+    QuizNext, // after a revealing QuizFeedback: carry on with the quiz
 };
 
 enum class EduDaemonMessage : quint32 {

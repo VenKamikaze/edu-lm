@@ -44,7 +44,8 @@ void EduProtocolTest::idsAreDistinctAndClearOfUpstream()
     const QList<quint32> ids = {
         quint32(EduGreeterMessage::QuizHello), quint32(EduGreeterMessage::QuizQuery),
         quint32(EduGreeterMessage::QuizAnswer), quint32(EduGreeterMessage::QuizSwap),
-        quint32(EduGreeterMessage::QuizAbandon), quint32(EduDaemonMessage::QuizStatus),
+        quint32(EduGreeterMessage::QuizAbandon), quint32(EduGreeterMessage::QuizNext),
+        quint32(EduDaemonMessage::QuizStatus),
         quint32(EduDaemonMessage::QuizStarted), quint32(EduDaemonMessage::QuizQuestion),
         quint32(EduDaemonMessage::QuizFeedback), quint32(EduDaemonMessage::QuizSwapRefused),
         quint32(EduDaemonMessage::QuizResult), quint32(EduDaemonMessage::QuizCooldown),
@@ -137,13 +138,32 @@ void EduProtocolTest::question()
 
 void EduProtocolTest::feedback()
 {
-    const auto out = decode<QuizFeedbackMsg>(
-        encodeMessage(EduDaemonMessage::QuizFeedback, QuizFeedbackMsg{"q", true, 1, false}),
-        quint32(EduDaemonMessage::QuizFeedback));
+    QuizFeedbackMsg in;
+    in.id = "q";
+    in.correct = true;
+    in.attemptsLeft = 1;
+    const auto out = decode<QuizFeedbackMsg>(encodeMessage(EduDaemonMessage::QuizFeedback, in),
+                                             quint32(EduDaemonMessage::QuizFeedback));
     QCOMPARE(out.id, QString("q"));
     QCOMPARE(out.correct, true);
     QCOMPARE(out.attemptsLeft, 1);
     QCOMPARE(out.questionFinished, false);
+    QCOMPARE(out.revealed, false);
+    QVERIFY(out.correctAnswer.isEmpty());
+    QVERIFY(out.explanation.isEmpty());
+
+    in.correct = false;
+    in.attemptsLeft = 0;
+    in.questionFinished = true;
+    in.revealed = true;
+    in.correctAnswer = "42";
+    in.explanation = "6 × 7";
+    const auto revealed = decode<QuizFeedbackMsg>(encodeMessage(EduDaemonMessage::QuizFeedback, in),
+                                                  quint32(EduDaemonMessage::QuizFeedback));
+    QCOMPARE(revealed.questionFinished, true);
+    QCOMPARE(revealed.revealed, true);
+    QCOMPARE(revealed.correctAnswer, QString("42"));
+    QCOMPARE(revealed.explanation, QString("6 × 7"));
 }
 
 void EduProtocolTest::swapRefused()
@@ -204,7 +224,7 @@ void EduProtocolTest::cooldownAndError()
 
 void EduProtocolTest::noPayloadMessages()
 {
-    for (auto id : {EduGreeterMessage::QuizHello, EduGreeterMessage::QuizAbandon}) {
+    for (auto id : {EduGreeterMessage::QuizHello, EduGreeterMessage::QuizAbandon, EduGreeterMessage::QuizNext}) {
         const QByteArray bytes = encodeMessage(id);
         QCOMPARE(bytes.size(), 4);
         QDataStream in(bytes);

@@ -44,7 +44,7 @@ Last updated: 2026-09-29. Read with `docs/PLAN.md` (the design) to resume.
 
 - Look: Breeze-like calm layout with friendly touches (rounded, bigger text and buttons, cheerful accent); colours and background overridable in `theme.conf`.
 - Login: an avatar grid of users plus "Other…" for a typed name.
-- After each answer: a brief "Correct!" / "Not quite" (plus "Try again" when AnswerAttempts > 1). Full answers only in the failure review.
+- After each answer: a brief "Correct!" / "Not quite" (plus "Try again" when AnswerAttempts > 1). Full answers only in the failure review. (Superseded 2026-09-30: answers are now shown on the spot, see the answer-reveal branch.)
 - Screenshots: the user installs `xdotool`; a script drives the real UI in `--test-mode`.
 
 ## Phase 4 (Arch integration): BUILT, squash-merged into `main`; awaiting the user's real-PC test
@@ -54,6 +54,13 @@ Last updated: 2026-09-29. Read with `docs/PLAN.md` (the design) to resume.
 - Research (from source and Arch package files): pam_access sees origin `sddm` at SDDM's account stage (PAM_TTY is set only at openSession; the helper's stdin is a pipe), so a ttyN rule can't block SDDM; kscreenlocker never runs the account stage. plasma-login-manager does not conflict with sddm; only one unit can own `display-manager.service`. sddm-kcm hard-depends on `sddm` (satisfied by `provides`).
 - User decisions (2026-09-29): source goes to the Arch PC by rsync of the whole repo; one PC runs LightDM, the other has sddm + plasma-login-manager; pam_access ships opt-in; the package creates groups, ships `edu-lm-check`, and defaults the theme to edu.
 - **Phase 4 is done when:** the user runs `docs/PHASE4-TEST.md` on an Arch PC and confirms a real login round-trip. Still never run for real: everything listed under phases 2 and 3, plus the package install itself (only simulated on the Pi).
+
+## Answer reveal (after the first real test, 2026-09-30): DONE, squash-merged into `main`
+
+- First real run on one Arch PC: package installed; a normal user and an `edu-students,edu-year3` child logged in, the child passed 4/5 through real PAM and the replay. Remaining PHASE4-TEST steps not yet reported.
+- makepkg's check() failed QuizGateTest on x86_64 (GCC 16 + LTO reordered `startQuiz() + runToEnd()`); fixed in `d0cf368`. A Pi build with Arch's makepkg flags + LTO passes 19/19.
+- User decision: show the right answer **on the spot** after a finished wrong question (supersedes "answers only in the failure review"). `QuizFeedback` carries `revealed/correctAnswer/explanation`; the daemon waits for a new `QuizNext` before the next question/result/login replay; Next is inert for 700 ms and ignores key auto-repeat (a double or held Enter skipped it); a failed quiz's cooldown is recorded at the failing answer. Follows `ShowCorrectAnswers`.
+- One Opus review (2 major: double-Enter skip, new greeter vs old running daemon wedges; 4 minor; nits); all fixed. The version mismatch is docs-only for now ("reboot or restart sddm after installing/upgrading"); a protocol version is in TODO.md. Orchestrator verified 19/19 Debug + Release, a guard mutation, and the double/held-Enter repro screenshots.
 
 ## Next phases (see PLAN §11)
 

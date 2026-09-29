@@ -10,6 +10,9 @@ FocusScope {
     property real u: EduStyle.unit(width, height)
     property bool confirmingBack: false
     property string shownQuestion: ""
+    // Next ignores presses just after the answer is shown, so a double or held Enter that
+    // answered the question cannot skip it
+    property bool nextArmed: false
 
     readonly property int quizState: eduQuiz.state
     readonly property bool onQuestion: quizState === QuizClient.Question
@@ -88,6 +91,12 @@ FocusScope {
         target: eduQuiz
         function onQuestionChanged() { if (root.onQuestion) root.questionArrived() }
     }
+    onOnFeedbackChanged: if (onFeedback && eduQuiz.feedbackNeedsNext) {
+        nextArmed = false
+        nextArmTimer.restart()
+        nextButton.forceActiveFocus()
+    }
+    Timer { id: nextArmTimer; interval: 700; onTriggered: root.nextArmed = true }
     onOnResultChanged: if (onResult) resultFocus.forceActiveFocus()
     onOnCooldownChanged: if (onCooldown) cooldownBack.forceActiveFocus()
 
@@ -323,17 +332,21 @@ FocusScope {
             }
         }
 
-        // "Correct!" / "Not quite"
+        // "Correct!" / "Not quite", and after a missed question the answer and a Next button
         Rectangle {
+            id: feedbackPage
             anchors.fill: parent
             visible: root.onFeedback
-            color: "#f2f3f9ff"
+            color: "#f3f9ff"
+            readonly property bool reveals: eduQuiz.feedbackRevealed
+            readonly property real textWidth: Math.min(root.width - Math.round(80 * root.u), Math.round(900 * root.u))
+
             Column {
                 anchors.centerIn: parent
-                spacing: Math.round(20 * root.u)
+                spacing: Math.round(feedbackPage.reveals ? 14 * root.u : 20 * root.u)
                 Rectangle {
                     anchors.horizontalCenter: parent.horizontalCenter
-                    width: Math.round(150 * root.u); height: width; radius: width / 2
+                    width: Math.round((feedbackPage.reveals ? 100 : 150) * root.u); height: width; radius: width / 2
                     color: eduQuiz.feedbackCorrect ? EduStyle.correctColor : EduStyle.wrongColor
                     Text {
                         anchors.centerIn: parent
@@ -350,6 +363,43 @@ FocusScope {
                     color: eduQuiz.feedbackCorrect ? EduStyle.correctColor : EduStyle.wrongColor
                     font.pixelSize: root.pxs(46)
                     font.bold: true
+                }
+                Text {
+                    width: feedbackPage.textWidth
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    visible: feedbackPage.reveals
+                    horizontalAlignment: Text.AlignHCenter
+                    wrapMode: Text.WordWrap
+                    text: qsTr("The answer is: %1").arg(eduQuiz.feedbackAnswer)
+                    color: EduStyle.textColor
+                    font.pixelSize: root.pxs(34)
+                    font.bold: true
+                    maximumLineCount: 4
+                    elide: Text.ElideRight
+                }
+                Text {
+                    width: feedbackPage.textWidth
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    visible: feedbackPage.reveals && eduQuiz.feedbackExplanation !== ""
+                    horizontalAlignment: Text.AlignHCenter
+                    wrapMode: Text.WordWrap
+                    text: eduQuiz.feedbackExplanation
+                    color: EduStyle.mutedTextColor
+                    font.pixelSize: root.pxs(24)
+                    maximumLineCount: 6
+                    elide: Text.ElideRight
+                }
+                EduButton {
+                    id: nextButton
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    visible: feedbackPage.reveals
+                    primary: true
+                    pixelSize: 26
+                    text: qsTr("Next")
+                    enabled: eduQuiz.feedbackNeedsNext
+                    opacity: root.nextArmed ? 1 : 0.5
+                    Behavior on opacity { NumberAnimation { duration: 150 } }
+                    onClicked: if (root.nextArmed) eduQuiz.next()
                 }
             }
         }
