@@ -26,6 +26,11 @@ edu_add_test(QuizPolicyTest)
 edu_add_test(EduProtocolTest)
 target_link_libraries(EduProtocolTest PRIVATE edu-protocol)
 
+edu_add_test(QuizClientTest)
+target_link_libraries(QuizClientTest PRIVATE edu-greeter)
+# fills freed memory so mockDeletedMidQuiz catches a use after free
+set_tests_properties(QuizClientTest PROPERTIES ENVIRONMENT MALLOC_PERTURB_=165)
+
 edu_add_test(QuizGateTest)
 target_link_libraries(QuizGateTest PRIVATE edu-daemon edu-protocol Qt${QT_MAJOR_VERSION}::Network)
 

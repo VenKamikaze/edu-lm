@@ -44,7 +44,8 @@ add_executable(${GREETER_TARGET} ${GREETER_SOURCES} ${RESOURCES})
 target_link_libraries(${GREETER_TARGET}
                       Qt${QT_MAJOR_VERSION}::Quick
                       ${LIBXCB_LIBRARIES}
-                      ${LIBXKB_LIBRARIES})
+                      ${LIBXKB_LIBRARIES}
+                      edu-greeter-glue) # EDU-LM
 
 if(JOURNALD_FOUND)
     target_link_libraries(${GREETER_TARGET} ${JOURNALD_LIBRARIES})

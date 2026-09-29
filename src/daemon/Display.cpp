@@ -349,6 +349,7 @@ namespace SDDM {
         //the SDDM user has special privileges that skip password checking so that we can load the greeter
         //block ever trying to log in as the SDDM user
         if (user == QLatin1String("sddm")) {
+            m_quizGate->refuseReservedUser(); // EDU-LM:
             emit loginFailed(m_socket);
             return;
         }

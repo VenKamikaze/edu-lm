@@ -3,6 +3,27 @@
 
 namespace EduLM {
 
+static QString &fileOverride()
+{
+    static QString path;
+    return path;
+}
+
+void setConfigFileOverride(const QString &path)
+{
+    fileOverride() = path;
+}
+
+QString configFilePath()
+{
+    return fileOverride().isEmpty() ? QStringLiteral(EDU_CONFIG_FILE) : fileOverride();
+}
+
+QString configDirPath()
+{
+    return fileOverride().isEmpty() ? QStringLiteral(EDU_CONFIG_DIR) : QString();
+}
+
 QuizRules quizRules(const EduConfig &config)
 {
     QuizRules rules;

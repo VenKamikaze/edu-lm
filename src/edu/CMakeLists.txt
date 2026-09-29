@@ -17,6 +17,7 @@ target_link_libraries(edu-core PUBLIC Qt${QT_MAJOR_VERSION}::Core)
 
 add_subdirectory(protocol)
 add_subdirectory(daemon)
+add_subdirectory(greeter)
 
 add_executable(edu-lm-validate tools/edu-lm-validate.cpp)
 target_include_directories(edu-lm-validate PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})

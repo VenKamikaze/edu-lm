@@ -32,6 +32,8 @@ struct QuizStatusMsg {
     bool required = false;
     bool studentPasswords = true;
     qint32 cooldownSeconds = 0;
+    qint32 questionCount = 0;
+    qint32 requiredCorrect = 0;
 };
 
 struct QuizStartedMsg {
@@ -88,6 +90,10 @@ struct QuizErrorMsg {
     QString message;
 };
 
+struct QuizLoginRefusedMsg {
+    QString reason;
+};
+
 QDataStream &operator<<(QDataStream &s, const QuizQueryMsg &m);
 QDataStream &operator>>(QDataStream &s, QuizQueryMsg &m);
 QDataStream &operator<<(QDataStream &s, const QuizAnswerMsg &m);
@@ -112,6 +118,8 @@ QDataStream &operator<<(QDataStream &s, const QuizCooldownMsg &m);
 QDataStream &operator>>(QDataStream &s, QuizCooldownMsg &m);
 QDataStream &operator<<(QDataStream &s, const QuizErrorMsg &m);
 QDataStream &operator>>(QDataStream &s, QuizErrorMsg &m);
+QDataStream &operator<<(QDataStream &s, const QuizLoginRefusedMsg &m);
+QDataStream &operator>>(QDataStream &s, QuizLoginRefusedMsg &m);
 
 // A message on the wire is its quint32 id followed by the payload, if any.
 template<typename Id>

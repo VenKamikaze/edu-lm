@@ -14,6 +14,7 @@ private slots:
     void greeterPayloads();
     void status();
     void started();
+    void loginRefusedAndReady();
     void question();
     void feedback();
     void swapRefused();
@@ -47,7 +48,8 @@ void EduProtocolTest::idsAreDistinctAndClearOfUpstream()
         quint32(EduDaemonMessage::QuizStarted), quint32(EduDaemonMessage::QuizQuestion),
         quint32(EduDaemonMessage::QuizFeedback), quint32(EduDaemonMessage::QuizSwapRefused),
         quint32(EduDaemonMessage::QuizResult), quint32(EduDaemonMessage::QuizCooldown),
-        quint32(EduDaemonMessage::QuizError)};
+        quint32(EduDaemonMessage::QuizError), quint32(EduDaemonMessage::QuizReady),
+        quint32(EduDaemonMessage::QuizLoginRefused)};
     QCOMPARE(QSet<quint32>(ids.begin(), ids.end()).size(), ids.size());
     for (quint32 id : ids)
         QVERIFY(id >= 0x45440000); // upstream enums are small integers
@@ -77,12 +79,26 @@ void EduProtocolTest::status()
     in.required = true;
     in.studentPasswords = false;
     in.cooldownSeconds = 42;
+    in.questionCount = 6;
+    in.requiredCorrect = 5;
     const auto out = decode<QuizStatusMsg>(encodeMessage(EduDaemonMessage::QuizStatus, in),
                                            quint32(EduDaemonMessage::QuizStatus));
     QCOMPARE(out.user, in.user);
     QCOMPARE(out.required, true);
     QCOMPARE(out.studentPasswords, false);
     QCOMPARE(out.cooldownSeconds, 42);
+    QCOMPARE(out.questionCount, 6);
+    QCOMPARE(out.requiredCorrect, 5);
+}
+
+void EduProtocolTest::loginRefusedAndReady()
+{
+    const auto refused = decode<QuizLoginRefusedMsg>(
+        encodeMessage(EduDaemonMessage::QuizLoginRefused, QuizLoginRefusedMsg{"wrong-password"}),
+        quint32(EduDaemonMessage::QuizLoginRefused));
+    QCOMPARE(refused.reason, QString("wrong-password"));
+    // QuizReady has no payload
+    QCOMPARE(encodeMessage(EduDaemonMessage::QuizReady).size(), 4);
 }
 
 void EduProtocolTest::started()

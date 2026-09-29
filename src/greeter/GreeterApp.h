@@ -76,6 +76,7 @@ namespace SDDM {
         UserModel *m_userModel { nullptr };
         GreeterProxy *m_proxy { nullptr };
         KeyboardModel *m_keyboard { nullptr };
+        QObject *m_quiz { nullptr }; // EDU-LM:
 
         void startup();
         void activatePrimary();

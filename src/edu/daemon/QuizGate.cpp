@@ -94,6 +94,28 @@ void QuizGate::sendError(const QString &message)
     sendTo(m_quizSocket, EduDaemonMessage::QuizError, QuizErrorMsg{message});
 }
 
+void QuizGate::refuseLogin(const QString &reason)
+{
+    sendTo(m_quizSocket, EduDaemonMessage::QuizLoginRefused, QuizLoginRefusedMsg{reason});
+}
+
+QuizStatusMsg QuizGate::statusFor(const QString &user, const GateConfig &config, bool required)
+{
+    QuizStatusMsg status;
+    status.user = user;
+    status.required = required;
+    status.studentPasswords = config.studentPasswords;
+    status.cooldownSeconds = m_cooldown.secondsLeft(user);
+    status.questionCount = config.rules.questionCount;
+    status.requiredCorrect = config.rules.requiredCorrect;
+    return status;
+}
+
+void QuizGate::refuseReservedUser()
+{
+    refuseLogin(QStringLiteral("refused"));
+}
+
 bool QuizGate::needsQuiz(const QString &user) const
 {
     return decideQuiz(user, m_groups(user), m_config().policy).quizRequired;
@@ -121,8 +143,12 @@ void QuizGate::failLogin(QLocalSocket *loginSocket, const QString &information)
 bool QuizGate::intercept(QLocalSocket *socket, const QString &user, const QString &password, Continuation proceed)
 {
     const GateConfig config = m_config();
-    if (!decideQuiz(user, m_groups(user), config.policy).quizRequired)
+    if (!decideQuiz(user, m_groups(user), config.policy).quizRequired) {
+        // the greeter learns "no quiz" here, so it can read a later LoginFailed as a wrong password
+        if (m_quizSocket)
+            sendTo(m_quizSocket, EduDaemonMessage::QuizStatus, statusFor(user, config, false));
         return false;
+    }
 
     const QStringList problems = configProblems(config);
     if (!problems.isEmpty()) {
@@ -144,6 +170,7 @@ bool QuizGate::intercept(QLocalSocket *socket, const QString &user, const QStrin
 
     if (busy()) {
         qInfo() << "Edu-LM: refusing login of" << user << "- a verification or quiz is already in progress";
+        refuseLogin(QStringLiteral("busy"));
         failLogin(socket);
         return true;
     }
@@ -170,6 +197,7 @@ void QuizGate::onVerified(bool ok)
     if (!ok) {
         m_hasPending = false;
         m_pending.wipe();
+        refuseLogin(QStringLiteral("wrong-password"));
         failLogin(loginSocket);
         return;
     }
@@ -232,6 +260,7 @@ void QuizGate::sendQuestion()
     msg.swapsLeft = m_quiz->swapsLeft();
     msg.attemptsLeft = m_quiz->attemptsLeft();
     sendTo(m_quizSocket, EduDaemonMessage::QuizQuestion, msg);
+    emit questionSent(*question);
 }
 
 bool QuizGate::handleMessage(QLocalSocket *socket, quint32 message, QDataStream &in)
@@ -283,17 +312,14 @@ void QuizGate::onHello(QLocalSocket *socket)
         abandon();
     m_quizSocket = socket;
     connect(socket, &QLocalSocket::disconnected, this, &QuizGate::onQuizSocketDisconnected, Qt::UniqueConnection);
+    socket->write(encodeMessage(EduDaemonMessage::QuizReady));
 }
 
 void QuizGate::onQuery(QLocalSocket *socket, const QString &user)
 {
     const GateConfig config = m_config();
-    QuizStatusMsg status;
-    status.user = user;
-    status.required = decideQuiz(user, m_groups(user), config.policy).quizRequired;
-    status.studentPasswords = config.studentPasswords;
-    status.cooldownSeconds = m_cooldown.secondsLeft(user);
-    sendTo(socket, EduDaemonMessage::QuizStatus, status);
+    const bool required = decideQuiz(user, m_groups(user), config.policy).quizRequired;
+    sendTo(socket, EduDaemonMessage::QuizStatus, statusFor(user, config, required));
 }
 
 bool QuizGate::fromQuizSocket(QLocalSocket *socket, const char *what) const

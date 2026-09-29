@@ -14,12 +14,12 @@ QDataStream &operator>>(QDataStream &s, QuizSwapMsg &m) { return s >> m.question
 
 QDataStream &operator<<(QDataStream &s, const QuizStatusMsg &m)
 {
-    return s << m.user << m.required << m.studentPasswords << m.cooldownSeconds;
+    return s << m.user << m.required << m.studentPasswords << m.cooldownSeconds << m.questionCount << m.requiredCorrect;
 }
 
 QDataStream &operator>>(QDataStream &s, QuizStatusMsg &m)
 {
-    return s >> m.user >> m.required >> m.studentPasswords >> m.cooldownSeconds;
+    return s >> m.user >> m.required >> m.studentPasswords >> m.cooldownSeconds >> m.questionCount >> m.requiredCorrect;
 }
 
 QDataStream &operator<<(QDataStream &s, const QuizStartedMsg &m)
@@ -92,5 +92,8 @@ QDataStream &operator>>(QDataStream &s, QuizCooldownMsg &m) { return s >> m.seco
 
 QDataStream &operator<<(QDataStream &s, const QuizErrorMsg &m) { return s << m.message; }
 QDataStream &operator>>(QDataStream &s, QuizErrorMsg &m) { return s >> m.message; }
+
+QDataStream &operator<<(QDataStream &s, const QuizLoginRefusedMsg &m) { return s << m.reason; }
+QDataStream &operator>>(QDataStream &s, QuizLoginRefusedMsg &m) { return s >> m.reason; }
 
 }

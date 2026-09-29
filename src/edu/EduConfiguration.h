@@ -9,7 +9,13 @@
 
 namespace EduLM {
 
-    Config(EduConfig, QStringLiteral(EDU_CONFIG_FILE), QStringLiteral(EDU_CONFIG_DIR), QString(),
+    // Points EduConfig at another file (no drop-in directory) for later instances; the
+    // daemon never calls this. An empty path restores the installed locations.
+    void setConfigFileOverride(const QString &path);
+    QString configFilePath();
+    QString configDirPath();
+
+    Config(EduConfig, configFilePath(), configDirPath(), QString(),
         Section(Quiz,
             Entry(Enabled,             bool,        true,                                       _S("Enable the quiz gate"));
             Entry(Groups,              QStringList, QStringList{_S("edu-students")},            _S("Comma-separated groups whose members get the quiz"));

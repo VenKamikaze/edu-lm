@@ -34,6 +34,7 @@ struct Msg {
     QuizResultMsg result;
     QuizCooldownMsg cooldown;
     QuizErrorMsg error;
+    QuizLoginRefusedMsg loginRefused;
     QByteArray raw;
 };
 
@@ -100,6 +101,9 @@ private slots:
     void severalMessagesInOneStream();
     void unknownMessageNotConsumed();
     void lastHelloWins();
+    void readyOnHello();
+    void reservedUserRefusal();
+    void abandonDuringVerification();
     void helloFromAnotherConnectionEndsQuiz();
 
 private:
@@ -115,7 +119,7 @@ private:
                    const QString &prefix, bool numeric = false);
     void sendRaw(Pair &pair, const QByteArray &bytes);
     Msgs drain(Pair &pair);
-    void hello() { sendRaw(quiz, encodeMessage(EduGreeterMessage::QuizHello)); }
+    void hello();
     bool login(const QString &user = "alice", const QString &password = "pw", Pair *from = nullptr);
     Msgs startQuiz(const QString &user = "alice");
     Msgs answer(const QString &questionId, const QString &text);
@@ -146,11 +150,13 @@ private:
     QuizGate *m_gate = nullptr;
 
     QStringList events;
+    QList<qint64> failPending; // quiz-socket bytes queued at the moment of each LoginFailed
 };
 
 void QuizGateTest::init()
 {
     m_packs = new QTemporaryDir;
+    failPending.clear();
     QVERIFY(m_packs->isValid());
     m_key.clear();
     writePack("maths4", "maths", {4}, 10, "m4");
@@ -192,7 +198,10 @@ void QuizGateTest::init()
 
     m_gate = new QuizGate(m_verifier, [this] { return cfg; },
                           [this](const QString &user) { return m_groups.value(user); }, *m_cooldown, m_rng);
-    connect(m_gate, &QuizGate::loginFailed, this, [this](QLocalSocket *s) { events << "fail@" + label(s); });
+    connect(m_gate, &QuizGate::loginFailed, this, [this](QLocalSocket *s) {
+        events << "fail@" + label(s);
+        failPending << (quiz.server ? quiz.server->bytesToWrite() : 0);
+    });
     connect(m_gate, &QuizGate::informationMessage, this,
             [this](QLocalSocket *s, const QString &m) { events << "info@" + label(s) + ":" + m; });
 
@@ -291,6 +300,15 @@ void QuizGateTest::sendRaw(Pair &pair, const QByteArray &bytes)
     QVERIFY(pair.server->waitForReadyRead(1000));
 }
 
+// The daemon answers a hello with QuizReady, and only that
+void QuizGateTest::hello()
+{
+    sendRaw(quiz, encodeMessage(EduGreeterMessage::QuizHello));
+    const QList<quint32> got = ids(drain(quiz));
+    // a repeated hello on the same connection is harmless and gets no second reply
+    QVERIFY(got.isEmpty() || got == QList<quint32>{id(EduDaemonMessage::QuizReady)});
+}
+
 Msgs QuizGateTest::drain(Pair &pair)
 {
     pair.server->waitForBytesWritten(1000);
@@ -317,6 +335,8 @@ Msgs QuizGateTest::drain(Pair &pair)
         case EduDaemonMessage::QuizResult: in >> m.result; break;
         case EduDaemonMessage::QuizCooldown: in >> m.cooldown; break;
         case EduDaemonMessage::QuizError: in >> m.error; break;
+        case EduDaemonMessage::QuizReady: break;
+        case EduDaemonMessage::QuizLoginRefused: in >> m.loginRefused; break;
         default: qFatal("unknown daemon message %x", raw);
         }
         if (in.status() != QDataStream::Ok)
@@ -394,10 +414,16 @@ void QuizGateTest::nonQuizUserPassthrough()
     QVERIFY(!login("bob"));
     QVERIFY(events.isEmpty());
     QVERIFY(m_verifier.calls.isEmpty());
-    QVERIFY(drain(quiz).isEmpty());
+    // the greeter is told "no quiz" so a later LoginFailed reads as a wrong password
+    const Msgs bob = drain(quiz);
+    QCOMPARE(ids(bob), QList<quint32>{id(EduDaemonMessage::QuizStatus)});
+    QCOMPARE(bob[0].status.user, QString("bob"));
+    QVERIFY(!bob[0].status.required);
+    QCOMPARE(bob[0].status.questionCount, 3);
     // unknown users are not quiz users either
     QVERIFY(!login("nobody"));
     QVERIFY(events.isEmpty());
+    QCOMPARE(ids(drain(quiz)), QList<quint32>{id(EduDaemonMessage::QuizStatus)});
 }
 
 void QuizGateTest::exemptUserPassthrough()
@@ -406,7 +432,7 @@ void QuizGateTest::exemptUserPassthrough()
     QVERIFY(!login("mum"));
     QVERIFY(events.isEmpty());
     QVERIFY(m_verifier.calls.isEmpty());
-    QVERIFY(drain(quiz).isEmpty());
+    QCOMPARE(ids(drain(quiz)), QList<quint32>{id(EduDaemonMessage::QuizStatus)});
 }
 
 void QuizGateTest::disabledPassthrough()
@@ -416,7 +442,9 @@ void QuizGateTest::disabledPassthrough()
     QVERIFY(!login("alice"));
     QVERIFY(events.isEmpty());
     QVERIFY(m_verifier.calls.isEmpty());
-    QVERIFY(drain(quiz).isEmpty());
+    const Msgs off = drain(quiz);
+    QCOMPARE(ids(off), QList<quint32>{id(EduDaemonMessage::QuizStatus)});
+    QVERIFY(!off[0].status.required);
 }
 
 void QuizGateTest::noQuizConnectionFailsClosed()
@@ -438,7 +466,10 @@ void QuizGateTest::wrongPassword()
     QVERIFY(events.isEmpty()); // nothing until PAM answers
     m_verifier.finish(false);
     QCOMPARE(events, QStringList{"fail@login"});
-    QVERIFY(drain(quiz).isEmpty());
+    QVERIFY2(failPending.last() > 0, "the verdict must be written before LoginFailed");
+    const Msgs refused = drain(quiz);
+    QCOMPARE(ids(refused), QList<quint32>{id(EduDaemonMessage::QuizLoginRefused)});
+    QCOMPARE(refused[0].loginRefused.reason, QString("wrong-password"));
     QCOMPARE(m_cooldown->secondsLeft("alice"), 0);
 
     // the stash is gone: the next login is verified again instead of refused as busy
@@ -524,6 +555,7 @@ void QuizGateTest::loginDuringCooldown()
     QVERIFY(login("alice"));
     QCOMPARE(m_verifier.calls.size(), 1); // no new password check
     QCOMPARE(events, QStringList{"fail@login"});
+    QVERIFY2(failPending.last() > 0, "the verdict must be written before LoginFailed");
     const Msgs msgs = drain(quiz);
     QCOMPARE(ids(msgs), QList<quint32>{id(EduDaemonMessage::QuizCooldown)});
     QCOMPARE(msgs[0].cooldown.seconds, 45);
@@ -714,6 +746,7 @@ void QuizGateTest::yearGroupsBrokenDuringVerification()
     QVERIFY(msgs[0].error.message.contains("99"));
     QCOMPARE(events.size(), 2);
     QCOMPARE(events[1], QString("fail@login"));
+    QVERIFY2(failPending.last() > 0, "the verdict must be written before LoginFailed");
 }
 
 void QuizGateTest::loginSocketDropDuringVerification()
@@ -758,6 +791,7 @@ void QuizGateTest::invalidConfig()
     const Msgs msgs = drain(quiz);
     QCOMPARE(ids(msgs), QList<quint32>{id(EduDaemonMessage::QuizError)});
     QVERIFY2(msgs[0].error.message.contains(mentions), qPrintable(msgs[0].error.message));
+    QVERIFY2(failPending.last() > 0, "the verdict must be written before LoginFailed");
     QCOMPARE(events.size(), 2);
     QVERIFY(events[0].startsWith("info@login:"));
     QVERIFY(events[0].contains(msgs[0].error.message));
@@ -839,11 +873,15 @@ void QuizGateTest::verificationInFlight()
     Pair second = connectPair("login2");
     QVERIFY(login("alice", "other", &second));
     QCOMPARE(events, QStringList{"fail@login2"});
+    QVERIFY2(failPending.last() > 0, "the verdict must be written before LoginFailed");
     QCOMPARE(m_verifier.calls.size(), 1);
 
     // the first login is unaffected
     m_verifier.finish(true);
-    QCOMPARE(ids(drain(quiz)).first(), id(EduDaemonMessage::QuizStarted));
+    const Msgs msgs = drain(quiz);
+    QCOMPARE(ids(msgs), (QList<quint32>{id(EduDaemonMessage::QuizLoginRefused), id(EduDaemonMessage::QuizStarted),
+                                        id(EduDaemonMessage::QuizQuestion)}));
+    QCOMPARE(msgs[0].loginRefused.reason, QString("busy"));
 }
 
 void QuizGateTest::quizInProgress()
@@ -852,8 +890,11 @@ void QuizGateTest::quizInProgress()
     Pair second = connectPair("login2");
     QVERIFY(login("carol", "pw", &second));
     QCOMPARE(events, QStringList{"fail@login2"});
+    QVERIFY2(failPending.last() > 0, "the verdict must be written before LoginFailed");
     QCOMPARE(m_verifier.calls.size(), 1);
-    QVERIFY(drain(quiz).isEmpty());
+    const Msgs busy = drain(quiz);
+    QCOMPARE(ids(busy), QList<quint32>{id(EduDaemonMessage::QuizLoginRefused)});
+    QCOMPARE(busy[0].loginRefused.reason, QString("busy"));
 }
 
 void QuizGateTest::statusQuery()
@@ -872,6 +913,8 @@ void QuizGateTest::statusQuery()
     QVERIFY(m.status.required);
     QVERIFY(m.status.studentPasswords);
     QCOMPARE(m.status.cooldownSeconds, 0);
+    QCOMPARE(m.status.questionCount, 3);
+    QCOMPARE(m.status.requiredCorrect, 2);
 
     QVERIFY(!query("bob").status.required);
     QVERIFY(!query("mum").status.required);
@@ -1024,6 +1067,43 @@ void QuizGateTest::unknownMessageNotConsumed()
     QCOMPARE(m_unknownIds, QList<quint32>{id(EduDaemonMessage::QuizError)});
 }
 
+void QuizGateTest::readyOnHello()
+{
+    // the first reply to a hello is QuizReady, and nothing is sent before it
+    sendRaw(quiz, encodeMessage(EduGreeterMessage::QuizHello));
+    QCOMPARE(ids(drain(quiz)), QList<quint32>{id(EduDaemonMessage::QuizReady)});
+    // a stock theme never says hello: the login is refused with no quiz-socket traffic at all
+    Pair other = connectPair("stock");
+    QVERIFY(m_gate->needsQuiz("alice"));
+    QVERIFY(drain(other).isEmpty());
+}
+
+void QuizGateTest::reservedUserRefusal()
+{
+    m_gate->refuseReservedUser(); // no quiz connection: nothing to write, nothing breaks
+    hello();
+    m_gate->refuseReservedUser();
+    const Msgs msgs = drain(quiz);
+    QCOMPARE(ids(msgs), QList<quint32>{id(EduDaemonMessage::QuizLoginRefused)});
+    QCOMPARE(msgs[0].loginRefused.reason, QString("refused"));
+}
+
+// Giving up during the password check discards the login: a late "ok" starts nothing
+void QuizGateTest::abandonDuringVerification()
+{
+    hello();
+    QVERIFY(login("alice"));
+    sendRaw(quiz, encodeMessage(EduGreeterMessage::QuizAbandon));
+    m_verifier.finish(true);
+    QVERIFY(drain(quiz).isEmpty());
+    QVERIFY(events.isEmpty()); // no quiz, no proceed
+    // and the gate is usable again
+    QVERIFY(login("alice"));
+    QCOMPARE(m_verifier.calls.size(), 2);
+    m_verifier.finish(true);
+    QCOMPARE(ids(drain(quiz)).mid(0, 1), QList<quint32>{id(EduDaemonMessage::QuizStarted)});
+}
+
 void QuizGateTest::lastHelloWins()
 {
     hello();
@@ -1034,7 +1114,8 @@ void QuizGateTest::lastHelloWins()
     QVERIFY(login("alice"));
     m_verifier.finish(true);
     QVERIFY(drain(quiz).isEmpty());
-    QCOMPARE(ids(drain(second)).first(), id(EduDaemonMessage::QuizStarted));
+    // one QuizReady for the two hellos, then the quiz
+    QCOMPARE(ids(drain(second)).mid(0, 2), (QList<quint32>{id(EduDaemonMessage::QuizReady), id(EduDaemonMessage::QuizStarted)}));
 
     // the old connection can neither answer nor abandon
     sendRaw(quiz, encodeMessage(EduGreeterMessage::QuizAbandon));

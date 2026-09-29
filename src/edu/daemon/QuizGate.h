@@ -41,11 +41,17 @@ public:
 
     bool needsQuiz(const QString &user) const;
 
+    // For a login Display refuses before the gate sees it (the reserved "sddm" user): the greeter
+    // still gets its verdict, so it does not wait for one.
+    void refuseReservedUser();
+
     bool handleMessage(QLocalSocket *socket, quint32 message, QDataStream &in) override;
 
 signals:
     void loginFailed(QLocalSocket *socket);
     void informationMessage(QLocalSocket *socket, const QString &message);
+    // Only the greeter's test-mode mock listens, to log the answer key; the daemon does not.
+    void questionSent(const EduLM::Question &question);
 
 private slots:
     void onVerified(bool ok);
@@ -82,6 +88,8 @@ private:
     template<typename Payload>
     void sendTo(QLocalSocket *socket, EduDaemonMessage id, const Payload &payload);
     void sendError(const QString &message);
+    void refuseLogin(const QString &reason);
+    QuizStatusMsg statusFor(const QString &user, const GateConfig &config, bool required);
     bool fromQuizSocket(QLocalSocket *socket, const char *what) const;
 
     PasswordVerifier &m_verifier;

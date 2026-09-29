@@ -78,9 +78,11 @@ The password-first flow lives almost entirely inside `QuizGate`, which has its o
 
 Greeter → daemon: `QuizHello`, `QuizQuery(user)`, `QuizAnswer(questionId, answer)`, `QuizSwap(questionId)`, `QuizAbandon`
 
-Daemon → greeter: `QuizStatus(user, required, studentPasswords, cooldownSecs)`, `QuizStarted(user, n, k, maxSwaps)`, `QuizQuestion(id, index, count, prompt, type, choices[], swapsLeft, attemptsLeft)`, `QuizFeedback(id, correct, attemptsLeft, finished)`, `QuizSwapRefused(reason)`, `QuizResult(passed, correct, required, asked, review[], cooldownSecs)`, `QuizCooldown(secs)`, `QuizError(message)`
+Daemon → greeter: `QuizReady` (reply to `QuizHello`), `QuizStatus(user, required, studentPasswords, cooldownSecs, questionCount, requiredCorrect)`, `QuizLoginRefused(reason)` (`wrong-password`, `busy` or `refused` for the reserved `sddm` user), `QuizStarted(user, n, k, maxSwaps)`, `QuizQuestion(id, index, count, prompt, type, choices[], swapsLeft, attemptsLeft)`, `QuizFeedback(id, correct, attemptsLeft, finished)`, `QuizSwapRefused(reason)`, `QuizResult(passed, correct, required, asked, review[], cooldownSecs)`, `QuizCooldown(secs)`, `QuizError(message)`
 
-Message IDs start at `0x45440000`. `QuizHello` marks a connection as quiz-capable; the greeter sends it only when the theme opts in, so a stock theme still fails closed.
+Message IDs start at `0x45440000`. `QuizHello` marks a connection as quiz-capable; the greeter sends it only when the theme opts in, so a stock theme still fails closed. The daemon answers it with `QuizReady`.
+
+The login result (`LoginFailed`) travels on the other socket and can be read before or after the quiz messages, so the daemon writes a **verdict** on the quiz socket, before any `LoginFailed`, for every login the gate sees: `QuizStatus(required=false)` for a user with no quiz, `QuizLoginRefused` for a wrong password or a busy gate, `QuizCooldown`, `QuizError` for a broken configuration, or `QuizStarted`. The greeter reads a `LoginFailed` only in the light of that verdict, with no timers. Logins with no possible verdict are those from a greeter with no ready quiz connection (refused by design: fail closed) and the few upstream paths that send no `LoginFailed` at all; for those the theme offers a "Go back" escape from its Checking screen after ten seconds, and `QuizAbandon` discards any login the gate still holds.
 
 `review[]` is sent only after a failed attempt. It lists each missed question with the correct answer and an optional explanation. Answer keys are never sent before an answer is given.
 

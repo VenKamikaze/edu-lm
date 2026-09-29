@@ -23,6 +23,8 @@ enum class EduDaemonMessage : quint32 {
     QuizResult,
     QuizCooldown,
     QuizError,
+    QuizReady,        // reply to QuizHello: the daemon has registered this connection
+    QuizLoginRefused, // a login was refused before any quiz (reason: wrong-password, busy)
 };
 
 }

@@ -32,14 +32,29 @@ Last updated: 2026-09-29. Read with `docs/PLAN.md` (the design) to resume.
 - Brand only: internal names stay `sddm` for merge-friendliness. Target is Arch + KDE, a few family PCs, and a public GPL repo later.
 - Question bank: local JSON files, root-only (0600/0700). No REST service.
 
+## Phase 3 (greeter + theme): DONE, squash-merged into `main`
+
+- It covers: `src/edu/greeter/` (QuizClient exposed as `eduQuiz`, MockDaemon running the real QuizGate in `--test-mode`, GreeterGlue with `EDU_LM_TEST_*` env vars), `data/themes/edu/`, QuizClientTest, and `tools/dev/greeter-flow.sh` (xdotool-driven screenshots of every screen).
+- Protocol additions (replacing a timing heuristic): `QuizReady` answers `QuizHello`; every login the gate sees gets a verdict on the quiz socket before `LoginFailed` (`QuizLoginRefused(wrong-password|busy|refused)`, `QuizCooldown`, `QuizError`, `QuizStarted`, or `QuizStatus(required=false)`); `QuizStatus` carries questionCount/requiredCorrect. One more upstream hook: the `sddm`-user refusal in `Display::login`. The Checking screen offers "Go back" after 10 s.
+- Two Opus review rounds (round 1: 2 major + 8 minor; round 2: 1 blocker, a wedged Checking state, + 1 major); all fixed. Orchestrator verified 17/17 ctest in Debug and Release, and viewed the screenshots.
+- **Never run for real:** the greeter's real-mode wiring (GreeterProxy + quiz socket against a live daemon). First real run is phase 4.
+- Leftover nits are in TODO.md.
+
+## Phase 3 decisions (user, 2026-09-29)
+
+- Look: Breeze-like calm layout with friendly touches (rounded, bigger text and buttons, cheerful accent); colours and background overridable in `theme.conf`.
+- Login: an avatar grid of users plus "Other…" for a typed name.
+- After each answer: a brief "Correct!" / "Not quite" (plus "Try again" when AnswerAttempts > 1). Full answers only in the failure review.
+- Screenshots: the user installs `xdotool`; a script drives the real UI in `--test-mode`.
+
 ## Next phases (see PLAN §11)
 
-3. **NEXT UP.** Greeter `QuizClient` (sends `QuizHello` only when the theme opts in; test-mode mock) + kid-friendly edu theme. Check with `tools/dev/greeter-shot.sh`.
-4. Arch PKGBUILD, a real end-to-end login test on the user's Arch/KDE PC (the first real run of AuthVerifier/PAM), a `nullok` check, a pam_access snippet, and shipping `edu-lm.conf` as comments only (drop-ins are overridden by the main file).
+3. Done. Greeter `QuizClient` (sends `QuizHello` only when the theme opts in; test-mode mock) + kid-friendly edu theme. Check with `tools/dev/greeter-shot.sh`.
+4. **NEXT UP.** Arch PKGBUILD, a real end-to-end login test on the user's Arch/KDE PC (the first real run of AuthVerifier/PAM), a `nullok` check, a pam_access snippet, and shipping `edu-lm.conf` as comments only (drop-ins are overridden by the main file).
 5. The `tools/qgen` Claude question-generation pipeline (Sonnet 5.5 + Batches + a blind verification pass).
 
 ## Environment notes (Raspberry Pi, Debian 13, headless, no sudo for Claude)
 
 - `build/`: Debug, Qt6, systemd on. Configured with `-DBUILD_WITH_QT6=ON -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=$PWD/build/install -DQML_INSTALL_DIR=$PWD/build/install/lib/qml` plus `SYSTEMD_{SYSTEM_UNIT,SYSUSERS,TMPFILES}_DIR` under `build/install/lib/systemd/`. A full build takes about 7 minutes with `-j3`.
-- Always also run a **Release** build's ctest (SDDM's default build type; it caught a `Q_ASSERT` side-effect bug). The Release dir used so far was in the session scratchpad and is not persistent; recreate one under `build-rel/`.
+- Always also run a **Release** build's ctest (SDDM's default build type; it caught a `Q_ASSERT` side-effect bug). It lives in `build-rel/` (configured like `build/`, git-excluded via `.git/info/exclude`).
 - The user runs sudo for any apt installs.

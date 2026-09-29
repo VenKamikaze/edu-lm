@@ -21,6 +21,7 @@
 #include "GreeterApp.h"
 #include "Configuration.h"
 #include "GreeterProxy.h"
+#include "GreeterGlue.h" // EDU-LM:
 #include "Constants.h"
 #include "ScreenModel.h"
 #include "SessionModel.h"
@@ -190,6 +191,7 @@ namespace SDDM {
         view->rootContext()->setContextProperty(QStringLiteral("config"), m_themeConfig);
         view->rootContext()->setContextProperty(QStringLiteral("sddm"), m_proxy);
         view->rootContext()->setContextProperty(QStringLiteral("keyboard"), m_keyboard);
+        view->rootContext()->setContextProperty(QStringLiteral("eduQuiz"), m_quiz); // EDU-LM:
         view->rootContext()->setContextProperty(QStringLiteral("primaryScreen"), QGuiApplication::primaryScreen() == screen);
         view->rootContext()->setContextProperty(QStringLiteral("__sddm_errors"), QString());
 
@@ -270,6 +272,8 @@ namespace SDDM {
 
         // Set session model on proxy
         m_proxy->setSessionModel(m_sessionModel);
+
+        m_quiz = EduLM::createQuizClient(m_proxy, m_socket, m_testing, this); // EDU-LM:
 
         // If the socket ends, bail. There is not much we can do.
         connect(m_proxy, &GreeterProxy::socketDisconnected, qGuiApp, &QCoreApplication::quit);

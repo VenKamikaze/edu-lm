@@ -1,0 +1,16 @@
+[SddmGreeterTheme]
+Name=Edu-LM
+Description=Friendly login screen with a quiz for student accounts
+Author=Edu-LM
+Copyright=(c) 2026 Edu-LM contributors
+License=GPL-2.0-or-later
+Type=sddm-theme
+Version=0.1
+Website=https://github.com/sddm/sddm
+Screenshot=
+MainScript=Main.qml
+ConfigFile=theme.conf
+TranslationsDirectory=translations
+Theme-Id=edu
+Theme-API=2.0
+QtVersion=@QT_MAJOR_VERSION@
