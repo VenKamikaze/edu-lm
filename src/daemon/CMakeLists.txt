@@ -65,7 +65,8 @@ target_link_libraries(sddm
                       Qt${QT_MAJOR_VERSION}::Network
                       Qt${QT_MAJOR_VERSION}::Qml
                       ${LIBXAU_LINK_LIBRARIES}
-                      ${LIBXCB_LIBRARIES})
+                      ${LIBXCB_LIBRARIES}
+                      edu-daemon-glue) # EDU-LM
 if(PAM_FOUND)
     target_link_libraries(sddm ${PAM_LIBRARIES})
 else()

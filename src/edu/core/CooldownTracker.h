@@ -14,9 +14,10 @@ public:
     // Monotonic milliseconds.
     using Clock = std::function<qint64()>;
 
-    explicit CooldownTracker(int cooldownSeconds, Clock clock = defaultClock());
+    explicit CooldownTracker(Clock clock = defaultClock());
 
-    void recordFailure(const QString &user);
+    // The cooldown length comes with each failure, so config changes apply to the next one.
+    void recordFailure(const QString &user, int cooldownSeconds);
     // Whole seconds remaining, rounded up; 0 when there is no cooldown.
     int secondsLeft(const QString &user);
     void clear(const QString &user);
@@ -24,7 +25,6 @@ public:
     static Clock defaultClock();
 
 private:
-    qint64 m_cooldownMs;
     Clock m_clock;
     QHash<QString, qint64> m_deadlines;
 };

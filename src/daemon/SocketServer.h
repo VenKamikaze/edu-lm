@@ -26,6 +26,8 @@
 
 #include "Session.h"
 
+namespace EduLM { class SocketExtension; } // EDU-LM:
+
 class QLocalServer;
 class QLocalSocket;
 
@@ -40,6 +42,9 @@ namespace SDDM {
         void stop();
 
         QString socketAddress() const;
+
+        // EDU-LM: receives the messages this server does not know
+        void setExtension(EduLM::SocketExtension *extension) { m_extension = extension; }
 
     private slots:
         void newConnection();
@@ -58,6 +63,7 @@ namespace SDDM {
 
     private:
         QLocalServer *m_server { nullptr };
+        EduLM::SocketExtension *m_extension { nullptr }; // EDU-LM:
     };
 }
 

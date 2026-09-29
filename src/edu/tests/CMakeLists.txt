@@ -23,6 +23,28 @@ edu_add_test(QuizSessionTest)
 edu_add_test(CooldownTrackerTest)
 edu_add_test(QuizPolicyTest)
 
+edu_add_test(EduProtocolTest)
+target_link_libraries(EduProtocolTest PRIVATE edu-protocol)
+
+edu_add_test(QuizGateTest)
+target_link_libraries(QuizGateTest PRIVATE edu-daemon edu-protocol Qt${QT_MAJOR_VERSION}::Network)
+
+# Real Auth and AuthVerifier against fake sddm-helper scripts. The test Constants.h only
+# provides LIBEXEC_INSTALL_DIR, so its directory must not hold anything else.
+set(EDU_FAKE_LIBEXEC "${CMAKE_CURRENT_BINARY_DIR}/fakelibexec")
+file(COPY fakehelper/sddm-helper DESTINATION "${EDU_FAKE_LIBEXEC}"
+     FILE_PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE)
+configure_file(AuthTestConstants.h.in ${CMAKE_CURRENT_BINARY_DIR}/authconstants/Constants.h @ONLY)
+edu_add_test(AuthVerifierTest
+    ${EDU_DIR}/daemon/AuthVerifier.cpp ${EDU_DIR}/daemon/AuthVerifier.h ${EDU_DIR}/daemon/PasswordVerifier.h
+    ${CMAKE_SOURCE_DIR}/src/auth/Auth.cpp ${CMAKE_SOURCE_DIR}/src/auth/AuthRequest.cpp
+    ${CMAKE_SOURCE_DIR}/src/auth/AuthPrompt.cpp ${CMAKE_SOURCE_DIR}/src/common/SafeDataStream.cpp)
+target_include_directories(AuthVerifierTest BEFORE PRIVATE
+    ${CMAKE_CURRENT_BINARY_DIR}/authconstants ${EDU_DIR}/daemon
+    ${CMAKE_SOURCE_DIR}/src/auth ${CMAKE_SOURCE_DIR}/src/common)
+target_compile_definitions(AuthVerifierTest PRIVATE FAKE_HELPER="${EDU_FAKE_LIBEXEC}/sddm-helper")
+target_link_libraries(AuthVerifierTest PRIVATE Qt${QT_MAJOR_VERSION}::Network Qt${QT_MAJOR_VERSION}::Qml)
+
 edu_add_test(EduConfigTest ${EDU_DIR}/EduConfiguration.cpp ${CMAKE_SOURCE_DIR}/src/common/ConfigReader.cpp)
 target_include_directories(EduConfigTest PRIVATE ${CMAKE_SOURCE_DIR}/src/common)
 

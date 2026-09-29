@@ -76,9 +76,11 @@ The password-first flow lives almost entirely inside `QuizGate`, which has its o
 
 ### 3.3 Quiz protocol (second socket connection)
 
-Greeter → daemon: `QuizHello`, `QuizAnswer(questionId, answer)`, `QuizSwap(questionId)`, `QuizAbandon`
+Greeter → daemon: `QuizHello`, `QuizQuery(user)`, `QuizAnswer(questionId, answer)`, `QuizSwap(questionId)`, `QuizAbandon`
 
-Daemon → greeter: `QuizRequired(user, n, k, swaps)`, `QuizQuestion(id, index, text, type, choices[], swapsLeft)`, `QuizFeedback(id, correct)`, `QuizResult(passed, correct, required, review[])`, `QuizCooldown(secondsLeft)`
+Daemon → greeter: `QuizStatus(user, required, studentPasswords, cooldownSecs)`, `QuizStarted(user, n, k, maxSwaps)`, `QuizQuestion(id, index, count, prompt, type, choices[], swapsLeft, attemptsLeft)`, `QuizFeedback(id, correct, attemptsLeft, finished)`, `QuizSwapRefused(reason)`, `QuizResult(passed, correct, required, asked, review[], cooldownSecs)`, `QuizCooldown(secs)`, `QuizError(message)`
+
+Message IDs start at `0x45440000`. `QuizHello` marks a connection as quiz-capable; the greeter sends it only when the theme opts in, so a stock theme still fails closed.
 
 `review[]` is sent only after a failed attempt. It lists each missed question with the correct answer and an optional explanation. Answer keys are never sent before an answer is given.
 
@@ -109,7 +111,7 @@ YearGroups=edu-year3:3,edu-year4:4,edu-year5:5   # union of every group the user
 DefaultYear=4
 ```
 
-The cooldown is enforced by the daemon and tracked per user, so restarting the greeter or picking another user and coming back doesn't reset it. Admin setup is `usermod -aG edu-students,edu-year3 alice`. A child working above their year joins two year groups (e.g. `edu-year4,edu-year5`) and gets questions from both.
+The cooldown is enforced by the daemon and tracked per user, so restarting the greeter or picking another user and coming back doesn't reset it. It is held in memory only, so a reboot or daemon restart clears it. Admin setup is `usermod -aG edu-students,edu-year3 alice`. A child working above their year joins two year groups (e.g. `edu-year4,edu-year5`) and gets questions from both.
 
 ---
 
@@ -132,12 +134,13 @@ Theme                 GreeterProxy / QuizClient        QuizGate (daemon)        
  │ ◄── QuizQuestion / QuizFeedback ◄──────────────────┤
  │                                                    passed → replay stashed login → startAuth()
  │ ◄── LoginSucceeded ◄───────────────────────────────────────────────────────── (normal path)
- │                                                    failed → QuizResult(review[]) + cooldown,
- │                                                             then a fresh set (password kept for
- │                                                             the rest of this attempt)
+ │                                                    failed → QuizResult(review[]) + cooldown +
+ │                                                             LoginFailed; password discarded, so
+ │                                                             the child logs in again afterwards
 ```
 
-- The stashed password is kept only in daemon memory (SDDM already does this in `m_passPhrase`). It is wiped on pass, on `QuizAbandon` (the child presses Back) and on greeter disconnect.
+- The stashed password is kept only in daemon memory (SDDM already does this in `m_passPhrase`). It is wiped on pass, on failure, on `QuizAbandon` (the child presses Back) and on greeter disconnect.
+- Abandoning a quiz after at least one answer attempt counts as a failure (cooldown applies), so a child can't dodge the cooldown or re-roll questions indefinitely. Abandoning before answering anything costs nothing.
 - A theme without quiz support gets the standard `LoginFailed` plus `InformationMessage("This account needs the Edu-LM login screen")`, so it fails closed.
 
 ### 5.2 Students without passwords (`StudentPasswords=false`)

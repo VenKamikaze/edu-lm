@@ -1,0 +1,12 @@
+#!/bin/sh
+# Stand-in for sddm-helper: the behaviour comes from the --user argument.
+while [ $# -gt 0 ]; do
+    [ "$1" = "--user" ] && user="$2"
+    shift
+done
+case "$user" in
+    crash) kill -SEGV $$ ;;
+    fail) exit 1 ;;
+    hang) exec sleep 30 ;;
+esac
+exit 0

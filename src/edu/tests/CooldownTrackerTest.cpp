@@ -16,15 +16,16 @@ private slots:
     void rerecordRestarts();
     void zeroCooldown();
     void hugeCooldown();
+    void lengthComesWithEachFailure();
     void defaultClockWorks();
 };
 
 void CooldownTrackerTest::countsDown()
 {
     qint64 now = 1000;
-    CooldownTracker tracker(60, [&] { return now; });
+    CooldownTracker tracker([&] { return now; });
     QCOMPARE(tracker.secondsLeft("alice"), 0);
-    tracker.recordFailure("alice");
+    tracker.recordFailure("alice", 60);
     QCOMPARE(tracker.secondsLeft("alice"), 60);
     now += 1;
     QCOMPARE(tracker.secondsLeft("alice"), 60);
@@ -43,10 +44,10 @@ void CooldownTrackerTest::countsDown()
 void CooldownTrackerTest::perUser()
 {
     qint64 now = 0;
-    CooldownTracker tracker(30, [&] { return now; });
-    tracker.recordFailure("alice");
+    CooldownTracker tracker([&] { return now; });
+    tracker.recordFailure("alice", 30);
     now = 10000;
-    tracker.recordFailure("bob");
+    tracker.recordFailure("bob", 30);
     QCOMPARE(tracker.secondsLeft("alice"), 20);
     QCOMPARE(tracker.secondsLeft("bob"), 30);
     QCOMPARE(tracker.secondsLeft("carol"), 0);
@@ -55,9 +56,9 @@ void CooldownTrackerTest::perUser()
 void CooldownTrackerTest::clear()
 {
     qint64 now = 0;
-    CooldownTracker tracker(30, [&] { return now; });
-    tracker.recordFailure("alice");
-    tracker.recordFailure("bob");
+    CooldownTracker tracker([&] { return now; });
+    tracker.recordFailure("alice", 30);
+    tracker.recordFailure("bob", 30);
     tracker.clear("alice");
     QCOMPARE(tracker.secondsLeft("alice"), 0);
     QCOMPARE(tracker.secondsLeft("bob"), 30);
@@ -66,18 +67,18 @@ void CooldownTrackerTest::clear()
 void CooldownTrackerTest::rerecordRestarts()
 {
     qint64 now = 0;
-    CooldownTracker tracker(30, [&] { return now; });
-    tracker.recordFailure("alice");
+    CooldownTracker tracker([&] { return now; });
+    tracker.recordFailure("alice", 30);
     now = 20000;
-    tracker.recordFailure("alice");
+    tracker.recordFailure("alice", 30);
     QCOMPARE(tracker.secondsLeft("alice"), 30);
 }
 
 void CooldownTrackerTest::zeroCooldown()
 {
     qint64 now = 0;
-    CooldownTracker tracker(0, [&] { return now; });
-    tracker.recordFailure("alice");
+    CooldownTracker tracker([&] { return now; });
+    tracker.recordFailure("alice", 0);
     QCOMPARE(tracker.secondsLeft("alice"), 0);
 }
 
@@ -85,17 +86,27 @@ void CooldownTrackerTest::hugeCooldown()
 {
     qint64 now = 0;
     // 30 days overflows a 32-bit millisecond count
-    CooldownTracker tracker(30 * 24 * 3600, [&] { return now; });
-    tracker.recordFailure("alice");
+    CooldownTracker tracker([&] { return now; });
+    tracker.recordFailure("alice", 30 * 24 * 3600);
     QCOMPARE(tracker.secondsLeft("alice"), 30 * 24 * 3600);
     now = 24LL * 3600 * 1000;
     QCOMPARE(tracker.secondsLeft("alice"), 29 * 24 * 3600);
 }
 
+void CooldownTrackerTest::lengthComesWithEachFailure()
+{
+    qint64 now = 0;
+    CooldownTracker tracker([&] { return now; });
+    tracker.recordFailure("alice", 10);
+    tracker.recordFailure("bob", 50);
+    QCOMPARE(tracker.secondsLeft("alice"), 10);
+    QCOMPARE(tracker.secondsLeft("bob"), 50);
+}
+
 void CooldownTrackerTest::defaultClockWorks()
 {
-    CooldownTracker tracker(60);
-    tracker.recordFailure("alice");
+    CooldownTracker tracker;
+    tracker.recordFailure("alice", 60);
     const int left = tracker.secondsLeft("alice");
     QVERIFY(left >= 59 && left <= 60);
 }

@@ -5,9 +5,8 @@
 
 namespace EduLM {
 
-CooldownTracker::CooldownTracker(int cooldownSeconds, Clock clock)
-    : m_cooldownMs(qint64(qMax(0, cooldownSeconds)) * 1000)
-    , m_clock(std::move(clock))
+CooldownTracker::CooldownTracker(Clock clock)
+    : m_clock(std::move(clock))
 {
 }
 
@@ -19,10 +18,10 @@ CooldownTracker::Clock CooldownTracker::defaultClock()
     };
 }
 
-void CooldownTracker::recordFailure(const QString &user)
+void CooldownTracker::recordFailure(const QString &user, int cooldownSeconds)
 {
-    if (m_cooldownMs > 0)
-        m_deadlines.insert(user, m_clock() + m_cooldownMs);
+    if (cooldownSeconds > 0)
+        m_deadlines.insert(user, m_clock() + qint64(cooldownSeconds) * 1000);
 }
 
 int CooldownTracker::secondsLeft(const QString &user)

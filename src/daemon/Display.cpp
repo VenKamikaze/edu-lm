@@ -29,6 +29,8 @@
 #include "Seat.h"
 #include "SocketServer.h"
 #include "Greeter.h"
+#include "GateFactory.h" // EDU-LM:
+#include "QuizGate.h" // EDU-LM:
 #include "Utils.h"
 
 #include <QDebug>
@@ -159,6 +161,12 @@ namespace SDDM {
         connect(this, &Display::loginFailed, m_socketServer, &SocketServer::loginFailed);
         connect(this, &Display::loginSucceeded, m_socketServer, &SocketServer::loginSucceeded);
 
+        // EDU-LM: the quiz gate answers logins through the normal paths
+        m_quizGate = EduLM::makeQuizGate(this);
+        m_socketServer->setExtension(m_quizGate);
+        connect(m_quizGate, &EduLM::QuizGate::loginFailed, m_socketServer, &SocketServer::loginFailed);
+        connect(m_quizGate, &EduLM::QuizGate::informationMessage, m_socketServer, &SocketServer::informationMessage);
+
         connect(m_greeter, &Greeter::failed, this, &Display::stop);
         connect(m_greeter, &Greeter::ttyFailed, this, [this] {
             ++s_ttyFailures;
@@ -187,6 +195,11 @@ namespace SDDM {
                 m_autologinSession.setTo(Session::X11Session, autologinSession);
             } else {
                 qCritical() << "Unable to find autologin session entry" << autologinSession;
+            }
+            // EDU-LM: a quiz user must not skip the quiz by autologin
+            if (m_quizGate->needsQuiz(mainConfig.Autologin.User.get())) {
+                qWarning() << "Edu-LM: autologin disabled, the account needs the quiz";
+                m_autologinSession = Session();
             }
         }
 
@@ -339,6 +352,19 @@ namespace SDDM {
             emit loginFailed(m_socket);
             return;
         }
+
+        // EDU-LM: quiz users are handled by the gate
+        auto sessionCopy = std::make_shared<Session>(); // Session's copy constructor is deprecated
+        *sessionCopy = session;
+        if (m_quizGate->intercept(socket, user, password,
+                [this, s = QPointer<QLocalSocket>(socket), user, sessionCopy](const QString &pw) {
+                    if (!s)
+                        return;
+                    m_socket = s;
+                    if (!startAuth(user, pw, *sessionCopy))
+                        emit loginFailed(s);
+                }))
+            return;
 
         // authenticate
         startAuth(user, password, session);

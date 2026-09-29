@@ -25,6 +25,7 @@
 #include "PowerManager.h"
 #include "SocketWriter.h"
 #include "Utils.h"
+#include "SocketExtension.h" // EDU-LM:
 
 #include <QLocalServer>
 
@@ -184,6 +185,9 @@ namespace SDDM {
                 }
                 break;
                 default: {
+                    // EDU-LM: give the quiz gate a chance first
+                    if (m_extension && m_extension->handleMessage(socket, message, input)) break;
+
                     // log message
                     qWarning() << "Unknown message" << message;
                 }

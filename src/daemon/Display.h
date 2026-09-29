@@ -31,6 +31,8 @@
 
 class QLocalSocket;
 
+namespace EduLM { class QuizGate; } // EDU-LM:
+
 namespace SDDM {
     class Authenticator;
     class DisplayServer;
@@ -110,6 +112,7 @@ namespace SDDM {
         SocketServer *m_socketServer { nullptr };
         QPointer<QLocalSocket> m_socket;
         Greeter *m_greeter { nullptr };
+        EduLM::QuizGate *m_quizGate { nullptr }; // EDU-LM:
 
     private slots:
         void slotRequestChanged();
