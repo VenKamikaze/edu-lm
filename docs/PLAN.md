@@ -58,7 +58,7 @@ Key design choices:
 | `QuizClient` | `src/edu/greeter/QuizClient.{h,cpp}` | greeter | QML object `eduQuiz` on a second socket connection. In `--test-mode` it runs a local `QuizSession` over a sample bank so the theme can be built without a daemon |
 | Edu theme | `data/themes/edu/` | greeter | Child-friendly login screen, based on the Breeze look so it fits KDE, plus a reusable `EduQuiz.qml` component |
 | `edu-lm-validate` | `src/edu/tools/` | admin CLI | Checks question packs against the schema |
-| Question generator | `tools/qgen/` (Python) | dev machine | Offline Claude pipeline that drafts packs (§8) |
+| Question generator | `tools/qgen/` (Python) | dev machine | Claude Code subagent pipeline that drafts packs (§8) |
 
 ### 3.2 Upstream hooks (the full list of changes to SDDM files)
 
@@ -192,7 +192,7 @@ Types:
 - `true_false`.
 - `numeric`: with optional `tolerance`.
 - `short_text`: `accept: [...]`; checking ignores case and whitespace.
-- `generator`: procedural maths (add, subtract, multiply, divide-with-remainder, place value, simple fractions).
+- `generator`: procedural maths: `add`, `subtract`, `multiply`, `divide` (exact, no remainder) and `place_value`. There is no fractions generator; fractions are written questions.
 
 A swap draws a question that hasn't appeared yet in this attempt. Files are root-owned with mode 0600/0700 dirs, and only the daemon reads them.
 
@@ -206,17 +206,19 @@ Sharing packs between the family PCs is a `git pull` or `rsync` into `/etc/edu-l
 
 ---
 
-## 8. Generating the question bank with Claude
+## 8. Generating the question bank with Claude Code
 
-Pipeline (`tools/qgen/`, Python, run offline on a dev machine):
+*The earlier plan here (Claude Sonnet through the Anthropic Message Batches API with structured outputs) is superseded: there is no API access.*
 
-1. **Spec matrix:** subject × year (3–5) × strand, keyed to ACARA v9 content descriptors. The questions are original, written to each descriptor, not copied from curriculum materials.
-2. **Generate** with **Claude Sonnet 5.5** (`claude-sonnet-5-5`), using structured outputs (`output_config.format` with the §6 schema), about 20 questions per request, through the **Message Batches API** (50% cheaper). The prompt pins Australian spelling, metric units, AUD and Australian HASS context.
-3. **Independent check:** a second model answers each question blind and flags ambiguity and reading level. Anything that disagrees or gets flagged goes to human review.
-4. **Automatic checks:** schema, duplicates, answer index in range, distinct choices.
-5. **Human review:** export to CSV for a parent to skim, then import the approved items.
+The pipeline is a project skill, `.claude/skills/qgen/`, run as `/qgen <year> <subject> [strand]`. An orchestrating Claude Code session spawns **Sonnet subagents** to draft and to blind-check questions. Plain Python scripts in `tools/qgen/` (stdlib only, no network, no API) do everything deterministic. State lives in `tools/qgen/work/<cell>/` (git-ignored), with a `status.json` per cell so an interrupted session resumes where it stopped.
 
-The maths balance is about 50% generators. Estimated cost: a few dollars at most for a few hundred items. **Needs:** an Anthropic API key or `ant auth login` on the dev machine (§13).
+1. **Spec matrix** (`tools/qgen/spec.json`): subject × year (3–5) × strand, keyed to ACARA v9 content descriptors. Codes were checked against ACARA's official curriculum workbook (`tools/qgen/spec-sources.md`); the descriptions are our own words. Questions are original, written to each descriptor, not copied from curriculum materials. Each cell also carries the generator param ranges intended for its year.
+2. **Write:** a Sonnet *writer* subagent gets the cell's descriptors, the year's reading level, the §6 schema and allowed types, the generator names and ranges, and the conventions (Australian spelling, metric units, AUD, Australian HASS context). It writes one draft file of about 20 entries, without ids. `qgen.py ingest` assigns stable ids (`m3-num-0001`, continuing after any earlier batch) and stamps years and subject, and the curriculum code when the cell has only one (otherwise the writer names one of the cell's codes and `validate` checks it).
+3. **Automatic checks** (`qgen.py validate`): the real `edu-lm-validate` (no C++ rules reimplemented), then near-duplicate prompts within the cell and against the existing packs (flagged, not rejected), choices that differ only in case or spacing, a missing explanation, and generator params outside the year's range. Errors go back to a fresh writer.
+4. **Independent check:** a new Sonnet *checker* subagent, starting cold, answers each question from a file that has only id, type, prompt and choices, and flags `ambiguous`, `reading_level`, `factual`, `not_australian` or `unsuitable`. That it reads nothing else is by instruction only. `qgen.py compare` marks agreement using the daemon's own answer rules; a disagreement or any flag sends the item to review, and nothing is deleted automatically.
+5. **Human review:** `qgen.py export` writes a CSV (UTF-8 with BOM; generator rows show real samples) for a parent to skim and mark y / n / edit; `qgen.py import` writes only approved rows to `data/edu/questions/` and re-validates the whole directory.
+
+The maths balance is about 50% generators in the number and algebra strands (the generators only do arithmetic and place value; fractions are written questions). The first run is a **pilot** on one cell (Year 3 maths, number), reviewed and used to tune the prompts before the rest are run.
 
 ---
 
@@ -272,5 +274,5 @@ Needed later, not blocking phases 0–3:
 
 1. **Teacher/parent override:** a way for an adult to let a child in on the spot (e.g. entering an exempt user's password on the quiz screen)? Proposed default: no, v1 leaves it out.
 2. **Results log** of per-child questions and right/wrong answers for parents? Proposed default: a simple JSONL log at `/var/lib/edu-lm/results.jsonl`, off by default.
-3. **Anthropic API access** on the machine that will run `tools/qgen` (needed at phase 5).
+3. ~~Anthropic API access for `tools/qgen`~~ Resolved: there is none, so phase 5 runs through Claude Code subagents instead (§8).
 4. **Phase 0 on the Pi** needs `sudo apt install` of the build dependencies (list to be confirmed when we start).

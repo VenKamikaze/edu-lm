@@ -65,6 +65,18 @@ add_test(NAME EduValidateRejectsBad COMMAND edu-lm-validate "${EDU_TEST_DATA_DIR
 add_test(NAME EduValidateMissingPath COMMAND edu-lm-validate /nonexistent)
 set_tests_properties(EduValidateMissingPath PROPERTIES WILL_FAIL TRUE)
 set_tests_properties(EduValidateRejectsBad PROPERTIES WILL_FAIL TRUE)
+# tools/qgen (question-generation tooling): stdlib unittest, run against the built validator
+find_program(EDU_PYTHON python3)
+if(EDU_PYTHON)
+    # --sample: exit code and an exact count of 3 samples per generator; bad counts exit 2 with a message
+    add_test(NAME EduValidateSample COMMAND ${EDU_PYTHON} ${CMAKE_CURRENT_SOURCE_DIR}/check_sample.py good
+        $<TARGET_FILE:edu-lm-validate> "${EDU_SAMPLE_DIR}")
+    add_test(NAME EduValidateSampleBadCount COMMAND ${EDU_PYTHON} ${CMAKE_CURRENT_SOURCE_DIR}/check_sample.py bad
+        $<TARGET_FILE:edu-lm-validate> "${EDU_SAMPLE_DIR}")
+    add_test(NAME QgenTools COMMAND ${EDU_PYTHON} -m unittest discover tools/qgen/tests
+        WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
+    set_tests_properties(QgenTools PROPERTIES ENVIRONMENT "QGEN_VALIDATOR=$<TARGET_FILE:edu-lm-validate>")
+endif()
 
 # edu-lm-check: logic against fixture trees, and the comments-only config against EduConfig
 edu_add_test(EduCheckTest)

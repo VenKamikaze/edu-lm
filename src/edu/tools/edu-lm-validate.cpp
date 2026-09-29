@@ -1,8 +1,13 @@
 // SPDX-License-Identifier: GPL-2.0-or-later
+#include "core/Answer.h"
+#include "core/Generators.h"
 #include "core/QuestionBank.h"
 
 #include <QCoreApplication>
 #include <QFileInfo>
+#include <QJsonDocument>
+#include <QJsonObject>
+#include <QRandomGenerator>
 #include <QTextStream>
 
 using namespace EduLM;
@@ -13,9 +18,19 @@ int main(int argc, char *argv[])
     QTextStream out(stdout);
     QTextStream err(stderr);
 
-    const QStringList paths = app.arguments().mid(1);
+    QStringList paths = app.arguments().mid(1);
+    int samples = 0;
+    if (paths.value(0) == QLatin1String("--sample")) {
+        bool ok = false;
+        samples = paths.value(1).toInt(&ok);
+        if (!ok || samples < 1) {
+            err << "error: --sample needs a positive number\n";
+            return 2;
+        }
+        paths = paths.mid(2);
+    }
     if (paths.isEmpty()) {
-        err << "usage: edu-lm-validate <dir-or-file>...\n";
+        err << "usage: edu-lm-validate [--sample N] <dir-or-file>...\n";
         return 2;
     }
 
@@ -46,6 +61,20 @@ int main(int argc, char *argv[])
         for (auto y = s.value().begin(); y != s.value().end(); ++y)
             out << " year " << y.key() << "=" << y.value();
         out << "\n";
+    }
+
+    // Fixed seed: the same samples every run. One JSON object per line, for tools to read.
+    QRandomGenerator rng(1);
+    for (const Question &q : bank.questions()) {
+        if (q.type != QuestionType::Generator)
+            continue;
+        for (int i = 0; i < samples; ++i) {
+            const Question instance = instantiateGenerator(q, rng);
+            const QJsonObject o{{QStringLiteral("id"), q.id},
+                                {QStringLiteral("prompt"), instance.prompt},
+                                {QStringLiteral("answer"), correctAnswerText(instance)}};
+            out << "sample " << QString::fromUtf8(QJsonDocument(o).toJson(QJsonDocument::Compact)) << "\n";
+        }
     }
 
     const int errorCount = bank.errors().size() + missing;

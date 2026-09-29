@@ -1,0 +1,1790 @@
+{
+  "schema": 1,
+  "note": "Descriptor codes are ACARA Australian Curriculum v9 codes, confirmed against the official curriculum workbook (see spec-sources.md). Descriptions are our own paraphrases. Generator ranges are our intended difficulty per year, not ACARA's.",
+  "years": {
+    "3": {
+      "label": "Year 3",
+      "age": "8 to 9",
+      "reading_level": "simple sentences of about 8 to 12 words, everyday vocabulary; introduce any subject word in the question itself"
+    },
+    "4": {
+      "label": "Year 4",
+      "age": "9 to 10",
+      "reading_level": "short sentences of about 10 to 15 words, familiar vocabulary; subject words from the year's topics are fine"
+    },
+    "5": {
+      "label": "Year 5",
+      "age": "10 to 11",
+      "reading_level": "sentences up to about 20 words, wider vocabulary; multi-step questions are fine if the steps are clear"
+    }
+  },
+  "generator_ranges": {
+    "3": {
+      "add": {
+        "a": [
+          10,
+          999
+        ],
+        "b": [
+          10,
+          999
+        ]
+      },
+      "subtract": {
+        "a": [
+          10,
+          999
+        ],
+        "b": [
+          10,
+          999
+        ]
+      },
+      "multiply": {
+        "a": [
+          2,
+          5
+        ],
+        "b": [
+          2,
+          10
+        ]
+      },
+      "divide": {
+        "quotient": [
+          2,
+          10
+        ],
+        "divisor": [
+          2,
+          5
+        ]
+      },
+      "place_value": {
+        "digits": [
+          3,
+          4
+        ]
+      }
+    },
+    "4": {
+      "add": {
+        "a": [
+          100,
+          9999
+        ],
+        "b": [
+          100,
+          9999
+        ]
+      },
+      "subtract": {
+        "a": [
+          100,
+          9999
+        ],
+        "b": [
+          100,
+          9999
+        ]
+      },
+      "multiply": {
+        "a": [
+          2,
+          10
+        ],
+        "b": [
+          2,
+          10
+        ]
+      },
+      "divide": {
+        "quotient": [
+          2,
+          12
+        ],
+        "divisor": [
+          2,
+          10
+        ]
+      },
+      "place_value": {
+        "digits": [
+          4,
+          5
+        ]
+      }
+    },
+    "5": {
+      "add": {
+        "a": [
+          1000,
+          99999
+        ],
+        "b": [
+          1000,
+          99999
+        ]
+      },
+      "subtract": {
+        "a": [
+          1000,
+          99999
+        ],
+        "b": [
+          1000,
+          99999
+        ]
+      },
+      "multiply": {
+        "a": [
+          10,
+          999
+        ],
+        "b": [
+          2,
+          99
+        ]
+      },
+      "divide": {
+        "quotient": [
+          2,
+          99
+        ],
+        "divisor": [
+          2,
+          12
+        ]
+      },
+      "place_value": {
+        "digits": [
+          5,
+          6
+        ]
+      }
+    }
+  },
+  "cells": [
+    {
+      "id": "y3-maths-number",
+      "subject": "maths",
+      "year": 3,
+      "strand": "number",
+      "title": "Number",
+      "id_prefix": "m3-num",
+      "pack": "maths-y3-number",
+      "target": 20,
+      "generator_share": 0.5,
+      "descriptors": [
+        {
+          "code": "AC9M3N01",
+          "text": "Read, write, say and order whole numbers, including numbers above 10 000",
+          "verified": true
+        },
+        {
+          "code": "AC9M3N02",
+          "text": "Show halves, thirds, quarters, fifths and tenths, and several of them, in a range of ways; add same-sized parts to make one whole",
+          "verified": true
+        },
+        {
+          "code": "AC9M3N03",
+          "text": "Add and subtract numbers with two or three digits by breaking them into hundreds, tens and ones, with no calculator",
+          "verified": true
+        },
+        {
+          "code": "AC9M3N04",
+          "text": "Multiply and divide by one- and two-digit numbers using number sentences, arrays and diagrams",
+          "verified": true
+        },
+        {
+          "code": "AC9M3N05",
+          "text": "Estimate how many objects are in a collection and check whether an answer is reasonable",
+          "verified": true
+        },
+        {
+          "code": "AC9M3N06",
+          "text": "Solve everyday add, subtract, multiply and divide problems, including money, by writing a number sentence",
+          "verified": true
+        },
+        {
+          "code": "AC9M3N07",
+          "text": "Follow and create step-by-step instructions with decisions (algorithms) to explore numbers and patterns",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "y3-maths-algebra",
+      "subject": "maths",
+      "year": 3,
+      "strand": "algebra",
+      "title": "Algebra",
+      "id_prefix": "m3-alg",
+      "pack": "maths-y3-algebra",
+      "target": 12,
+      "generator_share": 0.5,
+      "descriptors": [
+        {
+          "code": "AC9M3A01",
+          "text": "Know that addition and subtraction undo each other; find missing numbers in number sentences",
+          "verified": true
+        },
+        {
+          "code": "AC9M3A02",
+          "text": "Build on addition and subtraction facts up to 20 to find mental methods for bigger numbers",
+          "verified": true
+        },
+        {
+          "code": "AC9M3A03",
+          "text": "Know the 3, 4, 5 and 10 times tables and the matching division facts",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "y3-maths-measurement",
+      "subject": "maths",
+      "year": 3,
+      "strand": "measurement",
+      "title": "Measurement",
+      "id_prefix": "m3-mea",
+      "pack": "maths-y3-measurement",
+      "target": 16,
+      "generator_share": 0,
+      "descriptors": [
+        {
+          "code": "AC9M3M01",
+          "text": "Choose sensible metric units for everyday things and estimate measurements",
+          "verified": true
+        },
+        {
+          "code": "AC9M3M02",
+          "text": "Measure and compare length, mass and capacity using familiar metric units and marked scales",
+          "verified": true
+        },
+        {
+          "code": "AC9M3M03",
+          "text": "Relate days, hours, minutes and seconds; estimate and compare how long events take",
+          "verified": true
+        },
+        {
+          "code": "AC9M3M04",
+          "text": "Read analogue and digital clocks to the nearest minute and relate hours to minutes",
+          "verified": true
+        },
+        {
+          "code": "AC9M3M05",
+          "text": "Describe angles as amounts of turn and compare them with a right angle",
+          "verified": true
+        },
+        {
+          "code": "AC9M3M06",
+          "text": "Relate dollars and cents and show money amounts in different ways",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "y3-maths-space",
+      "subject": "maths",
+      "year": 3,
+      "strand": "space",
+      "title": "Space",
+      "id_prefix": "m3-spa",
+      "pack": "maths-y3-space",
+      "target": 12,
+      "generator_share": 0,
+      "descriptors": [
+        {
+          "code": "AC9M3SP01",
+          "text": "Make, compare and sort objects by their features, and say why a shape suits its use",
+          "verified": true
+        },
+        {
+          "code": "AC9M3SP02",
+          "text": "Read and draw simple maps or plans of familiar places, placing landmarks relative to each other",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "y3-maths-statistics-probability",
+      "subject": "maths",
+      "year": 3,
+      "strand": "statistics-probability",
+      "title": "Statistics and probability",
+      "id_prefix": "m3-sta",
+      "pack": "maths-y3-statistics-probability",
+      "target": 14,
+      "generator_share": 0,
+      "descriptors": [
+        {
+          "code": "AC9M3ST01",
+          "text": "Collect data for categories and counted numbers (surveys, observation) and record it",
+          "verified": true
+        },
+        {
+          "code": "AC9M3ST02",
+          "text": "Make and compare graphs of data and say what they show",
+          "verified": true
+        },
+        {
+          "code": "AC9M3P01",
+          "text": "Describe everyday chance events as likely, unlikely, certain or impossible, with reasons",
+          "verified": true
+        },
+        {
+          "code": "AC9M3P02",
+          "text": "Run repeated chance experiments, record the outcomes and notice how results vary",
+          "verified": true
+        }
+      ],
+      "not_quizzable": [
+        {
+          "code": "AC9M3ST03",
+          "reason": "practical investigation"
+        }
+      ]
+    },
+    {
+      "id": "y4-maths-number",
+      "subject": "maths",
+      "year": 4,
+      "strand": "number",
+      "title": "Number",
+      "id_prefix": "m4-num",
+      "pack": "maths-y4-number",
+      "target": 20,
+      "generator_share": 0.5,
+      "descriptors": [
+        {
+          "code": "AC9M4N01",
+          "text": "Carry place value past the ones to tenths and hundredths, and write decimal numbers",
+          "verified": true
+        },
+        {
+          "code": "AC9M4N02",
+          "text": "Know how odd and even numbers behave and use that",
+          "verified": true
+        },
+        {
+          "code": "AC9M4N03",
+          "text": "Find equivalent fractions and connect fractions to decimals",
+          "verified": true
+        },
+        {
+          "code": "AC9M4N04",
+          "text": "Count by fractions, including mixed numbers, and place them on number lines",
+          "verified": true
+        },
+        {
+          "code": "AC9M4N05",
+          "text": "Multiply and divide whole numbers by 10, 100 and 1000 using place value",
+          "verified": true
+        },
+        {
+          "code": "AC9M4N06",
+          "text": "Choose efficient strategies for add, subtract, multiply and divide (no remainder) problems, with digital tools where suitable",
+          "verified": true
+        },
+        {
+          "code": "AC9M4N07",
+          "text": "Round and estimate to test whether an answer makes sense, including in shop and money sums",
+          "verified": true
+        },
+        {
+          "code": "AC9M4N08",
+          "text": "Solve practical add, subtract, multiply and divide problems, including money, using number sentences",
+          "verified": true
+        },
+        {
+          "code": "AC9M4N09",
+          "text": "Follow and create step-by-step procedures using addition or multiplication to build number sets and describe the patterns",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "y4-maths-algebra",
+      "subject": "maths",
+      "year": 4,
+      "strand": "algebra",
+      "title": "Algebra",
+      "id_prefix": "m4-alg",
+      "pack": "maths-y4-algebra",
+      "target": 12,
+      "generator_share": 0.5,
+      "descriptors": [
+        {
+          "code": "AC9M4A01",
+          "text": "Find missing numbers in addition and subtraction equations using number properties",
+          "verified": true
+        },
+        {
+          "code": "AC9M4A02",
+          "text": "Know the times tables to 10 x 10 and the related division facts; use them for mental calculation",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "y4-maths-measurement",
+      "subject": "maths",
+      "year": 4,
+      "strand": "measurement",
+      "title": "Measurement",
+      "id_prefix": "m4-mea",
+      "pack": "maths-y4-measurement",
+      "target": 16,
+      "generator_share": 0,
+      "descriptors": [
+        {
+          "code": "AC9M4M01",
+          "text": "Read scales and partly marked units when measuring length, mass, capacity, time and temperature",
+          "verified": true
+        },
+        {
+          "code": "AC9M4M02",
+          "text": "Measure or approximate perimeter and area using formal and informal units",
+          "verified": true
+        },
+        {
+          "code": "AC9M4M03",
+          "text": "Solve time-duration problems, including am and pm and changing between units of time",
+          "verified": true
+        },
+        {
+          "code": "AC9M4M04",
+          "text": "Estimate and compare angles and name them: acute, obtuse, straight, reflex, revolution",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "y4-maths-space",
+      "subject": "maths",
+      "year": 4,
+      "strand": "space",
+      "title": "Space",
+      "id_prefix": "m4-spa",
+      "pack": "maths-y4-space",
+      "target": 12,
+      "generator_share": 0,
+      "descriptors": [
+        {
+          "code": "AC9M4SP01",
+          "text": "Make and describe composite shapes and objects from familiar shapes",
+          "verified": true
+        },
+        {
+          "code": "AC9M4SP02",
+          "text": "Use grid references and directions to find positions and describe routes",
+          "verified": true
+        },
+        {
+          "code": "AC9M4SP03",
+          "text": "Recognise line and rotational symmetry and make symmetrical patterns",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "y4-maths-statistics-probability",
+      "subject": "maths",
+      "year": 4,
+      "strand": "statistics-probability",
+      "title": "Statistics and probability",
+      "id_prefix": "m4-sta",
+      "pack": "maths-y4-statistics-probability",
+      "target": 14,
+      "generator_share": 0,
+      "descriptors": [
+        {
+          "code": "AC9M4ST01",
+          "text": "Gather data and display it with pictographs where one symbol stands for many, column graphs and similar charts",
+          "verified": true
+        },
+        {
+          "code": "AC9M4ST02",
+          "text": "Compare how well different displays show data; describe the shape and variation of the data",
+          "verified": true
+        },
+        {
+          "code": "AC9M4P01",
+          "text": "Describe and order everyday events by how likely they are; tell independent from dependent events",
+          "verified": true
+        },
+        {
+          "code": "AC9M4P02",
+          "text": "Run repeated chance experiments and describe how the results vary",
+          "verified": true
+        }
+      ],
+      "not_quizzable": [
+        {
+          "code": "AC9M4ST03",
+          "reason": "practical investigation"
+        }
+      ]
+    },
+    {
+      "id": "y5-maths-number",
+      "subject": "maths",
+      "year": 5,
+      "strand": "number",
+      "title": "Number",
+      "id_prefix": "m5-num",
+      "pack": "maths-y5-number",
+      "target": 20,
+      "generator_share": 0.5,
+      "descriptors": [
+        {
+          "code": "AC9M5N01",
+          "text": "Compare, order and place on number lines decimals with more than 2 places, including numbers above one",
+          "verified": true
+        },
+        {
+          "code": "AC9M5N02",
+          "text": "Write numbers as products of factors; recognise multiples and test whether one number divides another",
+          "verified": true
+        },
+        {
+          "code": "AC9M5N03",
+          "text": "Put fractions with matching or related denominators in order and compare them, mixed numbers too, on a number line",
+          "verified": true
+        },
+        {
+          "code": "AC9M5N04",
+          "text": "Use percentages to describe part of a whole; link common percentages to fractions and decimals",
+          "verified": true
+        },
+        {
+          "code": "AC9M5N05",
+          "text": "Work out sums and differences of fractions whose denominators match or are related, using different methods",
+          "verified": true
+        },
+        {
+          "code": "AC9M5N06",
+          "text": "Multiply big numbers by a one- or two-digit number with a sensible method, then check the answer is reasonable",
+          "verified": true
+        },
+        {
+          "code": "AC9M5N07",
+          "text": "Solve division problems and deal with remainders sensibly for the context",
+          "verified": true
+        },
+        {
+          "code": "AC9M5N08",
+          "text": "Check that solutions are reasonable using estimation, including in money contexts",
+          "verified": true
+        },
+        {
+          "code": "AC9M5N09",
+          "text": "Model practical add, subtract, multiply and divide problems, including money, using number sentences",
+          "verified": true
+        },
+        {
+          "code": "AC9M5N10",
+          "text": "Make and use step-by-step procedures to explore factors, multiples and divisibility",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "y5-maths-algebra",
+      "subject": "maths",
+      "year": 5,
+      "strand": "algebra",
+      "title": "Algebra",
+      "id_prefix": "m5-alg",
+      "pack": "maths-y5-algebra",
+      "target": 12,
+      "generator_share": 0.5,
+      "descriptors": [
+        {
+          "code": "AC9M5A01",
+          "text": "Know that multiplication and division undo each other; build fact families",
+          "verified": true
+        },
+        {
+          "code": "AC9M5A02",
+          "text": "Find missing numbers in multiplication and division equations",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "y5-maths-measurement",
+      "subject": "maths",
+      "year": 5,
+      "strand": "measurement",
+      "title": "Measurement",
+      "id_prefix": "m5-mea",
+      "pack": "maths-y5-measurement",
+      "target": 16,
+      "generator_share": 0,
+      "descriptors": [
+        {
+          "code": "AC9M5M01",
+          "text": "Choose suitable metric units for length, mass and capacity; use smaller or combined units for accuracy",
+          "verified": true
+        },
+        {
+          "code": "AC9M5M02",
+          "text": "Find the distance around and the space inside regular and odd shapes in real situations, with metric units",
+          "verified": true
+        },
+        {
+          "code": "AC9M5M03",
+          "text": "Compare 12-hour and 24-hour time and convert between them",
+          "verified": true
+        },
+        {
+          "code": "AC9M5M04",
+          "text": "Estimate, draw and measure angles in degrees with a protractor, and name them",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "y5-maths-space",
+      "subject": "maths",
+      "year": 5,
+      "strand": "space",
+      "title": "Space",
+      "id_prefix": "m5-spa",
+      "pack": "maths-y5-space",
+      "target": 12,
+      "generator_share": 0,
+      "descriptors": [
+        {
+          "code": "AC9M5SP01",
+          "text": "Link solid objects with their flat nets, and construct solids from nets",
+          "verified": true
+        },
+        {
+          "code": "AC9M5SP02",
+          "text": "Use coordinates on a grid to give positions and describe movement",
+          "verified": true
+        },
+        {
+          "code": "AC9M5SP03",
+          "text": "Describe slides, flips and turns of shapes; notice what changes and what stays the same",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "y5-maths-statistics-probability",
+      "subject": "maths",
+      "year": 5,
+      "strand": "statistics-probability",
+      "title": "Statistics and probability",
+      "id_prefix": "m5-sta",
+      "pack": "maths-y5-statistics-probability",
+      "target": 14,
+      "generator_share": 0,
+      "descriptors": [
+        {
+          "code": "AC9M5ST01",
+          "text": "Collect and check data for categories and counts and show it using tools such as spreadsheets",
+          "verified": true
+        },
+        {
+          "code": "AC9M5ST02",
+          "text": "Read line graphs of change over time and say what conclusions they support",
+          "verified": true
+        },
+        {
+          "code": "AC9M5P01",
+          "text": "List the outcomes of chance experiments and tell equally likely from not equally likely outcomes",
+          "verified": true
+        },
+        {
+          "code": "AC9M5P02",
+          "text": "Run repeated chance experiments and use how often outcomes occur to compare likelihoods",
+          "verified": true
+        }
+      ],
+      "not_quizzable": [
+        {
+          "code": "AC9M5ST03",
+          "reason": "practical investigation"
+        }
+      ]
+    },
+    {
+      "id": "y3-science-understanding",
+      "subject": "science",
+      "year": 3,
+      "strand": "understanding",
+      "title": "Science understanding",
+      "id_prefix": "s3-und",
+      "pack": "science-y3-understanding",
+      "target": 20,
+      "generator_share": 0,
+      "descriptors": [
+        {
+          "code": "AC9S3U01",
+          "text": "How living and non-living things differ; how plant and animal life cycles differ",
+          "verified": true
+        },
+        {
+          "code": "AC9S3U02",
+          "text": "Compare how soils, rocks and minerals look and feel, and why they are valuable natural resources",
+          "verified": true
+        },
+        {
+          "code": "AC9S3U03",
+          "text": "Sources of heat, and how temperature changes as heat moves from one object to another",
+          "verified": true
+        },
+        {
+          "code": "AC9S3U04",
+          "text": "Properties of solids and liquids; how adding or removing heat changes their state",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "y3-science-inquiry-endeavour",
+      "subject": "science",
+      "year": 3,
+      "strand": "inquiry-endeavour",
+      "title": "Inquiry skills and science as a human endeavour",
+      "id_prefix": "s3-inq",
+      "pack": "science-y3-inquiry-endeavour",
+      "target": 10,
+      "generator_share": 0,
+      "descriptors": [
+        {
+          "code": "AC9S3H01",
+          "text": "How people use data to build scientific explanations",
+          "verified": true
+        },
+        {
+          "code": "AC9S3H02",
+          "text": "How explanations from science help people meet a need or fix a problem",
+          "verified": true
+        },
+        {
+          "code": "AC9S3I01",
+          "text": "Ask questions about patterns and make predictions from observations",
+          "verified": true
+        },
+        {
+          "code": "AC9S3I02",
+          "text": "Plan investigations with support, including what makes a test fair",
+          "verified": true
+        },
+        {
+          "code": "AC9S3I03",
+          "text": "Follow steps to observe and record, measuring with familiar scaled instruments",
+          "verified": true
+        },
+        {
+          "code": "AC9S3I04",
+          "text": "Organise data in tables, simple column graphs and models",
+          "verified": true
+        },
+        {
+          "code": "AC9S3I05",
+          "text": "Compare findings with others, judge fairness and draw conclusions",
+          "verified": true
+        }
+      ],
+      "not_quizzable": [
+        {
+          "code": "AC9S3I06",
+          "reason": "writing task"
+        }
+      ]
+    },
+    {
+      "id": "y4-science-understanding",
+      "subject": "science",
+      "year": 4,
+      "strand": "understanding",
+      "title": "Science understanding",
+      "id_prefix": "s4-und",
+      "pack": "science-y4-understanding",
+      "target": 20,
+      "generator_share": 0,
+      "descriptors": [
+        {
+          "code": "AC9S4U01",
+          "text": "Roles of producers, consumers and decomposers in a habitat; food chains as feeding relationships",
+          "verified": true
+        },
+        {
+          "code": "AC9S4U02",
+          "text": "Sources of water and the stages of the water cycle",
+          "verified": true
+        },
+        {
+          "code": "AC9S4U03",
+          "text": "Forces as pushes and pulls between objects; effects of friction, gravity and magnets on motion",
+          "verified": true
+        },
+        {
+          "code": "AC9S4U04",
+          "text": "Natural and manufactured materials (fibres, metals, glass, plastics) and how their qualities decide what they are used for",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "y4-science-inquiry-endeavour",
+      "subject": "science",
+      "year": 4,
+      "strand": "inquiry-endeavour",
+      "title": "Inquiry skills and science as a human endeavour",
+      "id_prefix": "s4-inq",
+      "pack": "science-y4-inquiry-endeavour",
+      "target": 10,
+      "generator_share": 0,
+      "descriptors": [
+        {
+          "code": "AC9S4H01",
+          "text": "How people use data to build scientific explanations",
+          "verified": true
+        },
+        {
+          "code": "AC9S4H02",
+          "text": "How explanations from science help people meet a need or fix a problem",
+          "verified": true
+        },
+        {
+          "code": "AC9S4I01",
+          "text": "Ask questions about patterns and make predictions from observations",
+          "verified": true
+        },
+        {
+          "code": "AC9S4I02",
+          "text": "Plan investigations with support, including what makes a test fair",
+          "verified": true
+        },
+        {
+          "code": "AC9S4I03",
+          "text": "Follow steps to observe and record, measuring with familiar scaled instruments",
+          "verified": true
+        },
+        {
+          "code": "AC9S4I04",
+          "text": "Organise data in tables, simple column graphs and models",
+          "verified": true
+        },
+        {
+          "code": "AC9S4I05",
+          "text": "Compare findings with others, judge fairness and draw conclusions",
+          "verified": true
+        }
+      ],
+      "not_quizzable": [
+        {
+          "code": "AC9S4I06",
+          "reason": "writing task"
+        }
+      ]
+    },
+    {
+      "id": "y5-science-understanding",
+      "subject": "science",
+      "year": 5,
+      "strand": "understanding",
+      "title": "Science understanding",
+      "id_prefix": "s5-und",
+      "pack": "science-y5-understanding",
+      "target": 20,
+      "generator_share": 0,
+      "descriptors": [
+        {
+          "code": "AC9S5U01",
+          "text": "How body parts and behaviours help living things survive in particular habitats",
+          "verified": true
+        },
+        {
+          "code": "AC9S5U02",
+          "text": "How weathering, erosion, transport and deposition change Earth's surface, slowly or quickly",
+          "verified": true
+        },
+        {
+          "code": "AC9S5U03",
+          "text": "Light sources, light travelling in straight lines, shadows, reflection and refraction",
+          "verified": true
+        },
+        {
+          "code": "AC9S5U04",
+          "text": "Use a particle picture to explain how solids, liquids and gases behave",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "y5-science-inquiry-endeavour",
+      "subject": "science",
+      "year": 5,
+      "strand": "inquiry-endeavour",
+      "title": "Inquiry skills and science as a human endeavour",
+      "id_prefix": "s5-inq",
+      "pack": "science-y5-inquiry-endeavour",
+      "target": 10,
+      "generator_share": 0,
+      "descriptors": [
+        {
+          "code": "AC9S5H01",
+          "text": "Why scientific advances often come from collaboration or build on earlier work",
+          "verified": true
+        },
+        {
+          "code": "AC9S5H02",
+          "text": "How people and communities use scientific knowledge to spot problems and make decisions",
+          "verified": true
+        },
+        {
+          "code": "AC9S5I01",
+          "text": "Ask investigable questions and make reasoned predictions",
+          "verified": true
+        },
+        {
+          "code": "AC9S5I02",
+          "text": "Plan repeatable investigations, deciding which variables to change, measure and control",
+          "verified": true
+        },
+        {
+          "code": "AC9S5I03",
+          "text": "Use tools to watch, measure and log data carefully and accurately",
+          "verified": true
+        },
+        {
+          "code": "AC9S5I04",
+          "text": "Sort and work with data using tables, graphs and models",
+          "verified": true
+        },
+        {
+          "code": "AC9S5I05",
+          "text": "Compare methods and findings, spot sources of error, and choose evidence to support claims",
+          "verified": true
+        }
+      ],
+      "not_quizzable": [
+        {
+          "code": "AC9S5I06",
+          "reason": "writing task"
+        }
+      ]
+    },
+    {
+      "id": "y3-hass-knowledge",
+      "subject": "hass",
+      "year": 3,
+      "strand": "knowledge",
+      "title": "Knowledge and understanding",
+      "id_prefix": "h3-kno",
+      "pack": "hass-y3-knowledge",
+      "target": 20,
+      "generator_share": 0,
+      "descriptors": [
+        {
+          "code": "AC9HS3K01",
+          "text": "How and why the local community has changed, and how people from different backgrounds contributed",
+          "verified": true
+        },
+        {
+          "code": "AC9HS3K02",
+          "text": "Important national events, symbols and emblems, what they say about Australian identity and diversity, and how people mark them",
+          "verified": true
+        },
+        {
+          "code": "AC9HS3K03",
+          "text": "Australia's states and territories on a map, the First Nations Countries that existed before colonisation, and where neighbouring countries lie",
+          "verified": true
+        },
+        {
+          "code": "AC9HS3K04",
+          "text": "How First Nations peoples in different regions are connected to Country/Place",
+          "verified": true
+        },
+        {
+          "code": "AC9HS3K05",
+          "text": "Ways places in Australia and nearby countries are the same or different in their natural, looked-after and built features",
+          "verified": true
+        },
+        {
+          "code": "AC9HS3K06",
+          "text": "Who makes rules, why rules matter at school and locally, and what happens when they are broken",
+          "verified": true
+        },
+        {
+          "code": "AC9HS3K07",
+          "text": "Why people take part in communities and how students can contribute",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "y3-hass-skills",
+      "subject": "hass",
+      "year": 3,
+      "strand": "skills",
+      "title": "Inquiry and skills",
+      "id_prefix": "h3-ski",
+      "pack": "hass-y3-skills",
+      "target": 10,
+      "generator_share": 0,
+      "descriptors": [
+        {
+          "code": "AC9HS3S02",
+          "text": "Find and record information from sources such as timelines and maps",
+          "verified": true
+        },
+        {
+          "code": "AC9HS3S03",
+          "text": "Read information shown in different formats",
+          "verified": true
+        },
+        {
+          "code": "AC9HS3S04",
+          "text": "Analyse information and spot different perspectives",
+          "verified": true
+        },
+        {
+          "code": "AC9HS3S05",
+          "text": "Draw conclusions from information",
+          "verified": true
+        }
+      ],
+      "not_quizzable": [
+        {
+          "code": "AC9HS3S01",
+          "reason": "writing task"
+        },
+        {
+          "code": "AC9HS3S06",
+          "reason": "action or response task"
+        },
+        {
+          "code": "AC9HS3S07",
+          "reason": "presentation task"
+        }
+      ]
+    },
+    {
+      "id": "y4-hass-knowledge",
+      "subject": "hass",
+      "year": 4,
+      "strand": "knowledge",
+      "title": "Knowledge and understanding",
+      "id_prefix": "h4-kno",
+      "pack": "hass-y4-knowledge",
+      "target": 20,
+      "generator_share": 0,
+      "descriptors": [
+        {
+          "code": "AC9HS4K01",
+          "text": "The variety of First Nations peoples, how they are organised, and their lasting connection to Country/Place",
+          "verified": true
+        },
+        {
+          "code": "AC9HS4K02",
+          "text": "Why the first British colony was set up in Australia in 1788",
+          "verified": true
+        },
+        {
+          "code": "AC9HS4K03",
+          "text": "The experiences of different people (officials, military, convicts) in the first colony",
+          "verified": true
+        },
+        {
+          "code": "AC9HS4K04",
+          "text": "How contact after the First Fleet affected First Nations peoples and their Countries/Places",
+          "verified": true
+        },
+        {
+          "code": "AC9HS4K05",
+          "text": "Why plants, water and other natural features matter to the people and animals of Australia and of one other continent",
+          "verified": true
+        },
+        {
+          "code": "AC9HS4K06",
+          "text": "Using resources that can and cannot be replaced wisely, and the caring responsibility First Nations peoples hold for Country",
+          "verified": true
+        },
+        {
+          "code": "AC9HS4K07",
+          "text": "The difference between rules and laws, and why laws matter",
+          "verified": true
+        },
+        {
+          "code": "AC9HS4K08",
+          "text": "What local government does and how people use and support local services",
+          "verified": true
+        },
+        {
+          "code": "AC9HS4K09",
+          "text": "The cultural, religious and social groups people belong to, and how they shape identity",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "y4-hass-skills",
+      "subject": "hass",
+      "year": 4,
+      "strand": "skills",
+      "title": "Inquiry and skills",
+      "id_prefix": "h4-ski",
+      "pack": "hass-y4-skills",
+      "target": 10,
+      "generator_share": 0,
+      "descriptors": [
+        {
+          "code": "AC9HS4S02",
+          "text": "Find and record information from sources such as timelines and maps",
+          "verified": true
+        },
+        {
+          "code": "AC9HS4S03",
+          "text": "Read information shown in different formats",
+          "verified": true
+        },
+        {
+          "code": "AC9HS4S04",
+          "text": "Analyse information and spot different perspectives",
+          "verified": true
+        },
+        {
+          "code": "AC9HS4S05",
+          "text": "Draw conclusions from information",
+          "verified": true
+        }
+      ],
+      "not_quizzable": [
+        {
+          "code": "AC9HS4S01",
+          "reason": "writing task"
+        },
+        {
+          "code": "AC9HS4S06",
+          "reason": "action or response task"
+        },
+        {
+          "code": "AC9HS4S07",
+          "reason": "presentation task"
+        }
+      ]
+    },
+    {
+      "id": "y5-hass-knowledge",
+      "subject": "hass",
+      "year": 5,
+      "strand": "knowledge",
+      "title": "Knowledge and understanding",
+      "id_prefix": "h5-kno",
+      "pack": "hass-y5-knowledge",
+      "target": 20,
+      "generator_share": 0,
+      "descriptors": [
+        {
+          "code": "AC9HS5K01",
+          "text": "The economic, political and social reasons British colonies were founded after 1800",
+          "verified": true
+        },
+        {
+          "code": "AC9HS5K02",
+          "text": "How colonies affected First Nations peoples, colonists and convicts, and the environment",
+          "verified": true
+        },
+        {
+          "code": "AC9HS5K03",
+          "text": "The part played by a significant person or group in the events of colonial Australia",
+          "verified": true
+        },
+        {
+          "code": "AC9HS5K04",
+          "text": "How people, including First Nations peoples, shape the character of a place",
+          "verified": true
+        },
+        {
+          "code": "AC9HS5K05",
+          "text": "Managing Australian environments and severe weather (bushfire, flood, drought, cyclone) and its effects",
+          "verified": true
+        },
+        {
+          "code": "AC9HS5K06",
+          "text": "Key values and features of Australian democracy: elections and the roles of elected representatives",
+          "verified": true
+        },
+        {
+          "code": "AC9HS5K07",
+          "text": "How citizens with shared values work together toward a civic goal",
+          "verified": true
+        },
+        {
+          "code": "AC9HS5K08",
+          "text": "Natural, human and capital resources, and how they meet needs and wants",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "y5-hass-skills",
+      "subject": "hass",
+      "year": 5,
+      "strand": "skills",
+      "title": "Inquiry and skills",
+      "id_prefix": "h5-ski",
+      "pack": "hass-y5-skills",
+      "target": 10,
+      "generator_share": 0,
+      "descriptors": [
+        {
+          "code": "AC9HS5S02",
+          "text": "Collect and organise information from primary and secondary sources",
+          "verified": true
+        },
+        {
+          "code": "AC9HS5S03",
+          "text": "Evaluate information to find patterns, trends and relationships",
+          "verified": true
+        },
+        {
+          "code": "AC9HS5S04",
+          "text": "Judge the origin, purpose and perspective of sources",
+          "verified": true
+        },
+        {
+          "code": "AC9HS5S05",
+          "text": "Reach evidence-based conclusions",
+          "verified": true
+        }
+      ],
+      "not_quizzable": [
+        {
+          "code": "AC9HS5S01",
+          "reason": "writing task"
+        },
+        {
+          "code": "AC9HS5S06",
+          "reason": "action or response task"
+        },
+        {
+          "code": "AC9HS5S07",
+          "reason": "presentation task"
+        }
+      ]
+    },
+    {
+      "id": "y3-english-language",
+      "subject": "english",
+      "year": 3,
+      "strand": "language",
+      "title": "Language",
+      "id_prefix": "e3-lan",
+      "pack": "english-y3-language",
+      "target": 20,
+      "generator_share": 0,
+      "descriptors": [
+        {
+          "code": "AC9E3LA01",
+          "text": "How conversation depends on shared social conventions such as turn-taking, and how formality changes language",
+          "verified": true
+        },
+        {
+          "code": "AC9E3LA02",
+          "text": "How modal verbs and other words of judgement and feeling can be turned up or down in strength",
+          "verified": true
+        },
+        {
+          "code": "AC9E3LA03",
+          "text": "How texts in different subjects use different features and structures to suit their aim",
+          "verified": true
+        },
+        {
+          "code": "AC9E3LA04",
+          "text": "Paragraphs group related information in the stages of a written text",
+          "verified": true
+        },
+        {
+          "code": "AC9E3LA05",
+          "text": "What layout features do in printed and online texts, and the navigation words that go with them",
+          "verified": true
+        },
+        {
+          "code": "AC9E3LA06",
+          "text": "A clause needs a subject and a verb, and the two must match",
+          "verified": true
+        },
+        {
+          "code": "AC9E3LA07",
+          "text": "The different jobs verbs do: acting, feeling, thinking, saying and being or having",
+          "verified": true
+        },
+        {
+          "code": "AC9E3LA08",
+          "text": "How tense places a verb in time",
+          "verified": true
+        },
+        {
+          "code": "AC9E3LA10",
+          "text": "Topic and technical vocabulary; the same word can mean different things in different contexts",
+          "verified": true
+        },
+        {
+          "code": "AC9E3LA11",
+          "text": "Apostrophes for contractions and for singular and plural possession",
+          "verified": true
+        }
+      ],
+      "not_quizzable": [
+        {
+          "code": "AC9E3LA09",
+          "reason": "needs an image"
+        }
+      ]
+    },
+    {
+      "id": "y3-english-literature",
+      "subject": "english",
+      "year": 3,
+      "strand": "literature",
+      "title": "Literature",
+      "id_prefix": "e3-lit",
+      "pack": "english-y3-literature",
+      "target": 12,
+      "generator_share": 0,
+      "descriptors": [
+        {
+          "code": "AC9E3LE01",
+          "text": "Characters, events and settings in Australian and world stories",
+          "verified": true
+        },
+        {
+          "code": "AC9E3LE03",
+          "text": "How authors use language and pictures to show characters and settings",
+          "verified": true
+        },
+        {
+          "code": "AC9E3LE04",
+          "text": "Effects of literary devices such as rhythm and onomatopoeia",
+          "verified": true
+        }
+      ],
+      "not_quizzable": [
+        {
+          "code": "AC9E3LE02",
+          "reason": "personal opinion"
+        },
+        {
+          "code": "AC9E3LE05",
+          "reason": "creative writing"
+        }
+      ]
+    },
+    {
+      "id": "y3-english-literacy",
+      "subject": "english",
+      "year": 3,
+      "strand": "literacy",
+      "title": "Literacy",
+      "id_prefix": "e3-lty",
+      "pack": "english-y3-literacy",
+      "target": 14,
+      "generator_share": 0,
+      "descriptors": [
+        {
+          "code": "AC9E3LY01",
+          "text": "Texts on a similar topic can be made for different audiences",
+          "verified": true
+        },
+        {
+          "code": "AC9E3LY03",
+          "text": "Say who a text is for and what it is trying to do, from its wording and pictures (imaginative, informative or persuasive)",
+          "verified": true
+        },
+        {
+          "code": "AC9E3LY05",
+          "text": "Use comprehension strategies to work out literal and inferred meaning",
+          "verified": true
+        },
+        {
+          "code": "AC9E3LY09",
+          "text": "Use sound-letter links, syllables, blending and segmenting to read and write longer words",
+          "verified": true
+        },
+        {
+          "code": "AC9E3LY10",
+          "text": "Use base words, prefixes, suffixes and suffix spelling rules to read and understand new words",
+          "verified": true
+        },
+        {
+          "code": "AC9E3LY11",
+          "text": "Spell words using sound-letter links and less common letter patterns",
+          "verified": true
+        },
+        {
+          "code": "AC9E3LY12",
+          "text": "Read and spell most common everyday words, and a few homophones",
+          "verified": true
+        }
+      ],
+      "not_quizzable": [
+        {
+          "code": "AC9E3LY02",
+          "reason": "speaking and listening"
+        },
+        {
+          "code": "AC9E3LY04",
+          "reason": "reading aloud"
+        },
+        {
+          "code": "AC9E3LY06",
+          "reason": "writing task"
+        },
+        {
+          "code": "AC9E3LY07",
+          "reason": "oral presentation"
+        },
+        {
+          "code": "AC9E3LY08",
+          "reason": "handwriting"
+        }
+      ]
+    },
+    {
+      "id": "y4-english-language",
+      "subject": "english",
+      "year": 4,
+      "strand": "language",
+      "title": "Language",
+      "id_prefix": "e4-lan",
+      "pack": "english-y4-language",
+      "target": 20,
+      "generator_share": 0,
+      "descriptors": [
+        {
+          "code": "AC9E4LA01",
+          "text": "How the way we speak and write changes to suit friends, teachers and other audiences",
+          "verified": true
+        },
+        {
+          "code": "AC9E4LA02",
+          "text": "Tell subjective language (opinion, feeling) from objective language (facts)",
+          "verified": true
+        },
+        {
+          "code": "AC9E4LA03",
+          "text": "How texts from different subjects differ in wording and are built in stages that match their purpose",
+          "verified": true
+        },
+        {
+          "code": "AC9E4LA04",
+          "text": "How connectives (time and condition words) and related topic words link a text together",
+          "verified": true
+        },
+        {
+          "code": "AC9E4LA05",
+          "text": "Navigation features of online texts, such as headlines and drop-down menus",
+          "verified": true
+        },
+        {
+          "code": "AC9E4LA06",
+          "text": "A complex sentence pairs one main clause with at least one clause that depends on it",
+          "verified": true
+        },
+        {
+          "code": "AC9E4LA07",
+          "text": "Direct (quoted) and indirect (reported) speech",
+          "verified": true
+        },
+        {
+          "code": "AC9E4LA08",
+          "text": "How adverb groups and prepositional phrases add detail to a sentence",
+          "verified": true
+        },
+        {
+          "code": "AC9E4LA09",
+          "text": "Past, present and future tense and how they change meaning",
+          "verified": true
+        },
+        {
+          "code": "AC9E4LA11",
+          "text": "Widen vocabulary using synonyms and antonyms",
+          "verified": true
+        },
+        {
+          "code": "AC9E4LA12",
+          "text": "Quotation marks and other punctuation for dialogue",
+          "verified": true
+        }
+      ],
+      "not_quizzable": [
+        {
+          "code": "AC9E4LA10",
+          "reason": "needs an image"
+        }
+      ]
+    },
+    {
+      "id": "y4-english-literature",
+      "subject": "english",
+      "year": 4,
+      "strand": "literature",
+      "title": "Literature",
+      "id_prefix": "e4-lit",
+      "pack": "english-y4-literature",
+      "target": 12,
+      "generator_share": 0,
+      "descriptors": [
+        {
+          "code": "AC9E4LE01",
+          "text": "Storylines, ideas and relationships that turn up again in different stories",
+          "verified": true
+        },
+        {
+          "code": "AC9E4LE02",
+          "text": "What a story's structure and wording do for the reader",
+          "verified": true
+        },
+        {
+          "code": "AC9E4LE03",
+          "text": "How writers and illustrators keep stories gripping through their characters, settings and plots",
+          "verified": true
+        },
+        {
+          "code": "AC9E4LE04",
+          "text": "Literary devices and word play, including in poetry",
+          "verified": true
+        }
+      ],
+      "not_quizzable": [
+        {
+          "code": "AC9E4LE05",
+          "reason": "creative writing"
+        }
+      ]
+    },
+    {
+      "id": "y4-english-literacy",
+      "subject": "english",
+      "year": 4,
+      "strand": "literacy",
+      "title": "Literacy",
+      "id_prefix": "e4-lty",
+      "pack": "english-y4-literacy",
+      "target": 14,
+      "generator_share": 0,
+      "descriptors": [
+        {
+          "code": "AC9E4LY01",
+          "text": "Compare texts from different times that have similar purposes and audiences",
+          "verified": true
+        },
+        {
+          "code": "AC9E4LY03",
+          "text": "Features of imaginative, informative and persuasive texts and how they suit the purpose",
+          "verified": true
+        },
+        {
+          "code": "AC9E4LY05",
+          "text": "Understand a text by picturing, predicting, summarising and asking questions as you read",
+          "verified": true
+        },
+        {
+          "code": "AC9E4LY09",
+          "text": "Use knowledge of sounds and word parts to read and write long words",
+          "verified": true
+        },
+        {
+          "code": "AC9E4LY10",
+          "text": "Spell harder words using letter patterns, doubled letters, word families, common endings and beginnings, and where words come from",
+          "verified": true
+        },
+        {
+          "code": "AC9E4LY11",
+          "text": "Read and write everyday words, homophones included, and use the sentence to pick the right spelling",
+          "verified": true
+        }
+      ],
+      "not_quizzable": [
+        {
+          "code": "AC9E4LY02",
+          "reason": "speaking and listening"
+        },
+        {
+          "code": "AC9E4LY04",
+          "reason": "reading aloud"
+        },
+        {
+          "code": "AC9E4LY06",
+          "reason": "writing task"
+        },
+        {
+          "code": "AC9E4LY07",
+          "reason": "oral presentation"
+        },
+        {
+          "code": "AC9E4LY08",
+          "reason": "handwriting"
+        }
+      ]
+    },
+    {
+      "id": "y5-english-language",
+      "subject": "english",
+      "year": 5,
+      "strand": "language",
+      "title": "Language",
+      "id_prefix": "e5-lan",
+      "pack": "english-y5-language",
+      "target": 20,
+      "generator_share": 0,
+      "descriptors": [
+        {
+          "code": "AC9E5LA01",
+          "text": "How language is chosen to suit social situations and to show roles and relationships",
+          "verified": true
+        },
+        {
+          "code": "AC9E5LA03",
+          "text": "How spoken, written and mixed-media texts use their own features and follow stages that fit their purpose",
+          "verified": true
+        },
+        {
+          "code": "AC9E5LA04",
+          "text": "How the start of a sentence or paragraph gives prominence to the message and guides the reader",
+          "verified": true
+        },
+        {
+          "code": "AC9E5LA05",
+          "text": "A complex sentence pairs a main clause with a dependent clause, and writers choose that structure on purpose",
+          "verified": true
+        },
+        {
+          "code": "AC9E5LA06",
+          "text": "Ways to stretch a noun group so a person, place, thing or idea is described more fully",
+          "verified": true
+        },
+        {
+          "code": "AC9E5LA08",
+          "text": "Vocabulary that expresses more precise meaning, including specialist words",
+          "verified": true
+        },
+        {
+          "code": "AC9E5LA09",
+          "text": "Commas after prepositional phrases, and apostrophes for shared possession",
+          "verified": true
+        }
+      ],
+      "not_quizzable": [
+        {
+          "code": "AC9E5LA02",
+          "reason": "not answerable in one question"
+        },
+        {
+          "code": "AC9E5LA07",
+          "reason": "needs images"
+        }
+      ]
+    },
+    {
+      "id": "y5-english-literature",
+      "subject": "english",
+      "year": 5,
+      "strand": "literature",
+      "title": "Literature",
+      "id_prefix": "e5-lit",
+      "pack": "english-y5-literature",
+      "target": 12,
+      "generator_share": 0,
+      "descriptors": [
+        {
+          "code": "AC9E5LE01",
+          "text": "Details about historical, social and cultural settings shown in literary texts",
+          "verified": true
+        },
+        {
+          "code": "AC9E5LE03",
+          "text": "How the narrator's point of view affects how readers understand events and characters",
+          "verified": true
+        },
+        {
+          "code": "AC9E5LE04",
+          "text": "Effects of imagery (simile, metaphor, personification) and sound devices in narrative and poetry",
+          "verified": true
+        }
+      ],
+      "not_quizzable": [
+        {
+          "code": "AC9E5LE02",
+          "reason": "personal opinion"
+        },
+        {
+          "code": "AC9E5LE05",
+          "reason": "creative writing"
+        }
+      ]
+    },
+    {
+      "id": "y5-english-literacy",
+      "subject": "english",
+      "year": 5,
+      "strand": "literacy",
+      "title": "Literacy",
+      "id_prefix": "e5-lty",
+      "pack": "english-y5-literacy",
+      "target": 14,
+      "generator_share": 0,
+      "descriptors": [
+        {
+          "code": "AC9E5LY01",
+          "text": "How a text shows the period and place it comes from",
+          "verified": true
+        },
+        {
+          "code": "AC9E5LY03",
+          "text": "Features of imaginative, informative and persuasive texts and how they suit the purpose",
+          "verified": true
+        },
+        {
+          "code": "AC9E5LY05",
+          "text": "Make sense of texts by visualising, predicting, summarising and questioning, and judge them",
+          "verified": true
+        },
+        {
+          "code": "AC9E5LY08",
+          "text": "Read and spell words with the same letter pattern that are said differently",
+          "verified": true
+        },
+        {
+          "code": "AC9E5LY09",
+          "text": "Make and spell new words from known words, roots, prefixes, suffixes, origins and spelling rules",
+          "verified": true
+        },
+        {
+          "code": "AC9E5LY10",
+          "text": "Less common plurals, and how a suffix changes a word's meaning or grammar",
+          "verified": true
+        }
+      ],
+      "not_quizzable": [
+        {
+          "code": "AC9E5LY02",
+          "reason": "speaking and listening"
+        },
+        {
+          "code": "AC9E5LY04",
+          "reason": "reading aloud"
+        },
+        {
+          "code": "AC9E5LY06",
+          "reason": "writing task"
+        },
+        {
+          "code": "AC9E5LY07",
+          "reason": "oral presentation"
+        }
+      ]
+    }
+  ]
+}

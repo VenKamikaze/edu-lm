@@ -62,6 +62,15 @@ Last updated: 2026-09-29. Read with `docs/PLAN.md` (the design) to resume.
 - User decision: show the right answer **on the spot** after a finished wrong question (supersedes "answers only in the failure review"). `QuizFeedback` carries `revealed/correctAnswer/explanation`; the daemon waits for a new `QuizNext` before the next question/result/login replay; Next is inert for 700 ms and ignores key auto-repeat (a double or held Enter skipped it); a failed quiz's cooldown is recorded at the failing answer. Follows `ShowCorrectAnswers`.
 - One Opus review (2 major: double-Enter skip, new greeter vs old running daemon wedges; 4 minor; nits); all fixed. The version mismatch is docs-only for now ("reboot or restart sddm after installing/upgrading"); a protocol version is in TODO.md. Orchestrator verified 19/19 Debug + Release, a guard mutation, and the double/held-Enter repro screenshots.
 
+## Phase 5 (question bank): 5a DONE, squash-merged into `main`; 5b (Year 3 maths pilot) NEXT
+
+- User has **no Anthropic API access** (2026-09-30), so PLAN §8's Batches pipeline is replaced: a Claude Code session runs the `/qgen` project skill (`.claude/skills/qgen/`), spawning Sonnet subagents to write and to blind-check; stdlib-only Python scripts in `tools/qgen/` do ingest, validate (via `edu-lm-validate`), blind stripping, compare, CSV export for the parent, and import of approved rows into `data/edu/questions/`.
+- User decisions (2026-09-30): Sonnet for both writer and checker; pilot first (Year 3 maths, ~20 entries), review, tune prompts, then scale; maths about half generator entries (there is no fractions generator); workflow as a project skill.
+- 5a (implementer, brief in the session scratchpad): the scripts + tests, `tools/qgen/spec.json` (ACARA v9 codes, verified or marked unverified), the skill and its writer/checker prompts, PLAN §8/§13 rewrite. 5b (orchestrator): the Year 3 maths pilot via the skill, then the parent's CSV review.
+- 5a result: `tools/qgen/qgen.py` (cells, prompt, ingest, validate, blind, compare, export, import), `tools/qgen/spec.json` (36 cells, 193 ACARA v9 descriptors, all verified against ACARA's curriculum workbook; own-words check <= 6 shared words), `.claude/skills/qgen/` (SKILL.md, writer.md, checker.md), `edu-lm-validate --sample N`. One Opus review (4 major: batch-2 id reuse, mangled edit rows, stale checker files, dropped flags; 8 minor; nits); all fixed. Orchestrator verified 125 Python tests, 22/22 ctest Debug + Release, the batch-2 and mangled-edit scenarios, and the spec check.
+- **5b next:** run `/qgen` for Year 3 maths (number cell first), ~20 entries, about half generators; ask the user before starting (uses their Claude Code allowance). Then the user reviews `tools/qgen/work/<cell>/review.csv` and we tune writer.md/checker.md.
+- Phase 4 real-PC testing: the user is not testing on 2026-09-30; PHASE4-TEST steps beyond the first login and the answer reveal are still open.
+
 ## Next phases (see PLAN §11)
 
 3. Done. Greeter `QuizClient` (sends `QuizHello` only when the theme opts in; test-mode mock) + kid-friendly edu theme. Check with `tools/dev/greeter-shot.sh`.
