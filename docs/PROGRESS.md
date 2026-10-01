@@ -1,6 +1,6 @@
 # Edu-LM progress checkpoint
 
-Last updated: 2026-09-29. Read with `docs/PLAN.md` (the design) to resume.
+Last updated: 2026-10-01. **Start with `docs/NEXT-SESSION.md`** (the brief for the next chunk), then this file and `docs/PLAN.md` (the design).
 
 ## Workflow the user wants
 
@@ -68,7 +68,7 @@ Last updated: 2026-09-29. Read with `docs/PLAN.md` (the design) to resume.
 - User decisions (2026-09-30): Sonnet for both writer and checker; pilot first (Year 3 maths, ~20 entries), review, tune prompts, then scale; maths about half generator entries (there is no fractions generator); workflow as a project skill.
 - 5a (implementer, brief in the session scratchpad): the scripts + tests, `tools/qgen/spec.json` (ACARA v9 codes, verified or marked unverified), the skill and its writer/checker prompts, PLAN §8/§13 rewrite. 5b (orchestrator): the Year 3 maths pilot via the skill, then the parent's CSV review.
 - 5a result: `tools/qgen/qgen.py` (cells, prompt, ingest, validate, blind, compare, export, import), `tools/qgen/spec.json` (36 cells, 193 ACARA v9 descriptors, all verified against ACARA's curriculum workbook; own-words check <= 6 shared words), `.claude/skills/qgen/` (SKILL.md, writer.md, checker.md), `edu-lm-validate --sample N`. One Opus review (4 major: batch-2 id reuse, mangled edit rows, stale checker files, dropped flags; 8 minor; nits); all fixed. Orchestrator verified 125 Python tests, 22/22 ctest Debug + Release, the batch-2 and mangled-edit scenarios, and the spec check.
-- 5b pilot run 2026-09-30: `y3-maths-number` drafted (20 entries: 10 written, 10 generators), validated first time (0 errors, 0 flags), blind check 10/10 agree, 0 flagged; exported to `tools/qgen/work/y3-maths-number/review.csv` (git-ignored). Waiting on the user's review. Orchestrator's notes for tuning: m3-num-0005 reading level too high (checker didn't flag it, so a Sonnet checker is lenient on reading level); m3-num-0007 asks for change in cents (typing 3.30 would be marked wrong); m3-num-0001 explanation wording; AC9M3N04 only covered by generators.
+- 5b pilot run 2026-09-30: `y3-maths-number` drafted (20 entries: 10 written, 10 generators), validated first time (0 errors, 0 flags), blind check 10/10 agree, 0 flagged; exported to `tools/qgen/work/y3-maths-number/review.csv` (git-ignored). Parent approved all 20 with no edits on 2026-10-01; imported as `data/edu/questions/maths-y3-number.json` (commit `b683fdc`, which also made tests use only `sample-*.json` as fixtures). Orchestrator's notes for tuning: m3-num-0005 reading level too high (checker didn't flag it, so a Sonnet checker is lenient on reading level); m3-num-0007 asks for change in cents (typing 3.30 would be marked wrong); m3-num-0001 explanation wording; AC9M3N04 only covered by generators.
 - **5b (original plan):** run `/qgen` for Year 3 maths (number cell first), ~20 entries, about half generators; ask the user before starting (uses their Claude Code allowance). Then the user reviews `tools/qgen/work/<cell>/review.csv` and we tune writer.md/checker.md.
 - Phase 4 real-PC testing: the user is not testing on 2026-09-30; PHASE4-TEST steps beyond the first login and the answer reveal are still open.
 
