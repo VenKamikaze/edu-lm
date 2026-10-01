@@ -24,6 +24,8 @@ namespace {
 //   EDU_LM_TEST_SESSION_MS     time from an accepted login to "logged in" (default 1500)
 //   EDU_LM_TEST_LOGIN_DELAY_MS delay before the login result is reported (default 0); a large value
 //                              makes LoginFailed arrive after the quiz messages, 0 usually before
+//   EDU_LM_TEST_PROTOCOL_VERSION  the version the mock daemon announces (default: the real one); any
+//                              other number shows the "quiz was updated" screen
 // Any password is accepted except "wrong". The answer to each question is logged as
 // "EDU_LM_TEST_ANSWER <id> key:<n>|text:<answer>".
 MockSettings mockSettingsFromEnvironment()
@@ -70,6 +72,9 @@ MockSettings mockSettingsFromEnvironment()
     settings.loginResultDelayMs = qEnvironmentVariableIntValue("EDU_LM_TEST_LOGIN_DELAY_MS", &ok);
     if (!ok)
         settings.loginResultDelayMs = 0;
+    const quint32 version = qEnvironmentVariable("EDU_LM_TEST_PROTOCOL_VERSION").toUInt(&ok);
+    if (ok)
+        settings.protocolVersion = version;
     return settings;
 }
 

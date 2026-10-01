@@ -1,6 +1,6 @@
 # Next session brief: grow the question bank (phase 5b, Year 3 wave)
 
-**Update 2026-10-02: phase 5b is DONE.** All 35 cells for Years 3–5 are imported on `main` (523 real questions, 562 with the 39 samples, which stay shipped by user decision). From Year 4 on the orchestrator reviewed the packs in place of the parent (see PROGRESS.md for every n/edit). Next: ask the user what's next. Options: Phase 6 (publish: README, screenshots, licence notes), the open PHASE4-TEST steps, the protocol-version TODO, or a second batch for any cell. The Year 3 wave notes below are history.
+**Update 2026-10-02: phase 5b is DONE.** All 35 cells for Years 3–5 are imported on `main` (523 real questions, 562 with the 39 samples, which stay shipped by user decision). From Year 4 on the orchestrator reviewed the packs in place of the parent (see PROGRESS.md for every n/edit). Next: ask the user what's next. Options: Phase 6 (publish: README, screenshots, licence notes), the open PHASE4-TEST steps, or a second batch for any cell. The protocol version is done. The Year 3 wave notes below are history.
 
 Written 2026-10-01 for the next Claude Code session on this repo. Read this first, then `docs/PROGRESS.md` (state and decisions) and `docs/PLAN.md` (design). Repo `main` is at `b683fdc` or later.
 
@@ -57,6 +57,6 @@ Written 2026-10-01 for the next Claude Code session on this repo. Read this firs
 ## Other open threads (not this chunk)
 
 - **PHASE4-TEST:** the user's remaining real-PC steps, mainly the no-password student (step 11), the pam_access console lock with SDDM still working (step 16), the stock theme failing closed, and the autologin skip.
-- **No protocol version** between greeter and daemon. After an upgrade without a reboot the quiz wedges. This is documented in INSTALL-ARCH, with a TODO for a version field in QuizReady.
+- **Protocol version:** done 2026-10-02 (`QuizVersion`, `EduProtocolVersion = 2`). Bump it on any quiz message change, and never change the frozen parts (see PLAN.md).
 - **Dev tree install:** `cmake --install build` stops at `/etc/edu-lm` on the Pi (see TODO.md); the greeter screenshot scripts still work.
 - **Phase 6** (publish: README, screenshots, licence notes; GPL-2.0-or-later code, a pack licence such as CC BY-SA, ACARA CC BY 4.0 attribution for the codes) comes after the bank.

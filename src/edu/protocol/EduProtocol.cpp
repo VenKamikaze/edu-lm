@@ -96,4 +96,7 @@ QDataStream &operator>>(QDataStream &s, QuizErrorMsg &m) { return s >> m.message
 QDataStream &operator<<(QDataStream &s, const QuizLoginRefusedMsg &m) { return s << m.reason; }
 QDataStream &operator>>(QDataStream &s, QuizLoginRefusedMsg &m) { return s >> m.reason; }
 
+QDataStream &operator<<(QDataStream &s, const QuizVersionMsg &m) { return s << m.version; }
+QDataStream &operator>>(QDataStream &s, QuizVersionMsg &m) { return s >> m.version; }
+
 }

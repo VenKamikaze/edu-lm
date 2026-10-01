@@ -39,7 +39,7 @@ makepkg -si
 - `.git` is used, if present, only to make the version (`0.21.0.r<commits>.g<hash>`). `makepkg` rewrites the `pkgver=` line in `PKGBUILD` when it does that.
 - pacman asks to remove `sddm` (the conflict). Say yes. If you had edited `/etc/pam.d/sddm` (or the other two PAM files), pacman may keep your copy as a `.pacsave` or `.pacnew`; compare them with ours.
 - Packages that depend on `sddm` (`sddm-kcm` does) are satisfied by the `sddm=0.21.0` provides.
-- **Reboot (or `sudo systemctl restart sddm` from a text console) after installing or upgrading edu-lm.** pacman does not restart the running daemon, and an old daemon with the new greeter (or the reverse) leaves the quiz stuck.
+- **Reboot (or `sudo systemctl restart sddm` from a text console) after installing or upgrading edu-lm.** pacman does not restart the running daemon, and a new greeter with the old daemon shows a banner "The quiz was updated. Please restart the computer." on the login screen from the start (an old greeter with the new daemon shows "Lost the connection to the quiz"). Quiz logins fail closed in both cases; parents can still log in.
 
 ## 2. Switch the display manager
 

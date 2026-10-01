@@ -35,6 +35,7 @@ struct Msg {
     QuizCooldownMsg cooldown;
     QuizErrorMsg error;
     QuizLoginRefusedMsg loginRefused;
+    QuizVersionMsg version;
     QByteArray raw;
 };
 
@@ -48,6 +49,11 @@ QList<quint32> ids(const Msgs &msgs)
     for (const Msg &m : msgs)
         out << m.id;
     return out;
+}
+
+QList<quint32> helloReply()
+{
+    return {id(EduDaemonMessage::QuizVersion), id(EduDaemonMessage::QuizReady)};
 }
 
 const QString wrongAnswer = "bogus";
@@ -313,13 +319,13 @@ void QuizGateTest::sendRaw(Pair &pair, const QByteArray &bytes)
     QVERIFY(pair.server->waitForReadyRead(1000));
 }
 
-// The daemon answers a hello with QuizReady, and only that
+// The daemon answers a hello with QuizVersion then QuizReady, and only that
 void QuizGateTest::hello()
 {
     sendRaw(quiz, encodeMessage(EduGreeterMessage::QuizHello));
     const QList<quint32> got = ids(drain(quiz));
     // a repeated hello on the same connection is harmless and gets no second reply
-    QVERIFY(got.isEmpty() || got == QList<quint32>{id(EduDaemonMessage::QuizReady)});
+    QVERIFY(got.isEmpty() || got == helloReply());
 }
 
 Msgs QuizGateTest::drain(Pair &pair)
@@ -350,6 +356,7 @@ Msgs QuizGateTest::drain(Pair &pair)
         case EduDaemonMessage::QuizError: in >> m.error; break;
         case EduDaemonMessage::QuizReady: break;
         case EduDaemonMessage::QuizLoginRefused: in >> m.loginRefused; break;
+        case EduDaemonMessage::QuizVersion: in >> m.version; break;
         default: qFatal("unknown daemon message %x", raw);
         }
         if (in.status() != QDataStream::Ok)
@@ -1125,9 +1132,11 @@ void QuizGateTest::unknownMessageNotConsumed()
 
 void QuizGateTest::readyOnHello()
 {
-    // the first reply to a hello is QuizReady, and nothing is sent before it
+    // the reply to a hello is QuizVersion then QuizReady, and nothing is sent before them
     sendRaw(quiz, encodeMessage(EduGreeterMessage::QuizHello));
-    QCOMPARE(ids(drain(quiz)), QList<quint32>{id(EduDaemonMessage::QuizReady)});
+    const Msgs reply = drain(quiz);
+    QCOMPARE(ids(reply), helloReply());
+    QCOMPARE(reply[0].version.version, EduProtocolVersion);
     // a stock theme never says hello: the login is refused with no quiz-socket traffic at all
     Pair other = connectPair("stock");
     QVERIFY(m_gate->needsQuiz("alice"));
@@ -1170,8 +1179,8 @@ void QuizGateTest::lastHelloWins()
     QVERIFY(login("alice"));
     m_verifier.finish(true);
     QVERIFY(drain(quiz).isEmpty());
-    // one QuizReady for the two hellos, then the quiz
-    QCOMPARE(ids(drain(second)).mid(0, 2), (QList<quint32>{id(EduDaemonMessage::QuizReady), id(EduDaemonMessage::QuizStarted)}));
+    // one version and ready for the two hellos, then the quiz
+    QCOMPARE(ids(drain(second)).mid(0, 3), (QList<quint32>{id(EduDaemonMessage::QuizVersion), id(EduDaemonMessage::QuizReady), id(EduDaemonMessage::QuizStarted)}));
 
     // the old connection can neither answer nor abandon
     sendRaw(quiz, encodeMessage(EduGreeterMessage::QuizAbandon));

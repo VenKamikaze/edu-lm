@@ -74,6 +74,7 @@ MockDaemon::MockDaemon(const MockSettings &settings, QObject *parent)
                               return m_settings.exemptUsers.contains(user) ? QStringList() : quizGroups;
                           },
                           *m_cooldown, m_rng, this);
+    m_gate->setAnnouncedVersion(m_settings.protocolVersion);
 
     connect(m_gate, &QuizGate::loginFailed, this, [this](QLocalSocket *socket) {
         if (socket == &m_loginToken)

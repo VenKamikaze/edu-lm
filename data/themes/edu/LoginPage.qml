@@ -332,6 +332,7 @@ FocusScope {
                 text: qsTr("OK")
                 pixelSize: 16
                 implicitHeight: Math.round(44 * root.u)
+                visible: !eduQuiz.versionMismatch // the mismatch stays until the greeter restarts
                 onClicked: { eduQuiz.dismiss(); root.focusMode() }
             }
         }

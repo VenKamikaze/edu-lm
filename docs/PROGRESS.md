@@ -116,6 +116,12 @@ Last updated: 2026-10-01. **Start with `docs/NEXT-SESSION.md`** (the brief for t
   - **Wave result (2026-10-02):** all 12 cells imported, 171 of 180 kept (9 rejected as duplicates or ambiguous, 6 edits: 3 explanations, 3 factual fixes), no validation retries. Blind check: 174/174 written answers agree, 0 flagged. The bank is 562 entries (39 samples + 523 real across Years 3–5). ctest 22/22 Debug + Release, 125 qgen tests OK. Squash-merged into `main`.
 - Phase 4 real-PC testing: the user is not testing on 2026-09-30; PHASE4-TEST steps beyond the first login and the answer reveal are still open.
 
+## Protocol version (2026-10-02): DONE, squash-merged into `main`
+
+- User decision: one-sided check. The greeter's `QuizHello` is unchanged, because an old daemon would read any extra bytes as SDDM message ids (2 = PowerOff). A new daemon sends `QuizVersion(EduProtocolVersion = 2)` just before `QuizReady`. A new greeter that gets `QuizReady` with no version, or a different version, shows "The quiz was updated. Please restart the computer.", closes the quiz socket and stays disconnected. Students then fail closed through the non-quiz-theme path, and parents still log in. An old greeter with a new daemon can't read `QuizVersion`, so it drops the connection and shows "Lost the connection to the quiz".
+- Also: the greeter sends nothing but `QuizHello` until the version is confirmed (the outbox waits for a matching `QuizReady`). Frozen forever: `QuizHello`, `QuizVersion`'s id and payload, and the Version-before-Ready order. The banner's OK button is hidden while mismatched. Test mode: `EDU_LM_TEST_PROTOCOL_VERSION=<n>` shows the mismatch screen.
+- One Opus review (0 blocker or major; 3 minor: queued `QuizQuery` sent before the version check, stale daemon info text, untested resets; plus nits). All fixed, and the re-review was clean apart from 2 nits, which the orchestrator fixed. The reviewer ran a cross-version harness with the real gate: an old daemon gets only the hello, students are refused, parents log in, and an old greeter with a new daemon shows "Lost the connection" with no reconnect storm. Orchestrator verified 22/22 ctest in Debug and Release and screenshots of the normal and mismatch screens. (`greeter-shot.sh` runs `build/install`, so run `cmake --install build` first; it still stops at `/etc/edu-lm` but installs the greeter.)
+
 ## Next phases (see PLAN §11)
 
 3. Done. Greeter `QuizClient` (sends `QuizHello` only when the theme opts in; test-mode mock) + kid-friendly edu theme. Check with `tools/dev/greeter-shot.sh`.

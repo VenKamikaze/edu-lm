@@ -47,6 +47,9 @@ public:
 
     bool handleMessage(QLocalSocket *socket, quint32 message, QDataStream &in) override;
 
+    // Only the greeter's test-mode mock uses this, to show the version mismatch screen.
+    void setAnnouncedVersion(quint32 version) { m_announcedVersion = version; }
+
 signals:
     void loginFailed(QLocalSocket *socket);
     void informationMessage(QLocalSocket *socket, const QString &message);
@@ -101,6 +104,7 @@ private:
     CooldownTracker &m_cooldown;
     QRandomGenerator &m_rng;
 
+    quint32 m_announcedVersion = EduProtocolVersion;
     QPointer<QLocalSocket> m_quizSocket;
     PendingLogin m_pending;
     bool m_hasPending = false;

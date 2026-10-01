@@ -54,7 +54,18 @@ public:
     template<typename Payload>
     void send(EduDaemonMessage m, const Payload &payload) { send(encodeMessage(m, payload)); }
 
-    bool autoReady = true; // like the real daemon: QuizReady in reply to QuizHello
+    // The real daemon's reply to QuizHello: QuizVersion (unless sendVersion is off, as an old daemon)
+    // then QuizReady
+    void sendReady()
+    {
+        if (sendVersion)
+            send(EduDaemonMessage::QuizVersion, QuizVersionMsg{version});
+        send(encodeMessage(EduDaemonMessage::QuizReady));
+    }
+
+    bool autoReady = true; // answer QuizHello with sendReady()
+    bool sendVersion = true;
+    quint32 version = EduProtocolVersion;
     bool listening = false;
     int connections = 0;
     QLocalSocket *conn = nullptr;
@@ -75,8 +86,11 @@ private:
             default: break;
             }
             got.append(g);
-            if (g.id == id(EduGreeterMessage::QuizHello) && autoReady)
+            if (g.id == id(EduGreeterMessage::QuizHello) && autoReady) {
+                if (sendVersion)
+                    conn->write(encodeMessage(EduDaemonMessage::QuizVersion, QuizVersionMsg{version}));
                 conn->write(encodeMessage(EduDaemonMessage::QuizReady));
+            }
         }
         buffer.clear();
     }
@@ -202,6 +216,17 @@ private slots:
     void revealedFeedbackWaitsForNext();
     void revealedLastQuestionThenResult();
     void plainFeedbackDoesNotWait();
+
+    void matchingVersionIsReady();
+    void mismatch_data();
+    void mismatch();
+    void mismatchDoesNotReconnect();
+    void mismatchSurvivesDismissAndFailedLogin();
+    void versionBeforeReadyIsRequired();
+    void mockVersionMismatch();
+    void queryWaitsForVersionAndReady();
+    void queuedQueryDroppedOnMismatch();
+    void versionStateResetsOnReconnect();
 
 private:
     void connectAndLogin(bool quizUser = true);
@@ -611,7 +636,7 @@ void QuizClientTest::readyAndConnecting()
     QVERIFY(client->connecting());
     QTRY_COMPARE(daemon->count(EduGreeterMessage::QuizHello), 1);
     QVERIFY(client->connecting());
-    daemon->send(encodeMessage(EduDaemonMessage::QuizReady));
+    daemon->sendReady();
     QTRY_VERIFY(client->ready());
     QVERIFY(!client->connecting());
     QVERIFY(spy.size() >= 2);
@@ -634,7 +659,7 @@ void QuizClientTest::loginIsNeverQueued()
     client->login(QStringLiteral("bob"), QStringLiteral("secret"), 1); // connecting: dropped, not kept
     QCOMPARE(logins.size(), 0);
     QCOMPARE(client->state(), QuizClient::Idle);
-    daemon->send(encodeMessage(EduDaemonMessage::QuizReady));
+    daemon->sendReady();
     QTRY_VERIFY(client->ready());
     QTest::qWait(150);
     QCOMPARE(logins.size(), 0); // becoming ready does not replay it
@@ -1126,6 +1151,170 @@ void QuizClientTest::mockLoginWhileConnectionDown()
     QTRY_VERIFY_WITH_TIMEOUT(c.ready(), 2000);
     QTRY_COMPARE_WITH_TIMEOUT(c.state(), QuizClient::Idle, 3000);
     QCOMPARE(c.notice(), QuizClient::LoginFailed);
+}
+
+// ---- protocol version ----
+
+void QuizClientTest::matchingVersionIsReady()
+{
+    client->enable();
+    QTRY_VERIFY(client->ready());
+    QVERIFY(!client->connecting());
+    QVERIFY(client->errorMessage().isEmpty());
+    QCOMPARE(daemon->connections, 1);
+}
+
+void QuizClientTest::mismatch_data()
+{
+    QTest::addColumn<bool>("sendVersion");
+    QTest::addColumn<quint32>("version");
+    QTest::newRow("old daemon: no version") << false << quint32(0);
+    QTest::newRow("older number") << true << quint32(1);
+    QTest::newRow("newer number") << true << quint32(EduProtocolVersion + 1);
+}
+
+void QuizClientTest::mismatch()
+{
+    QFETCH(bool, sendVersion);
+    QFETCH(quint32, version);
+    daemon->sendVersion = sendVersion;
+    daemon->version = version;
+    client->enable();
+    QTRY_VERIFY(!client->errorMessage().isEmpty());
+    QCOMPARE(client->errorMessage(), QStringLiteral("The quiz was updated. Please restart the computer."));
+    QVERIFY(!client->ready());
+    QVERIFY(!client->connecting());
+    QTRY_VERIFY(!daemon->connected()); // the quiz socket was closed
+
+    // no reconnect from query() (nor anything it queues), and the error is not cleared
+    client->query(QStringLiteral("bob"));
+    QTest::qWait(150);
+    QCOMPARE(daemon->connections, 1);
+    QCOMPARE(daemon->count(EduGreeterMessage::QuizQuery), 0);
+    QCOMPARE(daemon->count(EduGreeterMessage::QuizHello), 1);
+    QVERIFY(!client->errorMessage().isEmpty());
+    QCOMPARE(client->state(), QuizClient::Idle);
+
+    // a parent still logs in, with no verdict to wait for
+    client->login(QStringLiteral("dad"), QStringLiteral("pw"), 3);
+    QCOMPARE(logins.size(), 1);
+    QCOMPARE(logins.first(), (QStringList{"dad", "pw", "3"}));
+    QCOMPARE(client->state(), QuizClient::Checking);
+    client->onLoginSucceeded();
+    QCOMPARE(client->state(), QuizClient::LoggedIn);
+}
+
+void QuizClientTest::mismatchDoesNotReconnect()
+{
+    daemon->sendVersion = false;
+    client->enable();
+    QTRY_VERIFY(!client->errorMessage().isEmpty());
+    // even a daemon that is now current is not asked again until the greeter restarts
+    daemon->sendVersion = true;
+    client->enable();
+    client->query(QStringLiteral("bob"));
+    client->dismiss();
+    QTest::qWait(200);
+    QCOMPARE(daemon->connections, 1);
+    QVERIFY(!client->ready());
+    QVERIFY(!client->connecting());
+}
+
+void QuizClientTest::mismatchSurvivesDismissAndFailedLogin()
+{
+    daemon->version = EduProtocolVersion + 1;
+    client->enable();
+    QTRY_VERIFY(!client->errorMessage().isEmpty());
+    const QString error = client->errorMessage();
+
+    // a student's login fails closed, with the explanation still showing and no "try again" hint
+    client->login(QStringLiteral("bob"), QStringLiteral("pw"), 0);
+    QCOMPARE(logins.size(), 1);
+    // the real daemon says this before LoginFailed
+    client->onInformationMessage(QStringLiteral("This account needs the Edu-LM login screen"));
+    client->onLoginFailed();
+    QCOMPARE(client->state(), QuizClient::Idle);
+    QCOMPARE(client->notice(), QuizClient::LoginFailed);
+    QCOMPARE(client->errorMessage(), error);
+    QVERIFY(client->versionMismatch());
+    QVERIFY(client->infoMessage().isEmpty());
+
+    client->dismiss();
+    QCOMPARE(client->errorMessage(), error);
+    QTest::qWait(100);
+    QCOMPARE(daemon->connections, 1);
+}
+
+// QuizReady alone is not enough, even after other traffic
+void QuizClientTest::versionBeforeReadyIsRequired()
+{
+    daemon->autoReady = false;
+    client->enable();
+    QTRY_COMPARE(daemon->count(EduGreeterMessage::QuizHello), 1);
+    daemon->send(EduDaemonMessage::QuizStatus, status(QStringLiteral("bob"), true));
+    daemon->send(encodeMessage(EduDaemonMessage::QuizReady));
+    QTRY_VERIFY(!client->errorMessage().isEmpty());
+    QVERIFY(!client->ready());
+}
+
+void QuizClientTest::mockVersionMismatch()
+{
+    MockSettings settings;
+    settings.protocolVersion = EduProtocolVersion + 1;
+    MockDaemon mock(settings);
+    QVERIFY(mock.isListening());
+    QuizClient mocked(mock.serverName(), [](const QString &, const QString &, int) {});
+    mocked.enable();
+    QTRY_VERIFY(!mocked.errorMessage().isEmpty());
+    QVERIFY(!mocked.ready());
+}
+
+// Only QuizHello goes out before a matching version and QuizReady; a query waits behind them
+void QuizClientTest::queryWaitsForVersionAndReady()
+{
+    client->enable();
+    QTRY_VERIFY(client->ready());
+    daemon->autoReady = false;
+    daemon->conn->disconnectFromServer();
+    QTRY_VERIFY(!client->ready());
+    client->query(QStringLiteral("bob")); // reconnects, with the query queued behind the hello
+    QTRY_COMPARE(daemon->count(EduGreeterMessage::QuizHello), 2);
+    QTest::qWait(100);
+    QCOMPARE(daemon->count(EduGreeterMessage::QuizQuery), 0);
+    daemon->send(EduDaemonMessage::QuizVersion, QuizVersionMsg{EduProtocolVersion});
+    QTest::qWait(100);
+    QCOMPARE(daemon->count(EduGreeterMessage::QuizQuery), 0);
+    daemon->send(encodeMessage(EduDaemonMessage::QuizReady));
+    QTRY_COMPARE(daemon->count(EduGreeterMessage::QuizQuery), 1);
+    QCOMPARE(daemon->got.size(), 3); // hello, hello, query
+    QCOMPARE(daemon->got.at(2).text, QStringLiteral("bob"));
+}
+
+void QuizClientTest::queuedQueryDroppedOnMismatch()
+{
+    daemon->autoReady = false;
+    client->enable();
+    client->query(QStringLiteral("bob"));
+    QTRY_COMPARE(daemon->count(EduGreeterMessage::QuizHello), 1);
+    daemon->send(encodeMessage(EduDaemonMessage::QuizReady)); // no version before it
+    QTRY_VERIFY(client->versionMismatch());
+    QTest::qWait(100);
+    QCOMPARE(daemon->count(EduGreeterMessage::QuizQuery), 0);
+    QCOMPARE(daemon->got.size(), 1); // just the hello
+}
+
+// A match on one connection says nothing about the next
+void QuizClientTest::versionStateResetsOnReconnect()
+{
+    client->enable();
+    QTRY_VERIFY(client->ready());
+    daemon->conn->disconnectFromServer();
+    QTRY_VERIFY(!client->ready());
+    daemon->sendVersion = false;
+    client->dismiss(); // reconnects
+    QTRY_COMPARE(daemon->connections, 2);
+    QTRY_VERIFY(client->versionMismatch());
+    QVERIFY(!client->ready());
 }
 
 QTEST_MAIN(QuizClientTest)

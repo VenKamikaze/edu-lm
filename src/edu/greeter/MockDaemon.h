@@ -2,6 +2,7 @@
 #pragma once
 
 #include "daemon/GateConfig.h"
+#include "protocol/EduMessages.h"
 
 #include <QLocalSocket>
 #include <QObject>
@@ -28,6 +29,7 @@ struct MockSettings {
     int verifyDelayMs = 400;     // how long "checking the password" takes
     int sessionStartMs = 1500;   // from an accepted login to LoginSucceeded
     int loginResultDelayMs = 0;  // added to LoginFailed/LoginSucceeded, to test both arrival orders
+    quint32 protocolVersion = EduProtocolVersion; // what QuizVersion announces
     bool logAnswers = true;      // the answer key goes to qDebug so scripts can pass the quiz
 };
 

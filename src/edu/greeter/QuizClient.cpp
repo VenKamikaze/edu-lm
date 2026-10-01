@@ -38,6 +38,11 @@ QuizClient::QuizClient(const QString &socketName, LoginSender sendLogin, QObject
     connect(m_socket, &QLocalSocket::errorOccurred, this, &QuizClient::onSocketLost);
 }
 
+QString QuizClient::versionMismatchText()
+{
+    return tr("The quiz was updated. Please restart the computer.");
+}
+
 QVariantList QuizClient::resultReview() const
 {
     QVariantList list;
@@ -62,9 +67,11 @@ bool QuizClient::socketReady() const
 
 void QuizClient::connectToDaemon()
 {
-    if (m_socket->state() != QLocalSocket::UnconnectedState)
+    // stay disconnected: with no quiz connection the daemon refuses quiz users and lets others in
+    if (m_mismatched || m_socket->state() != QLocalSocket::UnconnectedState)
         return;
     m_lost = false;
+    m_versionSeen = false;
     // connected() can fire inside connectToServer()
     setConnection(true, false);
     m_socket->connectToServer(m_socketName);
@@ -83,21 +90,19 @@ void QuizClient::onConnected()
         m_lostErrorShown = false;
         setError(QString());
     }
+    // only QuizHello goes out until the daemon's version is confirmed (see handle())
     m_socket->write(encodeMessage(EduGreeterMessage::QuizHello));
-    if (!m_outbox.isEmpty()) {
-        m_socket->write(m_outbox);
-        m_outbox.clear();
-    }
 }
 
 void QuizClient::send(const QByteArray &bytes)
 {
-    if (socketReady()) {
+    if (m_mismatched)
+        return;
+    if (m_ready && socketReady()) {
         m_socket->write(bytes);
         return;
     }
-    // written on the connection that is being opened; dropped if it never comes up. Appended
-    // first because connectToDaemon() may flush the outbox at once.
+    // written once the connection being opened is ready; dropped if it never comes up
     m_outbox += bytes;
     connectToDaemon();
 }
@@ -115,8 +120,9 @@ void QuizClient::onSocketLost()
 {
     m_outbox.clear();
     m_inbox.clear();
+    m_versionSeen = false;
     setConnection(false, false);
-    if (!m_enabled || m_lost)
+    if (!m_enabled || m_lost || m_mismatched)
         return;
     m_lost = true;
     m_lostErrorShown = true;
@@ -187,6 +193,7 @@ bool QuizClient::decode(QDataStream &in, Incoming *msg)
     case EduDaemonMessage::QuizCooldown: in >> msg->cooldown; break;
     case EduDaemonMessage::QuizError: in >> msg->error; break;
     case EduDaemonMessage::QuizReady: break;
+    case EduDaemonMessage::QuizVersion: in >> msg->version; break;
     case EduDaemonMessage::QuizLoginRefused: in >> msg->loginRefused; break;
     default: return false;
     }
@@ -198,8 +205,24 @@ bool QuizClient::decode(QDataStream &in, Incoming *msg)
 void QuizClient::handle(const Incoming &msg)
 {
     switch (static_cast<EduDaemonMessage>(msg.id)) {
+    case EduDaemonMessage::QuizVersion:
+        if (msg.version.version == EduProtocolVersion)
+            m_versionSeen = true;
+        else
+            failVersionMismatch(QString::number(msg.version.version));
+        break;
+
     case EduDaemonMessage::QuizReady:
-        setConnection(false, true);
+        // an old daemon says QuizReady with no QuizVersion before it
+        if (m_versionSeen) {
+            // flushed before m_ready is set, so a send() from a connectionChanged handler is written after it
+            if (!m_outbox.isEmpty()) {
+                m_socket->write(m_outbox);
+                m_outbox.clear();
+            }
+            setConnection(false, true);
+        } else
+            failVersionMismatch(QStringLiteral("none (1)"));
         break;
 
     case EduDaemonMessage::QuizStatus:
@@ -292,6 +315,21 @@ void QuizClient::handle(const Incoming &msg)
     default:
         break;
     }
+}
+
+// The daemon speaks another protocol. Close the quiz connection and keep it closed: the daemon
+// then treats this greeter as a theme without a quiz, so students fail closed and parents get in.
+void QuizClient::failVersionMismatch(const QString &daemonVersion)
+{
+    if (m_mismatched)
+        return;
+    qWarning().noquote() << "Edu-LM: the daemon's quiz protocol version is" << daemonVersion
+                         << "but this greeter speaks" << EduProtocolVersion << "- not using the quiz";
+    m_mismatched = true;
+    m_outbox.clear();
+    setError(versionMismatchText());
+    m_socket->abort(); // reports the loss, which is not shown over this error
+    setConnection(false, false);
 }
 
 void QuizClient::applyStatus(const QuizStatusMsg &status)
@@ -413,7 +451,7 @@ void QuizClient::resolveLoginFailure()
     setNotice(wasChecking && wrongPassword ? WrongPassword : LoginFailed);
     // the daemon's "needs the Edu-LM login screen" is wrong here: this is that screen
     if (wasChecking && quizDown) {
-        setInfo(tr("The quiz isn't ready yet. Please try again in a moment."));
+        setInfo(m_mismatched ? QString() : tr("The quiz isn't ready yet. Please try again in a moment."));
         if (m_enabled)
             connectToDaemon(); // safe now: this login is over
     }
@@ -541,7 +579,7 @@ void QuizClient::dismiss()
     emit resultChanged();
     m_lostErrorShown = false;
     setNotice(NoNotice);
-    setError(QString());
+    setError(m_mismatched ? versionMismatchText() : QString());
     setInfo(QString());
     setState(Idle);
     // give a lost connection another go
@@ -632,10 +670,11 @@ void QuizClient::setUser(const QString &user)
     emit statusChanged();
 }
 
-// A configuration error belongs to the last login; the lost-connection one stays until reconnected.
+// A configuration error belongs to the last login; the lost-connection one stays until reconnected,
+// and the version mismatch one until the greeter restarts.
 void QuizClient::clearConfigError()
 {
-    if (!m_lostErrorShown)
+    if (!m_lostErrorShown && !m_mismatched)
         setError(QString());
 }
 

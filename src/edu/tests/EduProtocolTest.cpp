@@ -15,6 +15,7 @@ private slots:
     void status();
     void started();
     void loginRefusedAndReady();
+    void version();
     void question();
     void feedback();
     void swapRefused();
@@ -50,7 +51,7 @@ void EduProtocolTest::idsAreDistinctAndClearOfUpstream()
         quint32(EduDaemonMessage::QuizFeedback), quint32(EduDaemonMessage::QuizSwapRefused),
         quint32(EduDaemonMessage::QuizResult), quint32(EduDaemonMessage::QuizCooldown),
         quint32(EduDaemonMessage::QuizError), quint32(EduDaemonMessage::QuizReady),
-        quint32(EduDaemonMessage::QuizLoginRefused)};
+        quint32(EduDaemonMessage::QuizLoginRefused), quint32(EduDaemonMessage::QuizVersion)};
     QCOMPARE(QSet<quint32>(ids.begin(), ids.end()).size(), ids.size());
     for (quint32 id : ids)
         QVERIFY(id >= 0x45440000); // upstream enums are small integers
@@ -100,6 +101,18 @@ void EduProtocolTest::loginRefusedAndReady()
     QCOMPARE(refused.reason, QString("wrong-password"));
     // QuizReady has no payload
     QCOMPARE(encodeMessage(EduDaemonMessage::QuizReady).size(), 4);
+}
+
+void EduProtocolTest::version()
+{
+    QCOMPARE(EduProtocolVersion, quint32(2));
+    // appended, not renumbered: the ids already shipped keep their values
+    QCOMPARE(quint32(EduDaemonMessage::QuizLoginRefused) + 1, quint32(EduDaemonMessage::QuizVersion));
+    const auto out = decode<QuizVersionMsg>(
+        encodeMessage(EduDaemonMessage::QuizVersion, QuizVersionMsg{EduProtocolVersion}),
+        quint32(EduDaemonMessage::QuizVersion));
+    QCOMPARE(out.version, EduProtocolVersion);
+    QCOMPARE(encodeMessage(EduDaemonMessage::QuizVersion, QuizVersionMsg{7}).size(), 8);
 }
 
 void EduProtocolTest::started()

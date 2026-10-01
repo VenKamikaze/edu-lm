@@ -30,6 +30,8 @@ class QuizClient : public QObject
     // connecting: a quiz connection is being opened and the daemon has not said QuizReady yet
     Q_PROPERTY(bool connecting READ connecting NOTIFY connectionChanged)
     Q_PROPERTY(bool ready READ ready NOTIFY connectionChanged)
+    // versionMismatch: the daemon speaks another quiz protocol; errorMessage says so and stays
+    Q_PROPERTY(bool versionMismatch READ versionMismatch NOTIFY messagesChanged)
 
     Q_PROPERTY(QString user READ user NOTIFY userChanged)
     Q_PROPERTY(bool statusKnown READ statusKnown NOTIFY statusChanged)
@@ -99,6 +101,7 @@ public:
     bool connecting() const { return m_connecting; }
     bool slowChecking() const { return m_slowChecking; }
     bool ready() const { return m_ready; }
+    bool versionMismatch() const { return m_mismatched; }
     QString user() const { return m_user; }
     bool statusKnown() const { return m_statusKnown; }
     bool quizRequired() const { return m_quizRequired; }
@@ -139,8 +142,8 @@ public:
     void setSlowCheckingMs(int ms) { m_slowTimer.setInterval(ms); }
 
 public slots:
-    // Opens the quiz connection and sends QuizHello. Idempotent; a stock theme never calls it,
-    // so quiz users stay refused by the daemon.
+    // Opens the quiz connection and sends QuizHello (not while the protocol version is mismatched).
+    // Idempotent; a stock theme never calls it, so quiz users stay refused by the daemon.
     void enable();
     // Selects a user and asks the daemon about them. A cooldown in the answer opens the
     // Cooldown state.
@@ -156,7 +159,7 @@ public slots:
     void cancelChecking();
     // Result (failed) -> Cooldown, or Idle when the cooldown is over.
     void continueFromResult();
-    // Back to the login screen; clears messages and results.
+    // Back to the login screen; clears messages and results (but not the version mismatch error).
     void dismiss();
 
     // Login results from GreeterProxy (or the mock).
@@ -199,6 +202,7 @@ private:
         QuizCooldownMsg cooldown;
         QuizErrorMsg error;
         QuizLoginRefusedMsg loginRefused;
+        QuizVersionMsg version;
     };
 
     bool socketReady() const;
@@ -225,6 +229,8 @@ private:
     void maybeResolveLoginFailure();
     void clearConfigError();
     void setConnection(bool connecting, bool ready);
+    void failVersionMismatch(const QString &daemonVersion);
+    static QString versionMismatchText();
     void clearQuiz();
 
     QString m_socketName;
@@ -232,9 +238,11 @@ private:
     QLocalSocket *m_socket;
     bool m_enabled = false;
     bool m_connecting = false;     // connection opened, QuizReady not yet seen
-    bool m_ready = false;          // QuizReady seen on this connection
+    bool m_ready = false;          // QuizReady seen on this connection, after a matching QuizVersion
     bool m_lost = false;           // the loss of the connection was reported
     bool m_lostErrorShown = false; // errorMessage is that report
+    bool m_versionSeen = false;    // a matching QuizVersion arrived on this connection
+    bool m_mismatched = false;     // the daemon speaks another protocol: never reconnect, until the greeter restarts
     QByteArray m_inbox;  // received, not yet a whole message
     QByteArray m_outbox; // written before the connection was up
 

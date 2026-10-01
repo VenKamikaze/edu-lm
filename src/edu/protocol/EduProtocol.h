@@ -99,6 +99,10 @@ struct QuizLoginRefusedMsg {
     QString reason;
 };
 
+struct QuizVersionMsg {
+    quint32 version = 0;
+};
+
 QDataStream &operator<<(QDataStream &s, const QuizQueryMsg &m);
 QDataStream &operator>>(QDataStream &s, QuizQueryMsg &m);
 QDataStream &operator<<(QDataStream &s, const QuizAnswerMsg &m);
@@ -125,6 +129,8 @@ QDataStream &operator<<(QDataStream &s, const QuizErrorMsg &m);
 QDataStream &operator>>(QDataStream &s, QuizErrorMsg &m);
 QDataStream &operator<<(QDataStream &s, const QuizLoginRefusedMsg &m);
 QDataStream &operator>>(QDataStream &s, QuizLoginRefusedMsg &m);
+QDataStream &operator<<(QDataStream &s, const QuizVersionMsg &m);
+QDataStream &operator>>(QDataStream &s, QuizVersionMsg &m);
 
 // A message on the wire is its quint32 id followed by the payload, if any.
 template<typename Id>

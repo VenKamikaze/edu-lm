@@ -316,6 +316,8 @@ void QuizGate::onHello(QLocalSocket *socket)
         abandon();
     m_quizSocket = socket;
     connect(socket, &QLocalSocket::disconnected, this, &QuizGate::onQuizSocketDisconnected, Qt::UniqueConnection);
+    // the version first: a greeter that does not see it before QuizReady treats the daemon as outdated
+    socket->write(encodeMessage(EduDaemonMessage::QuizVersion, QuizVersionMsg{m_announcedVersion}));
     socket->write(encodeMessage(EduDaemonMessage::QuizReady));
 }
 
