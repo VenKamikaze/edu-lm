@@ -1,0 +1,381 @@
+{
+  "schema": 1,
+  "pack": "hass-y5-knowledge",
+  "subject": "hass",
+  "questions": [
+    {
+      "id": "h5-kno-0001",
+      "years": [
+        5
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS5K01",
+      "type": "multiple_choice",
+      "prompt": "South Australia was founded in 1836. Unlike New South Wales, its settlers were meant to be free people who paid for their own land. Which description fits South Australia best?",
+      "choices": [
+        "A colony built to hold convicts",
+        "A colony planned for free settlers",
+        "A fort built to guard the coast",
+        "A mission run only by the army"
+      ],
+      "answer": 1,
+      "difficulty": 1,
+      "explanation": "South Australia was planned as a colony for free settlers, not convicts."
+    },
+    {
+      "id": "h5-kno-0002",
+      "years": [
+        5
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS5K01",
+      "type": "multiple_choice",
+      "prompt": "In the 1830s, many free settlers moved to the Port Phillip district, where Melbourne now stands. What was a main economic reason?",
+      "choices": [
+        "To dig for gold on the first day",
+        "To work in car factories",
+        "To find grassy land for sheep and wool",
+        "To build a railway to Perth"
+      ],
+      "answer": 2,
+      "difficulty": 2,
+      "explanation": "Wool sold well, and the district had plenty of grass for sheep to graze."
+    },
+    {
+      "id": "h5-kno-0003",
+      "years": [
+        5
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS5K01",
+      "type": "multiple_choice",
+      "prompt": "Moreton Bay (near Brisbane) was set up as a convict settlement in 1824. Who was it mainly meant for?",
+      "choices": [
+        "Free families wanting farms",
+        "Convicts who had reoffended in New South Wales",
+        "Gold miners from overseas",
+        "Sailors waiting for ships"
+      ],
+      "answer": 1,
+      "difficulty": 3,
+      "explanation": "Moreton Bay was a place of harsher punishment for convicts who had committed more crimes in the colony."
+    },
+    {
+      "id": "h5-kno-0004",
+      "years": [
+        5
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS5K02",
+      "type": "multiple_choice",
+      "prompt": "As colonists fenced off land for farms, what was a common effect on First Nations peoples?",
+      "choices": [
+        "They gained more land to hunt on",
+        "They lost access to waterholes, food sources and special places",
+        "They were given the farms to run",
+        "Their languages became the colony's main languages"
+      ],
+      "answer": 1,
+      "difficulty": 2,
+      "explanation": "Taking over land cut First Nations peoples off from the water, food and places that were important to them."
+    },
+    {
+      "id": "h5-kno-0005",
+      "years": [
+        5
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS5K02",
+      "type": "multiple_choice",
+      "prompt": "A convict in a colony was given a ticket of leave. What did it allow him to do?",
+      "choices": [
+        "Sail home to Britain straight away",
+        "Work for himself in a set district",
+        "Stop all work for the rest of his life",
+        "Become the governor"
+      ],
+      "answer": 1,
+      "difficulty": 3,
+      "explanation": "A ticket of leave let a well-behaved convict work for himself in an area, before his sentence was finished."
+    },
+    {
+      "id": "h5-kno-0006",
+      "years": [
+        5
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS5K03",
+      "type": "multiple_choice",
+      "prompt": "Pemulwuy was a Bidjigal man from the Sydney area. What part did he play in colonial history?",
+      "choices": [
+        "He led the First Fleet",
+        "He led resistance against colonists taking over land",
+        "He drew the first map of Australia",
+        "He started the first bank"
+      ],
+      "answer": 1,
+      "difficulty": 2,
+      "explanation": "Pemulwuy led his people in defending their land against the colonists around Sydney."
+    },
+    {
+      "id": "h5-kno-0007",
+      "years": [
+        5
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS5K03",
+      "type": "multiple_choice",
+      "prompt": "In 1862, John McDouall Stuart's expedition crossed the continent and returned safely. Which journey did it make?",
+      "choices": [
+        "Crossing Australia from south to north",
+        "Sailing around Tasmania",
+        "Finding gold at Ballarat",
+        "Walking from Sydney to Perth"
+      ],
+      "answer": 0,
+      "difficulty": 3,
+      "explanation": "Stuart's team crossed the continent from the south coast to the north coast."
+    },
+    {
+      "id": "h5-kno-0008",
+      "years": [
+        5
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS5K03",
+      "type": "multiple_choice",
+      "prompt": "In the 1840s, Caroline Chisholm became well known in colonial New South Wales. What did she mainly do?",
+      "choices": [
+        "Led soldiers into battle",
+        "Helped new immigrant women and families find homes and work",
+        "Ran the first newspaper",
+        "Found a way to cross the Blue Mountains"
+      ],
+      "answer": 1,
+      "difficulty": 2,
+      "explanation": "Caroline Chisholm helped newly arrived women and families find safe places to live and jobs."
+    },
+    {
+      "id": "h5-kno-0009",
+      "years": [
+        5
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS5K04",
+      "type": "multiple_choice",
+      "prompt": "Parramatta, Wollongong and Wagga Wagga all have names that come from which source?",
+      "choices": [
+        "British kings and queens",
+        "First Nations languages",
+        "Famous ships",
+        "French explorers"
+      ],
+      "answer": 1,
+      "difficulty": 1,
+      "explanation": "These names come from First Nations languages, which shows who first lived in these places."
+    },
+    {
+      "id": "h5-kno-0010",
+      "years": [
+        5
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS5K04",
+      "type": "multiple_choice",
+      "prompt": "Many families in a suburb came from Vietnam. Each year they hold a Lunar New Year street festival. How does this shape the suburb?",
+      "choices": [
+        "It makes the suburb known for its food, culture and celebrations",
+        "It changes the suburb's weather",
+        "It moves the suburb's borders",
+        "It stops other people visiting"
+      ],
+      "answer": 0,
+      "difficulty": 2,
+      "explanation": "People's traditions, food and festivals add to what makes a place special."
+    },
+    {
+      "id": "h5-kno-0011",
+      "years": [
+        5
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS5K05",
+      "type": "multiple_choice",
+      "prompt": "In northern Australia, which months are usually called the tropical cyclone season?",
+      "choices": [
+        "June to August",
+        "November to April",
+        "September to October",
+        "May to June"
+      ],
+      "answer": 1,
+      "difficulty": 2,
+      "explanation": "Cyclones mostly happen in the warm, wet months from November to April."
+    },
+    {
+      "id": "h5-kno-0012",
+      "years": [
+        5
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS5K05",
+      "type": "multiple_choice",
+      "prompt": "The fire danger rating for tomorrow is Catastrophic. What is the safest plan for a family in a bushfire area?",
+      "choices": [
+        "Stay and water the garden all day",
+        "Leave early for a safer place",
+        "Wait to see if smoke appears first",
+        "Go for a bushwalk"
+      ],
+      "answer": 1,
+      "difficulty": 3,
+      "explanation": "On the worst fire days, fires can be too fierce to fight, so leaving early is the safest choice."
+    },
+    {
+      "id": "h5-kno-0013",
+      "years": [
+        5
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS5K06",
+      "type": "multiple_choice",
+      "prompt": "In federal elections, who must vote in Australia?",
+      "choices": [
+        "Only people who own a house",
+        "Enrolled citizens aged 18 or older",
+        "Anyone aged 16 or older who lives here",
+        "Only members of a political party"
+      ],
+      "answer": 1,
+      "difficulty": 2,
+      "explanation": "Voting is compulsory for enrolled Australian citizens aged 18 and over."
+    },
+    {
+      "id": "h5-kno-0014",
+      "years": [
+        5
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS5K06",
+      "type": "multiple_choice",
+      "prompt": "Your local member of the House of Representatives has been elected. What is their main job?",
+      "choices": [
+        "To teach at the local school",
+        "To represent the people of their area in parliament",
+        "To pick the winners of sport finals",
+        "To run the local police station"
+      ],
+      "answer": 1,
+      "difficulty": 1,
+      "explanation": "An elected member speaks for the people in their area when laws are discussed."
+    },
+    {
+      "id": "h5-kno-0015",
+      "years": [
+        5
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS5K06",
+      "type": "multiple_choice",
+      "prompt": "Voters mark their ballot paper in a private booth and fold it. Why is a secret ballot an important feature of democracy?",
+      "choices": [
+        "It saves paper",
+        "People can choose freely without anyone knowing or pressuring them",
+        "It makes voting faster",
+        "It lets the winner be picked early"
+      ],
+      "answer": 1,
+      "difficulty": 3,
+      "explanation": "Keeping votes secret means no one can pressure you, so you can choose freely."
+    },
+    {
+      "id": "h5-kno-0016",
+      "years": [
+        5
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS5K07",
+      "type": "multiple_choice",
+      "prompt": "Neighbours want a safe crossing near their school. Which action best shows citizens working together towards that goal?",
+      "choices": [
+        "Each person complains quietly at home",
+        "They write a joint petition and send it to the council",
+        "They paint their own crossing without asking",
+        "They wait for someone else to fix it"
+      ],
+      "answer": 1,
+      "difficulty": 2,
+      "explanation": "A petition shows many people sharing a goal and asking the council to act."
+    },
+    {
+      "id": "h5-kno-0017",
+      "years": [
+        5
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS5K07",
+      "type": "true_false",
+      "prompt": "A Landcare group, where volunteers plant trees together, is an example of citizens with shared values working towards a goal.",
+      "answer": true,
+      "difficulty": 1,
+      "explanation": "The volunteers share the value of caring for the environment and work together to do it."
+    },
+    {
+      "id": "h5-kno-0018",
+      "years": [
+        5
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS5K08",
+      "type": "multiple_choice",
+      "prompt": "A farmer owns a tractor to help grow wheat. Which type of resource is the tractor?",
+      "choices": [
+        "Natural resource",
+        "Human resource",
+        "Capital resource",
+        "Free resource"
+      ],
+      "answer": 2,
+      "difficulty": 1,
+      "explanation": "Tractors are made by people and used to produce other goods, so they are capital resources."
+    },
+    {
+      "id": "h5-kno-0019",
+      "years": [
+        5
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS5K08",
+      "type": "multiple_choice",
+      "prompt": "Which of these is a natural resource used to make electricity in some Australian power stations?",
+      "choices": [
+        "Coal",
+        "Solar panel",
+        "Power line",
+        "Electrician"
+      ],
+      "answer": 0,
+      "difficulty": 2,
+      "explanation": "Coal comes from the ground and is burned to make electricity. The others are made by people or are people."
+    },
+    {
+      "id": "h5-kno-0020",
+      "years": [
+        5
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS5K08",
+      "type": "multiple_choice",
+      "prompt": "A bakery uses flour, ovens and bakers to make bread. Which one is the human resource?",
+      "choices": [
+        "The flour",
+        "The ovens",
+        "The bakers",
+        "The bread"
+      ],
+      "answer": 2,
+      "difficulty": 3,
+      "explanation": "Human resources are the work, skills and ideas of people, so the bakers count."
+    }
+  ]
+}

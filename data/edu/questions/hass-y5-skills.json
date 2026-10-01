@@ -1,0 +1,185 @@
+{
+  "schema": 1,
+  "pack": "hass-y5-skills",
+  "subject": "hass",
+  "questions": [
+    {
+      "id": "h5-ski-0001",
+      "years": [
+        5
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS5S02",
+      "type": "multiple_choice",
+      "prompt": "Mia wants to find out how her town looked in 1950. Which of these is a primary source?",
+      "choices": [
+        "A history textbook printed in 2022",
+        "A website that sums up the town's history",
+        "A photograph taken in the main street in 1950",
+        "A documentary made in 2015"
+      ],
+      "answer": 2,
+      "difficulty": 1,
+      "explanation": "A primary source was made at the time, by someone who was there. The 1950 photograph is the only one made then."
+    },
+    {
+      "id": "h5-ski-0002",
+      "years": [
+        5
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS5S02",
+      "type": "multiple_choice",
+      "prompt": "Sam asks 24 classmates how they get to school. He wants to compare how many children use each way. What is the best way to organise his answers?",
+      "choices": [
+        "Write all the answers in one long paragraph",
+        "Make a tally chart with one row for each way of travelling",
+        "List the classmates in alphabetical order",
+        "Draw a map of the school grounds"
+      ],
+      "answer": 1,
+      "difficulty": 1,
+      "explanation": "A tally chart puts each way of travelling in its own row, so the counts are easy to compare."
+    },
+    {
+      "id": "h5-ski-0003",
+      "years": [
+        5
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS5S02",
+      "type": "multiple_choice",
+      "prompt": "Jack interviews his grandfather about moving to Australia in 1965. What kind of source is this interview?",
+      "choices": [
+        "A secondary source, because it is spoken and not written",
+        "A secondary source, because Jack is not old enough to remember 1965",
+        "Not a source, because memories can change over time",
+        "A primary source, because his grandfather was there and saw it himself"
+      ],
+      "answer": 3,
+      "difficulty": 2,
+      "explanation": "Someone who took part in an event and tells about it gives a primary source. Jack should still check details with other sources."
+    },
+    {
+      "id": "h5-ski-0004",
+      "years": [
+        5
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS5S03",
+      "type": "multiple_choice",
+      "prompt": "A local pool counted its visitors. December: 820. January: 910. February: 870. June: 150. July: 120. August: 160. What pattern does this show?",
+      "choices": [
+        "Visitor numbers stay about the same all year",
+        "Many more people visit in the summer months than in winter",
+        "Visitor numbers go up every single month",
+        "More people visit in winter than in summer"
+      ],
+      "answer": 1,
+      "difficulty": 1,
+      "explanation": "December to February is summer in Australia, and those months have far more visitors than June to August."
+    },
+    {
+      "id": "h5-ski-0005",
+      "years": [
+        5
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS5S03",
+      "type": "numeric",
+      "prompt": "A town library counted the books borrowed each year. 2021: 400. 2022: 450. 2023: 500. 2024: 550. If the trend continues, how many books will be borrowed in 2025?",
+      "answer": 600,
+      "difficulty": 2,
+      "explanation": "The number goes up by 50 each year. 550 + 50 = 600."
+    },
+    {
+      "id": "h5-ski-0006",
+      "years": [
+        5
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS5S05",
+      "type": "multiple_choice",
+      "prompt": "Lena asks three of her friends which sport they like best. All three say netball. She says, \"Everyone at our school loves netball.\" Why is her conclusion weak?",
+      "choices": [
+        "Netball is not a popular sport in Australia",
+        "Friends always tell lies in surveys",
+        "She asked only three people, so there is not enough evidence about the whole school",
+        "She should have asked only the teachers"
+      ],
+      "answer": 2,
+      "difficulty": 2,
+      "explanation": "Three friends are too few to speak for a whole school. A good conclusion needs evidence from many different people."
+    },
+    {
+      "id": "h5-ski-0007",
+      "years": [
+        5
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS5S04",
+      "type": "multiple_choice",
+      "prompt": "A mining company hands out a brochure saying its new mine will be wonderful for the town. Why should you be careful with this source?",
+      "choices": [
+        "The company wants people to support the mine, so it may leave out problems",
+        "Brochures are never printed with true facts",
+        "The company is too large to know about the town",
+        "Only sources written by children can be trusted"
+      ],
+      "answer": 0,
+      "difficulty": 2,
+      "explanation": "The purpose of the brochure is to persuade people. A source made to persuade may show only one side."
+    },
+    {
+      "id": "h5-ski-0008",
+      "years": [
+        5
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS5S04",
+      "type": "multiple_choice",
+      "prompt": "Priya needs the date her town was founded. Which source is the most reliable?",
+      "choices": [
+        "An unsigned post on a social media page",
+        "A history by a named historian, with a list of the records used",
+        "An advertisement for a local shop",
+        "What one neighbour thinks she remembers"
+      ],
+      "answer": 1,
+      "difficulty": 3,
+      "explanation": "A named expert who lists the records used can be checked. The other sources have no clear author or no proof."
+    },
+    {
+      "id": "h5-ski-0009",
+      "years": [
+        5
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS5S04",
+      "type": "true_false",
+      "prompt": "A letter written by one settler in the 1850s shows only that person's point of view.",
+      "answer": true,
+      "difficulty": 3,
+      "explanation": "A letter tells what one person saw and thought. Other people at the time, such as First Nations people, may have seen things differently."
+    },
+    {
+      "id": "h5-ski-0010",
+      "years": [
+        5
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS5S05",
+      "type": "multiple_choice",
+      "prompt": "Ben surveyed 30 students about how they travel to school. Bus: 17. Walk: 8. Bike: 5. Which conclusion is best supported by this evidence?",
+      "choices": [
+        "Most students ride a bike",
+        "Walking is the most popular way",
+        "Nobody in the school travels by car",
+        "The bus is the most common way these students travel"
+      ],
+      "answer": 3,
+      "difficulty": 1,
+      "explanation": "The bus has the biggest number, 17 out of 30. The other choices do not match the numbers."
+    }
+  ]
+}

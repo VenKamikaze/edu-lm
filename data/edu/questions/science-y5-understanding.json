@@ -1,0 +1,375 @@
+{
+  "schema": 1,
+  "pack": "science-y5-understanding",
+  "subject": "science",
+  "questions": [
+    {
+      "id": "s5-und-0001",
+      "years": [
+        5
+      ],
+      "subject": "science",
+      "curriculum": "AC9S5U01",
+      "type": "multiple_choice",
+      "prompt": "A camel lives in a hot desert where food and water are hard to find. Its hump stores fat. How does this help the camel survive?",
+      "choices": [
+        "The hump holds water to drink later",
+        "The hump keeps the sand out of its eyes",
+        "The camel can use the stored fat for energy when food is scarce",
+        "The hump makes the camel run faster"
+      ],
+      "answer": 2,
+      "difficulty": 1,
+      "explanation": "The fat in the hump is an energy store. The camel can use it when it cannot find food."
+    },
+    {
+      "id": "s5-und-0002",
+      "years": [
+        5
+      ],
+      "subject": "science",
+      "curriculum": "AC9S5U01",
+      "type": "multiple_choice",
+      "prompt": "The thorny devil is a lizard that lives in the dry deserts of central Australia. Tiny grooves between its spikes carry water to its mouth. What does this body part help it do?",
+      "choices": [
+        "Hide from predators at night",
+        "Collect water from dew and wet sand",
+        "Keep warm in winter",
+        "Catch ants more quickly"
+      ],
+      "answer": 1,
+      "difficulty": 2,
+      "explanation": "The grooves move any water that touches its skin to its mouth, so it can drink in a place with little rain."
+    },
+    {
+      "id": "s5-und-0003",
+      "years": [
+        5
+      ],
+      "subject": "science",
+      "curriculum": "AC9S5U01",
+      "type": "multiple_choice",
+      "prompt": "The bilby lives in hot, dry parts of Australia. It sleeps in a burrow all day and comes out at night. Why is this behaviour useful?",
+      "choices": [
+        "Its food only grows at night",
+        "It cannot see in the daylight",
+        "The burrow and cool night air help it avoid the heat and lose less water",
+        "Night is the only time it can dig"
+      ],
+      "answer": 2,
+      "difficulty": 2,
+      "explanation": "Desert days are very hot. Staying underground and coming out in the cool night helps the bilby save water."
+    },
+    {
+      "id": "s5-und-0004",
+      "years": [
+        5
+      ],
+      "subject": "science",
+      "curriculum": "AC9S5U01",
+      "type": "multiple_choice",
+      "prompt": "Mangrove trees grow in salty mud along the coast of northern Australia. Some of their roots stick up out of the mud like pegs. What is the main job of these roots?",
+      "choices": [
+        "To take in air, because the mud has very little",
+        "To store fresh water",
+        "To scare away crocodiles",
+        "To catch fish for the tree"
+      ],
+      "answer": 0,
+      "difficulty": 3,
+      "explanation": "Wet mud has little air in it. The roots that stick up let the tree take in air above the mud."
+    },
+    {
+      "id": "s5-und-0005",
+      "years": [
+        5
+      ],
+      "subject": "science",
+      "curriculum": "AC9S5U01",
+      "type": "true_false",
+      "prompt": "A kangaroo's strong back legs help it hop long distances across dry grassland.",
+      "answer": true,
+      "difficulty": 1,
+      "explanation": "Strong back legs let a kangaroo cover a lot of ground quickly while using little energy, which helps it find food and water."
+    },
+    {
+      "id": "s5-und-0006",
+      "years": [
+        5
+      ],
+      "subject": "science",
+      "curriculum": "AC9S5U02",
+      "type": "multiple_choice",
+      "prompt": "Rain water flows down a hillside and carries soil into a creek. Which word describes the soil being carried away?",
+      "choices": [
+        "Deposition",
+        "Weathering",
+        "Erosion",
+        "Melting"
+      ],
+      "answer": 2,
+      "difficulty": 1,
+      "explanation": "Erosion is when water, wind or ice moves pieces of rock and soil from one place to another."
+    },
+    {
+      "id": "s5-und-0007",
+      "years": [
+        5
+      ],
+      "subject": "science",
+      "curriculum": "AC9S5U02",
+      "type": "multiple_choice",
+      "prompt": "Which of these changes to Earth's surface happens very quickly?",
+      "choices": [
+        "A flash flood tearing away part of a creek bank",
+        "Wind slowly rounding the rocks at Uluru",
+        "A river carving a deep gorge",
+        "Waves slowly wearing down a sandstone cliff"
+      ],
+      "answer": 0,
+      "difficulty": 2,
+      "explanation": "A flash flood can change a creek bank in hours. The other changes take hundreds or thousands of years."
+    },
+    {
+      "id": "s5-und-0008",
+      "years": [
+        5
+      ],
+      "subject": "science",
+      "curriculum": "AC9S5U02",
+      "type": "multiple_choice",
+      "prompt": "A river flows fast through the hills, then slows down as it reaches a flat plain. It drops sand and mud on the plain. What is this dropping of material called?",
+      "choices": [
+        "Erosion",
+        "Transport",
+        "Weathering",
+        "Deposition"
+      ],
+      "answer": 3,
+      "difficulty": 2,
+      "explanation": "When water slows down it cannot carry as much, so it drops sand and mud. This is called deposition."
+    },
+    {
+      "id": "s5-und-0009",
+      "years": [
+        5
+      ],
+      "subject": "science",
+      "curriculum": "AC9S5U02",
+      "type": "multiple_choice",
+      "prompt": "A tree seed lands in a small crack in a boulder. Over many years the roots grow bigger and split the rock apart. Which process is this?",
+      "choices": [
+        "Weathering",
+        "Deposition",
+        "Transport",
+        "Erosion"
+      ],
+      "answer": 0,
+      "difficulty": 3,
+      "explanation": "Weathering is when rock is broken into smaller pieces where it sits. Nothing has carried the pieces away yet."
+    },
+    {
+      "id": "s5-und-0010",
+      "years": [
+        5
+      ],
+      "subject": "science",
+      "curriculum": "AC9S5U02",
+      "type": "multiple_choice",
+      "prompt": "Waves crash against the cliffs along the Great Ocean Road in Victoria every day. Over thousands of years the cliffs have worn back and left rock stacks standing in the sea. What caused this?",
+      "choices": [
+        "Waves wearing away and carrying off rock",
+        "Sand piling up against the cliffs",
+        "The rock stacks growing upwards",
+        "Heavy rain filling the sea"
+      ],
+      "answer": 0,
+      "difficulty": 2,
+      "explanation": "Waves slowly break off pieces of cliff and carry them away. Harder rock is left standing as stacks."
+    },
+    {
+      "id": "s5-und-0011",
+      "years": [
+        5
+      ],
+      "subject": "science",
+      "curriculum": "AC9S5U03",
+      "type": "multiple_choice",
+      "prompt": "Which of these gives out its own light?",
+      "choices": [
+        "The Moon",
+        "A lit torch",
+        "A mirror in the sun",
+        "A white wall"
+      ],
+      "answer": 1,
+      "difficulty": 1,
+      "explanation": "A lit torch makes its own light. The Moon, a mirror and a wall only bounce light from somewhere else."
+    },
+    {
+      "id": "s5-und-0012",
+      "years": [
+        5
+      ],
+      "subject": "science",
+      "curriculum": "AC9S5U03",
+      "type": "multiple_choice",
+      "prompt": "Mia holds a toy in front of a torch and sees its shadow on the wall. She moves the torch closer to the toy. What happens to the shadow?",
+      "choices": [
+        "It gets smaller",
+        "It gets bigger",
+        "It disappears",
+        "It stays exactly the same size"
+      ],
+      "answer": 1,
+      "difficulty": 2,
+      "explanation": "A torch closer to the toy blocks more of the light, so the shadow on the wall spreads out and gets bigger."
+    },
+    {
+      "id": "s5-und-0013",
+      "years": [
+        5
+      ],
+      "subject": "science",
+      "curriculum": "AC9S5U03",
+      "type": "multiple_choice",
+      "prompt": "Sam cannot see his friend standing around the corner of a building. Which fact about light explains this?",
+      "choices": [
+        "Light bends around every corner",
+        "Light only travels at night",
+        "Light travels in straight lines",
+        "Light cannot pass through air"
+      ],
+      "answer": 2,
+      "difficulty": 1,
+      "explanation": "Light travels in straight lines. It cannot turn the corner, so the light from his friend never reaches his eyes."
+    },
+    {
+      "id": "s5-und-0014",
+      "years": [
+        5
+      ],
+      "subject": "science",
+      "curriculum": "AC9S5U03",
+      "type": "multiple_choice",
+      "prompt": "Ella puts a straw in a glass of water. The straw looks bent where it meets the water. What causes this?",
+      "choices": [
+        "Light reflecting off the water",
+        "The straw getting soft in the water",
+        "A shadow falling across the straw",
+        "Light bending as it passes from water into air"
+      ],
+      "answer": 3,
+      "difficulty": 3,
+      "explanation": "Light changes direction when it moves between water and air. This is called refraction, and it makes the straw look bent."
+    },
+    {
+      "id": "s5-und-0015",
+      "years": [
+        5
+      ],
+      "subject": "science",
+      "curriculum": "AC9S5U03",
+      "type": "true_false",
+      "prompt": "A shadow forms when an object blocks the light from a light source.",
+      "answer": true,
+      "difficulty": 1,
+      "explanation": "Light cannot pass through an opaque object, so there is a dark area behind it. That dark area is the shadow."
+    },
+    {
+      "id": "s5-und-0016",
+      "years": [
+        5
+      ],
+      "subject": "science",
+      "curriculum": "AC9S5U04",
+      "type": "multiple_choice",
+      "prompt": "A brick is a solid. Which sentence best describes its particles?",
+      "choices": [
+        "They are far apart and zoom around freely",
+        "They are packed closely together and only jiggle in place",
+        "They slide past each other like water",
+        "They are not moving at all"
+      ],
+      "answer": 1,
+      "difficulty": 2,
+      "explanation": "In a solid the particles are held close together in fixed places. They can only vibrate, so the solid keeps its shape."
+    },
+    {
+      "id": "s5-und-0017",
+      "years": [
+        5
+      ],
+      "subject": "science",
+      "curriculum": "AC9S5U04",
+      "type": "multiple_choice",
+      "prompt": "Someone opens a bottle of perfume at one end of a room. Soon people at the other end can smell it. Why does the smell spread out?",
+      "choices": [
+        "Gas particles are far apart and move in all directions",
+        "Liquid particles are locked in place",
+        "The room pulls the smell across",
+        "Solid particles float to the other end"
+      ],
+      "answer": 0,
+      "difficulty": 2,
+      "explanation": "Gas particles are far apart and move around freely, so they spread out to fill all the space they can."
+    },
+    {
+      "id": "s5-und-0018",
+      "years": [
+        5
+      ],
+      "subject": "science",
+      "curriculum": "AC9S5U04",
+      "type": "multiple_choice",
+      "prompt": "Juice takes the shape of the cup you pour it into, but you cannot squash it into a smaller space. What does this tell us about the particles in a liquid?",
+      "choices": [
+        "They are far apart and fixed in place",
+        "They are close together but can slide past each other",
+        "They are far apart and can slide past each other",
+        "They are close together and fixed in place"
+      ],
+      "answer": 1,
+      "difficulty": 3,
+      "explanation": "Liquid particles are close together, so a liquid cannot be squashed. They can slide past each other, so a liquid can change shape."
+    },
+    {
+      "id": "s5-und-0019",
+      "years": [
+        5
+      ],
+      "subject": "science",
+      "curriculum": "AC9S5U04",
+      "type": "multiple_choice",
+      "prompt": "An ice block sits in the sun on a summer day in Darwin and turns into water. What happens to its particles as it melts?",
+      "choices": [
+        "They get bigger",
+        "They disappear",
+        "They stop moving",
+        "They gain energy, move more and slide past each other"
+      ],
+      "answer": 3,
+      "difficulty": 2,
+      "explanation": "Heat gives the particles more energy, so they move more. They break free of their fixed places and the ice becomes a liquid."
+    },
+    {
+      "id": "s5-und-0020",
+      "years": [
+        5
+      ],
+      "subject": "science",
+      "curriculum": "AC9S5U04",
+      "type": "multiple_choice",
+      "prompt": "Drops of water form on the outside of a cold drink bottle on a warm day. Which statement explains this?",
+      "choices": [
+        "Water particles in the bottle leak through the glass",
+        "Water vapour particles in the air slow down and join together as liquid when they touch the cold bottle",
+        "The cold bottle makes new water particles",
+        "Water particles in the air melt on the bottle"
+      ],
+      "answer": 1,
+      "difficulty": 3,
+      "explanation": "The air has water vapour in it. When the vapour particles touch the cold bottle they slow down and clump together as liquid drops."
+    }
+  ]
+}

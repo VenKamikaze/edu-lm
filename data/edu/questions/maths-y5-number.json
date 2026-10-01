@@ -1,0 +1,360 @@
+{
+  "schema": 1,
+  "pack": "maths-y5-number",
+  "subject": "maths",
+  "questions": [
+    {
+      "id": "m5-num-0001",
+      "years": [
+        5
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M5N01",
+      "type": "multiple_choice",
+      "prompt": "Which of these decimals is the largest?",
+      "choices": [
+        "4.305",
+        "4.35",
+        "4.053",
+        "4.3"
+      ],
+      "answer": 1,
+      "difficulty": 2,
+      "explanation": "Compare the tenths first: 4.053 has 0 tenths, the others have 3. Then the hundredths: 4.35 has 5, which beats 4.305 and 4.3."
+    },
+    {
+      "id": "m5-num-0002",
+      "years": [
+        5
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M5N02",
+      "type": "multiple_choice",
+      "prompt": "Which number is a multiple of both 6 and 8?",
+      "choices": [
+        "36",
+        "42",
+        "48",
+        "56"
+      ],
+      "answer": 2,
+      "difficulty": 2,
+      "explanation": "48 is 6 × 8 and 8 × 6, so it is in both times tables. 36 and 42 are not in the 8 times table, and 56 is not in the 6 times table."
+    },
+    {
+      "id": "m5-num-0003",
+      "years": [
+        5
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M5N03",
+      "type": "multiple_choice",
+      "prompt": "Which of these mixed numbers is the smallest?",
+      "choices": [
+        "1 3/8",
+        "1 1/2",
+        "1 5/8",
+        "1 1/4"
+      ],
+      "answer": 3,
+      "difficulty": 2,
+      "explanation": "All have 1 whole. Written in eighths, the fractions are 3/8, 4/8, 5/8 and 2/8, so 1 1/4 is smallest."
+    },
+    {
+      "id": "m5-num-0004",
+      "years": [
+        5
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M5N03",
+      "type": "true_false",
+      "prompt": "3/4 is greater than 5/8.",
+      "answer": true,
+      "difficulty": 1,
+      "explanation": "3/4 is the same as 6/8. 6/8 is more than 5/8."
+    },
+    {
+      "id": "m5-num-0005",
+      "years": [
+        5
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M5N04",
+      "type": "numeric",
+      "prompt": "There are 25 students in Ava's class. 40% of them walk to school. How many students walk to school?",
+      "answer": 10,
+      "difficulty": 2,
+      "explanation": "40% is the same as 2/5. One fifth of 25 is 5, so two fifths is 10."
+    },
+    {
+      "id": "m5-num-0006",
+      "years": [
+        5
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M5N05",
+      "type": "multiple_choice",
+      "prompt": "Mia ate 3/8 of a pizza. Her brother Ben ate 1/4 of the same pizza. How much of the pizza did they eat altogether?",
+      "choices": [
+        "5/8",
+        "4/12",
+        "4/8",
+        "5/16"
+      ],
+      "answer": 0,
+      "difficulty": 2,
+      "explanation": "1/4 is the same as 2/8. Then 3/8 + 2/8 = 5/8."
+    },
+    {
+      "id": "m5-num-0007",
+      "years": [
+        5
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M5N07",
+      "type": "multiple_choice",
+      "prompt": "150 students are going on an excursion. Each bus holds 48 students. How many buses are needed so that everyone has a seat?",
+      "choices": [
+        "3",
+        "5",
+        "4",
+        "3 remainder 6"
+      ],
+      "answer": 2,
+      "difficulty": 2,
+      "explanation": "150 ÷ 48 is 3 with 6 left over. Those 6 students still need a bus, so 4 buses are needed."
+    },
+    {
+      "id": "m5-num-0008",
+      "years": [
+        5
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M5N08",
+      "type": "multiple_choice",
+      "prompt": "Sam wants a quick estimate for 398 × 21. Which answer is closest?",
+      "choices": [
+        "800",
+        "6000",
+        "80 000",
+        "8000"
+      ],
+      "answer": 3,
+      "difficulty": 1,
+      "explanation": "398 is close to 400 and 21 is close to 20. 400 × 20 = 8000."
+    },
+    {
+      "id": "m5-num-0009",
+      "years": [
+        5
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M5N09",
+      "type": "numeric",
+      "prompt": "Tickets to the Taronga Zoo show cost $12 each. Lin buys 3 tickets and 2 popcorns at $4 each. She pays with $50. How many dollars change does she get?",
+      "answer": 6,
+      "difficulty": 3,
+      "explanation": "Tickets cost 3 × 12 = 36 dollars and popcorn costs 2 × 4 = 8 dollars. Total is 44 dollars, and 50 − 44 = 6."
+    },
+    {
+      "id": "m5-num-0010",
+      "years": [
+        5
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M5N10",
+      "type": "multiple_choice",
+      "prompt": "Zara uses a method to test for 9. She adds the digits, then checks if the total is in the 9 times table. Which number is divisible by 9?",
+      "choices": [
+        "2468",
+        "3519",
+        "4127",
+        "5236"
+      ],
+      "answer": 1,
+      "difficulty": 2,
+      "explanation": "3 + 5 + 1 + 9 = 18, and 18 is in the 9 times table. The other digit totals are 20, 14 and 16."
+    },
+    {
+      "id": "m5-num-0011",
+      "years": [
+        5
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M5N01",
+      "type": "generator",
+      "generator": "place_value",
+      "params": {
+        "digits": [
+          5,
+          5
+        ]
+      },
+      "difficulty": 1
+    },
+    {
+      "id": "m5-num-0012",
+      "years": [
+        5
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M5N01",
+      "type": "generator",
+      "generator": "place_value",
+      "params": {
+        "digits": [
+          6,
+          6
+        ]
+      },
+      "difficulty": 3
+    },
+    {
+      "id": "m5-num-0013",
+      "years": [
+        5
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M5N06",
+      "type": "generator",
+      "generator": "multiply",
+      "params": {
+        "a": [
+          10,
+          99
+        ],
+        "b": [
+          2,
+          9
+        ]
+      },
+      "difficulty": 1
+    },
+    {
+      "id": "m5-num-0014",
+      "years": [
+        5
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M5N06",
+      "type": "generator",
+      "generator": "multiply",
+      "params": {
+        "a": [
+          100,
+          500
+        ],
+        "b": [
+          2,
+          9
+        ]
+      },
+      "difficulty": 2
+    },
+    {
+      "id": "m5-num-0016",
+      "years": [
+        5
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M5N07",
+      "type": "generator",
+      "generator": "divide",
+      "params": {
+        "quotient": [
+          2,
+          20
+        ],
+        "divisor": [
+          2,
+          5
+        ]
+      },
+      "difficulty": 1
+    },
+    {
+      "id": "m5-num-0017",
+      "years": [
+        5
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M5N02",
+      "type": "generator",
+      "generator": "divide",
+      "params": {
+        "quotient": [
+          10,
+          50
+        ],
+        "divisor": [
+          3,
+          9
+        ]
+      },
+      "difficulty": 2
+    },
+    {
+      "id": "m5-num-0018",
+      "years": [
+        5
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M5N09",
+      "type": "generator",
+      "generator": "add",
+      "params": {
+        "a": [
+          1000,
+          9999
+        ],
+        "b": [
+          1000,
+          9999
+        ]
+      },
+      "difficulty": 1
+    },
+    {
+      "id": "m5-num-0019",
+      "years": [
+        5
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M5N08",
+      "type": "generator",
+      "generator": "add",
+      "params": {
+        "a": [
+          10000,
+          99999
+        ],
+        "b": [
+          10000,
+          99999
+        ]
+      },
+      "difficulty": 3
+    },
+    {
+      "id": "m5-num-0020",
+      "years": [
+        5
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M5N09",
+      "type": "generator",
+      "generator": "subtract",
+      "params": {
+        "a": [
+          10000,
+          99999
+        ],
+        "b": [
+          1000,
+          9999
+        ]
+      },
+      "difficulty": 2
+    }
+  ]
+}

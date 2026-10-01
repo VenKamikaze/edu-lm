@@ -1,0 +1,210 @@
+{
+  "schema": 1,
+  "pack": "english-y5-literature",
+  "subject": "english",
+  "questions": [
+    {
+      "id": "e5-lit-0001",
+      "years": [
+        5
+      ],
+      "subject": "english",
+      "curriculum": "AC9E5LE01",
+      "type": "multiple_choice",
+      "prompt": "In a story, Dad lights a kerosene lamp. Then he hitches the horse to the buggy to go into town for flour. What do these details suggest about the setting?",
+      "choices": [
+        "The story is set a long time ago",
+        "The story is set in a modern city",
+        "The story is set in outer space",
+        "The story is set during a school holiday"
+      ],
+      "answer": 0,
+      "difficulty": 1,
+      "explanation": "Kerosene lamps and horse buggies were used before electricity and cars were common, so the story is set long ago."
+    },
+    {
+      "id": "e5-lit-0002",
+      "years": [
+        5
+      ],
+      "subject": "english",
+      "curriculum": "AC9E5LE01",
+      "type": "multiple_choice",
+      "prompt": "Ned sleeps in a canvas tent near Ballarat in 1853. Each month he pays for a licence so he can dig for gold. What does this setting show about life on the goldfields?",
+      "choices": [
+        "Everyone lived in large brick houses",
+        "Many people lived in temporary shelters and had to follow rules",
+        "Gold was free and nobody needed permission",
+        "Miners travelled to work by train each day"
+      ],
+      "answer": 1,
+      "difficulty": 2,
+      "explanation": "A tent shows people lived in temporary homes, and the licence shows there were rules about digging for gold."
+    },
+    {
+      "id": "e5-lit-0003",
+      "years": [
+        5
+      ],
+      "subject": "english",
+      "curriculum": "AC9E5LE01",
+      "type": "multiple_choice",
+      "prompt": "Lily lives on a cattle station in the outback. Every morning at 9 am she switches on a radio for lessons from a teacher 400 km away. What does this show about her community?",
+      "choices": [
+        "Children in the outback never go to school",
+        "Lily's teacher visits the station every day",
+        "Children far from towns can learn by radio or distance lessons",
+        "Lily's family does not own any animals"
+      ],
+      "answer": 2,
+      "difficulty": 2,
+      "explanation": "The teacher is very far away, so Lily learns over the radio. This shows how remote communities handle schooling."
+    },
+    {
+      "id": "e5-lit-0004",
+      "years": [
+        5
+      ],
+      "subject": "english",
+      "curriculum": "AC9E5LE01",
+      "type": "multiple_choice",
+      "prompt": "In a story set in 1943, Grandma grows vegetables in the backyard and saves her tea and sugar ration coupons. Why would the author include these details?",
+      "choices": [
+        "To show that Grandma likes gardening more than cooking",
+        "To show that Grandma was a wealthy shop owner",
+        "To show that vegetables were not sold in shops",
+        "To show that food was limited during wartime"
+      ],
+      "answer": 3,
+      "difficulty": 3,
+      "explanation": "Rationing and growing your own food were common in wartime because supplies were short."
+    },
+    {
+      "id": "e5-lit-0005",
+      "years": [
+        5
+      ],
+      "subject": "english",
+      "curriculum": "AC9E5LE03",
+      "type": "multiple_choice",
+      "prompt": "Read this line: \"I crept down the hall, my heart thumping. Nobody must hear me.\" Which point of view is the narrator using?",
+      "choices": [
+        "Second person, speaking to the reader as \"you\"",
+        "Third person, as an outsider watching",
+        "First person, as the character who is telling the story",
+        "Fourth person, as a group of characters"
+      ],
+      "answer": 2,
+      "difficulty": 1,
+      "explanation": "The word \"I\" shows the character is telling their own story. That is first person."
+    },
+    {
+      "id": "e5-lit-0006",
+      "years": [
+        5
+      ],
+      "subject": "english",
+      "curriculum": "AC9E5LE03",
+      "type": "multiple_choice",
+      "prompt": "Tom tells the story himself: \"The referee blew his whistle unfairly. We were robbed!\" Why might readers not get the full picture of the game?",
+      "choices": [
+        "Because we only see the game through Tom's own feelings",
+        "Because the referee is the real narrator",
+        "Because the story is told in the future",
+        "Because first person stories never include events"
+      ],
+      "answer": 0,
+      "difficulty": 2,
+      "explanation": "Tom is upset and tells only his side. Readers cannot be sure the referee really was unfair."
+    },
+    {
+      "id": "e5-lit-0007",
+      "years": [
+        5
+      ],
+      "subject": "english",
+      "curriculum": "AC9E5LE03",
+      "type": "multiple_choice",
+      "prompt": "The narrator says: \"Zoe smiled at the crowd, but inside she wished she could run away. Her brother thought she looked brave.\" What does the reader learn from this narrator?",
+      "choices": [
+        "Zoe is not nervous at all",
+        "Zoe is hiding her nerves, and her brother does not know",
+        "Zoe's brother is the one telling the story",
+        "Zoe's brother is also feeling nervous"
+      ],
+      "answer": 1,
+      "difficulty": 3,
+      "explanation": "The narrator knows what Zoe really feels, so readers learn something her brother misses."
+    },
+    {
+      "id": "e5-lit-0008",
+      "years": [
+        5
+      ],
+      "subject": "english",
+      "curriculum": "AC9E5LE03",
+      "type": "true_false",
+      "prompt": "A story told in the first person lets readers know the narrator's own thoughts and feelings directly.",
+      "answer": true,
+      "difficulty": 1,
+      "explanation": "The narrator is a character telling their own story, so they can share what they think and feel."
+    },
+    {
+      "id": "e5-lit-0010",
+      "years": [
+        5
+      ],
+      "subject": "english",
+      "curriculum": "AC9E5LE04",
+      "type": "multiple_choice",
+      "prompt": "A poet writes: \"Her smile was a sunrise over the bay.\" What does this metaphor suggest about her smile?",
+      "choices": [
+        "It was bright, warm and welcoming",
+        "It happened very early in the morning",
+        "It was cold and hard to see",
+        "It happened near the beach"
+      ],
+      "answer": 0,
+      "difficulty": 2,
+      "explanation": "A sunrise brings light and warmth. Saying her smile is a sunrise shows it made everything feel bright."
+    },
+    {
+      "id": "e5-lit-0011",
+      "years": [
+        5
+      ],
+      "subject": "english",
+      "curriculum": "AC9E5LE04",
+      "type": "multiple_choice",
+      "prompt": "A poem says: \"The snake slithered silently, sliding sideways through the scrub.\" Why does the poet repeat the s sound so often?",
+      "choices": [
+        "To make the snake seem noisy and angry",
+        "To make the line sound like a snake hissing and moving",
+        "To show that the snake is very large",
+        "To make the poem rhyme at the end"
+      ],
+      "answer": 1,
+      "difficulty": 3,
+      "explanation": "Repeating the s sound is called alliteration. It sounds like hissing, which suits a sneaking snake."
+    },
+    {
+      "id": "e5-lit-0012",
+      "years": [
+        5
+      ],
+      "subject": "english",
+      "curriculum": "AC9E5LE04",
+      "type": "multiple_choice",
+      "prompt": "Which of these sentences contains a simile?",
+      "choices": [
+        "The classroom was a zoo at lunchtime.",
+        "The sun smiled down on the oval.",
+        "Thunder grumbled over the hills.",
+        "The ball was as round as a full moon."
+      ],
+      "answer": 3,
+      "difficulty": 2,
+      "explanation": "A simile compares two things using \"as\" or \"like\". The ball is compared to the moon using \"as round as\"."
+    }
+  ]
+}

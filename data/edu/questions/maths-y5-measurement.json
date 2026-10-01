@@ -1,0 +1,256 @@
+{
+  "schema": 1,
+  "pack": "maths-y5-measurement",
+  "subject": "maths",
+  "questions": [
+    {
+      "id": "m5-mea-0001",
+      "years": [
+        5
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M5M01",
+      "type": "multiple_choice",
+      "prompt": "Which unit is best for measuring the mass of an adult koala?",
+      "choices": [
+        "grams",
+        "kilograms",
+        "tonnes",
+        "milligrams"
+      ],
+      "answer": 1,
+      "difficulty": 1,
+      "explanation": "An adult koala weighs about 8 kilograms. Grams are too small and tonnes are far too big."
+    },
+    {
+      "id": "m5-mea-0002",
+      "years": [
+        5
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M5M01",
+      "type": "numeric",
+      "prompt": "Tom fills a 3 L jug using a 250 mL cup. How many full cups does he need?",
+      "answer": 12,
+      "difficulty": 2,
+      "explanation": "3 L is 3000 mL. 3000 ÷ 250 = 12 cups."
+    },
+    {
+      "id": "m5-mea-0003",
+      "years": [
+        5
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M5M01",
+      "type": "multiple_choice",
+      "prompt": "A pencil measures 17 cm and 4 mm. How long is it in centimetres?",
+      "choices": [
+        "17.04 cm",
+        "174 cm",
+        "17.4 cm",
+        "1.74 cm"
+      ],
+      "answer": 2,
+      "difficulty": 2,
+      "explanation": "10 mm make 1 cm, so 4 mm is 0.4 cm. The pencil is 17.4 cm."
+    },
+    {
+      "id": "m5-mea-0004",
+      "years": [
+        5
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M5M01",
+      "type": "multiple_choice",
+      "prompt": "Four parcels are weighed. Which one is the heaviest?",
+      "choices": [
+        "2400 g",
+        "2050 g",
+        "2.5 kg",
+        "2 kg 600 g"
+      ],
+      "answer": 3,
+      "difficulty": 3,
+      "explanation": "Change them all to grams: 2400, 2050, 2500 and 2600. So 2 kg 600 g is the heaviest."
+    },
+    {
+      "id": "m5-mea-0005",
+      "years": [
+        5
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M5M02",
+      "type": "numeric",
+      "prompt": "A vegie patch is a rectangle 6 m long and 4 m wide. How many metres of fence are needed to go all the way around it?",
+      "answer": 20,
+      "difficulty": 1,
+      "explanation": "Add all four sides: 6 + 4 + 6 + 4 = 20 metres."
+    },
+    {
+      "id": "m5-mea-0006",
+      "years": [
+        5
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M5M02",
+      "type": "numeric",
+      "prompt": "A deck is a rectangle 7 m long and 4 m wide. A square 2 m by 2 m is cut out of one corner for a tree. How many square metres of deck are left?",
+      "answer": 24,
+      "difficulty": 3,
+      "explanation": "The full rectangle is 7 × 4 = 28 square metres. The square cut-out is 4 square metres. 28 − 4 = 24."
+    },
+    {
+      "id": "m5-mea-0007",
+      "years": [
+        5
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M5M02",
+      "type": "multiple_choice",
+      "prompt": "Sam walks once around the edge of a square paddock. Each side is 50 m long. How far does he walk?",
+      "choices": [
+        "100 m",
+        "200 m",
+        "250 m",
+        "2500 m"
+      ],
+      "answer": 1,
+      "difficulty": 2,
+      "explanation": "A square has 4 equal sides. 4 × 50 = 200 metres."
+    },
+    {
+      "id": "m5-mea-0008",
+      "years": [
+        5
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M5M02",
+      "type": "multiple_choice",
+      "prompt": "A rectangular courtyard has an area of 36 square metres. One side is 9 m long. What is the distance around the courtyard?",
+      "choices": [
+        "26 m",
+        "13 m",
+        "36 m",
+        "45 m"
+      ],
+      "answer": 0,
+      "difficulty": 3,
+      "explanation": "The other side is 36 ÷ 9 = 4 m. The distance around is 9 + 4 + 9 + 4 = 26 m."
+    },
+    {
+      "id": "m5-mea-0009",
+      "years": [
+        5
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M5M03",
+      "type": "multiple_choice",
+      "prompt": "Ella's swimming lesson starts at 3:45 pm. How is that written in 24-hour time?",
+      "choices": [
+        "03:45",
+        "13:45",
+        "15:45",
+        "18:45"
+      ],
+      "answer": 2,
+      "difficulty": 1,
+      "explanation": "For times after noon, add 12 hours to the hour. 3 + 12 = 15, so 3:45 pm is 15:45."
+    },
+    {
+      "id": "m5-mea-0010",
+      "years": [
+        5
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M5M03",
+      "type": "multiple_choice",
+      "prompt": "A footy match starts at 19:20. What is this in 12-hour time?",
+      "choices": [
+        "9:20 pm",
+        "7:20 pm",
+        "7:20 am",
+        "6:20 pm"
+      ],
+      "answer": 1,
+      "difficulty": 2,
+      "explanation": "19 − 12 = 7. It is after noon, so the time is 7:20 pm."
+    },
+    {
+      "id": "m5-mea-0011",
+      "years": [
+        5
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M5M03",
+      "type": "true_false",
+      "prompt": "00:30 in 24-hour time means 30 minutes after midnight.",
+      "answer": true,
+      "difficulty": 2,
+      "explanation": "00:00 is midnight, so 00:30 is half an hour after it, which is 12:30 am."
+    },
+    {
+      "id": "m5-mea-0012",
+      "years": [
+        5
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M5M03",
+      "type": "numeric",
+      "prompt": "A train leaves Newcastle at 14:50 and arrives in Sydney at 17:15. How many minutes does the trip take?",
+      "answer": 145,
+      "difficulty": 3,
+      "explanation": "14:50 to 17:00 is 130 minutes. Then add 15 more minutes to reach 17:15. 130 + 15 = 145."
+    },
+    {
+      "id": "m5-mea-0014",
+      "years": [
+        5
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M5M04",
+      "type": "numeric",
+      "prompt": "Two angles sit side by side on a straight line. One angle is 65°. How many degrees is the other angle?",
+      "answer": 115,
+      "difficulty": 2,
+      "explanation": "Angles on a straight line add to 180 degrees. 180 − 65 = 115."
+    },
+    {
+      "id": "m5-mea-0015",
+      "years": [
+        5
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M5M04",
+      "type": "multiple_choice",
+      "prompt": "On a clock at 4 o'clock, the hands make an angle. Which is the best estimate of that angle?",
+      "choices": [
+        "60°",
+        "120°",
+        "90°",
+        "150°"
+      ],
+      "answer": 1,
+      "difficulty": 2,
+      "explanation": "A full turn of 360 degrees has 12 hours. Each hour is 30 degrees, and 4 × 30 = 120."
+    },
+    {
+      "id": "m5-mea-0016",
+      "years": [
+        5
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M5M04",
+      "type": "multiple_choice",
+      "prompt": "Lily lines up her protractor and one arm of an angle points to 0. The other arm crosses 40 on one scale and 140 on the other. The angle is smaller than a right angle. What is its size?",
+      "choices": [
+        "140°",
+        "50°",
+        "130°",
+        "40°"
+      ],
+      "answer": 3,
+      "difficulty": 3,
+      "explanation": "A right angle is 90 degrees. Only 40 is smaller than 90, and it is the scale that starts at the arm on 0."
+    }
+  ]
+}

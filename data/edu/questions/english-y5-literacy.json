@@ -1,0 +1,235 @@
+{
+  "schema": 1,
+  "pack": "english-y5-literacy",
+  "subject": "english",
+  "questions": [
+    {
+      "id": "e5-lty-0002",
+      "years": [
+        5
+      ],
+      "subject": "english",
+      "curriculum": "AC9E5LY01",
+      "type": "multiple_choice",
+      "prompt": "A writer describes red dust stretching past the homestead, with cattle standing under the only gum tree. Which place does this most likely describe?",
+      "choices": [
+        "The Australian outback",
+        "An icy base in Antarctica",
+        "A busy city street",
+        "A tropical island resort"
+      ],
+      "answer": 0,
+      "difficulty": 2,
+      "explanation": "Red dust, cattle, a homestead and gum trees are clues to the Australian outback."
+    },
+    {
+      "id": "e5-lty-0004",
+      "years": [
+        5
+      ],
+      "subject": "english",
+      "curriculum": "AC9E5LY03",
+      "type": "multiple_choice",
+      "prompt": "Priya wants to write an informative text that explains how koalas live. Which features suit her purpose best?",
+      "choices": [
+        "A made-up chat between two talking koalas",
+        "A rhyming riddle about gum leaves",
+        "Headings, true facts and clear explanations",
+        "Strong demands that readers must act now"
+      ],
+      "answer": 2,
+      "difficulty": 2,
+      "explanation": "Informative texts give true facts, and headings help readers find them."
+    },
+    {
+      "id": "e5-lty-0005",
+      "years": [
+        5
+      ],
+      "subject": "english",
+      "curriculum": "AC9E5LY05",
+      "type": "multiple_choice",
+      "prompt": "Mia found a baby magpie on the ground. She watched for an hour, but no parent came. She took it to a wildlife carer, who fed it and will release it when it can fly. Which is the best summary?",
+      "choices": [
+        "Mia likes magpies and watches them often.",
+        "Mia rescued a baby magpie and a carer is looking after it until it can fly.",
+        "A wildlife carer found a magpie in a tree.",
+        "Magpies cannot fly when they are babies."
+      ],
+      "answer": 1,
+      "difficulty": 2,
+      "explanation": "A good summary gives the main events in order and leaves out small details."
+    },
+    {
+      "id": "e5-lty-0006",
+      "years": [
+        5
+      ],
+      "subject": "english",
+      "curriculum": "AC9E5LY05",
+      "type": "multiple_choice",
+      "prompt": "Jack stared at his shoes. His voice was barely a whisper as he told his coach that he had lost the team trophy. How does Jack most likely feel?",
+      "choices": [
+        "Ashamed and worried",
+        "Excited and proud",
+        "Bored and sleepy",
+        "Angry at his coach"
+      ],
+      "answer": 0,
+      "difficulty": 1,
+      "explanation": "Staring at his shoes and whispering are clues that Jack feels ashamed and worried."
+    },
+    {
+      "id": "e5-lty-0007",
+      "years": [
+        5
+      ],
+      "subject": "english",
+      "curriculum": "AC9E5LY08",
+      "type": "multiple_choice",
+      "prompt": "In which word does the letter pattern 'ough' sound like the 'off' in 'off'?",
+      "choices": [
+        "through",
+        "cough",
+        "though",
+        "bough"
+      ],
+      "answer": 1,
+      "difficulty": 2,
+      "explanation": "Cough is said 'koff'. The 'ough' in the other words sounds different."
+    },
+    {
+      "id": "e5-lty-0008",
+      "years": [
+        5
+      ],
+      "subject": "english",
+      "curriculum": "AC9E5LY08",
+      "type": "multiple_choice",
+      "prompt": "Three of these words have 'ear' said the same way, and one is said differently. Which one is said differently?",
+      "choices": [
+        "bear",
+        "wear",
+        "pear",
+        "hear"
+      ],
+      "answer": 3,
+      "difficulty": 2,
+      "explanation": "Bear, wear and pear all rhyme with 'air'. Hear rhymes with 'here'."
+    },
+    {
+      "id": "e5-lty-0009",
+      "years": [
+        5
+      ],
+      "subject": "english",
+      "curriculum": "AC9E5LY08",
+      "type": "multiple_choice",
+      "prompt": "The letters 'ch' can be said in different ways. In which word do they make a 'k' sound?",
+      "choices": [
+        "chef",
+        "chimney",
+        "chorus",
+        "church"
+      ],
+      "answer": 2,
+      "difficulty": 3,
+      "explanation": "In chorus, 'ch' sounds like 'k'. In chef it sounds like 'sh', and in chimney and church it sounds like 'ch'."
+    },
+    {
+      "id": "e5-lty-0010",
+      "years": [
+        5
+      ],
+      "subject": "english",
+      "curriculum": "AC9E5LY09",
+      "type": "multiple_choice",
+      "prompt": "What is the root word in 'unbreakable'?",
+      "choices": [
+        "unbreak",
+        "breakable",
+        "break",
+        "able"
+      ],
+      "answer": 2,
+      "difficulty": 1,
+      "explanation": "Take away the prefix 'un-' and the suffix '-able'. The root word 'break' is left."
+    },
+    {
+      "id": "e5-lty-0011",
+      "years": [
+        5
+      ],
+      "subject": "english",
+      "curriculum": "AC9E5LY09",
+      "type": "multiple_choice",
+      "prompt": "Which is the correct spelling when you add the suffix '-ness' to the word 'happy'?",
+      "choices": [
+        "happyness",
+        "happiness",
+        "happines",
+        "hapiness"
+      ],
+      "answer": 1,
+      "difficulty": 2,
+      "explanation": "When a word ends in a consonant plus y, change the y to i before adding the suffix."
+    },
+    {
+      "id": "e5-lty-0012",
+      "years": [
+        5
+      ],
+      "subject": "english",
+      "curriculum": "AC9E5LY09",
+      "type": "multiple_choice",
+      "prompt": "The Latin root 'aqua' means water. Which word is built from this root?",
+      "choices": [
+        "aquarium",
+        "quarry",
+        "acre",
+        "equal"
+      ],
+      "answer": 0,
+      "difficulty": 3,
+      "explanation": "An aquarium is a tank of water. The word comes from the root 'aqua'."
+    },
+    {
+      "id": "e5-lty-0013",
+      "years": [
+        5
+      ],
+      "subject": "english",
+      "curriculum": "AC9E5LY10",
+      "type": "multiple_choice",
+      "prompt": "Which is the correct plural of 'half'?",
+      "choices": [
+        "halfs",
+        "halfes",
+        "halves",
+        "halvs"
+      ],
+      "answer": 2,
+      "difficulty": 2,
+      "explanation": "Many words ending in 'f' change the f to 'ves' in the plural, like half to halves."
+    },
+    {
+      "id": "e5-lty-0014",
+      "years": [
+        5
+      ],
+      "subject": "english",
+      "curriculum": "AC9E5LY10",
+      "type": "multiple_choice",
+      "prompt": "Adding the suffix '-ly' to the adjective 'quick' makes 'quickly'. What kind of word is 'quickly'?",
+      "choices": [
+        "A noun",
+        "A verb",
+        "An adjective",
+        "An adverb"
+      ],
+      "answer": 3,
+      "difficulty": 3,
+      "explanation": "The suffix '-ly' often turns an adjective into an adverb that tells how something is done."
+    }
+  ]
+}

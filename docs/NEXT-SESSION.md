@@ -1,6 +1,6 @@
 # Next session brief: grow the question bank (phase 5b, Year 3 wave)
 
-**Update 2026-10-01 (end of session): Years 3 and 4 are DONE** (352 real entries, 391 with samples, on `main`). User decisions: keep the sample packs shipped; from Year 4 on the user is out of the review loop, so the orchestrator reviews each pack, writes `tools/qgen/work/<cell>/reviewed.csv` (approve y/n/edit), imports, and records every n/edit in PROGRESS.md (see the Year 4 entries for the rule used). Next: the Year 5 wave (`qgen.py cells --year 5`), the same way. Validate misses cross-pack generator repeats and some same-year repeats in different wording; read for them (TODO.md).
+**Update 2026-10-02: phase 5b is DONE.** All 35 cells for Years 3–5 are imported on `main` (523 real questions, 562 with the 39 samples, which stay shipped by user decision). From Year 4 on the orchestrator reviewed the packs in place of the parent (see PROGRESS.md for every n/edit). Next: ask the user what's next. Options: Phase 6 (publish: README, screenshots, licence notes), the open PHASE4-TEST steps, the protocol-version TODO, or a second batch for any cell. The Year 3 wave notes below are history.
 
 Written 2026-10-01 for the next Claude Code session on this repo. Read this first, then `docs/PROGRESS.md` (state and decisions) and `docs/PLAN.md` (design). Repo `main` is at `b683fdc` or later.
 

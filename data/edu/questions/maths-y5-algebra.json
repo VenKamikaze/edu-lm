@@ -1,0 +1,235 @@
+{
+  "schema": 1,
+  "pack": "maths-y5-algebra",
+  "subject": "maths",
+  "questions": [
+    {
+      "id": "m5-alg-0001",
+      "years": [
+        5
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M5A01",
+      "type": "multiple_choice",
+      "prompt": "Ravi knows that 6 × 8 = 48. Which sum is in the same fact family?",
+      "choices": [
+        "48 ÷ 6 = 9",
+        "8 ÷ 48 = 6",
+        "48 ÷ 6 = 8",
+        "48 − 8 = 6"
+      ],
+      "answer": 2,
+      "difficulty": 1,
+      "explanation": "Division undoes multiplication. Since 6 groups of 8 make 48, sharing 48 into 6 groups gives 8."
+    },
+    {
+      "id": "m5-alg-0002",
+      "years": [
+        5
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M5A01",
+      "type": "numeric",
+      "prompt": "Mia knows that 12 × 15 = 180. Use this to work out 180 ÷ 15.",
+      "answer": 12,
+      "difficulty": 2,
+      "explanation": "Division undoes multiplication. 12 × 15 = 180, so 180 ÷ 15 = 12."
+    },
+    {
+      "id": "m5-alg-0003",
+      "years": [
+        5
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M5A01",
+      "type": "multiple_choice",
+      "prompt": "Tom knows that 25 × 16 = 400. Which division must also be true?",
+      "choices": [
+        "400 ÷ 25 = 16",
+        "400 ÷ 40 = 25",
+        "16 ÷ 400 = 25",
+        "25 ÷ 16 = 400"
+      ],
+      "answer": 0,
+      "difficulty": 3,
+      "explanation": "The whole (400) is divided by one of the two factors to give the other factor. 400 ÷ 25 = 16."
+    },
+    {
+      "id": "m5-alg-0004",
+      "years": [
+        5
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M5A02",
+      "type": "multiple_choice",
+      "prompt": "What number makes this true? □ × 6 = 54",
+      "choices": [
+        "8",
+        "9",
+        "10",
+        "48"
+      ],
+      "answer": 1,
+      "difficulty": 1,
+      "explanation": "Undo the multiplying by dividing. 54 ÷ 6 = 9, and 9 × 6 = 54."
+    },
+    {
+      "id": "m5-alg-0005",
+      "years": [
+        5
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M5A02",
+      "type": "numeric",
+      "prompt": "What number goes in the box to make this true? 156 ÷ □ = 12",
+      "answer": 13,
+      "difficulty": 3,
+      "explanation": "Ask what 156 must be divided by to give 12. Since 12 × 13 = 156, the missing number is 13."
+    },
+    {
+      "id": "m5-alg-0006",
+      "years": [
+        5
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M5A02",
+      "type": "multiple_choice",
+      "prompt": "Lena shared her stickers equally among 7 friends. Each friend got 9 stickers. How many stickers did Lena start with?",
+      "choices": [
+        "2",
+        "16",
+        "56",
+        "63"
+      ],
+      "answer": 3,
+      "difficulty": 2,
+      "explanation": "The sum is □ ÷ 7 = 9. Undo the dividing by multiplying: 9 × 7 = 63."
+    },
+    {
+      "id": "m5-alg-0007",
+      "years": [
+        5
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M5A01",
+      "type": "generator",
+      "generator": "multiply",
+      "params": {
+        "a": [
+          10,
+          30
+        ],
+        "b": [
+          2,
+          9
+        ]
+      },
+      "difficulty": 1
+    },
+    {
+      "id": "m5-alg-0008",
+      "years": [
+        5
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M5A01",
+      "type": "generator",
+      "generator": "divide",
+      "params": {
+        "quotient": [
+          2,
+          12
+        ],
+        "divisor": [
+          2,
+          5
+        ]
+      },
+      "difficulty": 1
+    },
+    {
+      "id": "m5-alg-0009",
+      "years": [
+        5
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M5A01",
+      "type": "generator",
+      "generator": "multiply",
+      "params": {
+        "a": [
+          20,
+          99
+        ],
+        "b": [
+          11,
+          25
+        ]
+      },
+      "difficulty": 2
+    },
+    {
+      "id": "m5-alg-0010",
+      "years": [
+        5
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M5A02",
+      "type": "generator",
+      "generator": "divide",
+      "params": {
+        "quotient": [
+          10,
+          50
+        ],
+        "divisor": [
+          6,
+          9
+        ]
+      },
+      "difficulty": 2
+    },
+    {
+      "id": "m5-alg-0011",
+      "years": [
+        5
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M5A02",
+      "type": "generator",
+      "generator": "multiply",
+      "params": {
+        "a": [
+          100,
+          999
+        ],
+        "b": [
+          12,
+          99
+        ]
+      },
+      "difficulty": 3
+    },
+    {
+      "id": "m5-alg-0012",
+      "years": [
+        5
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M5A02",
+      "type": "generator",
+      "generator": "divide",
+      "params": {
+        "quotient": [
+          30,
+          99
+        ],
+        "divisor": [
+          7,
+          12
+        ]
+      },
+      "difficulty": 3
+    }
+  ]
+}

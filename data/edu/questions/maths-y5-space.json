@@ -1,0 +1,198 @@
+{
+  "schema": 1,
+  "pack": "maths-y5-space",
+  "subject": "maths",
+  "questions": [
+    {
+      "id": "m5-spa-0001",
+      "years": [
+        5
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M5SP01",
+      "type": "multiple_choice",
+      "prompt": "Sam cuts out a flat net that folds up into a cube. How many square faces does the net have?",
+      "choices": [
+        "4",
+        "6",
+        "8",
+        "12"
+      ],
+      "answer": 1,
+      "difficulty": 1,
+      "explanation": "A cube has 6 faces, and every face is a square, so the net has 6 squares."
+    },
+    {
+      "id": "m5-spa-0002",
+      "years": [
+        5
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M5SP01",
+      "type": "multiple_choice",
+      "prompt": "A net has 2 triangles and 3 rectangles. Which solid does it fold up to make?",
+      "choices": [
+        "Triangular pyramid",
+        "Rectangular prism",
+        "Triangular prism",
+        "Square pyramid"
+      ],
+      "answer": 2,
+      "difficulty": 2,
+      "explanation": "A triangular prism has 2 triangle ends joined by 3 rectangles."
+    },
+    {
+      "id": "m5-spa-0003",
+      "years": [
+        5
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M5SP01",
+      "type": "numeric",
+      "prompt": "Lena draws a net for a square pyramid. It has 1 square and some triangles. How many faces does the net have altogether?",
+      "answer": 5,
+      "difficulty": 2,
+      "explanation": "A square pyramid has 1 square base and 4 triangle sides. That makes 5 faces."
+    },
+    {
+      "id": "m5-spa-0004",
+      "years": [
+        5
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M5SP01",
+      "type": "multiple_choice",
+      "prompt": "Mia has a net made of 1 pentagon and 5 triangles. Which solid will it make?",
+      "choices": [
+        "Pentagonal pyramid",
+        "Pentagonal prism",
+        "Triangular pyramid",
+        "Square pyramid"
+      ],
+      "answer": 0,
+      "difficulty": 3,
+      "explanation": "One pentagon base with 5 triangles meeting at a point makes a pentagonal pyramid."
+    },
+    {
+      "id": "m5-spa-0005",
+      "years": [
+        5
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M5SP02",
+      "type": "multiple_choice",
+      "prompt": "A kangaroo is at (2, 5) on a grid. It hops 3 squares right and 2 squares down. Where does it land?",
+      "choices": [
+        "(5, 7)",
+        "(4, 2)",
+        "(5, 3)",
+        "(3, 3)"
+      ],
+      "answer": 2,
+      "difficulty": 2,
+      "explanation": "Moving right adds 3 to the first number: 2 + 3 = 5. Moving down takes 2 from the second number: 5 − 2 = 3."
+    },
+    {
+      "id": "m5-spa-0006",
+      "years": [
+        5
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M5SP02",
+      "type": "numeric",
+      "prompt": "Point A is at (2, 6) and point B is at (2, 1) on a grid. How many squares apart are the two points?",
+      "answer": 5,
+      "difficulty": 2,
+      "explanation": "Both points are 2 along, so they are in a straight line up and down. The gap is 6 − 1 = 5."
+    },
+    {
+      "id": "m5-spa-0007",
+      "years": [
+        5
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M5SP02",
+      "type": "multiple_choice",
+      "prompt": "Three corners of a rectangle on a grid are (1, 1), (5, 1) and (5, 4). What is the fourth corner?",
+      "choices": [
+        "(4, 1)",
+        "(5, 5)",
+        "(4, 5)",
+        "(1, 4)"
+      ],
+      "answer": 3,
+      "difficulty": 3,
+      "explanation": "The fourth corner is 1 along like the first corner and 4 up like the third corner, so it is (1, 4)."
+    },
+    {
+      "id": "m5-spa-0008",
+      "years": [
+        5
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M5SP02",
+      "type": "true_false",
+      "prompt": "The point (3, 7) is 3 squares across and 7 squares up from the starting corner (0, 0).",
+      "answer": true,
+      "difficulty": 1,
+      "explanation": "The first number says how far across and the second says how far up."
+    },
+    {
+      "id": "m5-spa-0009",
+      "years": [
+        5
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M5SP03",
+      "type": "multiple_choice",
+      "prompt": "A triangle has its right angle at the bottom left. It is flipped over a vertical line. Where is the right angle now?",
+      "choices": [
+        "Bottom left",
+        "Top left",
+        "Bottom right",
+        "Top right"
+      ],
+      "answer": 2,
+      "difficulty": 2,
+      "explanation": "A flip over a vertical line swaps left and right, but top and bottom stay the same."
+    },
+    {
+      "id": "m5-spa-0010",
+      "years": [
+        5
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M5SP03",
+      "type": "multiple_choice",
+      "prompt": "Jack slides a shape 5 cm to the right. Which sentence is true?",
+      "choices": [
+        "The shape gets bigger",
+        "The shape faces a different way",
+        "The sides get shorter",
+        "Only the shape's position changes"
+      ],
+      "answer": 3,
+      "difficulty": 1,
+      "explanation": "A slide moves a shape without changing its size or which way it faces."
+    },
+    {
+      "id": "m5-spa-0011",
+      "years": [
+        5
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M5SP03",
+      "type": "multiple_choice",
+      "prompt": "An arrow points up. It is turned a quarter turn clockwise. Which way does it point now?",
+      "choices": [
+        "Up",
+        "Right",
+        "Down",
+        "Left"
+      ],
+      "answer": 1,
+      "difficulty": 2,
+      "explanation": "Clockwise is the way a clock's hands go. A quarter turn from up points to the right."
+    }
+  ]
+}

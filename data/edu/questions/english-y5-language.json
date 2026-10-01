@@ -1,0 +1,343 @@
+{
+  "schema": 1,
+  "pack": "english-y5-language",
+  "subject": "english",
+  "questions": [
+    {
+      "id": "e5-lan-0002",
+      "years": [
+        5
+      ],
+      "subject": "english",
+      "curriculum": "AC9E5LA01",
+      "type": "multiple_choice",
+      "prompt": "Tom wants to ask his coach to move cricket training to 4 pm. Which sentence is the most polite way to ask?",
+      "choices": [
+        "Could we please start training at 4 pm?",
+        "Start training at 4 pm.",
+        "We are starting training at 4 pm.",
+        "Training at 4 pm, okay mate?"
+      ],
+      "answer": 0,
+      "difficulty": 2,
+      "explanation": "Words like 'could' and 'please' turn the sentence into a polite request instead of an order."
+    },
+    {
+      "id": "e5-lan-0003",
+      "years": [
+        5
+      ],
+      "subject": "english",
+      "curriculum": "AC9E5LA01",
+      "type": "true_false",
+      "prompt": "Slang such as 'arvo' and 'heaps good' suits a formal letter to the mayor.",
+      "answer": false,
+      "difficulty": 1,
+      "explanation": "A formal letter to a person in authority should use standard, polite language, not casual slang."
+    },
+    {
+      "id": "e5-lan-0004",
+      "years": [
+        5
+      ],
+      "subject": "english",
+      "curriculum": "AC9E5LA03",
+      "type": "multiple_choice",
+      "prompt": "In a narrative, one part introduces the characters, the setting and the time. What is this part called?",
+      "choices": [
+        "The resolution",
+        "The complication",
+        "The orientation",
+        "The evaluation"
+      ],
+      "answer": 2,
+      "difficulty": 1,
+      "explanation": "The orientation comes first. It tells the reader who is in the story, and where and when it happens."
+    },
+    {
+      "id": "e5-lan-0005",
+      "years": [
+        5
+      ],
+      "subject": "english",
+      "curriculum": "AC9E5LA03",
+      "type": "multiple_choice",
+      "prompt": "Ravi is writing a recipe for lamingtons. Which set of features does a recipe need?",
+      "choices": [
+        "A catchy title and a surprise ending",
+        "Strong opinions and a final recommendation",
+        "Characters, a setting and a problem to solve",
+        "A list of ingredients, then numbered steps in order"
+      ],
+      "answer": 3,
+      "difficulty": 2,
+      "explanation": "A procedure tells the reader what is needed and then what to do, in the right order."
+    },
+    {
+      "id": "e5-lan-0006",
+      "years": [
+        5
+      ],
+      "subject": "english",
+      "curriculum": "AC9E5LA03",
+      "type": "multiple_choice",
+      "prompt": "Ella is writing a persuasive text that argues for a vegetable garden at school. Which sentence is best for the opening, where she states her position?",
+      "choices": [
+        "Our school should build a vegetable garden.",
+        "First, dig the soil and plant the seeds.",
+        "Last summer, a snake slithered across the oval.",
+        "Carrots are orange and tomatoes are red."
+      ],
+      "answer": 0,
+      "difficulty": 2,
+      "explanation": "A persuasive text opens by clearly stating what the writer thinks, before giving reasons."
+    },
+    {
+      "id": "e5-lan-0007",
+      "years": [
+        5
+      ],
+      "subject": "english",
+      "curriculum": "AC9E5LA04",
+      "type": "multiple_choice",
+      "prompt": "A paragraph is about what kookaburras eat. Which sentence is the best topic sentence to start it?",
+      "choices": [
+        "I saw one at the park last week.",
+        "Kookaburras eat a wide range of small animals.",
+        "Their laughing call is heard at dawn.",
+        "They live in gum trees."
+      ],
+      "answer": 1,
+      "difficulty": 1,
+      "explanation": "A topic sentence tells the reader the main idea of the paragraph. This one is about food."
+    },
+    {
+      "id": "e5-lan-0008",
+      "years": [
+        5
+      ],
+      "subject": "english",
+      "curriculum": "AC9E5LA04",
+      "type": "multiple_choice",
+      "prompt": "A writer wants the reader to focus first on the bushfire. Which sentence starts with the bushfire?",
+      "choices": [
+        "A ranger spotted the bushfire at dawn.",
+        "At dawn, a ranger spotted the bushfire.",
+        "The bushfire was spotted by a ranger at dawn.",
+        "Spotting the bushfire at dawn was a ranger."
+      ],
+      "answer": 2,
+      "difficulty": 3,
+      "explanation": "The start of a sentence is what the reader notices first. Only this sentence begins with the bushfire."
+    },
+    {
+      "id": "e5-lan-0009",
+      "years": [
+        5
+      ],
+      "subject": "english",
+      "curriculum": "AC9E5LA04",
+      "type": "multiple_choice",
+      "prompt": "A paragraph about hot Australian summers ends. The next paragraph is about winters in Tasmania. Which opening best guides the reader to the change?",
+      "choices": [
+        "Also, summers are hot.",
+        "Beaches are crowded.",
+        "Another thing is that it is hot.",
+        "In contrast, winters in Tasmania are cold and often snowy."
+      ],
+      "answer": 3,
+      "difficulty": 3,
+      "explanation": "'In contrast' tells the reader the new paragraph shows a difference, and the sentence names the new topic."
+    },
+    {
+      "id": "e5-lan-0011",
+      "years": [
+        5
+      ],
+      "subject": "english",
+      "curriculum": "AC9E5LA05",
+      "type": "multiple_choice",
+      "prompt": "Read this sentence: Lena packed a jumper because the evening would be cold. Which part is the dependent clause?",
+      "choices": [
+        "Lena packed a jumper",
+        "a jumper because",
+        "because the evening would be cold",
+        "the evening"
+      ],
+      "answer": 2,
+      "difficulty": 2,
+      "explanation": "'Because the evening would be cold' has a subject and a verb, but it cannot stand alone as a sentence."
+    },
+    {
+      "id": "e5-lan-0012",
+      "years": [
+        5
+      ],
+      "subject": "english",
+      "curriculum": "AC9E5LA05",
+      "type": "multiple_choice",
+      "prompt": "Joel was late. The bus broke down. Which complex sentence joins these ideas and shows the reason?",
+      "choices": [
+        "Joel was late, so the bus broke down.",
+        "Joel was late, and the bus broke down.",
+        "Joel was late but the bus broke down.",
+        "Joel was late because the bus broke down."
+      ],
+      "answer": 3,
+      "difficulty": 3,
+      "explanation": "'Because' joins the two ideas and shows that the bus breaking down is the reason Joel was late."
+    },
+    {
+      "id": "e5-lan-0013",
+      "years": [
+        5
+      ],
+      "subject": "english",
+      "curriculum": "AC9E5LA06",
+      "type": "multiple_choice",
+      "prompt": "Which noun group describes the animal most fully?",
+      "choices": [
+        "the old grey kelpie with a limp",
+        "the dog",
+        "a kelpie",
+        "the grey dog"
+      ],
+      "answer": 0,
+      "difficulty": 1,
+      "explanation": "This noun group adds age, colour, type and a detail after the noun, so it tells the most."
+    },
+    {
+      "id": "e5-lan-0014",
+      "years": [
+        5
+      ],
+      "subject": "english",
+      "curriculum": "AC9E5LA06",
+      "type": "multiple_choice",
+      "prompt": "Look at the noun group 'the tall gum tree beside the creek'. What does the part 'beside the creek' tell us?",
+      "choices": [
+        "How old the tree is",
+        "How many trees there are",
+        "What colour the tree is",
+        "Where the tree is"
+      ],
+      "answer": 3,
+      "difficulty": 2,
+      "explanation": "'Beside the creek' comes after the noun and tells us where the tree is."
+    },
+    {
+      "id": "e5-lan-0015",
+      "years": [
+        5
+      ],
+      "subject": "english",
+      "curriculum": "AC9E5LA06",
+      "type": "multiple_choice",
+      "prompt": "Which noun group has a describing clause after the noun?",
+      "choices": [
+        "the rusty old gate",
+        "the gate that squeaked loudly",
+        "two wooden gates",
+        "a gate"
+      ],
+      "answer": 1,
+      "difficulty": 3,
+      "explanation": "'That squeaked loudly' is a clause after the noun 'gate'. It tells us more about the gate."
+    },
+    {
+      "id": "e5-lan-0016",
+      "years": [
+        5
+      ],
+      "subject": "english",
+      "curriculum": "AC9E5LA08",
+      "type": "multiple_choice",
+      "prompt": "Which word best completes the sentence to show the footballer moved very fast? The footballer ___ across the field.",
+      "choices": [
+        "walked",
+        "went",
+        "sprinted",
+        "moved"
+      ],
+      "answer": 2,
+      "difficulty": 1,
+      "explanation": "'Sprinted' is a precise verb that means running at top speed. The other words are not as exact."
+    },
+    {
+      "id": "e5-lan-0017",
+      "years": [
+        5
+      ],
+      "subject": "english",
+      "curriculum": "AC9E5LA08",
+      "type": "multiple_choice",
+      "prompt": "Which specialist science word names how plants make food from sunlight?",
+      "choices": [
+        "photosynthesis",
+        "pollination",
+        "germination",
+        "evaporation"
+      ],
+      "answer": 0,
+      "difficulty": 2,
+      "explanation": "Photosynthesis is the process plants use to make food from sunlight, water and air."
+    },
+    {
+      "id": "e5-lan-0018",
+      "years": [
+        5
+      ],
+      "subject": "english",
+      "curriculum": "AC9E5LA08",
+      "type": "multiple_choice",
+      "prompt": "Ben was reluctant to jump into the cold pool. Which word means almost the same as 'reluctant'?",
+      "choices": [
+        "excited",
+        "careless",
+        "brave",
+        "unwilling"
+      ],
+      "answer": 3,
+      "difficulty": 3,
+      "explanation": "Reluctant means not wanting to do something. 'Unwilling' has nearly the same meaning."
+    },
+    {
+      "id": "e5-lan-0019",
+      "years": [
+        5
+      ],
+      "subject": "english",
+      "curriculum": "AC9E5LA09",
+      "type": "multiple_choice",
+      "prompt": "Which sentence uses a comma correctly after a prepositional phrase at the start?",
+      "choices": [
+        "After the lunch bell, we played cricket.",
+        "After, the lunch bell we played cricket.",
+        "After the lunch bell we, played cricket.",
+        "After the lunch, bell we played cricket."
+      ],
+      "answer": 0,
+      "difficulty": 1,
+      "explanation": "The comma goes after the whole phrase 'After the lunch bell', before the main part of the sentence."
+    },
+    {
+      "id": "e5-lan-0020",
+      "years": [
+        5
+      ],
+      "subject": "english",
+      "curriculum": "AC9E5LA09",
+      "type": "multiple_choice",
+      "prompt": "Mia and Zac own one kelpie together. Which sentence shows this correctly?",
+      "choices": [
+        "Mia's and Zac's kelpie loves swimming.",
+        "Mia and Zacs' kelpie loves swimming.",
+        "Mia and Zac's kelpie loves swimming.",
+        "Mias and Zac's kelpie loves swimming."
+      ],
+      "answer": 2,
+      "difficulty": 2,
+      "explanation": "When two people share one thing, only the last name gets the apostrophe s."
+    }
+  ]
+}

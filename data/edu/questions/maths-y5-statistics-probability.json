@@ -1,0 +1,243 @@
+{
+  "schema": 1,
+  "pack": "maths-y5-statistics-probability",
+  "subject": "maths",
+  "questions": [
+    {
+      "id": "m5-sta-0001",
+      "years": [
+        5
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M5ST01",
+      "type": "multiple_choice",
+      "prompt": "Mia asked every child in her class of 25 about their favourite lunch. Her tally shows sandwiches 8, wraps 6, sushi 5 and pasta 4. What should she do first?",
+      "choices": [
+        "Say that sandwiches are the winner and stop",
+        "Add 2 to the pasta tally",
+        "Check for two children whose answers were missed",
+        "Take 2 away from the sandwiches tally"
+      ],
+      "answer": 2,
+      "difficulty": 2,
+      "explanation": "The tally adds to 23, but there are 25 children. Two answers are missing, so Mia should check for them before she shows her results."
+    },
+    {
+      "id": "m5-sta-0002",
+      "years": [
+        5
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M5ST01",
+      "type": "numeric",
+      "prompt": "Ben put a pet survey into a spreadsheet. Dogs 12, cats 9, birds 3 and fish 6. Each child gave one answer. How many children were surveyed?",
+      "answer": 30,
+      "difficulty": 1,
+      "explanation": "Each child gave one answer, so add all the counts: 12 + 9 + 3 + 6 = 30."
+    },
+    {
+      "id": "m5-sta-0003",
+      "years": [
+        5
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M5ST01",
+      "type": "multiple_choice",
+      "prompt": "Sam wants to find out which sport Year 5 students like best. Which survey question will give data that is easy to sort into categories and count?",
+      "choices": [
+        "Do you like sport?",
+        "Which one sport do you like best: netball, cricket, swimming or football?",
+        "How many hours of sport do you watch in a year?",
+        "Is cricket fun?"
+      ],
+      "answer": 1,
+      "difficulty": 2,
+      "explanation": "This question gives a clear list of categories, and each child picks only one. That makes the answers easy to sort and count."
+    },
+    {
+      "id": "m5-sta-0004",
+      "years": [
+        5
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M5ST01",
+      "type": "numeric",
+      "prompt": "Ava counted how Year 5 students get to school: walk 9, bike 5, bus 11, car 10. She typed the bike count as 15 by mistake, so her spreadsheet total showed 45. What is the correct total number of students?",
+      "answer": 35,
+      "difficulty": 3,
+      "explanation": "The correct counts are 9 + 5 + 11 + 10 = 35. The mistake of 15 instead of 5 made the total 10 too big."
+    },
+    {
+      "id": "m5-sta-0005",
+      "years": [
+        5
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M5ST02",
+      "type": "multiple_choice",
+      "prompt": "The temperature in Hobart on a summer day was 8 degrees at 6 am, 11 at 9 am, 16 at 12 pm, 18 at 3 pm and 13 at 6 pm. On a line graph, between which two times does the line rise most steeply?",
+      "choices": [
+        "6 am to 9 am",
+        "9 am to 12 pm",
+        "12 pm to 3 pm",
+        "3 pm to 6 pm"
+      ],
+      "answer": 1,
+      "difficulty": 2,
+      "explanation": "The rises are 3, 5 and 2 degrees. The biggest rise is 5 degrees, from 9 am to 12 pm. From 3 pm to 6 pm the line goes down."
+    },
+    {
+      "id": "m5-sta-0006",
+      "years": [
+        5
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M5ST02",
+      "type": "numeric",
+      "prompt": "Leo measured a bean plant each week and drew a line graph. Its height was 4 cm in week 1, 7 cm in week 2, 11 cm in week 3, 14 cm in week 4 and 15 cm in week 5. How many centimetres did it grow from week 2 to week 4?",
+      "answer": 7,
+      "difficulty": 2,
+      "explanation": "At week 2 it was 7 cm and at week 4 it was 14 cm. The growth is 14 − 7 = 7 cm."
+    },
+    {
+      "id": "m5-sta-0007",
+      "years": [
+        5
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M5ST02",
+      "type": "multiple_choice",
+      "prompt": "A Perth shop plotted its monthly ice cream sales on a line graph from January to June: 900, 850, 700, 500, 350, 300. Which conclusion does the graph support?",
+      "choices": [
+        "Sales went up every month",
+        "Sales were lowest in January",
+        "Sales fell every month from January to June",
+        "Sales stayed about the same"
+      ],
+      "answer": 2,
+      "difficulty": 1,
+      "explanation": "Each number is smaller than the one before it, so the line goes down every month."
+    },
+    {
+      "id": "m5-sta-0008",
+      "years": [
+        5
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M5ST02",
+      "type": "multiple_choice",
+      "prompt": "A line graph shows Lucy's height on her birthdays: 115 cm at age 6, 121 cm at 7, 127 cm at 8, 133 cm at 9 and 138 cm at 10. Which statement can the graph NOT tell us for sure?",
+      "choices": [
+        "Lucy grew taller every year",
+        "Lucy grew least between ages 9 and 10",
+        "Lucy was 133 cm at age 9",
+        "Lucy will be exactly 160 cm at age 15"
+      ],
+      "answer": 3,
+      "difficulty": 3,
+      "explanation": "The graph only shows what has already happened. We cannot know exactly how tall Lucy will be at 15."
+    },
+    {
+      "id": "m5-sta-0009",
+      "years": [
+        5
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M5P01",
+      "type": "multiple_choice",
+      "prompt": "A spinner has 4 equal sections: red, red, blue and green. Which statement is true?",
+      "choices": [
+        "Red and blue are equally likely",
+        "Blue is more likely than green",
+        "Green is more likely than red",
+        "Red is more likely than green"
+      ],
+      "answer": 3,
+      "difficulty": 2,
+      "explanation": "Red covers 2 of the 4 equal sections, but green covers only 1. So red is more likely than green."
+    },
+    {
+      "id": "m5-sta-0010",
+      "years": [
+        5
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M5P01",
+      "type": "numeric",
+      "prompt": "Noah flips a coin two times and writes down the result of each flip, in order. How many different outcomes are possible?",
+      "answer": 4,
+      "difficulty": 2,
+      "explanation": "The outcomes are heads-heads, heads-tails, tails-heads and tails-tails. That is 4 outcomes."
+    },
+    {
+      "id": "m5-sta-0011",
+      "years": [
+        5
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M5P01",
+      "type": "true_false",
+      "prompt": "When you roll a fair six-sided die, rolling an even number and rolling an odd number are equally likely.",
+      "answer": true,
+      "difficulty": 1,
+      "explanation": "There are 3 even numbers (2, 4, 6) and 3 odd numbers (1, 3, 5), so both are equally likely."
+    },
+    {
+      "id": "m5-sta-0012",
+      "years": [
+        5
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M5P02",
+      "type": "multiple_choice",
+      "prompt": "Tom dropped a drawing pin 50 times. It landed point up 32 times and point down 18 times. What can Tom say from his results?",
+      "choices": [
+        "Point up seems more likely than point down",
+        "Point down is more likely than point up",
+        "Both are exactly equally likely",
+        "The next drop will be point up for sure"
+      ],
+      "answer": 0,
+      "difficulty": 2,
+      "explanation": "Point up happened more often than point down, so it seems more likely. A result can never be certain."
+    },
+    {
+      "id": "m5-sta-0013",
+      "years": [
+        5
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M5P02",
+      "type": "multiple_choice",
+      "prompt": "A bag holds 10 counters, some yellow and some white. Kai picks one, records its colour and puts it back. He does this 30 times and gets yellow 21 times and white 9 times. Which bag is the best guess?",
+      "choices": [
+        "5 yellow and 5 white",
+        "7 yellow and 3 white",
+        "3 yellow and 7 white",
+        "9 yellow and 1 white"
+      ],
+      "answer": 1,
+      "difficulty": 3,
+      "explanation": "Yellow came up about 7 out of every 10 picks (21 out of 30). So 7 yellow and 3 white is the best guess."
+    },
+    {
+      "id": "m5-sta-0014",
+      "years": [
+        5
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M5P02",
+      "type": "multiple_choice",
+      "prompt": "Ella flips a coin 4 times and gets 3 heads. Her brother says the coin must be unfair. What is the best reply?",
+      "choices": [
+        "He is right, because heads came up most",
+        "He is wrong, because a coin always gives 2 heads and 2 tails",
+        "Four flips is too few to tell, so flip it many more times",
+        "Flip it once more and decide"
+      ],
+      "answer": 2,
+      "difficulty": 2,
+      "explanation": "A small number of flips can give odd results by chance. Many more flips give a better idea of how likely heads is."
+    }
+  ]
+}

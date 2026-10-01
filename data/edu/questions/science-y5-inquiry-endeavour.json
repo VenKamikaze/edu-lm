@@ -1,0 +1,166 @@
+{
+  "schema": 1,
+  "pack": "science-y5-inquiry-endeavour",
+  "subject": "science",
+  "questions": [
+    {
+      "id": "s5-inq-0001",
+      "years": [
+        5
+      ],
+      "subject": "science",
+      "curriculum": "AC9S5H01",
+      "type": "multiple_choice",
+      "prompt": "Two Australian universities share their results on a new way to clean river water. Why does sharing results often lead to better science?",
+      "choices": [
+        "It means the results do not need to be checked",
+        "Other scientists can check the results and build on them",
+        "It makes the experiment take less time to do",
+        "It proves the first scientists were right"
+      ],
+      "answer": 1,
+      "difficulty": 1,
+      "explanation": "When results are shared, other scientists can test them again and use them to make new discoveries."
+    },
+    {
+      "id": "s5-inq-0002",
+      "years": [
+        5
+      ],
+      "subject": "science",
+      "curriculum": "AC9S5H02",
+      "type": "multiple_choice",
+      "prompt": "On a hot, dry, windy summer day, the fire authority in Victoria declares a Total Fire Ban. Which scientific knowledge helps them make this decision?",
+      "choices": [
+        "Fires start more often on cool, wet days",
+        "Hot, dry, windy weather makes bushfires start easily and spread fast",
+        "Wind has no effect on how fast a fire spreads",
+        "Fires only start when it is dark"
+      ],
+      "answer": 1,
+      "difficulty": 2,
+      "explanation": "Scientists know that heat, dry plants and strong wind help fires start and spread, so the ban keeps people safer."
+    },
+    {
+      "id": "s5-inq-0003",
+      "years": [
+        5
+      ],
+      "subject": "science",
+      "curriculum": "AC9S5I01",
+      "type": "multiple_choice",
+      "prompt": "Jai wants to do a science investigation at school. Which of these is an investigable question?",
+      "choices": [
+        "Which pet is the nicest?",
+        "Why is science fun?",
+        "Does the amount of water change how tall bean seedlings grow in two weeks?",
+        "Should the school buy more plants?"
+      ],
+      "answer": 2,
+      "difficulty": 2,
+      "explanation": "An investigable question can be tested by changing one thing and measuring another, such as water amount and seedling height."
+    },
+    {
+      "id": "s5-inq-0004",
+      "years": [
+        5
+      ],
+      "subject": "science",
+      "curriculum": "AC9S5I02",
+      "type": "multiple_choice",
+      "prompt": "Mia tests whether the length of a paper plane's wings changes how far it flies. Which of these should she keep the same in every test?",
+      "choices": [
+        "The wing length",
+        "The distance the plane flies",
+        "The type of paper and how hard she throws",
+        "The plane she uses each time, even if the wings change"
+      ],
+      "answer": 2,
+      "difficulty": 2,
+      "explanation": "To make it a fair test, only the wing length should change. Everything else, like the paper and the throw, stays the same."
+    },
+    {
+      "id": "s5-inq-0005",
+      "years": [
+        5
+      ],
+      "subject": "science",
+      "curriculum": "AC9S5I03",
+      "type": "numeric",
+      "prompt": "A measuring cylinder has lines every 5 mL. Sam looks straight at the water level, which sits on the third line above the 40 mL line. How many mL of water are in the cylinder?",
+      "answer": 55,
+      "difficulty": 2,
+      "explanation": "Three lines above 40 mL is 3 × 5 = 15 mL more, so 40 + 15 = 55 mL."
+    },
+    {
+      "id": "s5-inq-0006",
+      "years": [
+        5
+      ],
+      "subject": "science",
+      "curriculum": "AC9S5I04",
+      "type": "numeric",
+      "prompt": "Ella logs the height of her bean plant. Monday: 2 cm. Wednesday: 5 cm. Friday: 9 cm. How many centimetres did the plant grow from Monday to Friday?",
+      "answer": 7,
+      "difficulty": 1,
+      "explanation": "The plant went from 2 cm to 9 cm. 9 − 2 = 7 cm."
+    },
+    {
+      "id": "s5-inq-0007",
+      "years": [
+        5
+      ],
+      "subject": "science",
+      "curriculum": "AC9S5I02",
+      "type": "multiple_choice",
+      "prompt": "Tom tests which brand of paper towel soaks up the most water. He uses 100 mL of water for each brand and measures how much water is left. What is the variable he changes?",
+      "choices": [
+        "The amount of water left",
+        "The brand of paper towel",
+        "The 100 mL of water",
+        "The size of the cup"
+      ],
+      "answer": 1,
+      "difficulty": 3,
+      "explanation": "The thing Tom changes on purpose is the brand. The water left is what he measures, and the 100 mL is kept the same."
+    },
+    {
+      "id": "s5-inq-0008",
+      "years": [
+        5
+      ],
+      "subject": "science",
+      "curriculum": "AC9S5I05",
+      "type": "multiple_choice",
+      "prompt": "Rani's group measures how high a ball bounces in four tests: 40 cm, 42 cm, 41 cm and 70 cm. What is the best thing to do about the 70 cm result?",
+      "choices": [
+        "Hide it and only show the other three",
+        "Change it to 41 cm so it matches",
+        "Treat it as a likely mistake and repeat that test",
+        "Use only the 70 cm result because it is the highest"
+      ],
+      "answer": 2,
+      "difficulty": 3,
+      "explanation": "The 70 cm result is far from the others, so it may be a measuring error. Repeating the test checks it honestly."
+    },
+    {
+      "id": "s5-inq-0010",
+      "years": [
+        5
+      ],
+      "subject": "science",
+      "curriculum": "AC9S5H01",
+      "type": "multiple_choice",
+      "prompt": "Scientists studying the Great Barrier Reef compare today's coral surveys with surveys done 30 years ago. Why do they do this?",
+      "choices": [
+        "To see how the reef has changed by building on earlier work",
+        "Because old surveys are always more correct",
+        "To avoid doing any new surveys",
+        "Because the reef has not changed at all"
+      ],
+      "answer": 0,
+      "difficulty": 3,
+      "explanation": "Earlier surveys give scientists a starting point, so they can see what has changed over time."
+    }
+  ]
+}

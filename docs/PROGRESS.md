@@ -62,7 +62,7 @@ Last updated: 2026-10-01. **Start with `docs/NEXT-SESSION.md`** (the brief for t
 - User decision: show the right answer **on the spot** after a finished wrong question (supersedes "answers only in the failure review"). `QuizFeedback` carries `revealed/correctAnswer/explanation`; the daemon waits for a new `QuizNext` before the next question/result/login replay; Next is inert for 700 ms and ignores key auto-repeat (a double or held Enter skipped it); a failed quiz's cooldown is recorded at the failing answer. Follows `ShowCorrectAnswers`.
 - One Opus review (2 major: double-Enter skip, new greeter vs old running daemon wedges; 4 minor; nits); all fixed. The version mismatch is docs-only for now ("reboot or restart sddm after installing/upgrading"); a protocol version is in TODO.md. Orchestrator verified 19/19 Debug + Release, a guard mutation, and the double/held-Enter repro screenshots.
 
-## Phase 5 (question bank): 5a DONE; 5b Years 3 and 4 DONE (all cells imported); Year 5 NEXT
+## Phase 5 (question bank): 5a DONE; 5b DONE: Years 3, 4 and 5 imported (523 real questions)
 
 - User has **no Anthropic API access** (2026-09-30), so PLAN §8's Batches pipeline is replaced: a Claude Code session runs the `/qgen` project skill (`.claude/skills/qgen/`), spawning Sonnet subagents to write and to blind-check; stdlib-only Python scripts in `tools/qgen/` do ingest, validate (via `edu-lm-validate`), blind stripping, compare, CSV export for the parent, and import of approved rows into `data/edu/questions/`.
 - User decisions (2026-09-30): Sonnet for both writer and checker; pilot first (Year 3 maths, ~20 entries), review, tune prompts, then scale; maths about half generator entries (there is no fractions generator); workflow as a project skill.
@@ -100,6 +100,20 @@ Last updated: 2026-10-01. **Start with `docs/NEXT-SESSION.md`** (the brief for t
   - y4-english-literacy: imported 12/14 (validate 0/0; blind 14/14, 0 flagged). Rejected e4-lty-0009 (kangaroo syllables) and e4-lty-0011 (hop + ing): near-verbatim copies of Year 3 e3-lty-0007 and e3-lty-0010.
   - **Wave result (2026-10-01):** all 12 cells imported, 173 of 180 kept (7 rejected as duplicates, 3 small edits), 1 validation retry, 25 subagent runs. Blind check: 174/174 written answers agree, 3 flagged. The bank is 391 entries (39 samples + 352 real). ctest 22/22 Debug + Release, 125 qgen tests OK. Squash-merged into `main`.
   - Review rule used from here: reject near-verbatim copies (same scenario and numbers) of any question in the bank; keep the same idea asked differently.
+- **5b Year 5 wave (started 2026-10-01, branch `qgen-y5-wave`):** user go-ahead; 12 cells, 180 entries; reviewed by the orchestrator as for Year 4. Per-cell progress:
+  - y5-maths-algebra: imported 12/12 (validate 0/0; blind 6/6, 0 flagged). Edited m5-alg-0005's muddled explanation.
+  - y5-maths-measurement: imported 15/16 (validate 0/0; blind 16/16, 0 flagged). Rejected m5-mea-0013 (120 degrees is obtuse): near-verbatim copy of m4-mea-0013.
+  - y5-maths-number: imported 19/20 (validate 1 flag: m5-num-0001 vs m3-num-0001, kept since one is decimals and one whole numbers; blind 10/10, 0 flagged). Rejected m5-num-0015 (generator almost identical to m5-alg-0011). Rewrote the explanations of m5-num-0001 and m5-num-0005.
+  - y5-maths-space: imported 11/12 (validate 1 flag; blind 12/12, 0 flagged). Rejected m5-spa-0012: a near-copy of m5-spa-0011 (flagged by validate).
+  - y5-maths-statistics-probability: imported 14/14 (validate 0/0; blind 14/14, 0 flagged).
+  - y5-science-understanding: imported 20/20 (validate 0/0; blind 20/20, 0 flagged).
+  - y5-hass-knowledge: imported 20/20 (validate 0/0; blind 20/20, 0 flagged). Edited h5-kno-0003: Moreton Bay in 1824 was a convict settlement, not a colony (Queensland became a colony in 1859). Edited h5-kno-0007: Stuart's 1862 expedition "crossed the continent and returned safely" rather than "the first European one to succeed", since Burke and Wills reached the Gulf in 1861 but died on the way back.
+  - y5-science-inquiry-endeavour: imported 9/10 (validate 0/0; blind 10/10, 0 flagged). Rejected s5-inq-0009: same sunlight-bean-plant result (12 cm vs 3 cm) as s3-inq-0010.
+  - y5-hass-skills: imported 10/10 (validate 0/0; blind 10/10, 0 flagged).
+  - y5-english-language: imported 18/20 (validate 1 flag; blind 20/20, 0 flagged). Rejected e5-lan-0010 (near-copy of e4-lan-0009, flagged) and e5-lan-0001 (the same "Dear Mrs Nguyen, may I please..." item as e4-lan-0001).
+  - y5-english-literature: imported 11/12 (validate 0/0; blind 12/12, 0 flagged). Rejected e5-lit-0009: "The wind whispered..." is also alliteration (the problem fixed in e4-lit-0010) and it repeats that item. Edited e5-lit-0002: 1855 -> 1853, since monthly gold licences gave way to the Miner's Right in 1855.
+  - y5-english-literacy: imported 12/14 (validate 0/0; blind 14/14, 0 flagged). Rejected e5-lty-0001 (the same kerosene-lamp-and-horse setting as e5-lit-0001) and e5-lty-0003 (the same school veggie garden persuasive line as e4-lty-0003).
+  - **Wave result (2026-10-02):** all 12 cells imported, 171 of 180 kept (9 rejected as duplicates or ambiguous, 6 edits: 3 explanations, 3 factual fixes), no validation retries. Blind check: 174/174 written answers agree, 0 flagged. The bank is 562 entries (39 samples + 523 real across Years 3–5). ctest 22/22 Debug + Release, 125 qgen tests OK. Squash-merged into `main`.
 - Phase 4 real-PC testing: the user is not testing on 2026-09-30; PHASE4-TEST steps beyond the first login and the answer reveal are still open.
 
 ## Next phases (see PLAN §11)
