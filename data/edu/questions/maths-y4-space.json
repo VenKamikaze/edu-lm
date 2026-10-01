@@ -1,0 +1,205 @@
+{
+  "schema": 1,
+  "pack": "maths-y4-space",
+  "subject": "maths",
+  "questions": [
+    {
+      "id": "m4-spa-0001",
+      "years": [
+        4
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M4SP01",
+      "type": "multiple_choice",
+      "prompt": "Mia joins two identical squares along one full side. What shape does she make?",
+      "choices": [
+        "Square",
+        "Triangle",
+        "Rectangle",
+        "Hexagon"
+      ],
+      "answer": 2,
+      "difficulty": 1,
+      "explanation": "Two squares side by side make a longer shape with two long sides and two short sides. That is a rectangle."
+    },
+    {
+      "id": "m4-spa-0002",
+      "years": [
+        4
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M4SP01",
+      "type": "numeric",
+      "prompt": "Sam puts 4 identical square tiles in a row. Each tile has sides of 3 cm. How many centimetres long is the row?",
+      "answer": 12,
+      "difficulty": 2,
+      "explanation": "The row is 4 tiles long and each tile is 3 cm. 4 × 3 = 12."
+    },
+    {
+      "id": "m4-spa-0003",
+      "years": [
+        4
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M4SP01",
+      "type": "numeric",
+      "prompt": "A flat hexagon has 6 equal sides. It is made from identical triangles that all meet in the middle. How many triangles are there?",
+      "answer": 6,
+      "difficulty": 3,
+      "explanation": "Each side of the hexagon is the bottom of one triangle. There are 6 sides, so there are 6 triangles."
+    },
+    {
+      "id": "m4-spa-0004",
+      "years": [
+        4
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M4SP01",
+      "type": "multiple_choice",
+      "prompt": "Ben draws a house by putting a triangle on top of a square. He traces around the outside of the whole shape. How many straight sides does the outline have?",
+      "choices": [
+        "7",
+        "6",
+        "4",
+        "5"
+      ],
+      "answer": 3,
+      "difficulty": 3,
+      "explanation": "The triangle sits on the top side of the square, so that side is hidden. The square leaves 3 sides and the triangle adds 2. 3 + 2 = 5."
+    },
+    {
+      "id": "m4-spa-0005",
+      "years": [
+        4
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M4SP02",
+      "type": "multiple_choice",
+      "prompt": "A map grid names each square with its column letter first, then its row number. The oval is in column D and row 2. What is its grid reference?",
+      "choices": [
+        "D2",
+        "2D",
+        "B4",
+        "C3"
+      ],
+      "answer": 0,
+      "difficulty": 1,
+      "explanation": "The letter comes first and the number comes second. Column D and row 2 is D2."
+    },
+    {
+      "id": "m4-spa-0006",
+      "years": [
+        4
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M4SP02",
+      "type": "multiple_choice",
+      "prompt": "Lena leaves her campsite and walks 2 km west. Then she walks 2 km north. In which direction is the campsite from where she is now?",
+      "choices": [
+        "North-east",
+        "South-west",
+        "North-west",
+        "South-east"
+      ],
+      "answer": 3,
+      "difficulty": 3,
+      "explanation": "She went west and then north. To get back she must go the opposite ways: east and south. That is south-east."
+    },
+    {
+      "id": "m4-spa-0007",
+      "years": [
+        4
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M4SP02",
+      "type": "numeric",
+      "prompt": "On a school map, the flagpole is at C2. The canteen is at C6. They are in the same column. How many squares apart are they?",
+      "answer": 4,
+      "difficulty": 1,
+      "explanation": "Count up from row 2 to row 6: 3, 4, 5, 6. That is 4 squares. Or work out 6 − 2 = 4."
+    },
+    {
+      "id": "m4-spa-0008",
+      "years": [
+        4
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M4SP02",
+      "type": "multiple_choice",
+      "prompt": "Ali starts at the library at A1 on a map grid. Letters go up to the right, and numbers go up as you move up the map. He moves 3 squares right, then 2 squares up. Where does he finish?",
+      "choices": [
+        "C4",
+        "D3",
+        "B3",
+        "D4"
+      ],
+      "answer": 1,
+      "difficulty": 2,
+      "explanation": "Moving right 3 squares changes the letter from A to D. Moving up 2 squares changes the number from 1 to 3. He finishes at D3."
+    },
+    {
+      "id": "m4-spa-0009",
+      "years": [
+        4
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M4SP03",
+      "type": "numeric",
+      "prompt": "How many lines of symmetry does a square have?",
+      "answer": 4,
+      "difficulty": 1,
+      "explanation": "A square can be folded in half up and down, across, and along both corners. That makes 4 lines."
+    },
+    {
+      "id": "m4-spa-0010",
+      "years": [
+        4
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M4SP03",
+      "type": "multiple_choice",
+      "prompt": "Which capital letter has no line of symmetry?",
+      "choices": [
+        "H",
+        "O",
+        "F",
+        "X"
+      ],
+      "answer": 2,
+      "difficulty": 2,
+      "explanation": "If you fold F in half either way, the two sides do not match. H, O and X all fold to match."
+    },
+    {
+      "id": "m4-spa-0011",
+      "years": [
+        4
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M4SP03",
+      "type": "multiple_choice",
+      "prompt": "Which shape looks the same after a half turn, but has no line of symmetry?",
+      "choices": [
+        "A slanted parallelogram (not a rectangle)",
+        "An isosceles triangle",
+        "A kite",
+        "A square"
+      ],
+      "answer": 0,
+      "difficulty": 3,
+      "explanation": "A slanted parallelogram matches itself after a half turn. It cannot be folded to match. The triangle and kite fold to match but do not match after a half turn. A square does both."
+    },
+    {
+      "id": "m4-spa-0012",
+      "years": [
+        4
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M4SP03",
+      "type": "true_false",
+      "prompt": "A rectangle that is not a square has 2 lines of symmetry.",
+      "answer": true,
+      "difficulty": 2,
+      "explanation": "You can fold it in half along its length or across its width. The diagonals do not work, so there are 2 lines."
+    }
+  ]
+}

@@ -62,7 +62,7 @@ Last updated: 2026-10-01. **Start with `docs/NEXT-SESSION.md`** (the brief for t
 - User decision: show the right answer **on the spot** after a finished wrong question (supersedes "answers only in the failure review"). `QuizFeedback` carries `revealed/correctAnswer/explanation`; the daemon waits for a new `QuizNext` before the next question/result/login replay; Next is inert for 700 ms and ignores key auto-repeat (a double or held Enter skipped it); a failed quiz's cooldown is recorded at the failing answer. Follows `ShowCorrectAnswers`.
 - One Opus review (2 major: double-Enter skip, new greeter vs old running daemon wedges; 4 minor; nits); all fixed. The version mismatch is docs-only for now ("reboot or restart sddm after installing/upgrading"); a protocol version is in TODO.md. Orchestrator verified 19/19 Debug + Release, a guard mutation, and the double/held-Enter repro screenshots.
 
-## Phase 5 (question bank): 5a DONE; 5b Year 3 DONE (all cells imported); Year 4 NEXT
+## Phase 5 (question bank): 5a DONE; 5b Years 3 and 4 DONE (all cells imported); Year 5 NEXT
 
 - User has **no Anthropic API access** (2026-09-30), so PLAN §8's Batches pipeline is replaced: a Claude Code session runs the `/qgen` project skill (`.claude/skills/qgen/`), spawning Sonnet subagents to write and to blind-check; stdlib-only Python scripts in `tools/qgen/` do ingest, validate (via `edu-lm-validate`), blind stripping, compare, CSV export for the parent, and import of approved rows into `data/edu/questions/`.
 - User decisions (2026-09-30): Sonnet for both writer and checker; pilot first (Year 3 maths, ~20 entries), review, tune prompts, then scale; maths about half generator entries (there is no fractions generator); workflow as a project skill.
@@ -84,6 +84,22 @@ Last updated: 2026-10-01. **Start with `docs/NEXT-SESSION.md`** (the brief for t
   - y3-english-literature: exported (12 written; validate 0/0 first time; blind 12/12 agree, 0 flagged). Orchestrator: e3-lit-0007 the answer "He is always grumpy" overreaches the simile; e3-lit-0001 needs to know Bondi is in Sydney.
   - y3-english-literacy: exported (14 written; validate 0 errors, 1 flag: e3-lty-0011 near-duplicate of sample sm-e-002; blind 14/14 agree, 0 flagged).
   - **Wave result (2026-10-01):** all 11 cells exported, 160 entries (154 written, 6 generators), 22 subagent runs, no validation retries, blind check 154/154 agree, 7 flagged. The Sonnet checker flagged reading level more often with the stricter prompt (5 vs 0 in the pilot). Parent reviewed all 11 on 2026-10-01: 159 approved, 1 rejected (h3-kno-0014, "looked-after feature", agreeing with the checker), 1 edited (m3-mea-0008: 10 -> 30 seconds; they marked it `y`, so import skipped it until the cell was set to `edit` with their OK). Imported; the bank is 218 entries (39 samples + 179 real). ctest 22/22 Debug + Release, 125 qgen tests OK. Squash-merged into `main`.
+- **User decisions (2026-10-01, after Year 3):** keep the sample packs in the shipped bank. From Year 4 on, the user steps out of the CSV review: the orchestrator reads every pack, marks approve y/n/edit in a reviewed copy (`tools/qgen/work/<cell>/reviewed.csv`; `review.csv` is kept as exported), imports, and records every n/edit here. To catch cross-cell repeats, each cell is imported before the next is validated.
+- **5b Year 4 wave (started 2026-10-01, branch `qgen-y4-wave`):** 12 cells, 180 entries. Per-cell progress:
+  - y4-maths-algebra: imported 12/12 (6 generators; validate 0/0; blind 6/6 agree, 0 flagged).
+  - y4-maths-number: imported 18/20 (validate 0/0; blind 10/10, 0 flagged). Rejected m4-num-0017/0018: same generator and params as m4-alg-0010/0011 (validate doesn't catch cross-pack generator repeats; TODO.md).
+  - y4-maths-measurement: imported 16/16 (validate 0/0; blind 16/16, 0 flagged).
+  - y4-maths-space: imported 12/12 (validate 0/0; blind 12/12, 0 flagged). Edited m4-spa-0008: added which way the grid letters and numbers run (moving "up" was ambiguous).
+  - y4-maths-statistics-probability: imported 13/14 (validate 0/0; blind 14/14, 1 flagged: m4-sta-0009 reading_level on independent events, kept: it is the descriptor's concept). Rejected m4-sta-0012: near-verbatim copy of Year 3 m3-sta-0013 (coin 10 times, 6 heads). Kept m4-sta-0011 (rolling a 7): same idea as m3-sta-0011 but a different question.
+  - y4-science-understanding: imported 20/20 (validate 0/0; blind 20/20, 0 flagged).
+  - y4-hass-knowledge: imported 20/20 (validate 0/0; blind 20/20, 0 flagged).
+  - y4-science-inquiry-endeavour: imported 9/10 (validate 0/0; blind 10/10, 0 flagged). Rejected s4-inq-0003: same thermometer question as m4-mea-0003 (validate missed it).
+  - y4-hass-skills: imported 9/10 (validate 1 flag; blind 10/10, 0 flagged). Rejected h4-ski-0003: word-for-word copy of h3-ski-0005 (flagged by validate).
+  - y4-english-language: imported 20/20. First draft failed validate (e4-lan-0020, a capitalisation question whose choices differed only in case); the retry passed (0 errors, 2 flags: near-duplicates of samples sm-e-004/008, kept because they use different words or years). Blind 20/20, 0 flagged. Edited e4-lan-0004: "Which word" -> "Which sentence" (the choices are sentences).
+  - y4-english-literature: imported 12/12 (validate 0/0; blind 12/12, 1 flagged). Edited e4-lit-0010: the line "The wind whispered..." is also alliteration (the checker's flag), so it became "The breeze whispered in the gum trees."
+  - y4-english-literacy: imported 12/14 (validate 0/0; blind 14/14, 0 flagged). Rejected e4-lty-0009 (kangaroo syllables) and e4-lty-0011 (hop + ing): near-verbatim copies of Year 3 e3-lty-0007 and e3-lty-0010.
+  - **Wave result (2026-10-01):** all 12 cells imported, 173 of 180 kept (7 rejected as duplicates, 3 small edits), 1 validation retry, 25 subagent runs. Blind check: 174/174 written answers agree, 3 flagged. The bank is 391 entries (39 samples + 352 real). ctest 22/22 Debug + Release, 125 qgen tests OK. Squash-merged into `main`.
+  - Review rule used from here: reject near-verbatim copies (same scenario and numbers) of any question in the bank; keep the same idea asked differently.
 - Phase 4 real-PC testing: the user is not testing on 2026-09-30; PHASE4-TEST steps beyond the first login and the answer reveal are still open.
 
 ## Next phases (see PLAN §11)

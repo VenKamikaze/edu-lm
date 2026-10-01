@@ -1,0 +1,235 @@
+{
+  "schema": 1,
+  "pack": "english-y4-literature",
+  "subject": "english",
+  "questions": [
+    {
+      "id": "e4-lit-0001",
+      "years": [
+        4
+      ],
+      "subject": "english",
+      "curriculum": "AC9E4LE01",
+      "type": "multiple_choice",
+      "prompt": "In one story, a tiny mouse beats a big lion by being clever. In another, a small girl outwits a bully. Which idea turns up in both stories?",
+      "choices": [
+        "Being clever can matter more than being big",
+        "Rich people are always happy",
+        "Winter is the best season",
+        "Animals should never talk"
+      ],
+      "answer": 0,
+      "difficulty": 1,
+      "explanation": "In both stories the smaller character wins by using their brain, not their strength."
+    },
+    {
+      "id": "e4-lit-0002",
+      "years": [
+        4
+      ],
+      "subject": "english",
+      "curriculum": "AC9E4LE01",
+      "type": "multiple_choice",
+      "prompt": "Mia is lonely until a stray dog follows her home. Sam starts a new school and meets a mate at lunch. A young joey finds a new mob. What idea do all three stories share?",
+      "choices": [
+        "Winning a race",
+        "Being afraid of the dark",
+        "Finding a place to belong",
+        "Saving money"
+      ],
+      "answer": 2,
+      "difficulty": 2,
+      "explanation": "Each character starts out alone and ends up with someone or somewhere they belong."
+    },
+    {
+      "id": "e4-lit-0003",
+      "years": [
+        4
+      ],
+      "subject": "english",
+      "curriculum": "AC9E4LE01",
+      "type": "multiple_choice",
+      "prompt": "Two brothers argue over a cricket bat, then team up to beat the big kids. Two neighbours fight over a fence, then work together in a bushfire. What relationship idea is repeated?",
+      "choices": [
+        "Brothers always agree",
+        "Neighbours should never talk",
+        "Older people are wiser than children",
+        "Rivals can become friends when they face a shared problem"
+      ],
+      "answer": 3,
+      "difficulty": 3,
+      "explanation": "In both stories, people who were fighting join forces to deal with a bigger problem."
+    },
+    {
+      "id": "e4-lit-0004",
+      "years": [
+        4
+      ],
+      "subject": "english",
+      "curriculum": "AC9E4LE02",
+      "type": "multiple_choice",
+      "prompt": "A story begins: \"Long ago, in a dry red valley, a lone emu searched for water.\" What does this opening do for the reader?",
+      "choices": [
+        "It tells the ending",
+        "It sets up the time, place and main character",
+        "It gives the author's name",
+        "It lists the story's rules"
+      ],
+      "answer": 1,
+      "difficulty": 1,
+      "explanation": "The opening tells us when, where and who the story is about."
+    },
+    {
+      "id": "e4-lit-0005",
+      "years": [
+        4
+      ],
+      "subject": "english",
+      "curriculum": "AC9E4LE02",
+      "type": "multiple_choice",
+      "prompt": "A chapter ends with the words: \"Then the old shed door creaked slowly open.\" Why might the writer end the chapter here?",
+      "choices": [
+        "To show the story is finished",
+        "To teach the reader a new word",
+        "To make the reader want to read the next chapter",
+        "To describe the weather"
+      ],
+      "answer": 2,
+      "difficulty": 2,
+      "explanation": "Stopping at an exciting moment makes the reader curious about what happens next."
+    },
+    {
+      "id": "e4-lit-0006",
+      "years": [
+        4
+      ],
+      "subject": "english",
+      "curriculum": "AC9E4LE02",
+      "type": "multiple_choice",
+      "prompt": "Which sentence would a writer use to make a quiet, peaceful moment feel slow and calm?",
+      "choices": [
+        "Bang! Crash! Run!",
+        "The long golden afternoon drifted by as the gum leaves swayed and the creek murmured past.",
+        "Help! Quick! Now!",
+        "Stop. Go. Stop. Go."
+      ],
+      "answer": 1,
+      "difficulty": 2,
+      "explanation": "A long, flowing sentence with soft words slows the pace and feels calm."
+    },
+    {
+      "id": "e4-lit-0007",
+      "years": [
+        4
+      ],
+      "subject": "english",
+      "curriculum": "AC9E4LE03",
+      "type": "multiple_choice",
+      "prompt": "A story is set on an outback farm in a long drought. The dam is almost empty. How does this setting help the plot?",
+      "choices": [
+        "It gives the characters a real problem to solve",
+        "It shows the characters are rich",
+        "It tells us the story is a poem",
+        "It makes the story shorter"
+      ],
+      "answer": 0,
+      "difficulty": 2,
+      "explanation": "The drought creates the problem, finding water, which drives what the characters do."
+    },
+    {
+      "id": "e4-lit-0008",
+      "years": [
+        4
+      ],
+      "subject": "english",
+      "curriculum": "AC9E4LE03",
+      "type": "multiple_choice",
+      "prompt": "A writer says: \"Jack's hands shook and he stared at his shoes.\" What does this show about Jack?",
+      "choices": [
+        "He is very proud",
+        "He is bored",
+        "He is angry",
+        "He is nervous"
+      ],
+      "answer": 3,
+      "difficulty": 1,
+      "explanation": "Shaking hands and not looking up are signs of feeling nervous."
+    },
+    {
+      "id": "e4-lit-0009",
+      "years": [
+        4
+      ],
+      "subject": "english",
+      "curriculum": "AC9E4LE03",
+      "type": "multiple_choice",
+      "prompt": "In a plot, what is the climax?",
+      "choices": [
+        "The part that introduces the characters",
+        "The most exciting moment, when the problem reaches its peak",
+        "The title of the story",
+        "The last sentence of the story"
+      ],
+      "answer": 1,
+      "difficulty": 2,
+      "explanation": "The climax is the high point, where the main problem is at its biggest and most tense."
+    },
+    {
+      "id": "e4-lit-0010",
+      "years": [
+        4
+      ],
+      "subject": "english",
+      "curriculum": "AC9E4LE04",
+      "type": "multiple_choice",
+      "prompt": "Read this line: \"The breeze whispered in the gum trees.\" Which word play is the writer using?",
+      "choices": [
+        "Simile",
+        "Alliteration",
+        "Personification",
+        "Rhyme"
+      ],
+      "answer": 2,
+      "difficulty": 2,
+      "explanation": "A breeze cannot really whisper. Giving it a human action is personification."
+    },
+    {
+      "id": "e4-lit-0011",
+      "years": [
+        4
+      ],
+      "subject": "english",
+      "curriculum": "AC9E4LE04",
+      "type": "multiple_choice",
+      "prompt": "Which line uses alliteration?",
+      "choices": [
+        "Slippery snakes slid silently south.",
+        "The cat sat on the mat.",
+        "She ran as fast as a cheetah.",
+        "The classroom was a zoo."
+      ],
+      "answer": 0,
+      "difficulty": 1,
+      "explanation": "Alliteration repeats the same first sound. Here it is the s sound in slippery, snakes, slid, silently and south."
+    },
+    {
+      "id": "e4-lit-0012",
+      "years": [
+        4
+      ],
+      "subject": "english",
+      "curriculum": "AC9E4LE04",
+      "type": "multiple_choice",
+      "prompt": "A poet writes: \"The classroom was a zoo.\" Which device is this?",
+      "choices": [
+        "Simile",
+        "Rhyme",
+        "Alliteration",
+        "Metaphor"
+      ],
+      "answer": 3,
+      "difficulty": 3,
+      "explanation": "It says one thing is another without using like or as. That is a metaphor, not a simile."
+    }
+  ]
+}

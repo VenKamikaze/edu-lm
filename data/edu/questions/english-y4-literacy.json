@@ -1,0 +1,229 @@
+{
+  "schema": 1,
+  "pack": "english-y4-literacy",
+  "subject": "english",
+  "questions": [
+    {
+      "id": "e4-lty-0001",
+      "years": [
+        4
+      ],
+      "subject": "english",
+      "curriculum": "AC9E4LY01",
+      "type": "multiple_choice",
+      "prompt": "In 1925, Nana's grandma wrote a letter by hand to a friend. Today, Nana sends her friend an email. What purpose do both texts share?",
+      "choices": [
+        "To share news with a friend",
+        "To sell something to a stranger",
+        "To teach a maths rule",
+        "To tell a made-up story"
+      ],
+      "answer": 0,
+      "difficulty": 1,
+      "explanation": "Both the old letter and the new email are written to share news with someone the writer knows."
+    },
+    {
+      "id": "e4-lty-0002",
+      "years": [
+        4
+      ],
+      "subject": "english",
+      "curriculum": "AC9E4LY01",
+      "type": "multiple_choice",
+      "prompt": "An old newspaper advertisement from 1930 and a new online advertisement both sell biscuits. What is the same about them?",
+      "choices": [
+        "They both use moving video",
+        "They both use exactly the same words",
+        "They both try to make people want to buy the biscuits",
+        "They both are printed on paper"
+      ],
+      "answer": 2,
+      "difficulty": 2,
+      "explanation": "Advertisements from any time have the same purpose: to persuade people to buy something."
+    },
+    {
+      "id": "e4-lty-0003",
+      "years": [
+        4
+      ],
+      "subject": "english",
+      "curriculum": "AC9E4LY03",
+      "type": "multiple_choice",
+      "prompt": "Which sentence comes from a persuasive text?",
+      "choices": [
+        "Once, a koala named Kip lost his last gum leaf.",
+        "Every school should plant a vegetable garden, because fresh food keeps kids healthy.",
+        "First, mix the flour and the eggs in a bowl.",
+        "A kangaroo can bound up to 9 metres in one hop."
+      ],
+      "answer": 1,
+      "difficulty": 2,
+      "explanation": "The writer gives an opinion ('should') and a reason to convince the reader."
+    },
+    {
+      "id": "e4-lty-0004",
+      "years": [
+        4
+      ],
+      "subject": "english",
+      "curriculum": "AC9E4LY03",
+      "type": "multiple_choice",
+      "prompt": "Mia writes an informative report about the Great Barrier Reef. Which feature will help readers find facts quickly?",
+      "choices": [
+        "Rhyming words",
+        "A surprise ending",
+        "Made-up characters",
+        "Headings for each topic"
+      ],
+      "answer": 3,
+      "difficulty": 1,
+      "explanation": "Headings show what each part is about, so readers can find facts fast."
+    },
+    {
+      "id": "e4-lty-0005",
+      "years": [
+        4
+      ],
+      "subject": "english",
+      "curriculum": "AC9E4LY03",
+      "type": "multiple_choice",
+      "prompt": "A story begins: 'The old gum tree whispered a secret to Jess.' What makes this sentence imaginative?",
+      "choices": [
+        "The tree is given a human action",
+        "It gives a true fact about gum trees",
+        "It tells the reader how to plant a tree",
+        "It asks the reader to vote"
+      ],
+      "answer": 0,
+      "difficulty": 3,
+      "explanation": "Trees cannot whisper. Giving a tree a human action is a feature of imaginative writing."
+    },
+    {
+      "id": "e4-lty-0006",
+      "years": [
+        4
+      ],
+      "subject": "english",
+      "curriculum": "AC9E4LY05",
+      "type": "multiple_choice",
+      "prompt": "Tom packs his togs, towel and sunscreen. He runs to the car and calls, 'Hurry, Dad! The waves are perfect today!' Where is Tom most likely going?",
+      "choices": [
+        "To the library",
+        "To the beach",
+        "To the dentist",
+        "To school"
+      ],
+      "answer": 1,
+      "difficulty": 1,
+      "explanation": "Togs, towel, sunscreen and waves are clues that point to the beach."
+    },
+    {
+      "id": "e4-lty-0007",
+      "years": [
+        4
+      ],
+      "subject": "english",
+      "curriculum": "AC9E4LY05",
+      "type": "multiple_choice",
+      "prompt": "Read this. 'Echidnas are small mammals with spikes on their backs. When in danger, they curl into a ball or dig down into the soil.' Which is the best summary?",
+      "choices": [
+        "Echidnas are dangerous to people.",
+        "Echidnas dig soil because it is fun.",
+        "Echidnas have spikes and stay safe by curling up or digging.",
+        "Echidnas live in Australia and eat ants."
+      ],
+      "answer": 2,
+      "difficulty": 2,
+      "explanation": "A summary gives the main ideas. The other choices add things the text does not say."
+    },
+    {
+      "id": "e4-lty-0008",
+      "years": [
+        4
+      ],
+      "subject": "english",
+      "curriculum": "AC9E4LY05",
+      "type": "multiple_choice",
+      "prompt": "Sam reads: 'The wind howled and the tin roof rattled all night.' What should Sam picture?",
+      "choices": [
+        "A quiet, calm night",
+        "A sunny afternoon at the beach",
+        "A silent classroom",
+        "A stormy night with loud noises"
+      ],
+      "answer": 3,
+      "difficulty": 2,
+      "explanation": "Howled and rattled are noisy words, so the picture is a windy, stormy night."
+    },
+    {
+      "id": "e4-lty-0010",
+      "years": [
+        4
+      ],
+      "subject": "english",
+      "curriculum": "AC9E4LY09",
+      "type": "multiple_choice",
+      "prompt": "Which long word is split into syllables correctly?",
+      "choices": [
+        "fant-ast-ic",
+        "f-an-tas-tic",
+        "fan-tas-tic",
+        "fa-ntas-tic"
+      ],
+      "answer": 2,
+      "difficulty": 2,
+      "explanation": "Fantastic has three beats: fan-tas-tic. Each beat has one vowel sound."
+    },
+    {
+      "id": "e4-lty-0012",
+      "years": [
+        4
+      ],
+      "subject": "english",
+      "curriculum": "AC9E4LY10",
+      "type": "multiple_choice",
+      "prompt": "Which word is in the same word family as 'signal'?",
+      "choices": [
+        "single",
+        "signature",
+        "simple",
+        "sing"
+      ],
+      "answer": 1,
+      "difficulty": 3,
+      "explanation": "Signal and signature both come from the same old word for 'sign' or 'mark'."
+    },
+    {
+      "id": "e4-lty-0013",
+      "years": [
+        4
+      ],
+      "subject": "english",
+      "curriculum": "AC9E4LY11",
+      "type": "multiple_choice",
+      "prompt": "The children left ___ hats on the bench. Which word fits the sentence?",
+      "choices": [
+        "there",
+        "they're",
+        "thair",
+        "their"
+      ],
+      "answer": 3,
+      "difficulty": 2,
+      "explanation": "'Their' shows the hats belong to the children."
+    },
+    {
+      "id": "e4-lty-0014",
+      "years": [
+        4
+      ],
+      "subject": "english",
+      "curriculum": "AC9E4LY11",
+      "type": "true_false",
+      "prompt": "The words 'weather' and 'whether' sound the same but have different meanings.",
+      "answer": true,
+      "difficulty": 1,
+      "explanation": "Words that sound the same but mean different things are called homophones."
+    }
+  ]
+}

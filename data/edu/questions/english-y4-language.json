@@ -1,0 +1,387 @@
+{
+  "schema": 1,
+  "pack": "english-y4-language",
+  "subject": "english",
+  "questions": [
+    {
+      "id": "e4-lan-0001",
+      "years": [
+        4
+      ],
+      "subject": "english",
+      "curriculum": "AC9E4LA01",
+      "type": "multiple_choice",
+      "prompt": "Sam wants to ask the principal for a favour. Which message suits the principal best?",
+      "choices": [
+        "Hey, gimme a ball at lunch, yeah?",
+        "Dear Mrs Nguyen, may I please borrow a ball at lunch?",
+        "Ball. Lunch. Now.",
+        "Yo boss, can I grab a ball?"
+      ],
+      "answer": 1,
+      "difficulty": 1,
+      "explanation": "A polite, full sentence with a greeting suits a principal. Slang suits friends."
+    },
+    {
+      "id": "e4-lan-0002",
+      "years": [
+        4
+      ],
+      "subject": "english",
+      "curriculum": "AC9E4LA01",
+      "type": "multiple_choice",
+      "prompt": "Mia writes a letter to the mayor. Which word is the best fit for this formal audience?",
+      "choices": [
+        "kids",
+        "mates",
+        "children",
+        "little guys"
+      ],
+      "answer": 2,
+      "difficulty": 2,
+      "explanation": "\"Children\" is a formal word. The others are casual words we use with friends."
+    },
+    {
+      "id": "e4-lan-0003",
+      "years": [
+        4
+      ],
+      "subject": "english",
+      "curriculum": "AC9E4LA02",
+      "type": "multiple_choice",
+      "prompt": "Which sentence states a fact (objective language)?",
+      "choices": [
+        "Sydney is the prettiest city.",
+        "Koalas are the cutest animals.",
+        "Summer is the best season.",
+        "Sydney is in New South Wales."
+      ],
+      "answer": 3,
+      "difficulty": 1,
+      "explanation": "You can check that Sydney is in New South Wales. The others are opinions."
+    },
+    {
+      "id": "e4-lan-0004",
+      "years": [
+        4
+      ],
+      "subject": "english",
+      "curriculum": "AC9E4LA02",
+      "type": "multiple_choice",
+      "prompt": "Ben describes the beach. Which sentence shows his opinion, not a fact?",
+      "choices": [
+        "The beach was long.",
+        "The beach was sandy.",
+        "The beach was gorgeous.",
+        "The beach was crowded with 200 people."
+      ],
+      "answer": 2,
+      "difficulty": 2,
+      "explanation": "\"Gorgeous\" is what Ben feels. Long, sandy and a count of people can be checked."
+    },
+    {
+      "id": "e4-lan-0005",
+      "years": [
+        4
+      ],
+      "subject": "english",
+      "curriculum": "AC9E4LA03",
+      "type": "multiple_choice",
+      "prompt": "A recipe is built in stages. Which order is usual?",
+      "choices": [
+        "Method first, then the ingredients list",
+        "Ingredients list first, then the method steps",
+        "A story first, then the ingredients",
+        "The method only, with no list"
+      ],
+      "answer": 1,
+      "difficulty": 2,
+      "explanation": "A recipe lists what you need first. Then it gives the steps to follow."
+    },
+    {
+      "id": "e4-lan-0006",
+      "years": [
+        4
+      ],
+      "subject": "english",
+      "curriculum": "AC9E4LA04",
+      "type": "multiple_choice",
+      "prompt": "Choose the best word to finish the sentence: ___ you finish your homework, you can play outside.",
+      "choices": [
+        "Because",
+        "Once",
+        "Although",
+        "Unless"
+      ],
+      "answer": 1,
+      "difficulty": 1,
+      "explanation": "\"Once\" shows time: homework first, then play."
+    },
+    {
+      "id": "e4-lan-0007",
+      "years": [
+        4
+      ],
+      "subject": "english",
+      "curriculum": "AC9E4LA04",
+      "type": "multiple_choice",
+      "prompt": "Which word best completes this sentence? We will cancel cricket ___ it rains.",
+      "choices": [
+        "if",
+        "while",
+        "after",
+        "before"
+      ],
+      "answer": 0,
+      "difficulty": 2,
+      "explanation": "\"If\" shows a condition: cricket is cancelled only when it rains."
+    },
+    {
+      "id": "e4-lan-0008",
+      "years": [
+        4
+      ],
+      "subject": "english",
+      "curriculum": "AC9E4LA05",
+      "type": "multiple_choice",
+      "prompt": "On a website, you click a button and a list of pages appears. What is this called?",
+      "choices": [
+        "A headline",
+        "A drop-down menu",
+        "A caption",
+        "A paragraph"
+      ],
+      "answer": 1,
+      "difficulty": 1,
+      "explanation": "A drop-down menu opens a list of choices when you click it."
+    },
+    {
+      "id": "e4-lan-0009",
+      "years": [
+        4
+      ],
+      "subject": "english",
+      "curriculum": "AC9E4LA06",
+      "type": "multiple_choice",
+      "prompt": "Which sentence is a complex sentence?",
+      "choices": [
+        "We played cricket.",
+        "We played cricket and Dad cheered.",
+        "Although it was raining, we played cricket.",
+        "We played cricket in the rain."
+      ],
+      "answer": 2,
+      "difficulty": 2,
+      "explanation": "\"Although it was raining\" cannot stand alone. It depends on the main clause \"we played cricket\"."
+    },
+    {
+      "id": "e4-lan-0010",
+      "years": [
+        4
+      ],
+      "subject": "english",
+      "curriculum": "AC9E4LA06",
+      "type": "multiple_choice",
+      "prompt": "Mia smiled because she won the race. Which part is the clause that depends on the main clause?",
+      "choices": [
+        "Mia smiled",
+        "because she won the race",
+        "she won",
+        "the race"
+      ],
+      "answer": 1,
+      "difficulty": 3,
+      "explanation": "\"Because she won the race\" cannot stand alone as a sentence. \"Mia smiled\" is the main clause."
+    },
+    {
+      "id": "e4-lan-0011",
+      "years": [
+        4
+      ],
+      "subject": "english",
+      "curriculum": "AC9E4LA07",
+      "type": "multiple_choice",
+      "prompt": "Which sentence uses direct speech?",
+      "choices": [
+        "Tom said he was hungry.",
+        "Tom said, \"I am hungry.\"",
+        "Tom was hungry, he said.",
+        "Tom told us about his hunger."
+      ],
+      "answer": 1,
+      "difficulty": 1,
+      "explanation": "Direct speech gives the exact words the person said inside quotation marks."
+    },
+    {
+      "id": "e4-lan-0012",
+      "years": [
+        4
+      ],
+      "subject": "english",
+      "curriculum": "AC9E4LA07",
+      "type": "multiple_choice",
+      "prompt": "\"I like the zoo,\" said Priya. Which sentence reports this in indirect speech?",
+      "choices": [
+        "Priya said, \"I like the zoo.\"",
+        "Priya said I like the zoo.",
+        "Priya said she liked the zoo.",
+        "\"Priya likes the zoo,\" she said."
+      ],
+      "answer": 2,
+      "difficulty": 2,
+      "explanation": "Indirect speech has no quotation marks. \"I like\" changes to \"she liked\"."
+    },
+    {
+      "id": "e4-lan-0013",
+      "years": [
+        4
+      ],
+      "subject": "english",
+      "curriculum": "AC9E4LA08",
+      "type": "multiple_choice",
+      "prompt": "The wombat slept under the log. Which group of words is the prepositional phrase?",
+      "choices": [
+        "The wombat",
+        "slept",
+        "under the log",
+        "The wombat slept"
+      ],
+      "answer": 2,
+      "difficulty": 2,
+      "explanation": "\"Under the log\" begins with the preposition \"under\" and tells where the wombat slept."
+    },
+    {
+      "id": "e4-lan-0014",
+      "years": [
+        4
+      ],
+      "subject": "english",
+      "curriculum": "AC9E4LA08",
+      "type": "multiple_choice",
+      "prompt": "The kangaroo hopped very quickly across the paddock. Which words make the adverb group telling how it hopped?",
+      "choices": [
+        "The kangaroo",
+        "very quickly",
+        "across the paddock",
+        "hopped very"
+      ],
+      "answer": 1,
+      "difficulty": 3,
+      "explanation": "\"Very quickly\" is built around the adverb \"quickly\" and tells how it hopped."
+    },
+    {
+      "id": "e4-lan-0015",
+      "years": [
+        4
+      ],
+      "subject": "english",
+      "curriculum": "AC9E4LA09",
+      "type": "multiple_choice",
+      "prompt": "Which sentence is in the future tense?",
+      "choices": [
+        "Our class visited the museum.",
+        "Our class is visiting the museum.",
+        "Our class visits the museum.",
+        "Our class will visit the museum."
+      ],
+      "answer": 3,
+      "difficulty": 1,
+      "explanation": "\"Will visit\" tells us it has not happened yet."
+    },
+    {
+      "id": "e4-lan-0016",
+      "years": [
+        4
+      ],
+      "subject": "english",
+      "curriculum": "AC9E4LA09",
+      "type": "multiple_choice",
+      "prompt": "Choose the correct word. Yesterday the class ___ to the museum.",
+      "choices": [
+        "goed",
+        "went",
+        "gone",
+        "go"
+      ],
+      "answer": 1,
+      "difficulty": 2,
+      "explanation": "\"Went\" is the past tense of \"go\". \"Yesterday\" tells us it already happened."
+    },
+    {
+      "id": "e4-lan-0017",
+      "years": [
+        4
+      ],
+      "subject": "english",
+      "curriculum": "AC9E4LA11",
+      "type": "multiple_choice",
+      "prompt": "Which word means almost the same as \"enormous\"?",
+      "choices": [
+        "tiny",
+        "huge",
+        "heavy",
+        "quiet"
+      ],
+      "answer": 1,
+      "difficulty": 1,
+      "explanation": "\"Huge\" and \"enormous\" both mean very big."
+    },
+    {
+      "id": "e4-lan-0018",
+      "years": [
+        4
+      ],
+      "subject": "english",
+      "curriculum": "AC9E4LA11",
+      "type": "multiple_choice",
+      "prompt": "Which word is the antonym (opposite) of \"ancient\"?",
+      "choices": [
+        "old",
+        "modern",
+        "broken",
+        "famous"
+      ],
+      "answer": 1,
+      "difficulty": 2,
+      "explanation": "\"Ancient\" means very old. \"Modern\" means new and up to date."
+    },
+    {
+      "id": "e4-lan-0019",
+      "years": [
+        4
+      ],
+      "subject": "english",
+      "curriculum": "AC9E4LA12",
+      "type": "multiple_choice",
+      "prompt": "Which sentence has the correct punctuation?",
+      "choices": [
+        "Mum said, \"Dinner is ready.\"",
+        "Mum said \"Dinner is ready\".",
+        "Mum said, Dinner is ready.",
+        "\"Mum said, Dinner is ready.\""
+      ],
+      "answer": 0,
+      "difficulty": 2,
+      "explanation": "A comma follows \"said\". The spoken words sit inside quotation marks, with the full stop inside them."
+    },
+    {
+      "id": "e4-lan-0020",
+      "years": [
+        4
+      ],
+      "subject": "english",
+      "curriculum": "AC9E4LA12",
+      "type": "multiple_choice",
+      "prompt": "Leo asks a question. Which sentence is punctuated correctly?",
+      "choices": [
+        "\"Can we go to the beach.\" asked Leo.",
+        "\"Can we go to the beach\"? asked Leo.",
+        "\"Can we go to the beach,\" asked Leo?",
+        "\"Can we go to the beach?\" asked Leo."
+      ],
+      "answer": 3,
+      "difficulty": 3,
+      "explanation": "The question mark goes inside the quotation marks. Then \"asked\" starts with a small letter."
+    }
+  ]
+}

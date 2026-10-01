@@ -1,0 +1,381 @@
+{
+  "schema": 1,
+  "pack": "science-y4-understanding",
+  "subject": "science",
+  "questions": [
+    {
+      "id": "s4-und-0001",
+      "years": [
+        4
+      ],
+      "subject": "science",
+      "curriculum": "AC9S4U01",
+      "type": "multiple_choice",
+      "prompt": "Which living thing in an Australian bushland is a producer?",
+      "choices": [
+        "Kangaroo",
+        "Gum tree",
+        "Emu",
+        "Kookaburra"
+      ],
+      "answer": 1,
+      "difficulty": 1,
+      "explanation": "A gum tree makes its own food using sunlight. Animals have to eat to get food."
+    },
+    {
+      "id": "s4-und-0002",
+      "years": [
+        4
+      ],
+      "subject": "science",
+      "curriculum": "AC9S4U01",
+      "type": "multiple_choice",
+      "prompt": "Mushrooms grow on a dead log in the forest. They break the log down into tiny pieces. What are mushrooms in this habitat?",
+      "choices": [
+        "Producers",
+        "Predators",
+        "Decomposers",
+        "Herbivores"
+      ],
+      "answer": 2,
+      "difficulty": 2,
+      "explanation": "Decomposers break down dead plants and animals and return nutrients to the soil."
+    },
+    {
+      "id": "s4-und-0003",
+      "years": [
+        4
+      ],
+      "subject": "science",
+      "curriculum": "AC9S4U01",
+      "type": "multiple_choice",
+      "prompt": "Here is a food chain: grass → grasshopper → lizard → hawk. Which living thing is a producer?",
+      "choices": [
+        "Hawk",
+        "Lizard",
+        "Grasshopper",
+        "Grass"
+      ],
+      "answer": 3,
+      "difficulty": 1,
+      "explanation": "Grass makes its own food. The other three eat to get their food."
+    },
+    {
+      "id": "s4-und-0004",
+      "years": [
+        4
+      ],
+      "subject": "science",
+      "curriculum": "AC9S4U01",
+      "type": "multiple_choice",
+      "prompt": "In a food chain, an arrow points from a rosella to a falcon. What does the arrow show?",
+      "choices": [
+        "The falcon is eaten by the rosella",
+        "The rosella is bigger than the falcon",
+        "Food and energy pass from the rosella to the falcon",
+        "The falcon makes food for the rosella"
+      ],
+      "answer": 2,
+      "difficulty": 2,
+      "explanation": "The arrow points to the eater. The falcon eats the rosella and gets its energy."
+    },
+    {
+      "id": "s4-und-0005",
+      "years": [
+        4
+      ],
+      "subject": "science",
+      "curriculum": "AC9S4U01",
+      "type": "multiple_choice",
+      "prompt": "On a farm, the food chain is grass → rabbit → fox. Most of the foxes leave the farm. What will most likely happen to the rabbits?",
+      "choices": [
+        "There will be more rabbits",
+        "There will be fewer rabbits",
+        "The rabbits will start to eat foxes",
+        "The grass will stop growing"
+      ],
+      "answer": 0,
+      "difficulty": 3,
+      "explanation": "Fewer foxes means fewer rabbits get eaten, so the number of rabbits goes up."
+    },
+    {
+      "id": "s4-und-0006",
+      "years": [
+        4
+      ],
+      "subject": "science",
+      "curriculum": "AC9S4U02",
+      "type": "multiple_choice",
+      "prompt": "Water vapour rises high in the air and cools. It turns into tiny drops that make clouds. What is this stage called?",
+      "choices": [
+        "Evaporation",
+        "Condensation",
+        "Precipitation",
+        "Collection"
+      ],
+      "answer": 1,
+      "difficulty": 2,
+      "explanation": "When water vapour cools and turns back into liquid drops, it is called condensation."
+    },
+    {
+      "id": "s4-und-0007",
+      "years": [
+        4
+      ],
+      "subject": "science",
+      "curriculum": "AC9S4U02",
+      "type": "multiple_choice",
+      "prompt": "After rain, a puddle is on the school playground. On a hot day the puddle disappears. Where did the water go?",
+      "choices": [
+        "It went into the air as water vapour",
+        "It turned into soil",
+        "It froze and stayed on the ground",
+        "It was used up and is gone forever"
+      ],
+      "answer": 0,
+      "difficulty": 1,
+      "explanation": "The Sun's heat makes the water evaporate. It goes into the air as water vapour."
+    },
+    {
+      "id": "s4-und-0008",
+      "years": [
+        4
+      ],
+      "subject": "science",
+      "curriculum": "AC9S4U02",
+      "type": "multiple_choice",
+      "prompt": "A farmer in outback Queensland pumps water from a bore. Where does the bore water come from?",
+      "choices": [
+        "Directly from the clouds",
+        "From the sea",
+        "From melted snow on the farm",
+        "From underground"
+      ],
+      "answer": 3,
+      "difficulty": 2,
+      "explanation": "A bore is a deep hole that reaches water stored under the ground."
+    },
+    {
+      "id": "s4-und-0009",
+      "years": [
+        4
+      ],
+      "subject": "science",
+      "curriculum": "AC9S4U02",
+      "type": "multiple_choice",
+      "prompt": "What gives the energy that makes water evaporate in the water cycle?",
+      "choices": [
+        "The Moon",
+        "The wind",
+        "The Sun",
+        "The clouds"
+      ],
+      "answer": 2,
+      "difficulty": 2,
+      "explanation": "The Sun's heat warms water so it can change into water vapour."
+    },
+    {
+      "id": "s4-und-0010",
+      "years": [
+        4
+      ],
+      "subject": "science",
+      "curriculum": "AC9S4U02",
+      "type": "multiple_choice",
+      "prompt": "Rain falls on hills and runs into creeks. The creeks flow into a river and then into the sea. What is this stage of the water cycle called?",
+      "choices": [
+        "Condensation",
+        "Evaporation",
+        "Collection",
+        "Precipitation"
+      ],
+      "answer": 2,
+      "difficulty": 3,
+      "explanation": "Collection is when water gathers in creeks, rivers, lakes and the sea."
+    },
+    {
+      "id": "s4-und-0011",
+      "years": [
+        4
+      ],
+      "subject": "science",
+      "curriculum": "AC9S4U03",
+      "type": "multiple_choice",
+      "prompt": "Mia pushes a toy car across the carpet and then across the tiles. It rolls much further on the tiles. Why?",
+      "choices": [
+        "The tiles have less friction",
+        "The tiles have more friction",
+        "Gravity is stronger on tiles",
+        "The carpet is magnetic"
+      ],
+      "answer": 0,
+      "difficulty": 2,
+      "explanation": "Smooth tiles have less friction than carpet, so the car slows down less."
+    },
+    {
+      "id": "s4-und-0012",
+      "years": [
+        4
+      ],
+      "subject": "science",
+      "curriculum": "AC9S4U03",
+      "type": "multiple_choice",
+      "prompt": "A mango falls from a tree to the ground. Which force pulls it down?",
+      "choices": [
+        "Friction",
+        "Magnetism",
+        "A push from the wind",
+        "Gravity"
+      ],
+      "answer": 3,
+      "difficulty": 1,
+      "explanation": "Gravity is the pull that draws objects towards the Earth."
+    },
+    {
+      "id": "s4-und-0013",
+      "years": [
+        4
+      ],
+      "subject": "science",
+      "curriculum": "AC9S4U03",
+      "type": "multiple_choice",
+      "prompt": "Sam has a magnet. Which of these will it pick up?",
+      "choices": [
+        "A wooden peg",
+        "A plastic ruler",
+        "A glass marble",
+        "A steel paperclip"
+      ],
+      "answer": 3,
+      "difficulty": 1,
+      "explanation": "Magnets attract objects made of iron or steel. Wood, plastic and glass are not attracted."
+    },
+    {
+      "id": "s4-und-0014",
+      "years": [
+        4
+      ],
+      "subject": "science",
+      "curriculum": "AC9S4U03",
+      "type": "multiple_choice",
+      "prompt": "Jo squeezes the brakes on her bike. The brake pads rub on the wheel and the bike slows down. Which force slows the wheel?",
+      "choices": [
+        "Gravity",
+        "Friction",
+        "Magnetism",
+        "A pull from the handlebars"
+      ],
+      "answer": 1,
+      "difficulty": 2,
+      "explanation": "Rubbing surfaces make friction. Friction slows moving things down."
+    },
+    {
+      "id": "s4-und-0015",
+      "years": [
+        4
+      ],
+      "subject": "science",
+      "curriculum": "AC9S4U03",
+      "type": "true_false",
+      "prompt": "A magnet can pull on a steel nail without touching it.",
+      "answer": true,
+      "difficulty": 2,
+      "explanation": "Magnetic force works across a gap, so a magnet can pull a nail from a short distance."
+    },
+    {
+      "id": "s4-und-0016",
+      "years": [
+        4
+      ],
+      "subject": "science",
+      "curriculum": "AC9S4U04",
+      "type": "multiple_choice",
+      "prompt": "Which of these is a natural material that comes from a plant?",
+      "choices": [
+        "Cotton",
+        "Nylon",
+        "Plastic",
+        "Glass"
+      ],
+      "answer": 0,
+      "difficulty": 1,
+      "explanation": "Cotton comes from the cotton plant. Nylon, plastic and glass are made in factories."
+    },
+    {
+      "id": "s4-und-0017",
+      "years": [
+        4
+      ],
+      "subject": "science",
+      "curriculum": "AC9S4U04",
+      "type": "multiple_choice",
+      "prompt": "Windows in a house are made of glass. Which quality of glass makes it good for windows?",
+      "choices": [
+        "It bounces when dropped",
+        "You can see through it",
+        "It is soft and bendy",
+        "It soaks up water"
+      ],
+      "answer": 1,
+      "difficulty": 1,
+      "explanation": "Glass is clear, so light comes in and people can see outside."
+    },
+    {
+      "id": "s4-und-0018",
+      "years": [
+        4
+      ],
+      "subject": "science",
+      "curriculum": "AC9S4U04",
+      "type": "multiple_choice",
+      "prompt": "Electrical wires have a copper metal core. Why is copper used?",
+      "choices": [
+        "It floats on water",
+        "It is very light",
+        "It lets electricity flow through it easily",
+        "It is see-through"
+      ],
+      "answer": 2,
+      "difficulty": 2,
+      "explanation": "Metals like copper carry electricity well, so they are good for wires."
+    },
+    {
+      "id": "s4-und-0019",
+      "years": [
+        4
+      ],
+      "subject": "science",
+      "curriculum": "AC9S4U04",
+      "type": "multiple_choice",
+      "prompt": "A raincoat is made from plastic. Why is plastic a good choice for a raincoat?",
+      "choices": [
+        "It lets water soak through",
+        "It is waterproof",
+        "It is made from wool",
+        "It is heavy and stiff"
+      ],
+      "answer": 1,
+      "difficulty": 2,
+      "explanation": "Plastic does not let water through, so it keeps you dry in the rain."
+    },
+    {
+      "id": "s4-und-0020",
+      "years": [
+        4
+      ],
+      "subject": "science",
+      "curriculum": "AC9S4U04",
+      "type": "multiple_choice",
+      "prompt": "A saucepan has a metal base and a plastic handle. Why is the handle made of plastic and not metal?",
+      "choices": [
+        "Plastic is a poor conductor of heat",
+        "Plastic is a better conductor of heat",
+        "Plastic is stronger than metal",
+        "Plastic is a natural material"
+      ],
+      "answer": 0,
+      "difficulty": 3,
+      "explanation": "Plastic does not let heat travel through it easily, so the handle stays cool enough to hold."
+    }
+  ]
+}

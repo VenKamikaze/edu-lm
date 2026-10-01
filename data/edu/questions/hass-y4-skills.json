@@ -1,0 +1,172 @@
+{
+  "schema": 1,
+  "pack": "hass-y4-skills",
+  "subject": "hass",
+  "questions": [
+    {
+      "id": "h4-ski-0001",
+      "years": [
+        4
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS4S02",
+      "type": "numeric",
+      "prompt": "A timeline shows: 1788, the First Fleet arrives at Sydney Cove. 1851, gold is found in Victoria. 1901, the colonies join to form Australia. How many years after the First Fleet arrived was gold found in Victoria?",
+      "answer": 63,
+      "difficulty": 2,
+      "explanation": "Take the earlier year from the later year. 1851 − 1788 = 63."
+    },
+    {
+      "id": "h4-ski-0002",
+      "years": [
+        4
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS4S02",
+      "type": "multiple_choice",
+      "prompt": "On a map, north is at the top. Mia's school is west of the park. The library is south of the park. In which direction would Mia travel from the library to the school?",
+      "choices": [
+        "North-east",
+        "South-west",
+        "North-west",
+        "South-east"
+      ],
+      "answer": 2,
+      "difficulty": 3,
+      "explanation": "The school is west of the park, and the park is north of the library. So from the library, the school is north and west."
+    },
+    {
+      "id": "h4-ski-0004",
+      "years": [
+        4
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS4S03",
+      "type": "multiple_choice",
+      "prompt": "A school recorded the rain each day. Monday: 0 mm. Tuesday: 5 mm. Wednesday: 12 mm. Thursday: 3 mm. Which day was the wettest?",
+      "choices": [
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Monday"
+      ],
+      "answer": 1,
+      "difficulty": 1,
+      "explanation": "Wednesday had the most rain, 12 mm. That is more than any other day."
+    },
+    {
+      "id": "h4-ski-0005",
+      "years": [
+        4
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS4S03",
+      "type": "multiple_choice",
+      "prompt": "Sam wants to show the order of important events in his town's history. Which format would suit this best?",
+      "choices": [
+        "A street map",
+        "A pie chart of favourite foods",
+        "A weather chart",
+        "A timeline"
+      ],
+      "answer": 3,
+      "difficulty": 2,
+      "explanation": "A timeline puts events in order by date. A map shows places, not the order of events."
+    },
+    {
+      "id": "h4-ski-0006",
+      "years": [
+        4
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS4S04",
+      "type": "multiple_choice",
+      "prompt": "A council wants to build a new road through bushland. A shop owner says it will bring more customers. A bird watcher says it will harm the birds' homes. Why do they have different views?",
+      "choices": [
+        "They care about different things",
+        "One of them has the wrong facts",
+        "They live in different states",
+        "They have not read the news"
+      ],
+      "answer": 0,
+      "difficulty": 2,
+      "explanation": "The shop owner cares about business. The bird watcher cares about nature. People can see the same plan in different ways."
+    },
+    {
+      "id": "h4-ski-0007",
+      "years": [
+        4
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS4S04",
+      "type": "multiple_choice",
+      "prompt": "A ship's officer and an Aboriginal Elder each described the arrival of the First Fleet. Their stories were very different. What is the best reason?",
+      "choices": [
+        "One of them was not there",
+        "People never remember events",
+        "Each person saw it from their own point of view",
+        "Only the officer could tell stories"
+      ],
+      "answer": 2,
+      "difficulty": 3,
+      "explanation": "People have different experiences and different things matter to them. So their accounts of the same event can differ."
+    },
+    {
+      "id": "h4-ski-0008",
+      "years": [
+        4
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS4S04",
+      "type": "multiple_choice",
+      "prompt": "Which of these is a primary source about life in Sydney in 1850?",
+      "choices": [
+        "A history textbook written in 2020",
+        "A diary written in 1850 by a Sydney resident",
+        "A movie made in 2015",
+        "A website written last year"
+      ],
+      "answer": 1,
+      "difficulty": 2,
+      "explanation": "A primary source comes from the time being studied. The diary was written in 1850 by someone who was there."
+    },
+    {
+      "id": "h4-ski-0009",
+      "years": [
+        4
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS4S05",
+      "type": "multiple_choice",
+      "prompt": "A council asked 30 children about a new park. 22 want more shade. 5 want a bigger oval. 3 want more bins. Which conclusion fits the information?",
+      "choices": [
+        "Most children want more shade",
+        "Most children want a bigger oval",
+        "Nobody wants bins",
+        "Children do not want a new park"
+      ],
+      "answer": 0,
+      "difficulty": 1,
+      "explanation": "22 out of 30 children chose shade. That is more than all the other choices put together."
+    },
+    {
+      "id": "h4-ski-0010",
+      "years": [
+        4
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS4S05",
+      "type": "multiple_choice",
+      "prompt": "A town dam was lower each month from December to March. Very little rain fell in those months. Which conclusion is best supported by these facts?",
+      "choices": [
+        "Someone left a tap running",
+        "The dam will be full next month",
+        "Rain fell every week",
+        "Low rainfall is a likely reason the dam level dropped"
+      ],
+      "answer": 3,
+      "difficulty": 3,
+      "explanation": "The facts say little rain fell while the level dropped. The other choices are not shown by the facts."
+    }
+  ]
+}

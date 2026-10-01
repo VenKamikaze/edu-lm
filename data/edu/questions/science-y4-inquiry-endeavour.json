@@ -1,0 +1,166 @@
+{
+  "schema": 1,
+  "pack": "science-y4-inquiry-endeavour",
+  "subject": "science",
+  "questions": [
+    {
+      "id": "s4-inq-0001",
+      "years": [
+        4
+      ],
+      "subject": "science",
+      "curriculum": "AC9S4I01",
+      "type": "multiple_choice",
+      "prompt": "Mia sees many worms on the school path after every rainy day. She asks a question to test. Which prediction fits her pattern?",
+      "choices": [
+        "There will be fewer worms after the next big rain.",
+        "There will be more worms after the next big rain.",
+        "There will be more worms on a hot, dry day.",
+        "There will be no worms on any path."
+      ],
+      "answer": 1,
+      "difficulty": 1,
+      "explanation": "Mia saw worms after rain each time. So she predicts the pattern will happen again after the next rain."
+    },
+    {
+      "id": "s4-inq-0002",
+      "years": [
+        4
+      ],
+      "subject": "science",
+      "curriculum": "AC9S4I02",
+      "type": "multiple_choice",
+      "prompt": "Tom tests which paper towel soaks up the most water. He uses three brands. What must he keep the same to make it a fair test?",
+      "choices": [
+        "The brand of paper towel",
+        "The amount of water poured on each one",
+        "How much water each one soaks up",
+        "The colour of the pen he writes with"
+      ],
+      "answer": 1,
+      "difficulty": 2,
+      "explanation": "Only the brand should change. The amount of water must stay the same, or the test is not fair."
+    },
+    {
+      "id": "s4-inq-0004",
+      "years": [
+        4
+      ],
+      "subject": "science",
+      "curriculum": "AC9S4I04",
+      "type": "multiple_choice",
+      "prompt": "A class votes for a favourite fruit. Apple got 6 votes, banana got 9 votes and mango got 4 votes. In a column graph, which column is the tallest?",
+      "choices": [
+        "Apple",
+        "Mango",
+        "They are all the same",
+        "Banana"
+      ],
+      "answer": 3,
+      "difficulty": 1,
+      "explanation": "Banana has the most votes, 9. The column with the most votes is the tallest."
+    },
+    {
+      "id": "s4-inq-0005",
+      "years": [
+        4
+      ],
+      "subject": "science",
+      "curriculum": "AC9S4I05",
+      "type": "multiple_choice",
+      "prompt": "Jack finds that paper plane A flies further than plane B. Lena tests the same planes and finds the opposite. What should they do first?",
+      "choices": [
+        "Decide Jack is right because he went first",
+        "Compare how each of them ran the test",
+        "Throw away both planes",
+        "Pick the plane with the nicest colour"
+      ],
+      "answer": 1,
+      "difficulty": 3,
+      "explanation": "Different results may mean the tests were not the same or not fair. Comparing how they tested helps them find out."
+    },
+    {
+      "id": "s4-inq-0006",
+      "years": [
+        4
+      ],
+      "subject": "science",
+      "curriculum": "AC9S4H01",
+      "type": "multiple_choice",
+      "prompt": "For over 100 years, people in Australia have written down the daily temperature at weather stations. How does this data help scientists?",
+      "choices": [
+        "It shows how temperatures have changed over time.",
+        "It makes the weather colder.",
+        "It tells them what colour the sky will be.",
+        "It is only useful for one day."
+      ],
+      "answer": 0,
+      "difficulty": 2,
+      "explanation": "Many records over many years let scientists see patterns and changes. They use this data to build explanations."
+    },
+    {
+      "id": "s4-inq-0007",
+      "years": [
+        4
+      ],
+      "subject": "science",
+      "curriculum": "AC9S4H02",
+      "type": "multiple_choice",
+      "prompt": "Scientists found that ultraviolet rays from the sun can damage skin. How has this explanation helped people in Australia?",
+      "choices": [
+        "People now stay inside all year.",
+        "People now use hats, shade and sunscreen to stay safe.",
+        "People now have less summer.",
+        "People now wear dark glasses at night."
+      ],
+      "answer": 1,
+      "difficulty": 2,
+      "explanation": "Knowing why sunburn happens helps people fix the problem. Hats, shade and sunscreen protect skin from ultraviolet rays."
+    },
+    {
+      "id": "s4-inq-0008",
+      "years": [
+        4
+      ],
+      "subject": "science",
+      "curriculum": "AC9S4H01",
+      "type": "true_false",
+      "prompt": "Scientists use measurements and observations to help build their explanations.",
+      "answer": true,
+      "difficulty": 1,
+      "explanation": "Scientists collect data by measuring and observing. They use it to explain what they find."
+    },
+    {
+      "id": "s4-inq-0009",
+      "years": [
+        4
+      ],
+      "subject": "science",
+      "curriculum": "AC9S4I03",
+      "type": "multiple_choice",
+      "prompt": "Ben wants to find the mass of a small rock in grams. Which tool is the best to use?",
+      "choices": [
+        "A ruler",
+        "A thermometer",
+        "A measuring jug",
+        "Kitchen scales"
+      ],
+      "answer": 3,
+      "difficulty": 1,
+      "explanation": "Scales measure mass in grams. A ruler measures length and a jug measures liquid."
+    },
+    {
+      "id": "s4-inq-0010",
+      "years": [
+        4
+      ],
+      "subject": "science",
+      "curriculum": "AC9S4I01",
+      "type": "numeric",
+      "prompt": "Ava measures a bean seedling each week. It is 3 cm in week 1, 6 cm in week 2 and 9 cm in week 3. If the pattern continues, how many centimetres tall will it be in week 4?",
+      "answer": 12,
+      "difficulty": 3,
+      "explanation": "The seedling grows 3 cm each week. In week 4 it will be 9 + 3 = 12 cm."
+    }
+  ]
+}

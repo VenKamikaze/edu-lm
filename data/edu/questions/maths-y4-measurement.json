@@ -1,0 +1,276 @@
+{
+  "schema": 1,
+  "pack": "maths-y4-measurement",
+  "subject": "maths",
+  "questions": [
+    {
+      "id": "m4-mea-0001",
+      "years": [
+        4
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M4M01",
+      "type": "multiple_choice",
+      "prompt": "A jug is marked every 100 mL. The water is halfway between the 300 mL mark and the 400 mL mark. How much water is in the jug?",
+      "choices": [
+        "330 mL",
+        "350 mL",
+        "340 mL",
+        "450 mL"
+      ],
+      "answer": 1,
+      "difficulty": 1,
+      "explanation": "Halfway between 300 and 400 is 350. Half of 100 is 50."
+    },
+    {
+      "id": "m4-mea-0002",
+      "years": [
+        4
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M4M01",
+      "type": "numeric",
+      "prompt": "Lily's pencil starts at 0 on a ruler. The tip is at the 7th small mark after 12 cm. There are 10 small marks in each centimetre. How long is the pencil in centimetres?",
+      "answer": 12.7,
+      "tolerance": 0.01,
+      "difficulty": 2,
+      "explanation": "Each small mark is one tenth of a centimetre. 7 marks past 12 cm is 12.7 cm."
+    },
+    {
+      "id": "m4-mea-0003",
+      "years": [
+        4
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M4M01",
+      "type": "multiple_choice",
+      "prompt": "A thermometer is marked every 2 degrees. The red line is 3 marks above 20 degrees Celsius. What is the temperature?",
+      "choices": [
+        "23 degrees Celsius",
+        "24 degrees Celsius",
+        "26 degrees Celsius",
+        "32 degrees Celsius"
+      ],
+      "answer": 2,
+      "difficulty": 2,
+      "explanation": "Each mark is 2 degrees. 3 marks is 6 degrees, and 20 + 6 = 26."
+    },
+    {
+      "id": "m4-mea-0004",
+      "years": [
+        4
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M4M01",
+      "type": "multiple_choice",
+      "prompt": "A kitchen scale goes from 0 g to 1000 g. There are 5 equal gaps between 0 g and 1000 g. The needle is on the third mark after 0. What is the mass?",
+      "choices": [
+        "300 g",
+        "500 g",
+        "600 g",
+        "750 g"
+      ],
+      "answer": 2,
+      "difficulty": 3,
+      "explanation": "1000 ÷ 5 = 200, so each gap is 200 g. Three gaps is 3 × 200 = 600 g."
+    },
+    {
+      "id": "m4-mea-0005",
+      "years": [
+        4
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M4M02",
+      "type": "multiple_choice",
+      "prompt": "Tom's veggie garden is 8 m long and 5 m wide. He puts a fence all the way around it. How long is the fence?",
+      "choices": [
+        "13 m",
+        "26 m",
+        "40 m",
+        "18 m"
+      ],
+      "answer": 1,
+      "difficulty": 1,
+      "explanation": "Add all four sides: 8 + 5 + 8 + 5 = 26 m."
+    },
+    {
+      "id": "m4-mea-0006",
+      "years": [
+        4
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M4M02",
+      "type": "numeric",
+      "prompt": "A floor is covered with square tiles. Each tile is 1 square metre. There are 6 rows with 4 tiles in each row. How many square metres is the floor?",
+      "answer": 24,
+      "difficulty": 1,
+      "explanation": "Count the tiles: 6 rows of 4 is 6 × 4 = 24. Each tile is 1 square metre."
+    },
+    {
+      "id": "m4-mea-0007",
+      "years": [
+        4
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M4M02",
+      "type": "multiple_choice",
+      "prompt": "A square paddock has sides of 9 m. A farmer walks once around the edge. How far does the farmer walk?",
+      "choices": [
+        "18 m",
+        "81 m",
+        "36 m",
+        "27 m"
+      ],
+      "answer": 2,
+      "difficulty": 2,
+      "explanation": "A square has 4 equal sides. 4 × 9 = 36 m."
+    },
+    {
+      "id": "m4-mea-0008",
+      "years": [
+        4
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M4M02",
+      "type": "numeric",
+      "prompt": "A rectangle has a perimeter of 30 cm. Its length is 9 cm. How many centimetres wide is it?",
+      "answer": 6,
+      "difficulty": 3,
+      "explanation": "Two lengths are 9 + 9 = 18 cm. 30 − 18 = 12 cm is left for two widths, so one width is 6 cm."
+    },
+    {
+      "id": "m4-mea-0009",
+      "years": [
+        4
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M4M03",
+      "type": "multiple_choice",
+      "prompt": "Mia starts swimming at 4:15 pm. She finishes at 5:00 pm. How long does she swim?",
+      "choices": [
+        "45 minutes",
+        "15 minutes",
+        "55 minutes",
+        "1 hour 45 minutes"
+      ],
+      "answer": 0,
+      "difficulty": 1,
+      "explanation": "From 4:15 to 5:00 is 45 minutes. There are 45 minutes left in that hour."
+    },
+    {
+      "id": "m4-mea-0010",
+      "years": [
+        4
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M4M03",
+      "type": "numeric",
+      "prompt": "Dad's flight to Perth takes 2 and a half hours. How many minutes is that?",
+      "answer": 150,
+      "difficulty": 2,
+      "explanation": "2 hours is 120 minutes. Half an hour is 30 minutes. 120 + 30 = 150."
+    },
+    {
+      "id": "m4-mea-0011",
+      "years": [
+        4
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M4M03",
+      "type": "multiple_choice",
+      "prompt": "A train leaves the station at 11:40 am. The trip takes 55 minutes. When does the train arrive?",
+      "choices": [
+        "12:35 am",
+        "12:45 pm",
+        "12:15 pm",
+        "12:35 pm"
+      ],
+      "answer": 3,
+      "difficulty": 2,
+      "explanation": "20 minutes gets to 12:00 pm. The other 35 minutes makes 12:35 pm."
+    },
+    {
+      "id": "m4-mea-0012",
+      "years": [
+        4
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M4M03",
+      "type": "numeric",
+      "prompt": "Footy training starts at 5:30 pm and ends at 7:15 pm. How many minutes does training last?",
+      "answer": 105,
+      "difficulty": 3,
+      "explanation": "5:30 to 7:00 is 90 minutes. Add 15 more minutes to get 105."
+    },
+    {
+      "id": "m4-mea-0013",
+      "years": [
+        4
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M4M04",
+      "type": "multiple_choice",
+      "prompt": "Ravi draws an angle of 120 degrees. What kind of angle is it?",
+      "choices": [
+        "Acute",
+        "Right",
+        "Reflex",
+        "Obtuse"
+      ],
+      "answer": 3,
+      "difficulty": 1,
+      "explanation": "An obtuse angle is bigger than a right angle (90 degrees) but smaller than a straight angle (180 degrees)."
+    },
+    {
+      "id": "m4-mea-0014",
+      "years": [
+        4
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M4M04",
+      "type": "multiple_choice",
+      "prompt": "An angle measures 250 degrees. What is this kind of angle called?",
+      "choices": [
+        "Obtuse",
+        "Reflex",
+        "Straight",
+        "Acute"
+      ],
+      "answer": 1,
+      "difficulty": 2,
+      "explanation": "A reflex angle is bigger than 180 degrees and smaller than 360 degrees."
+    },
+    {
+      "id": "m4-mea-0015",
+      "years": [
+        4
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M4M04",
+      "type": "true_false",
+      "prompt": "A reflex angle is bigger than a straight angle.",
+      "answer": true,
+      "difficulty": 2,
+      "explanation": "A straight angle is 180 degrees. A reflex angle is more than 180 degrees."
+    },
+    {
+      "id": "m4-mea-0016",
+      "years": [
+        4
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M4M04",
+      "type": "multiple_choice",
+      "prompt": "Which is the best estimate for an angle that is just a little smaller than a right angle?",
+      "choices": [
+        "30 degrees",
+        "100 degrees",
+        "80 degrees",
+        "170 degrees"
+      ],
+      "answer": 2,
+      "difficulty": 3,
+      "explanation": "A right angle is 90 degrees. An angle just smaller than that is about 80 degrees."
+    }
+  ]
+}

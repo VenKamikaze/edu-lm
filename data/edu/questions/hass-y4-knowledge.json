@@ -1,0 +1,381 @@
+{
+  "schema": 1,
+  "pack": "hass-y4-knowledge",
+  "subject": "hass",
+  "questions": [
+    {
+      "id": "h4-kno-0001",
+      "years": [
+        4
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS4K01",
+      "type": "multiple_choice",
+      "prompt": "First Nations peoples have a deep connection to the land, waters and sky around them. What word do they use for this place they belong to and care for?",
+      "choices": [
+        "Colony",
+        "Country",
+        "Council",
+        "Continent"
+      ],
+      "answer": 1,
+      "difficulty": 1,
+      "explanation": "First Nations peoples use the word Country for the land, waters and sky they belong to and look after."
+    },
+    {
+      "id": "h4-kno-0002",
+      "years": [
+        4
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS4K01",
+      "type": "multiple_choice",
+      "prompt": "Many First Nations groups live across Australia. What does each group have of its own?",
+      "choices": [
+        "The same language as all other groups",
+        "Its own language, stories and customs",
+        "No laws or rules",
+        "A king or queen"
+      ],
+      "answer": 1,
+      "difficulty": 2,
+      "explanation": "There are many different First Nations groups. Each has its own language, stories and customs."
+    },
+    {
+      "id": "h4-kno-0003",
+      "years": [
+        4
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS4K01",
+      "type": "true_false",
+      "prompt": "All First Nations peoples in Australia speak the same language.",
+      "answer": false,
+      "difficulty": 1,
+      "explanation": "There are many First Nations groups, and they speak many different languages."
+    },
+    {
+      "id": "h4-kno-0004",
+      "years": [
+        4
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS4K02",
+      "type": "multiple_choice",
+      "prompt": "The First Fleet arrived in 1788. Why did Britain set up a colony in Australia?",
+      "choices": [
+        "To find gold",
+        "To build a new capital city",
+        "To hold a sports carnival",
+        "To send convicts because the prisons were full"
+      ],
+      "answer": 3,
+      "difficulty": 2,
+      "explanation": "British prisons were overcrowded. Britain wanted a new place to send convicts."
+    },
+    {
+      "id": "h4-kno-0005",
+      "years": [
+        4
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS4K02",
+      "type": "multiple_choice",
+      "prompt": "Britain used to send convicts to America. Then America became independent. What did Britain need to find?",
+      "choices": [
+        "A new place to send convicts",
+        "A new flag",
+        "A new language",
+        "A new kind of ship"
+      ],
+      "answer": 0,
+      "difficulty": 3,
+      "explanation": "Britain could no longer send convicts to America. So it chose Australia as a new place."
+    },
+    {
+      "id": "h4-kno-0006",
+      "years": [
+        4
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS4K03",
+      "type": "multiple_choice",
+      "prompt": "What was a convict on the First Fleet?",
+      "choices": [
+        "A soldier who guarded the ships",
+        "A farmer who came to buy land",
+        "A person sent far away as punishment for a crime",
+        "The leader of the colony"
+      ],
+      "answer": 2,
+      "difficulty": 1,
+      "explanation": "Convicts were people found guilty of crimes. They were sent to the colony as punishment."
+    },
+    {
+      "id": "h4-kno-0007",
+      "years": [
+        4
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS4K03",
+      "type": "multiple_choice",
+      "prompt": "Arthur Phillip sailed with the First Fleet. What was his job in the new colony?",
+      "choices": [
+        "Convict cook",
+        "Ship's doctor",
+        "Governor in charge of the colony",
+        "Marine guard"
+      ],
+      "answer": 2,
+      "difficulty": 2,
+      "explanation": "Arthur Phillip was the first governor. He was the official in charge of the colony."
+    },
+    {
+      "id": "h4-kno-0008",
+      "years": [
+        4
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS4K03",
+      "type": "multiple_choice",
+      "prompt": "Marines sailed with the First Fleet. What was their main job in the colony?",
+      "choices": [
+        "Growing the food",
+        "Guarding the convicts and keeping order",
+        "Teaching children to read",
+        "Making the maps of Britain"
+      ],
+      "answer": 1,
+      "difficulty": 2,
+      "explanation": "Marines were soldiers. They guarded the convicts and kept order in the colony."
+    },
+    {
+      "id": "h4-kno-0009",
+      "years": [
+        4
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS4K04",
+      "type": "multiple_choice",
+      "prompt": "Settlers built farms and towns near Sydney Cove. What often happened to First Nations peoples who lived there?",
+      "choices": [
+        "They were given the new farms",
+        "They moved to Britain",
+        "They were cut off from their land and food sources",
+        "Nothing changed for them"
+      ],
+      "answer": 2,
+      "difficulty": 2,
+      "explanation": "Settlers took over land. Many First Nations people lost access to their food, water and special places."
+    },
+    {
+      "id": "h4-kno-0010",
+      "years": [
+        4
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS4K04",
+      "type": "multiple_choice",
+      "prompt": "The people on the First Fleet brought illnesses that were new to Australia. What happened to many First Nations people?",
+      "choices": [
+        "They became stronger",
+        "They became sick, and many died",
+        "They moved to the ships",
+        "They were never affected"
+      ],
+      "answer": 1,
+      "difficulty": 3,
+      "explanation": "First Nations peoples had no protection from these new illnesses, so many became very sick and died."
+    },
+    {
+      "id": "h4-kno-0011",
+      "years": [
+        4
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS4K05",
+      "type": "multiple_choice",
+      "prompt": "Why is a river important to the animals living near it in the Australian bush?",
+      "choices": [
+        "It gives them drinking water and food",
+        "It keeps the weather cold",
+        "It makes the soil red",
+        "It helps them tell the time"
+      ],
+      "answer": 0,
+      "difficulty": 1,
+      "explanation": "Animals need water to drink. Rivers also give them plants and other food."
+    },
+    {
+      "id": "h4-kno-0012",
+      "years": [
+        4
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS4K05",
+      "type": "multiple_choice",
+      "prompt": "Africa is another continent. Why do many animals gather at a waterhole on the African savanna?",
+      "choices": [
+        "To build nests",
+        "To drink water",
+        "To sleep in the snow",
+        "To find paper"
+      ],
+      "answer": 1,
+      "difficulty": 2,
+      "explanation": "The savanna can be very dry. Animals gather at waterholes to drink."
+    },
+    {
+      "id": "h4-kno-0013",
+      "years": [
+        4
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS4K06",
+      "type": "multiple_choice",
+      "prompt": "Which of these is a resource that cannot be replaced once it is used up?",
+      "choices": [
+        "Wind",
+        "Sunshine",
+        "Planted pine trees",
+        "Coal"
+      ],
+      "answer": 3,
+      "difficulty": 2,
+      "explanation": "Coal took millions of years to form. We cannot make more in our lifetime, but wind and sunshine keep coming."
+    },
+    {
+      "id": "h4-kno-0014",
+      "years": [
+        4
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS4K06",
+      "type": "multiple_choice",
+      "prompt": "How have First Nations peoples looked after Country for thousands of years?",
+      "choices": [
+        "By taking as much as they can",
+        "By caring for it and only taking what is needed",
+        "By leaving it and never visiting",
+        "By building big factories"
+      ],
+      "answer": 1,
+      "difficulty": 2,
+      "explanation": "First Nations peoples have a duty to care for Country. They take only what they need so it stays healthy."
+    },
+    {
+      "id": "h4-kno-0015",
+      "years": [
+        4
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS4K07",
+      "type": "multiple_choice",
+      "prompt": "Which of these is a law, not just a school or family rule?",
+      "choices": [
+        "Wearing a hat at recess",
+        "Putting toys away at home",
+        "Lining up for the canteen",
+        "Stopping at a red traffic light"
+      ],
+      "answer": 3,
+      "difficulty": 2,
+      "explanation": "Laws are made by governments for everyone. Breaking the red light law can lead to a fine."
+    },
+    {
+      "id": "h4-kno-0016",
+      "years": [
+        4
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS4K07",
+      "type": "multiple_choice",
+      "prompt": "Why do we have laws in Australia?",
+      "choices": [
+        "To keep people safe and treat them fairly",
+        "To make life boring",
+        "To stop people having friends",
+        "So only some people are allowed to drive"
+      ],
+      "answer": 0,
+      "difficulty": 1,
+      "explanation": "Laws help keep people safe and make sure everyone is treated fairly."
+    },
+    {
+      "id": "h4-kno-0017",
+      "years": [
+        4
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS4K08",
+      "type": "multiple_choice",
+      "prompt": "Which of these jobs does your local council usually do?",
+      "choices": [
+        "Printing the money",
+        "Running the army",
+        "Collecting rubbish bins and looking after parks",
+        "Making national laws"
+      ],
+      "answer": 2,
+      "difficulty": 1,
+      "explanation": "Local councils look after local things like rubbish collection, parks and local roads."
+    },
+    {
+      "id": "h4-kno-0018",
+      "years": [
+        4
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS4K08",
+      "type": "multiple_choice",
+      "prompt": "Sam wants to support the local library. Which action helps most?",
+      "choices": [
+        "Keeping books for a year",
+        "Borrowing books and returning them on time",
+        "Writing in the books",
+        "Never visiting it"
+      ],
+      "answer": 1,
+      "difficulty": 2,
+      "explanation": "Using the library and looking after its books helps the service keep running for everyone."
+    },
+    {
+      "id": "h4-kno-0019",
+      "years": [
+        4
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS4K09",
+      "type": "multiple_choice",
+      "prompt": "Lena's family goes to church every Sunday. What kind of group does this show she belongs to?",
+      "choices": [
+        "A sporting group",
+        "A language group",
+        "A religious group",
+        "A school group"
+      ],
+      "answer": 2,
+      "difficulty": 2,
+      "explanation": "People who share a faith and worship together are part of a religious group."
+    },
+    {
+      "id": "h4-kno-0020",
+      "years": [
+        4
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS4K09",
+      "type": "multiple_choice",
+      "prompt": "Groups we belong to, like family, culture and teams, help shape our identity. What is identity?",
+      "choices": [
+        "Your house number",
+        "Who you are and what makes you, you",
+        "Your age in years",
+        "The school you go to"
+      ],
+      "answer": 1,
+      "difficulty": 3,
+      "explanation": "Identity is who you are. The groups you belong to help make you who you are."
+    }
+  ]
+}

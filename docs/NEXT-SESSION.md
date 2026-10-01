@@ -1,6 +1,6 @@
 # Next session brief: grow the question bank (phase 5b, Year 3 wave)
 
-**Update 2026-10-01 (end of session): Year 3 is DONE.** All 11 cells imported (179 real entries, 218 with samples), on `main`. The tuned prompts (shorter sentences, child-typed numbers, strict reading-level check) worked: 0 validation retries, and the checker flagged reading level 5 times. Next: ask the user (1) whether to move `sample-*.json` out of the shipped bank now that Year 3 covers every subject, and (2) for the go-ahead on the Year 4 wave (`qgen.py cells --year 4`), run as for Year 3. To avoid cross-cell near-duplicates (TODO.md), consider importing each cell before validating the next, or check across work packs. The rest of this brief describes the Year 3 wave and still applies as the method.
+**Update 2026-10-01 (end of session): Years 3 and 4 are DONE** (352 real entries, 391 with samples, on `main`). User decisions: keep the sample packs shipped; from Year 4 on the user is out of the review loop, so the orchestrator reviews each pack, writes `tools/qgen/work/<cell>/reviewed.csv` (approve y/n/edit), imports, and records every n/edit in PROGRESS.md (see the Year 4 entries for the rule used). Next: the Year 5 wave (`qgen.py cells --year 5`), the same way. Validate misses cross-pack generator repeats and some same-year repeats in different wording; read for them (TODO.md).
 
 Written 2026-10-01 for the next Claude Code session on this repo. Read this first, then `docs/PROGRESS.md` (state and decisions) and `docs/PLAN.md` (design). Repo `main` is at `b683fdc` or later.
 

@@ -1,0 +1,235 @@
+{
+  "schema": 1,
+  "pack": "maths-y4-algebra",
+  "subject": "maths",
+  "questions": [
+    {
+      "id": "m4-alg-0001",
+      "years": [
+        4
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M4A01",
+      "type": "multiple_choice",
+      "prompt": "Which number makes this true? 45 + ? = 80",
+      "choices": [
+        "25",
+        "35",
+        "45",
+        "125"
+      ],
+      "answer": 1,
+      "difficulty": 1,
+      "explanation": "Take 45 away from 80 to find the missing number. 80 − 45 = 35."
+    },
+    {
+      "id": "m4-alg-0002",
+      "years": [
+        4
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M4A01",
+      "type": "numeric",
+      "prompt": "Mia thinks of a number. She takes away 36 and gets 52. What number did she start with?",
+      "answer": 88,
+      "difficulty": 2,
+      "explanation": "Go backwards. Add 36 to 52. 52 + 36 = 88."
+    },
+    {
+      "id": "m4-alg-0003",
+      "years": [
+        4
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M4A01",
+      "type": "multiple_choice",
+      "prompt": "Which number makes this true? ? + 275 = 1000",
+      "choices": [
+        "825",
+        "735",
+        "725",
+        "775"
+      ],
+      "answer": 2,
+      "difficulty": 3,
+      "explanation": "Take 275 away from 1000. 1000 − 275 = 725. Check: 725 + 275 = 1000."
+    },
+    {
+      "id": "m4-alg-0004",
+      "years": [
+        4
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M4A02",
+      "type": "multiple_choice",
+      "prompt": "Which number makes this true? 7 × ? = 56",
+      "choices": [
+        "6",
+        "7",
+        "9",
+        "8"
+      ],
+      "answer": 3,
+      "difficulty": 1,
+      "explanation": "7 × 8 = 56, so the missing number is 8."
+    },
+    {
+      "id": "m4-alg-0005",
+      "years": [
+        4
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M4A02",
+      "type": "numeric",
+      "prompt": "Sam shares 72 stickers equally between 8 friends. How many stickers does each friend get?",
+      "answer": 9,
+      "difficulty": 2,
+      "explanation": "8 × 9 = 72, so 72 ÷ 8 = 9."
+    },
+    {
+      "id": "m4-alg-0006",
+      "years": [
+        4
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M4A02",
+      "type": "multiple_choice",
+      "prompt": "Which times table fact helps you work out 63 ÷ 9?",
+      "choices": [
+        "7 × 9 = 63",
+        "6 × 3 = 18",
+        "9 + 7 = 16",
+        "63 − 9 = 54"
+      ],
+      "answer": 0,
+      "difficulty": 3,
+      "explanation": "Division undoes multiplication. Since 7 × 9 = 63, we know 63 ÷ 9 = 7."
+    },
+    {
+      "id": "m4-alg-0007",
+      "years": [
+        4
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M4A01",
+      "type": "generator",
+      "generator": "add",
+      "params": {
+        "a": [
+          100,
+          499
+        ],
+        "b": [
+          100,
+          499
+        ]
+      },
+      "difficulty": 1
+    },
+    {
+      "id": "m4-alg-0008",
+      "years": [
+        4
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M4A01",
+      "type": "generator",
+      "generator": "subtract",
+      "params": {
+        "a": [
+          200,
+          999
+        ],
+        "b": [
+          100,
+          199
+        ]
+      },
+      "difficulty": 1
+    },
+    {
+      "id": "m4-alg-0009",
+      "years": [
+        4
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M4A01",
+      "type": "generator",
+      "generator": "subtract",
+      "params": {
+        "a": [
+          1000,
+          9999
+        ],
+        "b": [
+          100,
+          999
+        ]
+      },
+      "difficulty": 3
+    },
+    {
+      "id": "m4-alg-0010",
+      "years": [
+        4
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M4A02",
+      "type": "generator",
+      "generator": "multiply",
+      "params": {
+        "a": [
+          2,
+          5
+        ],
+        "b": [
+          2,
+          5
+        ]
+      },
+      "difficulty": 1
+    },
+    {
+      "id": "m4-alg-0011",
+      "years": [
+        4
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M4A02",
+      "type": "generator",
+      "generator": "multiply",
+      "params": {
+        "a": [
+          6,
+          10
+        ],
+        "b": [
+          6,
+          10
+        ]
+      },
+      "difficulty": 3
+    },
+    {
+      "id": "m4-alg-0012",
+      "years": [
+        4
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M4A02",
+      "type": "generator",
+      "generator": "divide",
+      "params": {
+        "quotient": [
+          2,
+          12
+        ],
+        "divisor": [
+          2,
+          10
+        ]
+      },
+      "difficulty": 2
+    }
+  ]
+}

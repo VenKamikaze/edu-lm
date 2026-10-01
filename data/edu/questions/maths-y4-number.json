@@ -1,0 +1,339 @@
+{
+  "schema": 1,
+  "pack": "maths-y4-number",
+  "subject": "maths",
+  "questions": [
+    {
+      "id": "m4-num-0001",
+      "years": [
+        4
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M4N01",
+      "type": "multiple_choice",
+      "prompt": "Mia writes 3.47 in her book. What is the value of the 4?",
+      "choices": [
+        "4 ones",
+        "4 hundredths",
+        "40",
+        "4 tenths"
+      ],
+      "answer": 3,
+      "difficulty": 1,
+      "explanation": "The 4 is the first digit after the decimal point. That place is tenths, so it is worth 4 tenths."
+    },
+    {
+      "id": "m4-num-0002",
+      "years": [
+        4
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M4N02",
+      "type": "multiple_choice",
+      "prompt": "Sam adds two odd numbers together. What is true about his answer?",
+      "choices": [
+        "It is always odd.",
+        "It is sometimes odd.",
+        "It is always even.",
+        "It is always a multiple of 10."
+      ],
+      "answer": 2,
+      "difficulty": 2,
+      "explanation": "Two odd numbers make pairs with nothing left over, like 3 + 5 = 8. So the answer is always even."
+    },
+    {
+      "id": "m4-num-0003",
+      "years": [
+        4
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M4N03",
+      "type": "multiple_choice",
+      "prompt": "Which fraction is equal to 2/5?",
+      "choices": [
+        "2/10",
+        "4/10",
+        "4/5",
+        "5/2"
+      ],
+      "answer": 1,
+      "difficulty": 1,
+      "explanation": "Double the top and double the bottom of 2/5. That gives 4/10, which is the same amount."
+    },
+    {
+      "id": "m4-num-0004",
+      "years": [
+        4
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M4N03",
+      "type": "multiple_choice",
+      "prompt": "Ella has 3/4 of a litre of water. Which decimal is the same as 3/4?",
+      "choices": [
+        "0.75",
+        "0.34",
+        "0.43",
+        "3.4"
+      ],
+      "answer": 0,
+      "difficulty": 3,
+      "explanation": "3/4 is the same as 75/100 because 3 × 25 = 75 and 4 × 25 = 100. As a decimal, that is 0.75."
+    },
+    {
+      "id": "m4-num-0005",
+      "years": [
+        4
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M4N04",
+      "type": "multiple_choice",
+      "prompt": "Ravi counts by quarters: 1 1/4, 1 1/2, 1 3/4. What number comes next?",
+      "choices": [
+        "2 1/4",
+        "2",
+        "1 4/5",
+        "1 1/4"
+      ],
+      "answer": 1,
+      "difficulty": 2,
+      "explanation": "Each step adds 1/4. Adding 1/4 to 1 3/4 makes 2 whole ones."
+    },
+    {
+      "id": "m4-num-0006",
+      "years": [
+        4
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M4N05",
+      "type": "numeric",
+      "prompt": "A bakery puts 100 mini pies on each tray. It fills 53 trays. How many pies is that altogether?",
+      "answer": 5300,
+      "difficulty": 2,
+      "explanation": "Multiplying by 100 moves each digit two places left. So 53 × 100 = 5300."
+    },
+    {
+      "id": "m4-num-0007",
+      "years": [
+        4
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M4N07",
+      "type": "multiple_choice",
+      "prompt": "Zara has $20. She buys a toy for $7.95 and a book for $11.90. About how much does she spend altogether?",
+      "choices": [
+        "about $16",
+        "about $30",
+        "about $20",
+        "about $24"
+      ],
+      "answer": 2,
+      "difficulty": 2,
+      "explanation": "$7.95 is nearly $8 and $11.90 is nearly $12. Then $8 + $12 = $20."
+    },
+    {
+      "id": "m4-num-0008",
+      "years": [
+        4
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M4N07",
+      "type": "numeric",
+      "prompt": "Round 3482 to the nearest hundred.",
+      "answer": 3500,
+      "difficulty": 1,
+      "explanation": "The tens digit is 8, so round up. 3482 is closest to 3500."
+    },
+    {
+      "id": "m4-num-0009",
+      "years": [
+        4
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M4N08",
+      "type": "numeric",
+      "prompt": "Leo buys 4 pies at the school canteen. Each pie costs $4.50. How many dollars does he spend?",
+      "answer": 18,
+      "difficulty": 2,
+      "explanation": "Multiply 4 × $4.50. Four lots of $4 is $16 and four lots of 50c is $2, so the total is $18."
+    },
+    {
+      "id": "m4-num-0010",
+      "years": [
+        4
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M4N09",
+      "type": "multiple_choice",
+      "prompt": "A pattern starts at 5. The rule is add 4 each time. What is the fifth number in the pattern?",
+      "choices": [
+        "17",
+        "25",
+        "20",
+        "21"
+      ],
+      "answer": 3,
+      "difficulty": 3,
+      "explanation": "The pattern goes 5, 9, 13, 17, 21. The fifth number is 21."
+    },
+    {
+      "id": "m4-num-0011",
+      "years": [
+        4
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M4N01",
+      "type": "generator",
+      "generator": "place_value",
+      "params": {
+        "digits": [
+          4,
+          4
+        ]
+      },
+      "difficulty": 1
+    },
+    {
+      "id": "m4-num-0012",
+      "years": [
+        4
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M4N01",
+      "type": "generator",
+      "generator": "place_value",
+      "params": {
+        "digits": [
+          5,
+          5
+        ]
+      },
+      "difficulty": 3
+    },
+    {
+      "id": "m4-num-0013",
+      "years": [
+        4
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M4N06",
+      "type": "generator",
+      "generator": "add",
+      "params": {
+        "a": [
+          100,
+          999
+        ],
+        "b": [
+          100,
+          999
+        ]
+      },
+      "difficulty": 1
+    },
+    {
+      "id": "m4-num-0014",
+      "years": [
+        4
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M4N08",
+      "type": "generator",
+      "generator": "add",
+      "params": {
+        "a": [
+          1000,
+          9999
+        ],
+        "b": [
+          1000,
+          9999
+        ]
+      },
+      "difficulty": 3
+    },
+    {
+      "id": "m4-num-0015",
+      "years": [
+        4
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M4N06",
+      "type": "generator",
+      "generator": "subtract",
+      "params": {
+        "a": [
+          100,
+          999
+        ],
+        "b": [
+          100,
+          999
+        ]
+      },
+      "difficulty": 1
+    },
+    {
+      "id": "m4-num-0016",
+      "years": [
+        4
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M4N08",
+      "type": "generator",
+      "generator": "subtract",
+      "params": {
+        "a": [
+          1000,
+          9999
+        ],
+        "b": [
+          1000,
+          9999
+        ]
+      },
+      "difficulty": 3
+    },
+    {
+      "id": "m4-num-0019",
+      "years": [
+        4
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M4N06",
+      "type": "generator",
+      "generator": "divide",
+      "params": {
+        "quotient": [
+          2,
+          5
+        ],
+        "divisor": [
+          2,
+          5
+        ]
+      },
+      "difficulty": 1
+    },
+    {
+      "id": "m4-num-0020",
+      "years": [
+        4
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M4N08",
+      "type": "generator",
+      "generator": "divide",
+      "params": {
+        "quotient": [
+          6,
+          12
+        ],
+        "divisor": [
+          6,
+          10
+        ]
+      },
+      "difficulty": 2
+    }
+  ]
+}

@@ -1,0 +1,224 @@
+{
+  "schema": 1,
+  "pack": "maths-y4-statistics-probability",
+  "subject": "maths",
+  "questions": [
+    {
+      "id": "m4-sta-0001",
+      "years": [
+        4
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M4ST01",
+      "type": "numeric",
+      "prompt": "A pictograph shows books read by Mia. Each star stands for 5 books. Mia has 4 stars. How many books did Mia read?",
+      "answer": 20,
+      "difficulty": 1,
+      "explanation": "Each star is 5 books. 4 × 5 = 20."
+    },
+    {
+      "id": "m4-sta-0002",
+      "years": [
+        4
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M4ST01",
+      "type": "multiple_choice",
+      "prompt": "In a pictograph, each smiley face stands for 2 students. Seven students chose cricket. How should cricket be shown?",
+      "choices": [
+        "3 smiley faces",
+        "3 and a half smiley faces",
+        "4 smiley faces",
+        "7 smiley faces"
+      ],
+      "answer": 1,
+      "difficulty": 2,
+      "explanation": "7 is 3 twos and 1 left over. One left over is half a face, so 3 and a half faces."
+    },
+    {
+      "id": "m4-sta-0003",
+      "years": [
+        4
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M4ST01",
+      "type": "numeric",
+      "prompt": "A column graph counts koalas in a park. The side scale goes up in tens: 0, 10, 20, 30. The koala column ends halfway between 20 and 30. How many koalas are there?",
+      "answer": 25,
+      "difficulty": 3,
+      "explanation": "Halfway between 20 and 30 is 25."
+    },
+    {
+      "id": "m4-sta-0004",
+      "years": [
+        4
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M4ST01",
+      "type": "multiple_choice",
+      "prompt": "Zoe will draw a column graph. Her numbers are 20, 40, 60, 80 and 100. Which scale on the side suits her best?",
+      "choices": [
+        "Going up by 1s",
+        "Going up by 5s",
+        "Going up by 20s",
+        "Going up by 1000s"
+      ],
+      "answer": 2,
+      "difficulty": 2,
+      "explanation": "All her numbers are in the 20 times table. Going up by 20s fits and the graph stays a good size."
+    },
+    {
+      "id": "m4-sta-0005",
+      "years": [
+        4
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M4ST02",
+      "type": "multiple_choice",
+      "prompt": "The top temperatures in Perth over 7 days were 24, 25, 24, 26, 25, 24 and 25 degrees. What can we say about this data?",
+      "choices": [
+        "The temperatures were very close together",
+        "The temperatures changed a lot",
+        "The temperatures were all the same",
+        "The temperatures went up by 10 degrees"
+      ],
+      "answer": 0,
+      "difficulty": 1,
+      "explanation": "All the numbers are between 24 and 26. They hardly vary."
+    },
+    {
+      "id": "m4-sta-0006",
+      "years": [
+        4
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M4ST02",
+      "type": "multiple_choice",
+      "prompt": "A pictograph uses one symbol for 10 people. Why is it hard to show exactly 47 people?",
+      "choices": [
+        "Part of a symbol is hard to read exactly",
+        "47 is too big for a pictograph",
+        "Symbols cannot be used for people",
+        "A pictograph cannot show tens"
+      ],
+      "answer": 0,
+      "difficulty": 3,
+      "explanation": "47 is 4 whole symbols and 7 out of 10 of another. It is hard to draw and read that part exactly."
+    },
+    {
+      "id": "m4-sta-0007",
+      "years": [
+        4
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M4ST02",
+      "type": "numeric",
+      "prompt": "Liam scored these goals in 7 games: 2, 3, 2, 4, 2, 3, 9. One score is very different from the others. What is that score?",
+      "answer": 9,
+      "difficulty": 2,
+      "explanation": "Most scores are from 2 to 4. The 9 is far away from them."
+    },
+    {
+      "id": "m4-sta-0008",
+      "years": [
+        4
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M4P01",
+      "type": "multiple_choice",
+      "prompt": "A bag has 9 red marbles and 1 blue marble. You pick one without looking. Which colour is most likely?",
+      "choices": [
+        "Blue",
+        "Both are equally likely",
+        "Red",
+        "Neither colour"
+      ],
+      "answer": 2,
+      "difficulty": 1,
+      "explanation": "There are more red marbles than blue, so red is most likely."
+    },
+    {
+      "id": "m4-sta-0009",
+      "years": [
+        4
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M4P01",
+      "type": "multiple_choice",
+      "prompt": "Which pair of events is independent, so the first does not change the chances of the second?",
+      "choices": [
+        "Take a card from a pack and keep it, then take another card",
+        "Roll a die, then roll it again",
+        "Take a red sock from a drawer and keep it, then take another sock",
+        "Take a raffle ticket from a drum and keep it, then take another"
+      ],
+      "answer": 1,
+      "difficulty": 3,
+      "explanation": "Rolling a die once does not change the next roll. In the other pairs, an item is taken away, so the chances change."
+    },
+    {
+      "id": "m4-sta-0010",
+      "years": [
+        4
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M4P01",
+      "type": "true_false",
+      "prompt": "It is certain that Sydney will be in summer in January.",
+      "answer": true,
+      "difficulty": 1,
+      "explanation": "In Australia, summer is December to February. January is always in summer."
+    },
+    {
+      "id": "m4-sta-0011",
+      "years": [
+        4
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M4P01",
+      "type": "multiple_choice",
+      "prompt": "Ravi rolls a normal die with faces 1 to 6. Which event is impossible?",
+      "choices": [
+        "Rolling a 1",
+        "Rolling an even number",
+        "Rolling a number less than 7",
+        "Rolling a 7"
+      ],
+      "answer": 3,
+      "difficulty": 1,
+      "explanation": "The die only has the numbers 1 to 6, so a 7 can never happen."
+    },
+    {
+      "id": "m4-sta-0013",
+      "years": [
+        4
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M4P02",
+      "type": "numeric",
+      "prompt": "Ella flipped a coin 20 times. She got 12 heads and 8 tails. How many more heads than tails did she get?",
+      "answer": 4,
+      "difficulty": 1,
+      "explanation": "12 − 8 = 4, so she got 4 more heads."
+    },
+    {
+      "id": "m4-sta-0014",
+      "years": [
+        4
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M4P02",
+      "type": "multiple_choice",
+      "prompt": "Two groups each spin the same spinner 20 times. Group A gets red 8 times. Group B gets red 11 times. Why are the results different?",
+      "choices": [
+        "Chance results can be different each time",
+        "Group B counted wrongly",
+        "The spinner changed colours",
+        "Group A must be right"
+      ],
+      "answer": 0,
+      "difficulty": 3,
+      "explanation": "Chance experiments give different results each time, even when done the same way."
+    }
+  ]
+}
