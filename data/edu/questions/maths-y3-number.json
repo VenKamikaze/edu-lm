@@ -1,0 +1,375 @@
+{
+  "schema": 1,
+  "pack": "maths-y3-number",
+  "subject": "maths",
+  "questions": [
+    {
+      "id": "m3-num-0001",
+      "years": [
+        3
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M3N01",
+      "type": "multiple_choice",
+      "prompt": "Which of these numbers is the largest?",
+      "choices": [
+        "12 305",
+        "12 053",
+        "12 350",
+        "12 035"
+      ],
+      "answer": 2,
+      "difficulty": 2,
+      "explanation": "All have 12 thousand. Then 350 is more than 305, 053 and 035, so 12 350 is largest."
+    },
+    {
+      "id": "m3-num-0002",
+      "years": [
+        3
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M3N02",
+      "type": "multiple_choice",
+      "prompt": "Kai cuts a sandwich into 3 equal parts and eats 1 part. What fraction of the sandwich is left?",
+      "choices": [
+        "1/3",
+        "2/3",
+        "3/3",
+        "1/2"
+      ],
+      "answer": 1,
+      "difficulty": 1,
+      "explanation": "There are 3 equal parts and 1 is eaten. That leaves 2 parts, which is 2/3."
+    },
+    {
+      "id": "m3-num-0003",
+      "years": [
+        3
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M3N02",
+      "type": "numeric",
+      "prompt": "A cake is cut into 10 equal pieces, called tenths. Jo eats 3 tenths and Ravi eats 4 tenths. How many tenths are left?",
+      "answer": 3,
+      "difficulty": 3,
+      "explanation": "Jo and Ravi eat 3 + 4 = 7 tenths. The whole cake is 10 tenths, so 10 − 7 = 3 tenths are left."
+    },
+    {
+      "id": "m3-num-0004",
+      "years": [
+        3
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M3N03",
+      "type": "multiple_choice",
+      "prompt": "Nina works out 236 + 143 by adding the hundreds, then the tens, then the ones. What is the total?",
+      "choices": [
+        "369",
+        "389",
+        "279",
+        "379"
+      ],
+      "answer": 3,
+      "difficulty": 2,
+      "explanation": "Hundreds: 200 + 100 = 300. Tens: 30 + 40 = 70. Ones: 6 + 3 = 9. So 300 + 70 + 9 = 379."
+    },
+    {
+      "id": "m3-num-0005",
+      "years": [
+        3
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M3N05",
+      "type": "true_false",
+      "prompt": "Tom says 398 + 205 = 803. Rounding to 400 + 200 = 600 shows his answer is not reasonable. Is this true?",
+      "answer": true,
+      "difficulty": 2,
+      "explanation": "398 + 205 is close to 400 + 200, which is 600. An answer of 803 is much too big."
+    },
+    {
+      "id": "m3-num-0006",
+      "years": [
+        3
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M3N05",
+      "type": "multiple_choice",
+      "prompt": "Sam fills 6 small bags with 10 lollies each and has a few left over. Which is the best estimate of all his lollies?",
+      "choices": [
+        "about 16",
+        "about 60",
+        "about 100",
+        "about 600"
+      ],
+      "answer": 1,
+      "difficulty": 1,
+      "explanation": "6 bags of 10 is 60. A few extra means the total is a little more than 60."
+    },
+    {
+      "id": "m3-num-0007",
+      "years": [
+        3
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M3N06",
+      "type": "numeric",
+      "prompt": "Ella buys a pie for $4.50 and a drink for $2.20. She pays with $10. How many cents change does she get?",
+      "answer": 330,
+      "difficulty": 2,
+      "explanation": "$4.50 + $2.20 = $6.70. Then $10 − $6.70 = $3.30, which is 330 cents."
+    },
+    {
+      "id": "m3-num-0008",
+      "years": [
+        3
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M3N06",
+      "type": "multiple_choice",
+      "prompt": "A netball team has 7 players. There are 6 teams at the carnival. How many players are there altogether?",
+      "choices": [
+        "13",
+        "36",
+        "42",
+        "49"
+      ],
+      "answer": 2,
+      "difficulty": 1,
+      "explanation": "6 teams with 7 players each is 6 × 7 = 42 players."
+    },
+    {
+      "id": "m3-num-0009",
+      "years": [
+        3
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M3N07",
+      "type": "multiple_choice",
+      "prompt": "Follow these steps. Start with 6. Step 1: add 4. Step 2: if the number is more than 8, double it. What is the final number?",
+      "choices": [
+        "10",
+        "20",
+        "14",
+        "12"
+      ],
+      "answer": 1,
+      "difficulty": 2,
+      "explanation": "6 + 4 = 10. Ten is more than 8, so we double it to get 20."
+    },
+    {
+      "id": "m3-num-0010",
+      "years": [
+        3
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M3N07",
+      "type": "numeric",
+      "prompt": "A rule says: start at 5 and add 3 each time. The list begins 5, 8, 11. What is the fourth number in the list?",
+      "answer": 14,
+      "difficulty": 3,
+      "explanation": "The list goes 5, 8, 11, then 11 + 3 = 14."
+    },
+    {
+      "id": "m3-num-0011",
+      "years": [
+        3
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M3N01",
+      "type": "generator",
+      "generator": "place_value",
+      "params": {
+        "digits": [
+          3,
+          3
+        ]
+      },
+      "difficulty": 1
+    },
+    {
+      "id": "m3-num-0012",
+      "years": [
+        3
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M3N01",
+      "type": "generator",
+      "generator": "place_value",
+      "params": {
+        "digits": [
+          4,
+          4
+        ]
+      },
+      "difficulty": 2
+    },
+    {
+      "id": "m3-num-0013",
+      "years": [
+        3
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M3N03",
+      "type": "generator",
+      "generator": "add",
+      "params": {
+        "a": [
+          10,
+          99
+        ],
+        "b": [
+          10,
+          99
+        ]
+      },
+      "difficulty": 1
+    },
+    {
+      "id": "m3-num-0014",
+      "years": [
+        3
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M3N03",
+      "type": "generator",
+      "generator": "add",
+      "params": {
+        "a": [
+          100,
+          999
+        ],
+        "b": [
+          100,
+          999
+        ]
+      },
+      "difficulty": 3
+    },
+    {
+      "id": "m3-num-0015",
+      "years": [
+        3
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M3N03",
+      "type": "generator",
+      "generator": "subtract",
+      "params": {
+        "a": [
+          10,
+          99
+        ],
+        "b": [
+          10,
+          99
+        ]
+      },
+      "difficulty": 1
+    },
+    {
+      "id": "m3-num-0016",
+      "years": [
+        3
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M3N03",
+      "type": "generator",
+      "generator": "subtract",
+      "params": {
+        "a": [
+          100,
+          999
+        ],
+        "b": [
+          10,
+          99
+        ]
+      },
+      "difficulty": 2
+    },
+    {
+      "id": "m3-num-0017",
+      "years": [
+        3
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M3N04",
+      "type": "generator",
+      "generator": "multiply",
+      "params": {
+        "a": [
+          2,
+          5
+        ],
+        "b": [
+          2,
+          5
+        ]
+      },
+      "difficulty": 1
+    },
+    {
+      "id": "m3-num-0018",
+      "years": [
+        3
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M3N04",
+      "type": "generator",
+      "generator": "multiply",
+      "params": {
+        "a": [
+          3,
+          5
+        ],
+        "b": [
+          6,
+          10
+        ]
+      },
+      "difficulty": 2
+    },
+    {
+      "id": "m3-num-0019",
+      "years": [
+        3
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M3N04",
+      "type": "generator",
+      "generator": "divide",
+      "params": {
+        "quotient": [
+          2,
+          5
+        ],
+        "divisor": [
+          2,
+          3
+        ]
+      },
+      "difficulty": 1
+    },
+    {
+      "id": "m3-num-0020",
+      "years": [
+        3
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M3N04",
+      "type": "generator",
+      "generator": "divide",
+      "params": {
+        "quotient": [
+          6,
+          10
+        ],
+        "divisor": [
+          4,
+          5
+        ]
+      },
+      "difficulty": 3
+    }
+  ]
+}

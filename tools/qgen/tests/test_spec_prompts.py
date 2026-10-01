@@ -3,7 +3,7 @@ import re
 import unittest
 
 import support
-from support import CELL, SAMPLE_PACKS, Base, good_draft
+from support import CELL, Base, good_draft
 from qgenlib import pipeline, prompts
 from qgenlib.store import QgenError
 from qgenlib.validator import run_validator
@@ -119,7 +119,7 @@ class Prompts(Base):
 class ValidatorSample(Base):
     def test_sample_prints_n_instances_per_generator(self):
         self.need_validator()
-        res = run_validator(self.ctx, [SAMPLE_PACKS], sample=3)
+        res = run_validator(self.ctx, [self.data], sample=3)
         by_id = {}
         for s in res["samples"]:
             by_id.setdefault(s["id"], []).append(s)
@@ -132,7 +132,7 @@ class ValidatorSample(Base):
 
     def test_no_samples_without_the_option(self):
         self.need_validator()
-        self.assertEqual(run_validator(self.ctx, [SAMPLE_PACKS])["samples"], [])
+        self.assertEqual(run_validator(self.ctx, [self.data])["samples"], [])
 
 
 if __name__ == "__main__":

@@ -44,7 +44,10 @@ class Base(unittest.TestCase):
         self.tmp = Path(tempfile.mkdtemp(prefix="qgen-test-"))
         self.addCleanup(shutil.rmtree, self.tmp, ignore_errors=True)
         self.data = self.tmp / "data"
-        shutil.copytree(SAMPLE_PACKS, self.data)
+        # only the fixed sample packs: the real packs beside them grow with every import
+        self.data.mkdir()
+        for pack in SAMPLE_PACKS.glob("sample-*.json"):
+            shutil.copy2(pack, self.data)
         self.ctx = default_ctx(work=self.tmp / "work", data=self.data)
         self.spec = Spec.load(self.ctx)
 

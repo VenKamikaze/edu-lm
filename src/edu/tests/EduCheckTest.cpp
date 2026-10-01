@@ -114,7 +114,7 @@ void EduCheckTest::writeHealthySystem()
 
     QVERIFY(QDir().mkpath(root() + "/questions"));
     QVERIFY(QFile::setPermissions(root() + "/questions", QFile::ReadOwner | QFile::WriteOwner | QFile::ExeOwner));
-    const auto packs = QDir(QStringLiteral(EDU_SAMPLE_DIR)).entryList({"*.json"});
+    const auto packs = QDir(QStringLiteral(EDU_SAMPLE_DIR)).entryList({"sample-*.json"}); // fixed counts; real packs grow
     for (const QString &p : packs) {
         QFile in(QStringLiteral(EDU_SAMPLE_DIR "/") + p);
         QVERIFY(in.open(QIODevice::ReadOnly));

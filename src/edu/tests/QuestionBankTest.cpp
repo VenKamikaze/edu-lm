@@ -22,7 +22,7 @@ private slots:
     void warnings();
     void loadsDirectoriesAndSkipsOthers();
     void filterAndCounts();
-    void samplePacksAreClean();
+    void shippedPacksAreClean();
 
 private:
     QString write(const QString &name, const QByteArray &content);
@@ -301,7 +301,7 @@ void QuestionBankTest::filterAndCounts()
     QCOMPARE(counts["hass"][4], 1);
 }
 
-void QuestionBankTest::samplePacksAreClean()
+void QuestionBankTest::shippedPacksAreClean()
 {
     QuestionBank bank;
     bank.load({EDU_SAMPLE_DIR});
@@ -315,8 +315,6 @@ void QuestionBankTest::samplePacksAreClean()
         for (int year : {3, 4, 5})
             QVERIFY2(counts[subject].value(year) >= 2, qPrintable(subject + QString::number(year)));
     }
-    for (const Question &q : bank.questions())
-        QVERIFY2(q.pack.startsWith("sample-"), qPrintable(q.id));
 }
 
 QTEST_APPLESS_MAIN(QuestionBankTest)
