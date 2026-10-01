@@ -39,6 +39,7 @@ true_false (use sparingly, at most one in ten):
 numeric (the child types a number):
   {"type": "numeric", "curriculum": "<code>", "prompt": "...", "answer": 42, "difficulty": 2, "explanation": "..."}
   - `answer` is a JSON number. The child types only the number, so the prompt must say what is asked ("How many centimetres...") and never expect a unit in the answer.
+  - Ask for the answer in the form a child would naturally type. Do not make them convert units to answer (no "how many cents" when the sum is in dollars, no "how many millimetres" when the question is in centimetres). Prefer whole-number answers; if money has cents, write the question so a whole number of dollars or of cents is the natural answer.
   - Leave `tolerance` out for counting and arithmetic (the answer is exact). Add it only for a measurement or a rounded value where a small error is fine, for example reading a scale: "answer": 2.5, "tolerance": 0.1.
 
 short_text (the child types a word or short phrase; use rarely):
@@ -52,6 +53,8 @@ Rules for every entry:
 - `difficulty` is 1, 2 or 3 (1 easy for the year, 2 typical, 3 a stretch). Aim for roughly a third at each level.
 - Do not repeat a question or write near-copies that differ only in the numbers or names.
 - The prompt must make sense read on its own, in one screen.
+- Keep the language at the reading level above. Short, concrete sentences, one idea per sentence, at most three sentences before the question. Prefer a concrete situation (a named child, a real object, a number) over an abstract statement. A true_false prompt is one plain statement, not a chain of reasoning to judge.
+- Write explanations in the plain words a child of this age uses, not adult shorthand (no "053" for part of a number, no symbols the child has not met).
 {{generator_section}}{{retry_section}}
 ## Output
 

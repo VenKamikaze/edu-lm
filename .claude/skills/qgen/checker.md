@@ -23,8 +23,8 @@ If you honestly cannot pick a single answer, still give your best answer and fla
 ## Flags
 
 Add any that apply to a question, each with a one-line note saying what is wrong. The only allowed flag names are:
-- `ambiguous`: more than one choice could be right, no choice is right, the question can be read two ways, or it depends on opinion or on what was taught.
-- `reading_level`: too hard to read or understand for {{year_label}} ({{reading_level}}).
+- `ambiguous`: more than one choice could be right, no choice is right, the question can be read two ways, or it depends on opinion or on what was taught. Also a numeric question where a child could naturally type the right amount in a different form or unit from the one expected (dollars versus cents).
+- `reading_level`: too hard to read or understand for {{year_label}} ({{reading_level}}). Judge this strictly, as the child would meet it, not as an adult: flag a prompt with sentences clearly longer than that, more than three sentences before the question, words the child is unlikely to know that the question does not explain, or abstract reasoning to follow (for example judging whether someone else's method "shows" something).
 - `factual`: the question itself is wrong, out of date or misleading (a wrong fact, a wrong number, a false premise).
 - `not_australian`: it assumes a non-Australian context, spelling, units or money.
 - `unsuitable`: not suitable for a child of this age for any other reason (frightening, inappropriate, a trick question, needs a picture that is not there).

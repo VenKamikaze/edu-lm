@@ -1,0 +1,235 @@
+{
+  "schema": 1,
+  "pack": "maths-y3-algebra",
+  "subject": "maths",
+  "questions": [
+    {
+      "id": "m3-alg-0001",
+      "years": [
+        3
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M3A01",
+      "type": "numeric",
+      "prompt": "Mia is solving a number sentence. It says 9 + ? = 15. What number goes in place of the ?",
+      "answer": 6,
+      "difficulty": 1,
+      "explanation": "Subtraction undoes addition. 15 − 9 = 6, so 9 + 6 = 15."
+    },
+    {
+      "id": "m3-alg-0002",
+      "years": [
+        3
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M3A01",
+      "type": "multiple_choice",
+      "prompt": "Jack knows that 34 + 25 = 59. Which number sentence must also be true?",
+      "choices": [
+        "59 − 25 = 34",
+        "34 − 25 = 59",
+        "59 + 25 = 34",
+        "25 − 34 = 59"
+      ],
+      "answer": 0,
+      "difficulty": 2,
+      "explanation": "Subtraction undoes addition. Take 25 away from 59 and you get 34 again."
+    },
+    {
+      "id": "m3-alg-0003",
+      "years": [
+        3
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M3A02",
+      "type": "multiple_choice",
+      "prompt": "Sam adds 46 + 30 in his head. What is the answer?",
+      "choices": [
+        "49",
+        "76",
+        "66",
+        "86"
+      ],
+      "answer": 1,
+      "difficulty": 1,
+      "explanation": "Add the tens only. 4 tens and 3 tens make 7 tens, so the answer is 76."
+    },
+    {
+      "id": "m3-alg-0004",
+      "years": [
+        3
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M3A02",
+      "type": "multiple_choice",
+      "prompt": "Ella has 58 stickers. She gives 19 to her friend. To find how many are left, she takes away 20 and then adds 1. How many stickers does Ella have left?",
+      "choices": [
+        "38",
+        "40",
+        "39",
+        "41"
+      ],
+      "answer": 2,
+      "difficulty": 3,
+      "explanation": "58 − 20 = 38. Ella took away 1 too many, so add 1 back to get 39."
+    },
+    {
+      "id": "m3-alg-0005",
+      "years": [
+        3
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M3A03",
+      "type": "numeric",
+      "prompt": "Lily buys 6 packs of Anzac biscuits. Each pack has 4 biscuits. How many biscuits does she buy?",
+      "answer": 24,
+      "difficulty": 2,
+      "explanation": "6 groups of 4 is 6 × 4 = 24."
+    },
+    {
+      "id": "m3-alg-0006",
+      "years": [
+        3
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M3A03",
+      "type": "multiple_choice",
+      "prompt": "Dad shares 35 mandarins equally into 5 bags. How many mandarins go in each bag?",
+      "choices": [
+        "5",
+        "6",
+        "8",
+        "7"
+      ],
+      "answer": 3,
+      "difficulty": 2,
+      "explanation": "35 ÷ 5 = 7, because 5 × 7 = 35."
+    },
+    {
+      "id": "m3-alg-0007",
+      "years": [
+        3
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M3A02",
+      "type": "generator",
+      "generator": "add",
+      "params": {
+        "a": [
+          10,
+          99
+        ],
+        "b": [
+          10,
+          99
+        ]
+      },
+      "difficulty": 1
+    },
+    {
+      "id": "m3-alg-0008",
+      "years": [
+        3
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M3A02",
+      "type": "generator",
+      "generator": "add",
+      "params": {
+        "a": [
+          100,
+          999
+        ],
+        "b": [
+          10,
+          200
+        ]
+      },
+      "difficulty": 3
+    },
+    {
+      "id": "m3-alg-0009",
+      "years": [
+        3
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M3A01",
+      "type": "generator",
+      "generator": "subtract",
+      "params": {
+        "a": [
+          20,
+          99
+        ],
+        "b": [
+          10,
+          19
+        ]
+      },
+      "difficulty": 1
+    },
+    {
+      "id": "m3-alg-0010",
+      "years": [
+        3
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M3A01",
+      "type": "generator",
+      "generator": "subtract",
+      "params": {
+        "a": [
+          100,
+          999
+        ],
+        "b": [
+          10,
+          99
+        ]
+      },
+      "difficulty": 2
+    },
+    {
+      "id": "m3-alg-0011",
+      "years": [
+        3
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M3A03",
+      "type": "generator",
+      "generator": "multiply",
+      "params": {
+        "a": [
+          3,
+          5
+        ],
+        "b": [
+          2,
+          5
+        ]
+      },
+      "difficulty": 1
+    },
+    {
+      "id": "m3-alg-0012",
+      "years": [
+        3
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M3A03",
+      "type": "generator",
+      "generator": "divide",
+      "params": {
+        "quotient": [
+          2,
+          10
+        ],
+        "divisor": [
+          3,
+          5
+        ]
+      },
+      "difficulty": 2
+    }
+  ]
+}

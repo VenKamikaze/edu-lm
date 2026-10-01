@@ -1,0 +1,377 @@
+{
+  "schema": 1,
+  "pack": "english-y3-language",
+  "subject": "english",
+  "questions": [
+    {
+      "id": "e3-lan-0001",
+      "years": [
+        3
+      ],
+      "subject": "english",
+      "curriculum": "AC9E3LA01",
+      "type": "multiple_choice",
+      "prompt": "Mia and Sam are talking at lunch. Mia is still speaking. What should Sam do?",
+      "choices": [
+        "Talk louder so Mia hears him",
+        "Wait until Mia finishes, then speak",
+        "Start talking about something else",
+        "Walk away from the table"
+      ],
+      "answer": 1,
+      "difficulty": 1,
+      "explanation": "Good conversations use turn-taking. Sam waits until Mia has finished before he speaks."
+    },
+    {
+      "id": "e3-lan-0002",
+      "years": [
+        3
+      ],
+      "subject": "english",
+      "curriculum": "AC9E3LA01",
+      "type": "multiple_choice",
+      "prompt": "Jack is meeting the school principal for the first time. Which sentence is the most formal?",
+      "choices": [
+        "Hey, what's up?",
+        "Yo, you the boss here?",
+        "Good morning, Mrs Nguyen. It is nice to meet you.",
+        "Hiya, I'm Jack, G'day!"
+      ],
+      "answer": 2,
+      "difficulty": 2,
+      "explanation": "Formal language is polite and uses full sentences and titles like Mrs. This is right for meeting a principal."
+    },
+    {
+      "id": "e3-lan-0003",
+      "years": [
+        3
+      ],
+      "subject": "english",
+      "curriculum": "AC9E3LA02",
+      "type": "multiple_choice",
+      "prompt": "Which sentence shows the strongest feeling about doing homework?",
+      "choices": [
+        "I might do my homework.",
+        "I could do my homework.",
+        "I should do my homework.",
+        "I must do my homework."
+      ],
+      "answer": 3,
+      "difficulty": 2,
+      "explanation": "The word must is the strongest. It means there is no choice. Might and could are weak."
+    },
+    {
+      "id": "e3-lan-0004",
+      "years": [
+        3
+      ],
+      "subject": "english",
+      "curriculum": "AC9E3LA02",
+      "type": "multiple_choice",
+      "prompt": "Tom says, \"It will rain today.\" He is not very sure. Which word makes his sentence weaker?",
+      "choices": [
+        "It must rain today.",
+        "It might rain today.",
+        "It will definitely rain today.",
+        "It always rains today."
+      ],
+      "answer": 1,
+      "difficulty": 2,
+      "explanation": "Might shows that Tom is not sure. Words like must and definitely sound very sure."
+    },
+    {
+      "id": "e3-lan-0005",
+      "years": [
+        3
+      ],
+      "subject": "english",
+      "curriculum": "AC9E3LA03",
+      "type": "multiple_choice",
+      "prompt": "A science report says how to test which paper towel soaks up the most water. Which feature would you expect to find in it?",
+      "choices": [
+        "A list of materials and the steps of the test",
+        "Rhyming words at the end of each line",
+        "A character who has a big problem",
+        "A speech bubble for each person"
+      ],
+      "answer": 0,
+      "difficulty": 2,
+      "explanation": "Science texts often list materials and steps. Stories have characters and problems, and poems have rhymes."
+    },
+    {
+      "id": "e3-lan-0006",
+      "years": [
+        3
+      ],
+      "subject": "english",
+      "curriculum": "AC9E3LA03",
+      "type": "multiple_choice",
+      "prompt": "A text begins, \"Once upon a time, a kangaroo lost her hat.\" What kind of text is it most likely to be?",
+      "choices": [
+        "A recipe",
+        "A story",
+        "A bus timetable",
+        "A set of rules"
+      ],
+      "answer": 1,
+      "difficulty": 1,
+      "explanation": "Starting with 'Once upon a time' and having a character with a problem tells us it is a story."
+    },
+    {
+      "id": "e3-lan-0007",
+      "years": [
+        3
+      ],
+      "subject": "english",
+      "curriculum": "AC9E3LA04",
+      "type": "multiple_choice",
+      "prompt": "Ella writes about koalas. One paragraph tells what koalas eat. Which sentence belongs in that paragraph?",
+      "choices": [
+        "Koalas sleep for up to 18 hours a day.",
+        "Koalas eat mostly eucalyptus leaves.",
+        "Baby koalas are called joeys.",
+        "Koalas live in the eastern part of Australia."
+      ],
+      "answer": 1,
+      "difficulty": 2,
+      "explanation": "A paragraph keeps sentences about one idea together. Only the leaves sentence is about food."
+    },
+    {
+      "id": "e3-lan-0008",
+      "years": [
+        3
+      ],
+      "subject": "english",
+      "curriculum": "AC9E3LA04",
+      "type": "true_false",
+      "prompt": "A new paragraph usually starts when the writer moves to a new idea.",
+      "answer": true,
+      "difficulty": 1,
+      "explanation": "Each paragraph groups sentences about one idea. We start a new one for a new idea."
+    },
+    {
+      "id": "e3-lan-0009",
+      "years": [
+        3
+      ],
+      "subject": "english",
+      "curriculum": "AC9E3LA05",
+      "type": "multiple_choice",
+      "prompt": "On a website, Liam wants to go back to the first page. Which word would he look for?",
+      "choices": [
+        "Search",
+        "Share",
+        "Home",
+        "Print"
+      ],
+      "answer": 2,
+      "difficulty": 1,
+      "explanation": "The Home button takes you to the first page of a website."
+    },
+    {
+      "id": "e3-lan-0010",
+      "years": [
+        3
+      ],
+      "subject": "english",
+      "curriculum": "AC9E3LA05",
+      "type": "multiple_choice",
+      "prompt": "A book has a list near the front. It shows each chapter name and its page number. What is this list called?",
+      "choices": [
+        "The glossary",
+        "The index",
+        "The contents page",
+        "The cover"
+      ],
+      "answer": 2,
+      "difficulty": 2,
+      "explanation": "The contents page lists chapters in order with page numbers. A glossary explains words and an index is at the back."
+    },
+    {
+      "id": "e3-lan-0011",
+      "years": [
+        3
+      ],
+      "subject": "english",
+      "curriculum": "AC9E3LA06",
+      "type": "multiple_choice",
+      "prompt": "Which sentence has a subject and a verb that match?",
+      "choices": [
+        "The dogs runs in the park.",
+        "The dog run in the park.",
+        "The dogs run in the park.",
+        "The dog are running in the park."
+      ],
+      "answer": 2,
+      "difficulty": 2,
+      "explanation": "Dogs is more than one, so the verb is run. One dog would need runs."
+    },
+    {
+      "id": "e3-lan-0012",
+      "years": [
+        3
+      ],
+      "subject": "english",
+      "curriculum": "AC9E3LA06",
+      "type": "multiple_choice",
+      "prompt": "Which group of words is a full clause with a subject and a verb?",
+      "choices": [
+        "The big red ball",
+        "Kicked over the fence",
+        "Over the fence",
+        "Mum bought bread"
+      ],
+      "answer": 3,
+      "difficulty": 3,
+      "explanation": "Mum is the subject and bought is the verb. The other groups are missing one of these."
+    },
+    {
+      "id": "e3-lan-0013",
+      "years": [
+        3
+      ],
+      "subject": "english",
+      "curriculum": "AC9E3LA07",
+      "type": "multiple_choice",
+      "prompt": "Which word in this sentence is a thinking verb? \"Zara wonders why the sky is blue.\"",
+      "choices": [
+        "Zara",
+        "wonders",
+        "sky",
+        "blue"
+      ],
+      "answer": 1,
+      "difficulty": 2,
+      "explanation": "Wonders tells what Zara does in her mind, so it is a thinking verb."
+    },
+    {
+      "id": "e3-lan-0014",
+      "years": [
+        3
+      ],
+      "subject": "english",
+      "curriculum": "AC9E3LA07",
+      "type": "multiple_choice",
+      "prompt": "Which sentence uses a saying verb?",
+      "choices": [
+        "The cat jumped onto the fence.",
+        "Ben loves his new bike.",
+        "\"Look at that,\" whispered Anna.",
+        "The lake is very deep."
+      ],
+      "answer": 2,
+      "difficulty": 2,
+      "explanation": "Whispered tells how Anna spoke, so it is a saying verb."
+    },
+    {
+      "id": "e3-lan-0015",
+      "years": [
+        3
+      ],
+      "subject": "english",
+      "curriculum": "AC9E3LA08",
+      "type": "multiple_choice",
+      "prompt": "Which sentence tells about something that has already happened?",
+      "choices": [
+        "We swim at the beach.",
+        "We will swim at the beach.",
+        "We swam at the beach.",
+        "We are swimming at the beach."
+      ],
+      "answer": 2,
+      "difficulty": 1,
+      "explanation": "Swam is the past tense of swim. It shows the swimming is finished."
+    },
+    {
+      "id": "e3-lan-0016",
+      "years": [
+        3
+      ],
+      "subject": "english",
+      "curriculum": "AC9E3LA08",
+      "type": "short_text",
+      "prompt": "Write the past tense of the verb in this sentence. Today I run to school. Yesterday I ___ to school.",
+      "accept": [
+        "ran"
+      ],
+      "difficulty": 2,
+      "explanation": "Run is an irregular verb. Its past tense is ran, not runned."
+    },
+    {
+      "id": "e3-lan-0017",
+      "years": [
+        3
+      ],
+      "subject": "english",
+      "curriculum": "AC9E3LA10",
+      "type": "multiple_choice",
+      "prompt": "Which meaning of the word bat fits this sentence? \"The cricketer swung the bat.\"",
+      "choices": [
+        "A flying animal that sleeps upside down",
+        "A piece of wood used to hit a ball",
+        "A kind of small bird",
+        "A soft toy"
+      ],
+      "answer": 1,
+      "difficulty": 1,
+      "explanation": "The sentence is about cricket, so bat means the piece of wood used to hit the ball."
+    },
+    {
+      "id": "e3-lan-0018",
+      "years": [
+        3
+      ],
+      "subject": "english",
+      "curriculum": "AC9E3LA10",
+      "type": "multiple_choice",
+      "prompt": "In maths, the word \"table\" can mean rows and columns of numbers. Which sentence uses table in this maths way?",
+      "choices": [
+        "Dad set the table for dinner.",
+        "The table shows how many goals each player scored.",
+        "The table is made of wood.",
+        "Please put the plates on the table."
+      ],
+      "answer": 1,
+      "difficulty": 3,
+      "explanation": "A table that shows goals scored is rows and columns of information. The other tables are pieces of furniture."
+    },
+    {
+      "id": "e3-lan-0019",
+      "years": [
+        3
+      ],
+      "subject": "english",
+      "curriculum": "AC9E3LA11",
+      "type": "multiple_choice",
+      "prompt": "Which word is the correct short form of \"do not\"?",
+      "choices": [
+        "dont'",
+        "don't",
+        "do'nt",
+        "d'ont"
+      ],
+      "answer": 1,
+      "difficulty": 1,
+      "explanation": "The apostrophe takes the place of the missing letter o. So do not becomes don't."
+    },
+    {
+      "id": "e3-lan-0020",
+      "years": [
+        3
+      ],
+      "subject": "english",
+      "curriculum": "AC9E3LA11",
+      "type": "multiple_choice",
+      "prompt": "Two girls share one cricket bat. Which sentence shows the bat belongs to both girls?",
+      "choices": [
+        "The girls bat is old.",
+        "The girl's bat is old.",
+        "The girls' bat is old.",
+        "The girls's bat is old."
+      ],
+      "answer": 2,
+      "difficulty": 3,
+      "explanation": "For more than one owner ending in s, we put the apostrophe after the s: girls'."
+    }
+  ]
+}

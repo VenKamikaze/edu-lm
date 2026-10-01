@@ -1,5 +1,7 @@
 # Next session brief: grow the question bank (phase 5b, Year 3 wave)
 
+**Update 2026-10-01 (end of session): Year 3 is DONE.** All 11 cells imported (179 real entries, 218 with samples), on `main`. The tuned prompts (shorter sentences, child-typed numbers, strict reading-level check) worked: 0 validation retries, and the checker flagged reading level 5 times. Next: ask the user (1) whether to move `sample-*.json` out of the shipped bank now that Year 3 covers every subject, and (2) for the go-ahead on the Year 4 wave (`qgen.py cells --year 4`), run as for Year 3. To avoid cross-cell near-duplicates (TODO.md), consider importing each cell before validating the next, or check across work packs. The rest of this brief describes the Year 3 wave and still applies as the method.
+
 Written 2026-10-01 for the next Claude Code session on this repo. Read this first, then `docs/PROGRESS.md` (state and decisions) and `docs/PLAN.md` (design). Repo `main` is at `b683fdc` or later.
 
 ## How the user wants you to work

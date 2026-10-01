@@ -1,0 +1,362 @@
+{
+  "schema": 1,
+  "pack": "hass-y3-knowledge",
+  "subject": "hass",
+  "questions": [
+    {
+      "id": "h3-kno-0001",
+      "years": [
+        3
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS3K01",
+      "type": "multiple_choice",
+      "prompt": "A country town grows bigger as more families move in. What change is most likely?",
+      "choices": [
+        "The town needs fewer schools",
+        "More houses, schools and shops are built",
+        "The shops all close",
+        "The roads get smaller"
+      ],
+      "answer": 1,
+      "difficulty": 1,
+      "explanation": "More families need more places to live, learn and shop, so the town builds more."
+    },
+    {
+      "id": "h3-kno-0002",
+      "years": [
+        3
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS3K01",
+      "type": "multiple_choice",
+      "prompt": "In 1960, Mr Costa moved from Italy to a country town. He opened a bakery. How did he contribute to the town?",
+      "choices": [
+        "He made the town's rules",
+        "He changed the name of the town",
+        "He gave people new foods and jobs",
+        "He moved the river"
+      ],
+      "answer": 2,
+      "difficulty": 2,
+      "explanation": "People from different backgrounds bring new foods, skills and jobs to a community."
+    },
+    {
+      "id": "h3-kno-0003",
+      "years": [
+        3
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS3K01",
+      "type": "multiple_choice",
+      "prompt": "Ella wants to learn how her suburb looked 50 years ago. What is the best way to find out?",
+      "choices": [
+        "Count the houses on her street today",
+        "Ask a neighbour who has lived there for 50 years",
+        "Guess from the shops she sees now",
+        "Look at the weather forecast"
+      ],
+      "answer": 1,
+      "difficulty": 1,
+      "explanation": "A person who lived there long ago can tell you what the suburb was really like."
+    },
+    {
+      "id": "h3-kno-0004",
+      "years": [
+        3
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS3K02",
+      "type": "multiple_choice",
+      "prompt": "Anzac Day is a day when Australians remember people who served in wars. On which date is it?",
+      "choices": [
+        "26 January",
+        "25 April",
+        "11 November",
+        "1 May"
+      ],
+      "answer": 1,
+      "difficulty": 1,
+      "explanation": "Anzac Day is on 25 April each year. 26 January is Australia Day."
+    },
+    {
+      "id": "h3-kno-0005",
+      "years": [
+        3
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS3K02",
+      "type": "multiple_choice",
+      "prompt": "Each country has plants or animals that stand for it. Which plant is Australia's national floral emblem?",
+      "choices": [
+        "Waratah",
+        "Kangaroo paw",
+        "Golden wattle",
+        "Gum blossom"
+      ],
+      "answer": 2,
+      "difficulty": 2,
+      "explanation": "The golden wattle is Australia's national floral emblem. Its green and gold colours are Australia's national colours."
+    },
+    {
+      "id": "h3-kno-0006",
+      "years": [
+        3
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS3K02",
+      "type": "true_false",
+      "prompt": "The Aboriginal flag and the Torres Strait Islander flag are both official flags of Australia.",
+      "answer": true,
+      "difficulty": 3,
+      "explanation": "Both flags are official flags of Australia. They show the importance of First Nations peoples."
+    },
+    {
+      "id": "h3-kno-0007",
+      "years": [
+        3
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS3K03",
+      "type": "multiple_choice",
+      "prompt": "Australia has six states and some territories. Which of these is a territory, not a state?",
+      "choices": [
+        "Tasmania",
+        "Victoria",
+        "Queensland",
+        "Northern Territory"
+      ],
+      "answer": 3,
+      "difficulty": 2,
+      "explanation": "The Northern Territory is a territory. Tasmania, Victoria and Queensland are states."
+    },
+    {
+      "id": "h3-kno-0008",
+      "years": [
+        3
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS3K03",
+      "type": "multiple_choice",
+      "prompt": "Which country lies just north of Australia, across the Torres Strait?",
+      "choices": [
+        "New Zealand",
+        "Papua New Guinea",
+        "Japan",
+        "Fiji"
+      ],
+      "answer": 1,
+      "difficulty": 2,
+      "explanation": "Papua New Guinea is close to the northern tip of Queensland. New Zealand is to the south-east."
+    },
+    {
+      "id": "h3-kno-0009",
+      "years": [
+        3
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS3K03",
+      "type": "multiple_choice",
+      "prompt": "Before Europeans arrived, who looked after the land we now call Australia?",
+      "choices": [
+        "One single group for the whole continent",
+        "Nobody lived there",
+        "Many First Nations groups, each with its own Country",
+        "Only travellers from Asia"
+      ],
+      "answer": 2,
+      "difficulty": 3,
+      "explanation": "Hundreds of First Nations groups lived across Australia. Each group had its own Country."
+    },
+    {
+      "id": "h3-kno-0010",
+      "years": [
+        3
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS3K04",
+      "type": "multiple_choice",
+      "prompt": "What does the word Country mean to First Nations peoples?",
+      "choices": [
+        "Land, waters, sky and living things that people belong to and care for",
+        "Only a farm that someone owns",
+        "A town with a flag",
+        "Only the place where a person was born"
+      ],
+      "answer": 0,
+      "difficulty": 1,
+      "explanation": "Country is the land, waters, sky and all living things. People feel connected to it and care for it."
+    },
+    {
+      "id": "h3-kno-0011",
+      "years": [
+        3
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS3K04",
+      "type": "multiple_choice",
+      "prompt": "Torres Strait Islander peoples live on islands north of Queensland. Why is the sea so important to them?",
+      "choices": [
+        "It gives food and a way to travel, and it is part of their stories",
+        "It is only a place to swim",
+        "It stops them leaving the islands",
+        "It is not important to them"
+      ],
+      "answer": 0,
+      "difficulty": 2,
+      "explanation": "The sea gives food and travel routes. It is also part of their culture and stories."
+    },
+    {
+      "id": "h3-kno-0012",
+      "years": [
+        3
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS3K04",
+      "type": "multiple_choice",
+      "prompt": "Desert peoples and coastal peoples used different foods and tools. Why?",
+      "choices": [
+        "Desert peoples did not like fish",
+        "Shops in each place sold different things",
+        "Coastal peoples were better hunters",
+        "Their Countries have different plants, animals and water"
+      ],
+      "answer": 3,
+      "difficulty": 3,
+      "explanation": "Each Country has its own plants, animals and water. People used what their Country gave them."
+    },
+    {
+      "id": "h3-kno-0013",
+      "years": [
+        3
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS3K05",
+      "type": "multiple_choice",
+      "prompt": "Which of these is a built feature?",
+      "choices": [
+        "Uluru",
+        "The Great Barrier Reef",
+        "The Blue Mountains",
+        "The Sydney Harbour Bridge"
+      ],
+      "answer": 3,
+      "difficulty": 1,
+      "explanation": "People built the Sydney Harbour Bridge. The others were made by nature."
+    },
+    {
+      "id": "h3-kno-0015",
+      "years": [
+        3
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS3K05",
+      "type": "multiple_choice",
+      "prompt": "Indonesia is close to the equator, so it is hot and wet for most of the year. How is southern Australia different?",
+      "choices": [
+        "It is hotter all year",
+        "It is closer to the equator",
+        "It has cooler winters and four seasons",
+        "It never has rain"
+      ],
+      "answer": 2,
+      "difficulty": 3,
+      "explanation": "Southern Australia is further from the equator. It has cooler winters and four seasons."
+    },
+    {
+      "id": "h3-kno-0016",
+      "years": [
+        3
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS3K06",
+      "type": "multiple_choice",
+      "prompt": "A school has a rule to walk, not run, on the verandah. Why?",
+      "choices": [
+        "It keeps everyone safe",
+        "It makes the day longer",
+        "It keeps the floor shiny",
+        "It is a game for teachers"
+      ],
+      "answer": 0,
+      "difficulty": 1,
+      "explanation": "Running can cause crashes and falls. The rule keeps everyone safe."
+    },
+    {
+      "id": "h3-kno-0017",
+      "years": [
+        3
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS3K06",
+      "type": "multiple_choice",
+      "prompt": "Dogs must be kept on a lead in some parks. Who usually makes this kind of local rule?",
+      "choices": [
+        "The Prime Minister",
+        "The local council",
+        "A school captain",
+        "A shop owner"
+      ],
+      "answer": 1,
+      "difficulty": 3,
+      "explanation": "Local councils make rules for local places like parks, beaches and streets."
+    },
+    {
+      "id": "h3-kno-0018",
+      "years": [
+        3
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS3K06",
+      "type": "multiple_choice",
+      "prompt": "Ben breaks a school rule and must stay inside at lunchtime. What do we call this?",
+      "choices": [
+        "A reward",
+        "A holiday",
+        "A consequence",
+        "A new rule"
+      ],
+      "answer": 2,
+      "difficulty": 2,
+      "explanation": "A consequence is what happens when a rule is broken."
+    },
+    {
+      "id": "h3-kno-0019",
+      "years": [
+        3
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS3K07",
+      "type": "multiple_choice",
+      "prompt": "Which is a way a Year 3 student can help their community?",
+      "choices": [
+        "Wait until they are grown up",
+        "Join a school clean-up day",
+        "Ask others to do all the work",
+        "Stay away from all events"
+      ],
+      "answer": 1,
+      "difficulty": 1,
+      "explanation": "Children can help now, for example by cleaning up with others."
+    },
+    {
+      "id": "h3-kno-0020",
+      "years": [
+        3
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS3K07",
+      "type": "multiple_choice",
+      "prompt": "Many people give their time free to the local rural fire service. Why do communities need volunteers like this?",
+      "choices": [
+        "Volunteers are never busy",
+        "Volunteers are paid more than other workers",
+        "Volunteers are the only people who can drive",
+        "Volunteers help services reach more people and keep the community safe"
+      ],
+      "answer": 3,
+      "difficulty": 3,
+      "explanation": "Volunteers give their time without pay. This helps services look after more people."
+    }
+  ]
+}

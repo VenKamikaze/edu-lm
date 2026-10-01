@@ -1,0 +1,269 @@
+{
+  "schema": 1,
+  "pack": "maths-y3-measurement",
+  "subject": "maths",
+  "questions": [
+    {
+      "id": "m3-mea-0001",
+      "years": [
+        3
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M3M01",
+      "type": "multiple_choice",
+      "prompt": "Jack wants to measure the length of his pencil. Which unit is the best one to use?",
+      "choices": [
+        "millimetres",
+        "metres",
+        "centimetres",
+        "kilometres"
+      ],
+      "answer": 2,
+      "difficulty": 1,
+      "explanation": "A pencil is about 18 centimetres long. Centimetres are a good size for small things."
+    },
+    {
+      "id": "m3-mea-0002",
+      "years": [
+        3
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M3M01",
+      "type": "multiple_choice",
+      "prompt": "Priya carries her school bag to school. Which is the best estimate for the mass of the bag?",
+      "choices": [
+        "5 g",
+        "50 g",
+        "5 kg",
+        "50 kg"
+      ],
+      "answer": 2,
+      "difficulty": 2,
+      "explanation": "A school bag is about as heavy as a few bags of sugar, so 5 kg. 50 kg is as heavy as an adult."
+    },
+    {
+      "id": "m3-mea-0003",
+      "years": [
+        3
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M3M01",
+      "type": "multiple_choice",
+      "prompt": "Dad fills the kettle to make tea. About how much water does a full kettle hold?",
+      "choices": [
+        "2 mL",
+        "20 mL",
+        "200 mL",
+        "2 L"
+      ],
+      "answer": 3,
+      "difficulty": 2,
+      "explanation": "A kettle holds a few cups of water. That is about 2 litres. 200 mL is only one small cup."
+    },
+    {
+      "id": "m3-mea-0004",
+      "years": [
+        3
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M3M02",
+      "type": "numeric",
+      "prompt": "Liam has two ribbons. One is 15 cm long and the other is 9 cm long. How many centimetres longer is the first ribbon?",
+      "answer": 6,
+      "difficulty": 1,
+      "explanation": "15 take away 9 is 6, so the first ribbon is 6 cm longer."
+    },
+    {
+      "id": "m3-mea-0005",
+      "years": [
+        3
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M3M02",
+      "type": "multiple_choice",
+      "prompt": "Mia has a 1 litre jug of milk. She pours out 250 mL. How much milk is left in the jug?",
+      "choices": [
+        "750 mL",
+        "850 mL",
+        "950 mL",
+        "250 mL"
+      ],
+      "answer": 0,
+      "difficulty": 2,
+      "explanation": "1 litre is 1000 mL. 1000 take away 250 is 750 mL."
+    },
+    {
+      "id": "m3-mea-0006",
+      "years": [
+        3
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M3M02",
+      "type": "numeric",
+      "prompt": "A kitchen scale has marks every 10 g. The pointer is halfway between 40 g and 50 g. How many grams does the scale show?",
+      "answer": 45,
+      "difficulty": 3,
+      "explanation": "Halfway between 40 and 50 is 45. The scale shows 45 g."
+    },
+    {
+      "id": "m3-mea-0007",
+      "years": [
+        3
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M3M03",
+      "type": "numeric",
+      "prompt": "Ella practises the piano for 2 hours. There are 60 minutes in one hour. How many minutes does she practise?",
+      "answer": 120,
+      "difficulty": 2,
+      "explanation": "One hour is 60 minutes. 60 + 60 = 120 minutes."
+    },
+    {
+      "id": "m3-mea-0008",
+      "years": [
+        3
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M3M03",
+      "type": "multiple_choice",
+      "prompt": "Which job is most likely to take about 30 seconds?",
+      "choices": [
+        "Walking to school",
+        "Tying your shoelaces",
+        "Watching a movie",
+        "Baking a cake"
+      ],
+      "answer": 1,
+      "difficulty": 1,
+      "explanation": "Tying shoelaces is quick, about 30 seconds. The other jobs take many minutes or hours."
+    },
+    {
+      "id": "m3-mea-0009",
+      "years": [
+        3
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M3M03",
+      "type": "numeric",
+      "prompt": "Noah's school camp lasts 3 days. There are 24 hours in a day. How many hours is the camp?",
+      "answer": 72,
+      "difficulty": 3,
+      "explanation": "Each day has 24 hours. 24 + 24 + 24 = 72 hours."
+    },
+    {
+      "id": "m3-mea-0010",
+      "years": [
+        3
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M3M04",
+      "type": "numeric",
+      "prompt": "The digital clock shows 7:48. How many minutes until 8:00?",
+      "answer": 12,
+      "difficulty": 2,
+      "explanation": "From 48 minutes to 60 minutes is 12 minutes, so it is 12 minutes until 8:00."
+    },
+    {
+      "id": "m3-mea-0011",
+      "years": [
+        3
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M3M04",
+      "type": "multiple_choice",
+      "prompt": "On an analogue clock, the short hand points just past the 3. The long hand points to the 6. What time is it?",
+      "choices": [
+        "3:06",
+        "6:03",
+        "3:30",
+        "6:15"
+      ],
+      "answer": 2,
+      "difficulty": 1,
+      "explanation": "The short hand shows the hour, which is 3. The long hand on the 6 means 30 minutes, so 3:30."
+    },
+    {
+      "id": "m3-mea-0012",
+      "years": [
+        3
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M3M04",
+      "type": "multiple_choice",
+      "prompt": "Footy training starts at 5:20 pm and finishes at 6:05 pm. How long is training?",
+      "choices": [
+        "35 minutes",
+        "45 minutes",
+        "55 minutes",
+        "1 hour 5 minutes"
+      ],
+      "answer": 1,
+      "difficulty": 3,
+      "explanation": "From 5:20 to 6:00 is 40 minutes. Then 5 more minutes makes 45 minutes."
+    },
+    {
+      "id": "m3-mea-0013",
+      "years": [
+        3
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M3M05",
+      "type": "multiple_choice",
+      "prompt": "A right angle is the same as a quarter turn. Which turn is bigger than a right angle?",
+      "choices": [
+        "A quarter turn",
+        "Less than a quarter turn",
+        "A tiny turn",
+        "A half turn"
+      ],
+      "answer": 3,
+      "difficulty": 2,
+      "explanation": "A half turn is two quarter turns, so it is bigger than one right angle."
+    },
+    {
+      "id": "m3-mea-0014",
+      "years": [
+        3
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M3M05",
+      "type": "true_false",
+      "prompt": "At 3 o'clock, the two hands of a clock make a right angle.",
+      "answer": true,
+      "difficulty": 1,
+      "explanation": "At 3 o'clock one hand points to 12 and the other to 3. That is a quarter turn, a right angle."
+    },
+    {
+      "id": "m3-mea-0015",
+      "years": [
+        3
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M3M06",
+      "type": "numeric",
+      "prompt": "Ava has some 20c coins. She has the same amount as a $2 coin. How many 20c coins does she have?",
+      "answer": 10,
+      "difficulty": 2,
+      "explanation": "$2 is 200c. Five 20c coins make $1, so ten 20c coins make $2."
+    },
+    {
+      "id": "m3-mea-0016",
+      "years": [
+        3
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M3M06",
+      "type": "multiple_choice",
+      "prompt": "Zac has 345 cents in his money box. Which amount is the same?",
+      "choices": [
+        "$34.50",
+        "$0.345",
+        "$3.45",
+        "$3.54"
+      ],
+      "answer": 2,
+      "difficulty": 3,
+      "explanation": "100 cents make one dollar. 345 cents is 3 dollars and 45 cents, which is $3.45."
+    }
+  ]
+}

@@ -1,0 +1,185 @@
+{
+  "schema": 1,
+  "pack": "hass-y3-skills",
+  "subject": "hass",
+  "questions": [
+    {
+      "id": "h3-ski-0001",
+      "years": [
+        3
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS3S02",
+      "type": "multiple_choice",
+      "prompt": "A timeline shows events in a country town.\n1950: Post office opened\n1962: Library opened\n1975: Swimming pool opened\n1988: Skate park opened\nWhich building opened second?",
+      "choices": [
+        "Post office",
+        "Library",
+        "Swimming pool",
+        "Skate park"
+      ],
+      "answer": 1,
+      "difficulty": 1,
+      "explanation": "A timeline goes in order from earliest to latest. The library is the second date, 1962."
+    },
+    {
+      "id": "h3-ski-0002",
+      "years": [
+        3
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS3S02",
+      "type": "numeric",
+      "prompt": "Kim's family timeline says:\n2018: Moved to Darwin\n2021: Baby sister Lily was born\n2025: Kim started Year 3\nHow many years after moving to Darwin was Lily born?",
+      "answer": 3,
+      "difficulty": 2,
+      "explanation": "Count from 2018 to 2021. That is 3 years."
+    },
+    {
+      "id": "h3-ski-0003",
+      "years": [
+        3
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS3S02",
+      "type": "multiple_choice",
+      "prompt": "On a map, north is at the top. The school is north of the oval. The shop is east of the oval. Which way do you go from the shop to the school?",
+      "choices": [
+        "North-west",
+        "North-east",
+        "South-west",
+        "South-east"
+      ],
+      "answer": 0,
+      "difficulty": 3,
+      "explanation": "The school is north of the oval and the shop is east of it. So from the shop you go north and west."
+    },
+    {
+      "id": "h3-ski-0004",
+      "years": [
+        3
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS3S03",
+      "type": "multiple_choice",
+      "prompt": "A weather table for Alice Springs shows the top temperature each day.\nMonday: 34 degrees\nTuesday: 38 degrees\nWednesday: 31 degrees\nThursday: 36 degrees\nWhich day was the hottest?",
+      "choices": [
+        "Monday",
+        "Wednesday",
+        "Tuesday",
+        "Thursday"
+      ],
+      "answer": 2,
+      "difficulty": 1,
+      "explanation": "38 is the biggest number in the table. It is for Tuesday."
+    },
+    {
+      "id": "h3-ski-0005",
+      "years": [
+        3
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS3S03",
+      "type": "numeric",
+      "prompt": "A map scale says 1 cm on the map is 2 km in real life. Two towns are 5 cm apart on the map. How many kilometres apart are the towns in real life?",
+      "answer": 10,
+      "difficulty": 3,
+      "explanation": "Each centimetre is 2 km. So 5 cm is 5 × 2, which is 10 km."
+    },
+    {
+      "id": "h3-ski-0006",
+      "years": [
+        3
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS3S03",
+      "type": "multiple_choice",
+      "prompt": "Ava wants to see the dates of past events in the right order. Which kind of source shows this best?",
+      "choices": [
+        "A timeline",
+        "A weather map",
+        "A street directory",
+        "A recipe"
+      ],
+      "answer": 0,
+      "difficulty": 2,
+      "explanation": "A timeline puts dates and events in order, from earliest to latest."
+    },
+    {
+      "id": "h3-ski-0007",
+      "years": [
+        3
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS3S04",
+      "type": "multiple_choice",
+      "prompt": "A council wants a new road through bushland. A bushwalker says it will harm koalas. A truck driver says it will save time. Why do they disagree?",
+      "choices": [
+        "One of them is telling lies",
+        "They care about different things",
+        "Only one of them lives nearby",
+        "They are different ages"
+      ],
+      "answer": 1,
+      "difficulty": 2,
+      "explanation": "People have different perspectives. The bushwalker cares about animals and the driver cares about travel time."
+    },
+    {
+      "id": "h3-ski-0008",
+      "years": [
+        3
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS3S04",
+      "type": "multiple_choice",
+      "prompt": "An opinion is what someone thinks or feels. A fact can be checked. Which sentence about the local pool is an opinion?",
+      "choices": [
+        "Swimming is the best sport ever.",
+        "The pool is 25 metres long.",
+        "The pool opens at 9 am.",
+        "The pool has eight lanes."
+      ],
+      "answer": 0,
+      "difficulty": 1,
+      "explanation": "You cannot check if a sport is the best. It is what someone thinks. The other sentences can be checked."
+    },
+    {
+      "id": "h3-ski-0009",
+      "years": [
+        3
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS3S05",
+      "type": "multiple_choice",
+      "prompt": "Ben counted cars passing his school.\n8 am: 40 cars\n10 am: 5 cars\n3 pm: 35 cars\n5 pm: 8 cars\nWhat can Ben conclude?",
+      "choices": [
+        "Roads are busiest in the middle of the day",
+        "Roads are busiest when school starts and finishes",
+        "Fewer cars drive past in the morning",
+        "Nobody drives past after 3 pm"
+      ],
+      "answer": 1,
+      "difficulty": 2,
+      "explanation": "The biggest counts are at 8 am and 3 pm. These are the times school starts and finishes."
+    },
+    {
+      "id": "h3-ski-0010",
+      "years": [
+        3
+      ],
+      "subject": "hass",
+      "curriculum": "AC9HS3S05",
+      "type": "multiple_choice",
+      "prompt": "Mei asked 20 children in Year 3 how they get to school. 15 walk, 3 catch a bus and 2 come by car. Which conclusion is supported by this information?",
+      "choices": [
+        "Everyone in Australia walks to school",
+        "Walking is the best way to get to school",
+        "Children walk because it is fun",
+        "Most of these Year 3 children walk to school"
+      ],
+      "answer": 3,
+      "difficulty": 3,
+      "explanation": "15 out of 20 is more than half. The survey cannot tell us about all Australians or why children walk."
+    }
+  ]
+}

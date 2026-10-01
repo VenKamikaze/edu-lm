@@ -1,0 +1,217 @@
+{
+  "schema": 1,
+  "pack": "maths-y3-space",
+  "subject": "maths",
+  "questions": [
+    {
+      "id": "m3-spa-0001",
+      "years": [
+        3
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M3SP01",
+      "type": "multiple_choice",
+      "prompt": "Which solid shape has 6 faces that are all squares?",
+      "choices": [
+        "Rectangular prism",
+        "Square pyramid",
+        "Cube",
+        "Cylinder"
+      ],
+      "answer": 2,
+      "difficulty": 1,
+      "explanation": "A cube has 6 faces and every face is a square. A rectangular prism has faces that are not all squares."
+    },
+    {
+      "id": "m3-spa-0002",
+      "years": [
+        3
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M3SP01",
+      "type": "multiple_choice",
+      "prompt": "Sam sorts objects into two groups: 'can roll' and 'cannot roll'. Which object goes in the 'cannot roll' group?",
+      "choices": [
+        "A tin can lying on its side",
+        "A cardboard box",
+        "A cricket ball",
+        "A marble"
+      ],
+      "answer": 1,
+      "difficulty": 1,
+      "explanation": "A box has only flat faces and sharp edges, so it cannot roll. The tin, the ball and the marble have curved surfaces."
+    },
+    {
+      "id": "m3-spa-0003",
+      "years": [
+        3
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M3SP01",
+      "type": "multiple_choice",
+      "prompt": "Why are the wheels on a bike round?",
+      "choices": [
+        "Round wheels are lighter than square wheels",
+        "Round wheels can roll smoothly along the ground",
+        "Round wheels have more corners",
+        "Round wheels have flat faces to stand on"
+      ],
+      "answer": 1,
+      "difficulty": 2,
+      "explanation": "A round shape has a curved edge, so it rolls smoothly. A wheel with corners would bump along the ground."
+    },
+    {
+      "id": "m3-spa-0004",
+      "years": [
+        3
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M3SP01",
+      "type": "numeric",
+      "prompt": "A cube has corners. How many corners does a cube have?",
+      "answer": 8,
+      "difficulty": 2,
+      "explanation": "A cube has 4 corners on the top and 4 corners on the bottom. That makes 8 corners."
+    },
+    {
+      "id": "m3-spa-0005",
+      "years": [
+        3
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M3SP01",
+      "type": "multiple_choice",
+      "prompt": "A pyramid has a square base. Its other faces are triangles. How many triangle faces does it have?",
+      "choices": [
+        "3",
+        "5",
+        "6",
+        "4"
+      ],
+      "answer": 3,
+      "difficulty": 2,
+      "explanation": "Each of the 4 sides of the square base has one triangle sitting on it. So there are 4 triangle faces."
+    },
+    {
+      "id": "m3-spa-0006",
+      "years": [
+        3
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M3SP01",
+      "type": "true_false",
+      "prompt": "A cylinder has two flat faces and one curved surface.",
+      "answer": true,
+      "difficulty": 3,
+      "explanation": "A cylinder, like a tin can, has a flat circle on the top and on the bottom. The side is one curved surface."
+    },
+    {
+      "id": "m3-spa-0007",
+      "years": [
+        3
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M3SP02",
+      "type": "multiple_choice",
+      "prompt": "On a map of Mia's school, the library is north of the oval. Where is the oval compared with the library?",
+      "choices": [
+        "East of the library",
+        "North of the library",
+        "West of the library",
+        "South of the library"
+      ],
+      "answer": 3,
+      "difficulty": 1,
+      "explanation": "If the library is north of the oval, then the oval must be the opposite way. The oval is south of the library."
+    },
+    {
+      "id": "m3-spa-0008",
+      "years": [
+        3
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M3SP02",
+      "type": "multiple_choice",
+      "prompt": "Walking in from the school gate, the canteen is the first building on your left. The library is the next building on your left. Which building is closer to the gate?",
+      "choices": [
+        "The canteen",
+        "The library",
+        "They are the same distance",
+        "You cannot tell"
+      ],
+      "answer": 0,
+      "difficulty": 1,
+      "explanation": "The canteen is the first building you pass after the gate. The library comes after it, so it is further away."
+    },
+    {
+      "id": "m3-spa-0009",
+      "years": [
+        3
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M3SP02",
+      "type": "multiple_choice",
+      "prompt": "A map has a key. What is the key for?",
+      "choices": [
+        "It shows how tall the buildings are",
+        "It shows what the symbols on the map mean",
+        "It shows what the weather will be",
+        "It locks the map so it cannot be torn"
+      ],
+      "answer": 1,
+      "difficulty": 2,
+      "explanation": "The key tells you what each symbol or colour on the map stands for, such as a tree or a toilet block."
+    },
+    {
+      "id": "m3-spa-0010",
+      "years": [
+        3
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M3SP02",
+      "type": "numeric",
+      "prompt": "On a park plan, each square is one step. Leo starts at the gate. He walks 3 squares east to the swings. Then he walks 2 more squares east to the pond. How many squares is the pond from the gate?",
+      "answer": 5,
+      "difficulty": 2,
+      "explanation": "Leo walks 3 squares and then 2 more squares in the same direction. 3 + 2 = 5 squares."
+    },
+    {
+      "id": "m3-spa-0011",
+      "years": [
+        3
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M3SP02",
+      "type": "multiple_choice",
+      "prompt": "On a plan of a playground, the swings are east of the slide. The slide is east of the tree. Which one is furthest west?",
+      "choices": [
+        "The swings",
+        "The slide",
+        "The tree",
+        "They are all the same"
+      ],
+      "answer": 2,
+      "difficulty": 3,
+      "explanation": "Going from west to east, the order is tree, slide, swings. So the tree is furthest west."
+    },
+    {
+      "id": "m3-spa-0012",
+      "years": [
+        3
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M3SP02",
+      "type": "multiple_choice",
+      "prompt": "Ben is on the school oval, facing north. He turns right and then turns right again. Which way is he facing now?",
+      "choices": [
+        "North",
+        "East",
+        "West",
+        "South"
+      ],
+      "answer": 3,
+      "difficulty": 3,
+      "explanation": "One turn right from north makes him face east. Another turn right makes him face south."
+    }
+  ]
+}

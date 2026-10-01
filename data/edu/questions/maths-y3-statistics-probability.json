@@ -1,0 +1,243 @@
+{
+  "schema": 1,
+  "pack": "maths-y3-statistics-probability",
+  "subject": "maths",
+  "questions": [
+    {
+      "id": "m3-sta-0001",
+      "years": [
+        3
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M3ST01",
+      "type": "numeric",
+      "prompt": "Sam counts votes for favourite fruit with tally marks. The mangoes have 2 groups of five and 3 extra marks. How many votes did the mangoes get?",
+      "answer": 13,
+      "difficulty": 1,
+      "explanation": "Two groups of five make 10. Add the 3 extra marks to get 13."
+    },
+    {
+      "id": "m3-sta-0002",
+      "years": [
+        3
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M3ST01",
+      "type": "multiple_choice",
+      "prompt": "Lily asks 10 friends to pick a favourite Australian animal. Kangaroo got 4 votes, koala 3, wombat 2 and emu 1. Which animal got the most votes?",
+      "choices": [
+        "Kangaroo",
+        "Koala",
+        "Wombat",
+        "Emu"
+      ],
+      "answer": 0,
+      "difficulty": 1,
+      "explanation": "Kangaroo got 4 votes. That is more than any other animal."
+    },
+    {
+      "id": "m3-sta-0003",
+      "years": [
+        3
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M3ST01",
+      "type": "numeric",
+      "prompt": "Ben counts cars outside the school gate. He sees 6 red, 4 white, 5 blue and 2 black cars. How many cars did he count altogether?",
+      "answer": 17,
+      "difficulty": 2,
+      "explanation": "Add all the groups: 6 + 4 + 5 + 2 = 17."
+    },
+    {
+      "id": "m3-sta-0004",
+      "years": [
+        3
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M3ST01",
+      "type": "multiple_choice",
+      "prompt": "Zoe wants to sort her class into categories, like colours. Which question gives answers she can sort into categories?",
+      "choices": [
+        "How many books did you read?",
+        "How many pets do you have?",
+        "What is your favourite colour?",
+        "How many teeth have you lost?"
+      ],
+      "answer": 2,
+      "difficulty": 2,
+      "explanation": "Colours can be sorted into groups like red, blue and green. The other questions give counted numbers."
+    },
+    {
+      "id": "m3-sta-0005",
+      "years": [
+        3
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M3ST02",
+      "type": "multiple_choice",
+      "prompt": "Votes for ice cream flavours were: chocolate 8, vanilla 5, strawberry 3. Jess draws a bar graph of the votes. Which flavour has the tallest bar?",
+      "choices": [
+        "Vanilla",
+        "Chocolate",
+        "Strawberry",
+        "They are all the same"
+      ],
+      "answer": 1,
+      "difficulty": 1,
+      "explanation": "The tallest bar shows the most votes. Chocolate has 8 votes, the most."
+    },
+    {
+      "id": "m3-sta-0006",
+      "years": [
+        3
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M3ST02",
+      "type": "numeric",
+      "prompt": "In a picture graph, one gum leaf stands for 2 children. Room 4 has 5 gum leaves. How many children does Room 4 have?",
+      "answer": 10,
+      "difficulty": 2,
+      "explanation": "Each leaf is worth 2 children. Count by twos five times: 2, 4, 6, 8, 10."
+    },
+    {
+      "id": "m3-sta-0007",
+      "years": [
+        3
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M3ST02",
+      "type": "multiple_choice",
+      "prompt": "Rainy days in four months were: June 9, July 12, August 7, September 5. Which two months together had 16 rainy days?",
+      "choices": [
+        "July and September",
+        "June and August",
+        "June and July",
+        "August and September"
+      ],
+      "answer": 1,
+      "difficulty": 3,
+      "explanation": "June and August make 9 + 7 = 16. The other pairs add to different numbers."
+    },
+    {
+      "id": "m3-sta-0008",
+      "years": [
+        3
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M3P02",
+      "type": "multiple_choice",
+      "prompt": "Group A spins a spinner 20 times and gets red 12 times. Group B uses the same spinner and gets red 9 times. What does this show?",
+      "choices": [
+        "Group B spun the spinner wrongly",
+        "The spinner changed between groups",
+        "Results can be different each time we try",
+        "Group A must have cheated"
+      ],
+      "answer": 2,
+      "difficulty": 3,
+      "explanation": "Chance results change from one try to the next, even with the same spinner."
+    },
+    {
+      "id": "m3-sta-0009",
+      "years": [
+        3
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M3P01",
+      "type": "multiple_choice",
+      "prompt": "A bag has only red counters. Mia picks one without looking. How likely is it that the counter is red?",
+      "choices": [
+        "Impossible",
+        "Unlikely",
+        "Likely",
+        "Certain"
+      ],
+      "answer": 3,
+      "difficulty": 1,
+      "explanation": "Every counter in the bag is red, so it must be red. That is certain."
+    },
+    {
+      "id": "m3-sta-0010",
+      "years": [
+        3
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M3P01",
+      "type": "multiple_choice",
+      "prompt": "A bag has 9 blue marbles and 1 yellow marble. Sam picks one without looking. How likely is a yellow marble?",
+      "choices": [
+        "Certain",
+        "Likely",
+        "Unlikely",
+        "Impossible"
+      ],
+      "answer": 2,
+      "difficulty": 2,
+      "explanation": "Only 1 of the 10 marbles is yellow. It can happen, but it probably will not."
+    },
+    {
+      "id": "m3-sta-0011",
+      "years": [
+        3
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M3P01",
+      "type": "true_false",
+      "prompt": "It is impossible to roll a 7 with one normal dice numbered 1 to 6.",
+      "answer": true,
+      "difficulty": 1,
+      "explanation": "The dice only has the numbers 1 to 6, so a 7 can never happen."
+    },
+    {
+      "id": "m3-sta-0012",
+      "years": [
+        3
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M3P01",
+      "type": "multiple_choice",
+      "prompt": "Mia has 1 ticket in a raffle of 100 tickets. She says winning is unlikely. Which reason is best?",
+      "choices": [
+        "She has only a tiny share of all the tickets",
+        "Her ticket number is small",
+        "Raffles are always unfair",
+        "She bought her ticket last"
+      ],
+      "answer": 0,
+      "difficulty": 3,
+      "explanation": "She holds 1 ticket out of 100, so most of the time another ticket will win."
+    },
+    {
+      "id": "m3-sta-0013",
+      "years": [
+        3
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M3P02",
+      "type": "multiple_choice",
+      "prompt": "Ali tosses a coin 10 times and gets 6 heads. He tosses it 10 more times. What will probably happen?",
+      "choices": [
+        "He will get exactly 6 heads again",
+        "He might get a different number of heads",
+        "He will get only tails",
+        "He will get 10 heads"
+      ],
+      "answer": 1,
+      "difficulty": 2,
+      "explanation": "Each set of tosses can turn out differently. The number of heads may change."
+    },
+    {
+      "id": "m3-sta-0014",
+      "years": [
+        3
+      ],
+      "subject": "maths",
+      "curriculum": "AC9M3P02",
+      "type": "numeric",
+      "prompt": "A class rolls a dice 20 times. They get 4 five times, 5 four times and 6 two times. How many rolls gave a 4 or more?",
+      "answer": 11,
+      "difficulty": 2,
+      "explanation": "Add the rolls of 4, 5 and 6 together: 5 + 4 + 2 = 11."
+    }
+  ]
+}

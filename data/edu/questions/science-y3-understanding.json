@@ -1,0 +1,369 @@
+{
+  "schema": 1,
+  "pack": "science-y3-understanding",
+  "subject": "science",
+  "questions": [
+    {
+      "id": "s3-und-0001",
+      "years": [
+        3
+      ],
+      "subject": "science",
+      "curriculum": "AC9S3U01",
+      "type": "multiple_choice",
+      "prompt": "Which one of these is a living thing?",
+      "choices": [
+        "A rock",
+        "A kangaroo",
+        "A river",
+        "A toy robot"
+      ],
+      "answer": 1,
+      "difficulty": 1,
+      "explanation": "A kangaroo grows, eats, breathes and has babies. The others do not."
+    },
+    {
+      "id": "s3-und-0002",
+      "years": [
+        3
+      ],
+      "subject": "science",
+      "curriculum": "AC9S3U01",
+      "type": "multiple_choice",
+      "prompt": "A caterpillar changes into a butterfly. In between, it rests inside a case. What is this stage called?",
+      "choices": [
+        "Egg",
+        "Pupa or chrysalis",
+        "Tadpole",
+        "Seedling"
+      ],
+      "answer": 1,
+      "difficulty": 2,
+      "explanation": "The caterpillar turns into a butterfly inside a case called a pupa or chrysalis."
+    },
+    {
+      "id": "s3-und-0003",
+      "years": [
+        3
+      ],
+      "subject": "science",
+      "curriculum": "AC9S3U01",
+      "type": "multiple_choice",
+      "prompt": "Which thing do all living things do?",
+      "choices": [
+        "Walk from place to place",
+        "Make loud sounds",
+        "Grow and make young",
+        "Eat other animals"
+      ],
+      "answer": 2,
+      "difficulty": 2,
+      "explanation": "Plants and animals all grow and make young. Plants do not walk, make sounds or eat animals."
+    },
+    {
+      "id": "s3-und-0004",
+      "years": [
+        3
+      ],
+      "subject": "science",
+      "curriculum": "AC9S3U01",
+      "type": "multiple_choice",
+      "prompt": "Mia plants a bean seed. A tiny shoot pushes out of the soil. What is a young plant like this called?",
+      "choices": [
+        "Seedling",
+        "Fruit",
+        "Pupa",
+        "Joey"
+      ],
+      "answer": 0,
+      "difficulty": 1,
+      "explanation": "A small young plant that has just sprouted from a seed is called a seedling."
+    },
+    {
+      "id": "s3-und-0005",
+      "years": [
+        3
+      ],
+      "subject": "science",
+      "curriculum": "AC9S3U01",
+      "type": "true_false",
+      "prompt": "Fire is not a living thing, even though it needs air and seems to grow.",
+      "answer": true,
+      "difficulty": 3,
+      "explanation": "Fire does not eat, make young or have a life cycle, so it is not alive."
+    },
+    {
+      "id": "s3-und-0006",
+      "years": [
+        3
+      ],
+      "subject": "science",
+      "curriculum": "AC9S3U02",
+      "type": "multiple_choice",
+      "prompt": "Jack squeezes some wet soil. It feels sticky and he can roll it into a ball. What kind of soil is it?",
+      "choices": [
+        "Sandy soil",
+        "Gravel",
+        "Compost",
+        "Clay soil"
+      ],
+      "answer": 3,
+      "difficulty": 1,
+      "explanation": "Clay soil is sticky when wet, so it holds together in a ball. Sand falls apart."
+    },
+    {
+      "id": "s3-und-0007",
+      "years": [
+        3
+      ],
+      "subject": "science",
+      "curriculum": "AC9S3U02",
+      "type": "multiple_choice",
+      "prompt": "Farmers in Victoria grow wheat in soil. Why is soil a valuable natural resource?",
+      "choices": [
+        "It is soft to walk on",
+        "It is brown",
+        "Plants grow in it and give us food",
+        "It stops the rain"
+      ],
+      "answer": 2,
+      "difficulty": 1,
+      "explanation": "Plants need soil to grow. Many of our foods come from plants."
+    },
+    {
+      "id": "s3-und-0008",
+      "years": [
+        3
+      ],
+      "subject": "science",
+      "curriculum": "AC9S3U02",
+      "type": "multiple_choice",
+      "prompt": "Granite is a rock used for kitchen benchtops. Which property makes it good for this job?",
+      "choices": [
+        "It is hard and strong",
+        "It is soft and crumbly",
+        "It floats on water",
+        "It dissolves in water"
+      ],
+      "answer": 0,
+      "difficulty": 2,
+      "explanation": "Granite is hard and strong, so it does not scratch or break easily."
+    },
+    {
+      "id": "s3-und-0009",
+      "years": [
+        3
+      ],
+      "subject": "science",
+      "curriculum": "AC9S3U02",
+      "type": "multiple_choice",
+      "prompt": "Pumice is a rock that floats on water. What does this tell us about pumice?",
+      "choices": [
+        "It is very heavy",
+        "It is as soft as chalk",
+        "It is magnetic",
+        "It is light for its size, with tiny holes of air"
+      ],
+      "answer": 3,
+      "difficulty": 3,
+      "explanation": "Pumice has many tiny holes full of air. This makes it light enough to float."
+    },
+    {
+      "id": "s3-und-0010",
+      "years": [
+        3
+      ],
+      "subject": "science",
+      "curriculum": "AC9S3U02",
+      "type": "multiple_choice",
+      "prompt": "Iron ore is dug from mines in the Pilbara in Western Australia. What is iron ore used to make?",
+      "choices": [
+        "Glass",
+        "Steel",
+        "Paper",
+        "Bricks"
+      ],
+      "answer": 1,
+      "difficulty": 2,
+      "explanation": "Iron ore is heated to make iron and steel, which are used for buildings and cars."
+    },
+    {
+      "id": "s3-und-0011",
+      "years": [
+        3
+      ],
+      "subject": "science",
+      "curriculum": "AC9S3U03",
+      "type": "multiple_choice",
+      "prompt": "Which one of these is a source of heat?",
+      "choices": [
+        "A mirror",
+        "A shadow",
+        "An ice block",
+        "The Sun"
+      ],
+      "answer": 3,
+      "difficulty": 1,
+      "explanation": "The Sun gives out heat and light. The other things do not make heat."
+    },
+    {
+      "id": "s3-und-0012",
+      "years": [
+        3
+      ],
+      "subject": "science",
+      "curriculum": "AC9S3U03",
+      "type": "multiple_choice",
+      "prompt": "Sam leaves a metal spoon in hot soup. Soon the handle feels warm. How did the heat get to the handle?",
+      "choices": [
+        "It moved from the hot soup along the spoon",
+        "It moved from the cold air into the spoon",
+        "It moved from the spoon into the soup",
+        "The spoon made its own heat"
+      ],
+      "answer": 0,
+      "difficulty": 3,
+      "explanation": "Heat moves from hot things to cooler things. It travelled up the metal spoon."
+    },
+    {
+      "id": "s3-und-0013",
+      "years": [
+        3
+      ],
+      "subject": "science",
+      "curriculum": "AC9S3U03",
+      "type": "multiple_choice",
+      "prompt": "A cup of hot milk at 70 degrees Celsius sits in a room at 22 degrees Celsius. What happens to the milk?",
+      "choices": [
+        "It stays at 70 degrees",
+        "It heats up to 100 degrees",
+        "It cools down towards 22 degrees",
+        "It cools down to 0 degrees"
+      ],
+      "answer": 2,
+      "difficulty": 2,
+      "explanation": "Heat moves from the milk into the cooler room, so the milk cools until it matches the room."
+    },
+    {
+      "id": "s3-und-0014",
+      "years": [
+        3
+      ],
+      "subject": "science",
+      "curriculum": "AC9S3U03",
+      "type": "numeric",
+      "prompt": "Hot chocolate is 80 degrees Celsius. Ten minutes later it is 60 degrees Celsius. By how many degrees did it cool?",
+      "answer": 20,
+      "difficulty": 1,
+      "explanation": "80 take away 60 is 20, so it cooled by 20 degrees."
+    },
+    {
+      "id": "s3-und-0015",
+      "years": [
+        3
+      ],
+      "subject": "science",
+      "curriculum": "AC9S3U03",
+      "type": "multiple_choice",
+      "prompt": "Lily wears a woolly jumper on a cold winter day. Why does it keep her warm?",
+      "choices": [
+        "Wool makes heat",
+        "It slows down heat leaving her body",
+        "It lets the cold air in",
+        "Wool is a heat source"
+      ],
+      "answer": 1,
+      "difficulty": 3,
+      "explanation": "Wool traps air, so her body heat escapes slowly. The jumper does not make heat."
+    },
+    {
+      "id": "s3-und-0016",
+      "years": [
+        3
+      ],
+      "subject": "science",
+      "curriculum": "AC9S3U04",
+      "type": "multiple_choice",
+      "prompt": "Which one of these is a liquid?",
+      "choices": [
+        "Sand",
+        "Sugar",
+        "Honey",
+        "Flour"
+      ],
+      "answer": 2,
+      "difficulty": 2,
+      "explanation": "Honey flows and takes the shape of its container. Sand, sugar and flour are tiny solid bits."
+    },
+    {
+      "id": "s3-und-0017",
+      "years": [
+        3
+      ],
+      "subject": "science",
+      "curriculum": "AC9S3U04",
+      "type": "multiple_choice",
+      "prompt": "Ella leaves a chocolate bar in a hot car in January. It turns runny. What has happened?",
+      "choices": [
+        "It melted, because heat was added",
+        "It froze, because heat was added",
+        "It melted, because heat was taken away",
+        "It froze, because heat was taken away"
+      ],
+      "answer": 0,
+      "difficulty": 1,
+      "explanation": "Heat from the car made the solid chocolate melt into a liquid."
+    },
+    {
+      "id": "s3-und-0018",
+      "years": [
+        3
+      ],
+      "subject": "science",
+      "curriculum": "AC9S3U04",
+      "type": "multiple_choice",
+      "prompt": "Dad puts a tray of water in the freezer. What is taken away from the water so it turns to ice?",
+      "choices": [
+        "Air",
+        "Heat",
+        "Salt",
+        "Colour"
+      ],
+      "answer": 1,
+      "difficulty": 2,
+      "explanation": "When enough heat is taken out of water, it freezes and turns into solid ice."
+    },
+    {
+      "id": "s3-und-0019",
+      "years": [
+        3
+      ],
+      "subject": "science",
+      "curriculum": "AC9S3U04",
+      "type": "multiple_choice",
+      "prompt": "Which sentence is true about liquids?",
+      "choices": [
+        "They take the shape of their container",
+        "They always keep their own shape",
+        "They cannot be poured",
+        "They are always cold"
+      ],
+      "answer": 0,
+      "difficulty": 3,
+      "explanation": "A liquid flows and fills the bottom of its container, so it takes its shape."
+    },
+    {
+      "id": "s3-und-0020",
+      "years": [
+        3
+      ],
+      "subject": "science",
+      "curriculum": "AC9S3U04",
+      "type": "numeric",
+      "prompt": "Water boils and turns into steam when it gets very hot. At how many degrees Celsius does water boil?",
+      "answer": 100,
+      "difficulty": 3,
+      "explanation": "Water boils at 100 degrees Celsius."
+    }
+  ]
+}

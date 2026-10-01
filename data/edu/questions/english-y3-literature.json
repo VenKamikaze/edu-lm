@@ -1,0 +1,229 @@
+{
+  "schema": 1,
+  "pack": "english-y3-literature",
+  "subject": "english",
+  "questions": [
+    {
+      "id": "e3-lit-0001",
+      "years": [
+        3
+      ],
+      "subject": "english",
+      "curriculum": "AC9E3LE01",
+      "type": "multiple_choice",
+      "prompt": "In a story, Jess walks along the sand at Bondi Beach as the waves crash. What is the setting of this part of the story?",
+      "choices": [
+        "Jess",
+        "A beach in Sydney",
+        "The waves crashing",
+        "A school classroom"
+      ],
+      "answer": 1,
+      "difficulty": 1,
+      "explanation": "The setting is where the story happens. Here it is Bondi Beach."
+    },
+    {
+      "id": "e3-lit-0002",
+      "years": [
+        3
+      ],
+      "subject": "english",
+      "curriculum": "AC9E3LE01",
+      "type": "multiple_choice",
+      "prompt": "In a story, Ben shares his lunch with a new boy who sits alone. What does this show about Ben?",
+      "choices": [
+        "He is greedy",
+        "He is kind",
+        "He is lazy",
+        "He is scared"
+      ],
+      "answer": 1,
+      "difficulty": 1,
+      "explanation": "Sharing food with someone who is alone shows Ben is kind."
+    },
+    {
+      "id": "e3-lit-0003",
+      "years": [
+        3
+      ],
+      "subject": "english",
+      "curriculum": "AC9E3LE01",
+      "type": "multiple_choice",
+      "prompt": "In a story, a koala loses her way. Then she meets a wombat. The wombat shows her the path home. What is the problem in this story?",
+      "choices": [
+        "The koala meets a wombat",
+        "The wombat knows the path",
+        "The koala is lost",
+        "The koala gets home"
+      ],
+      "answer": 2,
+      "difficulty": 2,
+      "explanation": "The problem is the trouble the character has. The koala is lost."
+    },
+    {
+      "id": "e3-lit-0004",
+      "years": [
+        3
+      ],
+      "subject": "english",
+      "curriculum": "AC9E3LE01",
+      "type": "multiple_choice",
+      "prompt": "A story has these events. Sam packs a bag. Sam walks to the bus stop. Sam waves goodbye at school camp. Which event happens last?",
+      "choices": [
+        "Sam packs a bag",
+        "Sam walks to the bus stop",
+        "Sam waves goodbye at school camp",
+        "We cannot tell"
+      ],
+      "answer": 2,
+      "difficulty": 3,
+      "explanation": "The events are in order, so the last one written happens last. Sam waves goodbye at camp."
+    },
+    {
+      "id": "e3-lit-0005",
+      "years": [
+        3
+      ],
+      "subject": "english",
+      "curriculum": "AC9E3LE03",
+      "type": "multiple_choice",
+      "prompt": "An author writes: \"Her eyes grew wide and her hands began to shake.\" How does the girl feel?",
+      "choices": [
+        "Sleepy",
+        "Frightened",
+        "Proud",
+        "Bored"
+      ],
+      "answer": 1,
+      "difficulty": 1,
+      "explanation": "Wide eyes and shaking hands are signs of being frightened."
+    },
+    {
+      "id": "e3-lit-0006",
+      "years": [
+        3
+      ],
+      "subject": "english",
+      "curriculum": "AC9E3LE03",
+      "type": "multiple_choice",
+      "prompt": "An author writes: \"The old shed leaned to one side. Its tin roof was full of rusty holes.\" What does this tell us about the shed?",
+      "choices": [
+        "It is new and shiny",
+        "It is old and broken",
+        "It is small and tidy",
+        "It is warm and cosy"
+      ],
+      "answer": 1,
+      "difficulty": 2,
+      "explanation": "Leaning walls and rusty holes show the shed is old and falling apart."
+    },
+    {
+      "id": "e3-lit-0007",
+      "years": [
+        3
+      ],
+      "subject": "english",
+      "curriculum": "AC9E3LE03",
+      "type": "multiple_choice",
+      "prompt": "An author writes: \"Mr Dale was as grumpy as a wet cat.\" What is the author telling us about Mr Dale?",
+      "choices": [
+        "He loves cats",
+        "He is always grumpy",
+        "He is wet from the rain",
+        "He is very quiet"
+      ],
+      "answer": 1,
+      "difficulty": 3,
+      "explanation": "The author compares Mr Dale to a wet cat to show he is grumpy."
+    },
+    {
+      "id": "e3-lit-0008",
+      "years": [
+        3
+      ],
+      "subject": "english",
+      "curriculum": "AC9E3LE03",
+      "type": "true_false",
+      "prompt": "An author can show a character is shy by describing how the character acts.",
+      "answer": true,
+      "difficulty": 2,
+      "explanation": "Actions, like hiding behind a parent, can show a character is shy."
+    },
+    {
+      "id": "e3-lit-0009",
+      "years": [
+        3
+      ],
+      "subject": "english",
+      "curriculum": "AC9E3LE04",
+      "type": "multiple_choice",
+      "prompt": "Onomatopoeia is a word that sounds like the noise it names. Which word is onomatopoeia in this sentence? \"The sausages sizzled on the barbecue.\"",
+      "choices": [
+        "sausages",
+        "barbecue",
+        "sizzled",
+        "the"
+      ],
+      "answer": 2,
+      "difficulty": 2,
+      "explanation": "The word sizzled sounds like the noise sausages make when they cook."
+    },
+    {
+      "id": "e3-lit-0010",
+      "years": [
+        3
+      ],
+      "subject": "english",
+      "curriculum": "AC9E3LE04",
+      "type": "multiple_choice",
+      "prompt": "What do we call the beat that you can hear when you read a poem aloud?",
+      "choices": [
+        "Rhyme",
+        "Title",
+        "Rhythm",
+        "Setting"
+      ],
+      "answer": 2,
+      "difficulty": 1,
+      "explanation": "Rhythm is the beat of the words. Rhyme is when words end with the same sound."
+    },
+    {
+      "id": "e3-lit-0011",
+      "years": [
+        3
+      ],
+      "subject": "english",
+      "curriculum": "AC9E3LE04",
+      "type": "multiple_choice",
+      "prompt": "An author writes: \"The drum went boom, boom, boom.\" Why does the author use the word boom?",
+      "choices": [
+        "To make the reader hear the sound",
+        "To name a character",
+        "To say where the story happens",
+        "To end the story"
+      ],
+      "answer": 0,
+      "difficulty": 2,
+      "explanation": "Boom sounds like a drum, so the reader can almost hear it."
+    },
+    {
+      "id": "e3-lit-0012",
+      "years": [
+        3
+      ],
+      "subject": "english",
+      "curriculum": "AC9E3LE04",
+      "type": "multiple_choice",
+      "prompt": "A poem says: \"Run, run, jump, hop!\" The words are short and quick. How does this make the poem feel?",
+      "choices": [
+        "Slow and sleepy",
+        "Quick and lively",
+        "Sad and quiet",
+        "Long and boring"
+      ],
+      "answer": 1,
+      "difficulty": 3,
+      "explanation": "Short, quick words give the poem a fast rhythm that feels lively."
+    }
+  ]
+}

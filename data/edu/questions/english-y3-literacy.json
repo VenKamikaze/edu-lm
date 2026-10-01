@@ -1,0 +1,261 @@
+{
+  "schema": 1,
+  "pack": "english-y3-literacy",
+  "subject": "english",
+  "questions": [
+    {
+      "id": "e3-lty-0001",
+      "years": [
+        3
+      ],
+      "subject": "english",
+      "curriculum": "AC9E3LY01",
+      "type": "multiple_choice",
+      "prompt": "Two writers both write about dogs. One text is for Prep children. Which sentence is best for Prep children?",
+      "choices": [
+        "Canines are domesticated mammals that need regular exercise.",
+        "Dogs are descended from wolves and vary widely in breed.",
+        "A dog can run and jump. It likes to play with you!",
+        "Veterinarians recommend annual vaccinations for dogs."
+      ],
+      "answer": 2,
+      "difficulty": 1,
+      "explanation": "Prep children are just learning to read. Short sentences and easy words suit them best."
+    },
+    {
+      "id": "e3-lty-0002",
+      "years": [
+        3
+      ],
+      "subject": "english",
+      "curriculum": "AC9E3LY01",
+      "type": "multiple_choice",
+      "prompt": "Sam writes about staying safe in the sun. He is writing for Year 6 students, not little kids. Which sentence suits Year 6 best?",
+      "choices": [
+        "Sun is hot. Hat on!",
+        "Wear a hat, sunglasses and sunscreen, because UV rays can damage your skin.",
+        "The sun is a big yellow ball.",
+        "Yay, sun! Let us play and play!"
+      ],
+      "answer": 1,
+      "difficulty": 2,
+      "explanation": "Older students can read longer sentences. This one also gives a reason, which suits their age."
+    },
+    {
+      "id": "e3-lty-0003",
+      "years": [
+        3
+      ],
+      "subject": "english",
+      "curriculum": "AC9E3LY03",
+      "type": "multiple_choice",
+      "prompt": "Read this text. \"Come to our school fair this Saturday! Win prizes, eat a sausage sizzle and bring your friends!\" What is the text trying to do?",
+      "choices": [
+        "Tell a made-up story",
+        "Get people to come to the fair",
+        "Teach facts about sausages",
+        "Explain how to win prizes"
+      ],
+      "answer": 1,
+      "difficulty": 1,
+      "explanation": "The exclamation marks and words like \"Come\" try to make people want to go. That is a persuasive text."
+    },
+    {
+      "id": "e3-lty-0004",
+      "years": [
+        3
+      ],
+      "subject": "english",
+      "curriculum": "AC9E3LY03",
+      "type": "multiple_choice",
+      "prompt": "Read this text. \"Wally the wombat dug a tunnel all the way to the moon. There he had tea with a kangaroo.\" What kind of text is it?",
+      "choices": [
+        "Informative, because it gives facts about wombats",
+        "Persuasive, because it wants you to dig",
+        "Instructions, because it shows how to dig",
+        "Imaginative, because it is a made-up story"
+      ],
+      "answer": 3,
+      "difficulty": 2,
+      "explanation": "A wombat cannot dig to the moon or have tea. The story is made up, so it is imaginative."
+    },
+    {
+      "id": "e3-lty-0005",
+      "years": [
+        3
+      ],
+      "subject": "english",
+      "curriculum": "AC9E3LY05",
+      "type": "multiple_choice",
+      "prompt": "Jack grabbed his raincoat and boots. He splashed out the door under his umbrella. What can you work out from this?",
+      "choices": [
+        "It is a hot, dry day.",
+        "Jack is going to bed.",
+        "It is raining outside.",
+        "Jack has lost his umbrella."
+      ],
+      "answer": 2,
+      "difficulty": 1,
+      "explanation": "Raincoats, boots and umbrellas are used in the rain. The story does not say it, but you can work it out."
+    },
+    {
+      "id": "e3-lty-0006",
+      "years": [
+        3
+      ],
+      "subject": "english",
+      "curriculum": "AC9E3LY05",
+      "type": "multiple_choice",
+      "prompt": "Mum asked who broke the cup. Tom went red and hid his hands behind his back. He looked at the floor. How does Tom most likely feel?",
+      "choices": [
+        "Guilty",
+        "Proud",
+        "Sleepy",
+        "Excited"
+      ],
+      "answer": 0,
+      "difficulty": 3,
+      "explanation": "Going red, hiding his hands and looking down are signs of feeling guilty. The text does not say it, so we infer it."
+    },
+    {
+      "id": "e3-lty-0007",
+      "years": [
+        3
+      ],
+      "subject": "english",
+      "curriculum": "AC9E3LY09",
+      "type": "numeric",
+      "prompt": "A syllable is one beat in a word. How many syllables are in the word \"kangaroo\"?",
+      "answer": 3,
+      "difficulty": 1,
+      "explanation": "Clap it out: kan-ga-roo. That is three beats."
+    },
+    {
+      "id": "e3-lty-0008",
+      "years": [
+        3
+      ],
+      "subject": "english",
+      "curriculum": "AC9E3LY09",
+      "type": "multiple_choice",
+      "prompt": "Which shows the word \"umbrella\" split into syllables the right way?",
+      "choices": [
+        "umb-rel-la",
+        "um-bre-lla",
+        "um-brel-la",
+        "umbr-ell-a"
+      ],
+      "answer": 2,
+      "difficulty": 2,
+      "explanation": "Say it slowly and listen for the beats: um-brel-la. There are three syllables."
+    },
+    {
+      "id": "e3-lty-0009",
+      "years": [
+        3
+      ],
+      "subject": "english",
+      "curriculum": "AC9E3LY10",
+      "type": "multiple_choice",
+      "prompt": "A prefix goes at the start of a word. The prefix \"un\" often means \"not\". What does \"unsafe\" mean?",
+      "choices": [
+        "Very safe",
+        "Not safe",
+        "Safe again",
+        "Safe before"
+      ],
+      "answer": 1,
+      "difficulty": 1,
+      "explanation": "The prefix \"un\" means \"not\". So \"unsafe\" means not safe."
+    },
+    {
+      "id": "e3-lty-0010",
+      "years": [
+        3
+      ],
+      "subject": "english",
+      "curriculum": "AC9E3LY10",
+      "type": "multiple_choice",
+      "prompt": "A suffix goes at the end of a word. Mia adds \"ing\" to the word \"hop\". Which is the correct spelling?",
+      "choices": [
+        "hoping",
+        "hopping",
+        "hopeing",
+        "hopying"
+      ],
+      "answer": 1,
+      "difficulty": 3,
+      "explanation": "\"Hop\" is a short word with one vowel and one end letter. We double the p before adding \"ing\"."
+    },
+    {
+      "id": "e3-lty-0011",
+      "years": [
+        3
+      ],
+      "subject": "english",
+      "curriculum": "AC9E3LY11",
+      "type": "multiple_choice",
+      "prompt": "Which word is spelled correctly?",
+      "choices": [
+        "nife",
+        "kniff",
+        "knife",
+        "nyfe"
+      ],
+      "answer": 2,
+      "difficulty": 2,
+      "explanation": "In \"knife\" the k is silent. The word starts with kn but sounds like n."
+    },
+    {
+      "id": "e3-lty-0012",
+      "years": [
+        3
+      ],
+      "subject": "english",
+      "curriculum": "AC9E3LY11",
+      "type": "multiple_choice",
+      "prompt": "Which is the correct spelling of the Australian animal that hops and has a pouch?",
+      "choices": [
+        "kangeroo",
+        "kangaru",
+        "kangarroo",
+        "kangaroo"
+      ],
+      "answer": 3,
+      "difficulty": 2,
+      "explanation": "The correct spelling is k-a-n-g-a-r-o-o, with a double o at the end."
+    },
+    {
+      "id": "e3-lty-0013",
+      "years": [
+        3
+      ],
+      "subject": "english",
+      "curriculum": "AC9E3LY12",
+      "type": "multiple_choice",
+      "prompt": "Which word fits? \"Dad will ___ some bread at the shop.\"",
+      "choices": [
+        "by",
+        "bye",
+        "buy",
+        "bi"
+      ],
+      "answer": 2,
+      "difficulty": 2,
+      "explanation": "\"Buy\" means to pay for something. \"By\" and \"bye\" sound the same but mean other things."
+    },
+    {
+      "id": "e3-lty-0014",
+      "years": [
+        3
+      ],
+      "subject": "english",
+      "curriculum": "AC9E3LY12",
+      "type": "true_false",
+      "prompt": "The words \"two\" and \"too\" sound the same but are spelled differently and mean different things.",
+      "answer": true,
+      "difficulty": 1,
+      "explanation": "Words that sound the same but have different spellings and meanings are called homophones. \"Two\" and \"too\" are homophones."
+    }
+  ]
+}

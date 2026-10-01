@@ -1,0 +1,185 @@
+{
+  "schema": 1,
+  "pack": "science-y3-inquiry-endeavour",
+  "subject": "science",
+  "questions": [
+    {
+      "id": "s3-inq-0001",
+      "years": [
+        3
+      ],
+      "subject": "science",
+      "curriculum": "AC9S3H01",
+      "type": "multiple_choice",
+      "prompt": "Sam measures the shadow of a flagpole at school. At 9 am it is 150 cm long. At 12 noon it is 40 cm long. At 3 pm it is 130 cm long. What does this data show?",
+      "choices": [
+        "The shadow is shortest in the middle of the day",
+        "The shadow gets longer all day",
+        "The shadow stays the same length",
+        "The shadow is longest at noon"
+      ],
+      "answer": 0,
+      "difficulty": 2,
+      "explanation": "The noon shadow of 40 cm is the shortest number in the data. Scientists use numbers like these to explain how shadows change."
+    },
+    {
+      "id": "s3-inq-0002",
+      "years": [
+        3
+      ],
+      "subject": "science",
+      "curriculum": "AC9S3H02",
+      "type": "multiple_choice",
+      "prompt": "Scientists found that too much summer sun can harm skin. How does this help children at an Australian beach?",
+      "choices": [
+        "They know when the tide comes in",
+        "They know sand gets hot",
+        "They know to wear a hat, a shirt and sunscreen",
+        "They know how to swim faster"
+      ],
+      "answer": 2,
+      "difficulty": 1,
+      "explanation": "Knowing the sun can harm skin helps people choose ways to stay safe. A hat, a shirt and sunscreen protect the skin."
+    },
+    {
+      "id": "s3-inq-0003",
+      "years": [
+        3
+      ],
+      "subject": "science",
+      "curriculum": "AC9S3I01",
+      "type": "multiple_choice",
+      "prompt": "Lena sees ants on the path every day at lunchtime. They come when children drop crumbs. What is a good prediction for tomorrow?",
+      "choices": [
+        "Ants will never come again",
+        "If crumbs are dropped at lunchtime, ants will come",
+        "Ants will only come at night",
+        "The path will be wet"
+      ],
+      "answer": 1,
+      "difficulty": 1,
+      "explanation": "A prediction uses a pattern we have seen. Crumbs at lunchtime brought ants before, so it may happen again."
+    },
+    {
+      "id": "s3-inq-0004",
+      "years": [
+        3
+      ],
+      "subject": "science",
+      "curriculum": "AC9S3I02",
+      "type": "multiple_choice",
+      "prompt": "Ben wants to test if more water helps bean plants grow taller. He uses three plants. What should he change between the plants?",
+      "choices": [
+        "The size of the pot",
+        "The type of soil",
+        "The amount of sunlight",
+        "The amount of water"
+      ],
+      "answer": 3,
+      "difficulty": 2,
+      "explanation": "In a fair test we change only one thing. Ben is testing water, so only the water changes. Everything else stays the same."
+    },
+    {
+      "id": "s3-inq-0005",
+      "years": [
+        3
+      ],
+      "subject": "science",
+      "curriculum": "AC9S3I02",
+      "type": "multiple_choice",
+      "prompt": "Ava wants to test if sugar dissolves faster in warm water or cold water. Which plan is a fair test?",
+      "choices": [
+        "Same amount of water and sugar in each cup, one warm and one cold, stirred the same way",
+        "One big cup of warm water and one small cup of cold water",
+        "Three spoons of sugar in warm water and one spoon in cold water",
+        "Warm water stirred a lot and cold water not stirred at all"
+      ],
+      "answer": 0,
+      "difficulty": 3,
+      "explanation": "Only the water temperature should be different. The amount of water, the amount of sugar and the stirring must stay the same."
+    },
+    {
+      "id": "s3-inq-0006",
+      "years": [
+        3
+      ],
+      "subject": "science",
+      "curriculum": "AC9S3I03",
+      "type": "numeric",
+      "prompt": "Mei pours water into a measuring jug. The water level is exactly halfway between the 200 mL mark and the 300 mL mark. How many mL of water are in the jug?",
+      "answer": 250,
+      "difficulty": 2,
+      "explanation": "Halfway between 200 and 300 is 250. So there are 250 mL of water."
+    },
+    {
+      "id": "s3-inq-0007",
+      "years": [
+        3
+      ],
+      "subject": "science",
+      "curriculum": "AC9S3I04",
+      "type": "multiple_choice",
+      "prompt": "A class votes for a favourite fruit. Apple has 6 votes, banana has 9 votes, mango has 4 votes and orange has 5 votes. They draw a column graph. Which column is the tallest?",
+      "choices": [
+        "Apple",
+        "Mango",
+        "Banana",
+        "Orange"
+      ],
+      "answer": 2,
+      "difficulty": 1,
+      "explanation": "In a column graph, a bigger number makes a taller column. Banana has the most votes, 9, so its column is tallest."
+    },
+    {
+      "id": "s3-inq-0008",
+      "years": [
+        3
+      ],
+      "subject": "science",
+      "curriculum": "AC9S3I04",
+      "type": "numeric",
+      "prompt": "Jack counts cars outside the school and keeps a tally table. He sees 7 red cars, 12 white cars and 5 blue cars. How many cars did he count altogether?",
+      "answer": 24,
+      "difficulty": 2,
+      "explanation": "Add the three groups: 7 + 12 + 5 = 24 cars."
+    },
+    {
+      "id": "s3-inq-0009",
+      "years": [
+        3
+      ],
+      "subject": "science",
+      "curriculum": "AC9S3I05",
+      "type": "multiple_choice",
+      "prompt": "Zoe's group dropped a ball from 50 cm and it bounced 40 cm. Max's group dropped the same ball from 100 cm and it bounced 60 cm. Can they say the ball bounces higher for Max's group?",
+      "choices": [
+        "Yes, because 60 is more than 40",
+        "No, because the drop heights were different, so it was not fair",
+        "Yes, because Max is taller",
+        "No, because balls cannot bounce"
+      ],
+      "answer": 1,
+      "difficulty": 3,
+      "explanation": "The two groups dropped the ball from different heights. A fair comparison needs the same drop height."
+    },
+    {
+      "id": "s3-inq-0010",
+      "years": [
+        3
+      ],
+      "subject": "science",
+      "curriculum": "AC9S3I05",
+      "type": "multiple_choice",
+      "prompt": "In two weeks, a bean plant in sunlight grew 12 cm. An identical bean plant in a dark cupboard grew 3 cm. What is the best conclusion?",
+      "choices": [
+        "Plants grow better in the dark",
+        "Plants do not need anything to grow",
+        "Both plants grew the same amount",
+        "In this test, the plant in sunlight grew taller"
+      ],
+      "answer": 3,
+      "difficulty": 2,
+      "explanation": "A conclusion must match the results. The plant in sunlight grew 12 cm, which is more than 3 cm."
+    }
+  ]
+}
