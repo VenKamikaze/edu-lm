@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: MIT
 import QtQuick
 
 // A user's picture, or their initials on a coloured circle.

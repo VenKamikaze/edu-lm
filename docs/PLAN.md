@@ -194,6 +194,8 @@ Types:
 - `short_text`: `accept: [...]`; checking ignores case and whitespace.
 - `generator`: procedural maths: `add`, `subtract`, `multiply`, `divide` (exact, no remainder) and `place_value`. There is no fractions generator; fractions are written questions.
 
+The user-facing guide to writing packs is [QUESTIONS.md](QUESTIONS.md).
+
 A swap draws a question that hasn't appeared yet in this attempt. Files are root-owned with mode 0600/0700 dirs, and only the daemon reads them.
 
 ---

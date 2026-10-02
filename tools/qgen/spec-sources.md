@@ -28,20 +28,32 @@ The Australian Curriculum website's own year pages could not be read by the fetc
 
 ## Licence, as found
 
-From https://www.australiancurriculum.edu.au/copyright-and-terms-of-use (read through a summarising
-fetch tool on 2026-09-30, not verbatim; read the page itself before publishing):
+Read verbatim on 2026-10-02 (fetched with curl, HTML text read directly, not through a summarising
+tool) from https://www.australiancurriculum.edu.au/copyright-and-terms-of-use (page "Last updated:
+April 2021"):
 
-- Most ACARA material is CC BY 4.0: sharing and adapting are allowed, including commercially, with
-  attribution to ACARA. Suggested wording: "(c) Australian Curriculum, Assessment and Reporting
-  Authority (ACARA) 2010 to present, unless otherwise indicated. This material was downloaded from
-  the Australian Curriculum website", with the access date and a note of any modification.
-- Excluded from CC BY: logos, photographs, videos, teacher resources and third-party material.
-- The National Literacy Learning Progressions are CC BY-NC 4.0.
-- Indigenous cultural and intellectual property needs the consent of the First Peoples concerned.
-- ACARA asks to be contacted before anyone charges for access to its material.
+- Section 2: unless indicated otherwise, material on the site is licensed under CC BY 4.0
+  (share and adapt, for any purpose including commercial, with attribution to ACARA).
+- Section 3: the licence does not cover logos, other trade marks, the website design, material owned
+  by third parties, or the Excluded Materials (all photographs, videos and teacher-support
+  resources). The National Literacy Learning Progressions are CC BY-NC 4.0.
+- Section 4: Indigenous Cultural and Intellectual Property needs the free, prior and informed
+  consent of the First Peoples concerned.
+- Section 5, the required citation: "(c) Australian Curriculum, Assessment and Reporting Authority
+  (ACARA) 2010 to present, unless otherwise indicated. This material was downloaded from the
+  Australian Curriculum website (Website) (accessed [insert date]) and [was][was not] modified. The
+  material is licensed under CC BY 4.0 Attribution 4.0 International Deed. Version updates are
+  tracked in the 'Curriculum version history' section on the 'About the Australian Curriculum'
+  page of the Australian Curriculum website." The citation also includes a second paragraph, a no-endorsement
+  notice (any product using the material is not affiliated with or approved by ACARA, and alignment
+  should be checked against the content descriptions and achievement standards, not the elaborations).
+- Section 14: material not under CC BY (or whose terms do not allow modification) needs ACARA's
+  permission before it is charged for or republished modified. It does not apply to CC BY material
+  such as the codes.
 
-We store codes and our own paraphrases only. If the repository is published (PLAN phase 6), add
-the attribution line to the README.
+We use the codes (ACARA's, CC BY 4.0) and our own paraphrased descriptions and questions. The
+README's licence section carries the full citation (both paragraphs), marked as modified, with the access date.
+Not used: logos, photographs, the Literacy Progressions, and anything under section 4.
 
 ## Generator ranges
 

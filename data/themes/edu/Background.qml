@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: MIT
 import QtQuick
 
 // A picture from theme.conf when set, otherwise a soft gradient with a few gentle shapes.

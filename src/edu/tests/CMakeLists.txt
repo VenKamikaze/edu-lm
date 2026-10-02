@@ -4,12 +4,13 @@ set(EDU_BINARY_DIR "${CMAKE_CURRENT_BINARY_DIR}/..")
 # the daemon and greeter compile ConfigReader.cpp themselves.
 set(EDU_TEST_DATA_DIR "${CMAKE_CURRENT_SOURCE_DIR}/data")
 set(EDU_SAMPLE_DIR "${CMAKE_SOURCE_DIR}/data/edu/questions")
+set(EDU_EXAMPLE_PACK "${CMAKE_SOURCE_DIR}/data/edu/examples/example-pack.json")
 
 function(edu_add_test name)
     add_executable(${name} ${name}.cpp ${ARGN})
     target_include_directories(${name} PRIVATE ${EDU_DIR} ${EDU_BINARY_DIR})
     target_compile_definitions(${name} PRIVATE
-        EDU_SAMPLE_DIR="${EDU_SAMPLE_DIR}" EDU_TEST_DATA_DIR="${EDU_TEST_DATA_DIR}")
+        EDU_SAMPLE_DIR="${EDU_SAMPLE_DIR}" EDU_EXAMPLE_PACK="${EDU_EXAMPLE_PACK}" EDU_TEST_DATA_DIR="${EDU_TEST_DATA_DIR}")
     # tests use plain string literals; the library code stays strict
     target_compile_options(${name} PRIVATE -UQT_NO_CAST_FROM_ASCII -UQT_NO_CAST_FROM_BYTEARRAY)
     target_link_libraries(${name} PRIVATE edu-core Qt${QT_MAJOR_VERSION}::Test)
@@ -61,6 +62,7 @@ configure_file(${EDU_DIR}/EduConstants.h.in ${CMAKE_CURRENT_BINARY_DIR}/testcons
 target_include_directories(EduConfigTest BEFORE PRIVATE ${CMAKE_CURRENT_BINARY_DIR}/testconstants)
 
 add_test(NAME EduValidateSamples COMMAND edu-lm-validate "${EDU_SAMPLE_DIR}")
+add_test(NAME EduValidateExample COMMAND edu-lm-validate "${EDU_EXAMPLE_PACK}")
 add_test(NAME EduValidateRejectsBad COMMAND edu-lm-validate "${EDU_TEST_DATA_DIR}")
 add_test(NAME EduValidateMissingPath COMMAND edu-lm-validate /nonexistent)
 set_tests_properties(EduValidateMissingPath PROPERTIES WILL_FAIL TRUE)
@@ -73,6 +75,9 @@ if(EDU_PYTHON)
         $<TARGET_FILE:edu-lm-validate> "${EDU_SAMPLE_DIR}")
     add_test(NAME EduValidateSampleBadCount COMMAND ${EDU_PYTHON} ${CMAKE_CURRENT_SOURCE_DIR}/check_sample.py bad
         $<TARGET_FILE:edu-lm-validate> "${EDU_SAMPLE_DIR}")
+    # the JSON in docs/QUESTIONS.md: the example block equals the example pack, walk-through packs load clean
+    add_test(NAME QuestionsDocJson COMMAND ${EDU_PYTHON} ${CMAKE_CURRENT_SOURCE_DIR}/check_docs.py
+        "${CMAKE_SOURCE_DIR}/docs/QUESTIONS.md" "${EDU_EXAMPLE_PACK}" $<TARGET_FILE:edu-lm-validate>)
     add_test(NAME QgenTools COMMAND ${EDU_PYTHON} -m unittest discover tools/qgen/tests
         WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
     set_tests_properties(QgenTools PROPERTIES ENVIRONMENT "QGEN_VALIDATOR=$<TARGET_FILE:edu-lm-validate>")

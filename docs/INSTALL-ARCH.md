@@ -13,12 +13,13 @@ For other distros see [the generic section](#other-distros-plain-cmake-install) 
 | `/usr/lib/sddm/sddm.conf.d/default.conf` | Arch's generated defaults (as the stock package) |
 | `/usr/lib/sddm/sddm.conf.d/edu-lm.conf` | `[Theme] Current=edu` |
 | `/etc/edu-lm/edu-lm.conf` | **comments only**: defaults and descriptions, never edit |
-| `/etc/edu-lm/edu-lm.conf.d/` | your settings go here (`*.conf`) |
-| `/etc/edu-lm/questions.d/` | your own question packs (mode 0700: they hold answer keys) |
-| `/usr/share/edu-lm/questions/` | sample packs (mode 0700) |
+| `/etc/edu-lm/edu-lm.conf.d/` | your settings go here (name them `*.conf`; every non-hidden file is read, so keep backups elsewhere) |
+| `/etc/edu-lm/questions.d/` | your own question packs (mode 0700: they hold answer keys); how to write them: [QUESTIONS.md](QUESTIONS.md) |
+| `/usr/share/edu-lm/questions/` | the shipped question packs (mode 0700; do not edit) |
 | `/usr/lib/sysusers.d/edu-lm.conf` | groups `edu-students`, `edu-year3`, `edu-year4`, `edu-year5` |
 | `/etc/pam.d/sddm`, `sddm-autologin`, `sddm-greeter` | PAM services, copies of Arch's sddm 0.21.0-7 files (upstream develop no longer ships them) |
 | `/usr/share/edu-lm/examples/edu-lm-access.conf` | opt-in text-console lock, **not active** |
+| `/usr/share/edu-lm/examples/example-pack.json` | an example question pack, **not loaded** (copy and edit it, see [QUESTIONS.md](QUESTIONS.md)) |
 
 ## 1. Copy the source and build
 
@@ -84,7 +85,7 @@ RequiredCorrect=4
 EOT
 ```
 
-`/etc/edu-lm/edu-lm.conf` lists every key with its default (`#Key=value`). The main file is read **after** the drop-ins, so a key uncommented there silently beats them; `edu-lm-check` warns if you do.
+`/etc/edu-lm/edu-lm.conf` lists every key with its default (`#Key=value`). To add questions, a subject or a year group beyond Years 3 to 5, see [QUESTIONS.md](QUESTIONS.md). The main file is read **after** the drop-ins, so a key uncommented there silently beats them; `edu-lm-check` warns if you do.
 
 **Passwords.** `StudentPasswords=true` (default): the child needs a password (`sudo passwd alice`); it is checked first, then the quiz.
 

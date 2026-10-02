@@ -23,6 +23,7 @@ private slots:
     void loadsDirectoriesAndSkipsOthers();
     void filterAndCounts();
     void shippedPacksAreClean();
+    void examplePackIsClean();
 
 private:
     QString write(const QString &name, const QByteArray &content);
@@ -315,6 +316,23 @@ void QuestionBankTest::shippedPacksAreClean()
         for (int year : {3, 4, 5})
             QVERIFY2(counts[subject].value(year) >= 2, qPrintable(subject + QString::number(year)));
     }
+}
+
+// docs/QUESTIONS.md shows this pack, so it must load with no errors or warnings.
+void QuestionBankTest::examplePackIsClean()
+{
+    QuestionBank bank;
+    bank.load({EDU_EXAMPLE_PACK});
+    for (const LoadIssue &i : bank.errors() + bank.warnings())
+        qWarning() << i.toString();
+    QVERIFY(bank.errors().isEmpty());
+    QVERIFY(bank.warnings().isEmpty());
+
+    QSet<int> types;
+    for (const Question &q : bank.questions())
+        types.insert(static_cast<int>(q.type));
+    QCOMPARE(types.size(), 5);
+    QCOMPARE(bank.questions().size(), 5);
 }
 
 QTEST_APPLESS_MAIN(QuestionBankTest)

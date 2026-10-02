@@ -65,6 +65,7 @@ endif()
 
 # Opt-in examples, not active after install
 install(FILES "${CMAKE_SOURCE_DIR}/data/edu/pam/edu-lm-access.conf"
+        "${CMAKE_SOURCE_DIR}/data/edu/examples/example-pack.json"
         DESTINATION "${CMAKE_INSTALL_DATADIR}/edu-lm/examples")
 
 # Root-only, as the packs hold answer keys

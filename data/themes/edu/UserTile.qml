@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: MIT
 import QtQuick
 
 // One person on the login screen. Enter or a click picks them.

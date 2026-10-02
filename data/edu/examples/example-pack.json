@@ -1,0 +1,50 @@
+{
+  "schema": 1,
+  "pack": "example",
+  "subject": "maths",
+  "questions": [
+    {
+      "id": "example-001",
+      "years": [4],
+      "type": "multiple_choice",
+      "prompt": "Which shape has 4 equal sides and 4 square corners?",
+      "choices": ["Square", "Triangle", "Circle", "Rectangle"],
+      "answer": 0,
+      "difficulty": 1,
+      "explanation": "A square has 4 equal sides and 4 square corners. A rectangle has square corners, but its sides are not all equal."
+    },
+    {
+      "id": "example-002",
+      "years": [3, 4],
+      "type": "true_false",
+      "prompt": "An even number can be shared into 2 equal groups with none left over.",
+      "answer": true,
+      "explanation": "Even numbers like 8 make 2 groups of 4."
+    },
+    {
+      "id": "example-003",
+      "years": [4],
+      "type": "numeric",
+      "prompt": "A bike ride took 1 hour and 55 minutes. About how many hours is that? Type a number.",
+      "answer": 2,
+      "tolerance": 0.25,
+      "explanation": "55 minutes is almost a whole hour, so the ride took about 2 hours."
+    },
+    {
+      "id": "example-004",
+      "years": [3, 4, 5],
+      "subject": "english",
+      "type": "short_text",
+      "prompt": "What is the plural of the word 'child'?",
+      "accept": ["children"],
+      "explanation": "The plural of child is children."
+    },
+    {
+      "id": "example-005",
+      "years": [4],
+      "type": "generator",
+      "generator": "multiply",
+      "params": { "a": [2, 9], "b": [2, 9] }
+    }
+  ]
+}

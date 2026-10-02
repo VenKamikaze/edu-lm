@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: MIT
 import QtQuick
 
 // A white rounded panel with a soft shadow.

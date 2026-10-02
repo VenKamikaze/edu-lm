@@ -1,6 +1,6 @@
 # Next session brief: grow the question bank (phase 5b, Year 3 wave)
 
-**Update 2026-10-02: phase 5b is DONE.** All 35 cells for Years 3–5 are imported on `main` (523 real questions, 562 with the 39 samples, which stay shipped by user decision). From Year 4 on the orchestrator reviewed the packs in place of the parent (see PROGRESS.md for every n/edit). Next: ask the user what's next. Options: Phase 6 (publish: README, screenshots, licence notes), the open PHASE4-TEST steps, or a second batch for any cell. The protocol version is done. The Year 3 wave notes below are history.
+**Update 2026-10-02: phase 6 (publish) is DONE and on `main`.** What's left: the user creates the public repo and pushes (`docs/PUBLISH.md`; Claude never touches a remote); the open `docs/PHASE4-TEST.md` steps on the Arch PC; optional extras (a fractions generator, qgen cross-cell duplicate checks, more questions or years, PLAN §11 "Later"). Ask the user which. Phase 5b is DONE (523 real questions, 562 with samples). The Year 3 wave notes below are history.
 
 Written 2026-10-01 for the next Claude Code session on this repo. Read this first, then `docs/PROGRESS.md` (state and decisions) and `docs/PLAN.md` (design). Repo `main` is at `b683fdc` or later.
 
@@ -9,7 +9,7 @@ Written 2026-10-01 for the next Claude Code session on this repo. Read this firs
 - **You orchestrate.** Large pieces of code go to a Sonnet `implementer` subagent with a written brief, then an Opus `reviewer` tries to refute its claims, fixes go back to the implementer, and you verify independently (Debug `build/` and Release `build-rel/` full ctest, the source, screenshots where relevant) before committing. Small fixes you can do inline.
 - The user's global rules: brief comments; **ask rather than guess** (unless they say they're busy, then decide and document); note out-of-scope problems in `TODO.md` (repo root, git-excluded) and say so.
 - **A subagent resumed after a rate limit or crash is a cold start:** re-send its full instructions, say what's done, and verify its output files rather than its report. Prefer a fresh agent.
-- Commit WIP to a branch rather than leaving work uncommitted; squash-merge into `main` when verified. Git identity is repo-local (`arnie <mick.saunders+ant@gmail.com>`).
+- Commit WIP to a branch rather than leaving work uncommitted; squash-merge into `main` when verified. Git identity is repo-local (already configured).
 - Usage limits are real (one hit already). Keep runs small, and save state to disk before each long step.
 
 ## Where things stand

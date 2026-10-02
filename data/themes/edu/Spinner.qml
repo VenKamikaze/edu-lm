@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: MIT
 import QtQuick
 
 // Eight dots chasing round a circle.

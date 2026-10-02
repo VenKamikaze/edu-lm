@@ -1,3 +1,6 @@
 /build/
 *~
 *.user
+
+# Edu-LM
+.claude/settings.local.json

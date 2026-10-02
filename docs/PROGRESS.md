@@ -1,11 +1,11 @@
 # Edu-LM progress checkpoint
 
-Last updated: 2026-10-01. **Start with `docs/NEXT-SESSION.md`** (the brief for the next chunk), then this file and `docs/PLAN.md` (the design).
+Last updated: 2026-10-02. **Start with `docs/NEXT-SESSION.md`** (the brief for the next chunk), then this file and `docs/PLAN.md` (the design).
 
 ## Workflow the user wants
 
 - Claude (main session) orchestrates. A **Sonnet** `implementer` subagent builds each phase from a detailed brief, then an **Opus** `reviewer` subagent tries to refute its claims. Fixes go back to the implementer, the orchestrator verifies them independently (builds, tests, source), and only then commits.
-- Commit only after review. Repo-local git identity: `arnie <mick.saunders+ant@gmail.com>`.
+- Commit only after review. Git identity is repo-local (already configured).
 - User's CLAUDE.md: brief comments, ask rather than guess, and note problems in the local `TODO.md` (git-excluded).
 
 ## Done (on `main`)
@@ -121,6 +121,16 @@ Last updated: 2026-10-01. **Start with `docs/NEXT-SESSION.md`** (the brief for t
 - User decision: one-sided check. The greeter's `QuizHello` is unchanged, because an old daemon would read any extra bytes as SDDM message ids (2 = PowerOff). A new daemon sends `QuizVersion(EduProtocolVersion = 2)` just before `QuizReady`. A new greeter that gets `QuizReady` with no version, or a different version, shows "The quiz was updated. Please restart the computer.", closes the quiz socket and stays disconnected. Students then fail closed through the non-quiz-theme path, and parents still log in. An old greeter with a new daemon can't read `QuizVersion`, so it drops the connection and shows "Lost the connection to the quiz".
 - Also: the greeter sends nothing but `QuizHello` until the version is confirmed (the outbox waits for a matching `QuizReady`). Frozen forever: `QuizHello`, `QuizVersion`'s id and payload, and the Version-before-Ready order. The banner's OK button is hidden while mismatched. Test mode: `EDU_LM_TEST_PROTOCOL_VERSION=<n>` shows the mismatch screen.
 - One Opus review (0 blocker or major; 3 minor: queued `QuizQuery` sent before the version check, stale daemon info text, untested resets; plus nits). All fixed, and the re-review was clean apart from 2 nits, which the orchestrator fixed. The reviewer ran a cross-version harness with the real gate: an old daemon gets only the hello, students are refused, parents log in, and an old greeter with a new daemon shows "Lost the connection" with no reconnect storm. Orchestrator verified 22/22 ctest in Debug and Release and screenshots of the normal and mismatch screens. (`greeter-shot.sh` runs `build/install`, so run `cmake --install build` first; it still stops at `/etc/edu-lm` but installs the greeter.)
+
+## Phase 6 (publish): DONE 2026-10-02, squash-merged into `main`; the user pushes
+
+- User decisions (2026-10-02): question packs CC BY-SA 4.0; the edu theme's QML MIT (like upstream's QML; `metadata.desktop.in` said GPL); README.md becomes Edu-LM's own and upstream's moves to `README.sddm.md` (linked); no CSV-to-pack tool; a user guide `docs/QUESTIONS.md` with examples of adding custom questions via `/etc/edu-lm/questions.d/`, plus an installed example pack. Claude prepares everything ready to push (merged to `main`, with a checklist); **the user creates the public repo and pushes**, Claude touches no remote.
+- Gaps the guide must cover (found 2026-10-02): the format is only in PLAN §6; no example pack; packs must be root 0600 in 0700 dirs; ids are unique across all dirs (a clashing user id is skipped, a shipped question can't be replaced); a new subject needs `Subjects=`; years other than 3-5 need a group plus `YearGroups=`. Packs are reloaded at each quiz start (no restart needed).
+
+- Phase 6 built on branch `phase6-publish` (2026-10-02, Sonnet implementer; the brief is in the session scratchpad): README.md rewritten (upstream's is README.sddm.md), `docs/QUESTIONS.md`, `docs/PUBLISH.md`, `data/edu/examples/example-pack.json` (installed to `share/edu-lm/examples/`, test `QuestionBankTest::examplePackIsClean`), licence files `LICENSE.MIT` and `LICENSE.CC-BY-SA-4.0` (exact text from creativecommons.org), SPDX MIT headers and `License=MIT` for the edu theme, `data/edu/questions/README.md` (pack licence note; not installed or loaded), PKGBUILD licences, five screenshots in `docs/screenshots/`. ACARA's terms page was read in full on 2026-10-02 and its attribution wording is in the README (see `tools/qgen/spec-sources.md`). Still to do: the user reviews, sets `Website=`, creates the repo and pushes (`docs/PUBLISH.md`).
+- One Opus review (0 blocker, 1 major: the guide's `sudo chmod …/questions.d/*.json` fails because the user's shell can't expand a glob in a 0700 dir, now `sudo find … -exec`; 6 minor: README overstated the console lock (`su`), every non-hidden drop-in file is read (backups like `x.conf~` or `family-old.json` win), an ambiguous walk-through question, a place_value spacing example, ACARA's citation includes the no-endorsement paragraph, PUBLISH.md's remote facts; nits incl. the README licence table and example-003). All fixed; new ctest `QuestionsDocJson` (`src/edu/tests/check_docs.py`) keeps QUESTIONS.md's JSON equal to the example pack and the walk-throughs valid.
+- User decisions in the fix round (2026-10-02): ACARA accessed date 30 September 2026; the git identity removed from tracked docs (it stays in commit history, see PUBLISH.md §3); upstream's `.github/workflows/` deleted. The orchestrator also added `.claude/settings.local.json` to `.gitignore` (one upstream line). Licence choices made without the user: docs and `.claude/skills/` GPL-2.0-or-later, screenshots CC BY-SA 4.0, copyright holder "Edu-LM contributors".
+- Orchestrator verified 24/24 ctest in Debug and Release, 125 qgen tests, the example pack and bank 0 errors/0 warnings, no identity or `/home` paths in tracked files, the README against the files, and the screenshots.
 
 ## Next phases (see PLAN §11)
 
